@@ -7,9 +7,11 @@
 //
 
 #import "SBWorkoutsViewController.h"
+#import "SBWorkout.h"
 
 @interface SBWorkoutsViewController ()
     @property (nonatomic, strong) RKTabView *tabView;
+    @property (nonatomic, strong) RLMArray *workouts;
 @end
 
 @implementation SBWorkoutsViewController
@@ -39,6 +41,34 @@
   
     self.view.backgroundColor = [UIColor grayColor];
     [self.view addSubview:self.tabView];
+    
+    self.tableView.dataSource = self;
+    
+    self.workouts = [SBWorkout allObjects];
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.workouts count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellIdentifier = @"workoutCell";
+    
+    UITableViewCell *workoutCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        
+    if (workoutCell == nil) {
+        workoutCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        
+        SBWorkout *workout = [self.workouts objectAtIndex:indexPath.row];
+        workoutCell.textLabel.text = workout.name;
+    }
+    
+    return workoutCell;
+
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
 }
 
 - (void)tabView:(RKTabView *)tabView tabBecameDisabledAtIndex:(int)index tab:(RKTabItem *)tabItem

@@ -11,6 +11,7 @@
 #import "SBAddExerciseTableViewCell.h"
 #import "SBExerciseTableViewCell.h"
 #import "SBEditWorkoutTableViewCell.h"
+#import "SBWorkout.h"
 
 @interface SBWorkoutViewController ()
 
@@ -28,6 +29,16 @@ bool isEditWorkoutDetails = NO;
     self.navigationItem.title = NSLocalizedString(@"Workout", nil);
     
     self.tableView.dataSource = self;
+    
+    SBWorkout *workout = [[SBWorkout alloc] init];
+    workout.name = @"Workout";
+    workout.date = [NSDate date];
+    
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    
+    [realm beginWriteTransaction];
+    [realm addObject:workout];
+    [realm commitWriteTransaction];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
