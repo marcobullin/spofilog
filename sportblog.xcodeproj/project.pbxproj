@@ -1,0 +1,589 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		805DE22819BCC46500472322 /* camera_disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 805DE22619BCC46500472322 /* camera_disabled@2x.png */; };
+		805DE22919BCC46500472322 /* camera_enabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 805DE22719BCC46500472322 /* camera_enabled@2x.png */; };
+		805DE22C19BF8E6500472322 /* SBWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE22B19BF8E6500472322 /* SBWorkoutViewController.m */; };
+		805DE22F19BF909300472322 /* SBExercisesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE22E19BF909300472322 /* SBExercisesViewController.m */; };
+		805DE23319BF937F00472322 /* SBWorkoutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE23119BF937F00472322 /* SBWorkoutTableViewCell.m */; };
+		805DE23419BF937F00472322 /* SBWorkoutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 805DE23219BF937F00472322 /* SBWorkoutTableViewCell.xib */; };
+		805DE23B19BF93CB00472322 /* SBAddExerciseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE23919BF93CB00472322 /* SBAddExerciseTableViewCell.m */; };
+		805DE23C19BF93CB00472322 /* SBAddExerciseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 805DE23A19BF93CB00472322 /* SBAddExerciseTableViewCell.xib */; };
+		805DE24019BF93DC00472322 /* SBExerciseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE23E19BF93DC00472322 /* SBExerciseTableViewCell.m */; };
+		805DE24119BF93DC00472322 /* SBExerciseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 805DE23F19BF93DC00472322 /* SBExerciseTableViewCell.xib */; };
+		8086D42919BCBF16004ADBB6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8086D42819BCBF16004ADBB6 /* Foundation.framework */; };
+		8086D42B19BCBF16004ADBB6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8086D42A19BCBF16004ADBB6 /* CoreGraphics.framework */; };
+		8086D42D19BCBF16004ADBB6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8086D42C19BCBF16004ADBB6 /* UIKit.framework */; };
+		8086D43319BCBF16004ADBB6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8086D43119BCBF16004ADBB6 /* InfoPlist.strings */; };
+		8086D43519BCBF16004ADBB6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8086D43419BCBF16004ADBB6 /* main.m */; };
+		8086D43919BCBF16004ADBB6 /* SBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8086D43819BCBF16004ADBB6 /* SBAppDelegate.m */; };
+		8086D43C19BCBF16004ADBB6 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8086D43A19BCBF16004ADBB6 /* Main_iPhone.storyboard */; };
+		8086D43F19BCBF16004ADBB6 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8086D43D19BCBF16004ADBB6 /* Main_iPad.storyboard */; };
+		8086D44219BCBF16004ADBB6 /* SBWorkoutsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8086D44119BCBF16004ADBB6 /* SBWorkoutsViewController.m */; };
+		8086D44419BCBF16004ADBB6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8086D44319BCBF16004ADBB6 /* Images.xcassets */; };
+		8086D44B19BCBF16004ADBB6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8086D44A19BCBF16004ADBB6 /* XCTest.framework */; };
+		8086D44C19BCBF16004ADBB6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8086D42819BCBF16004ADBB6 /* Foundation.framework */; };
+		8086D44D19BCBF16004ADBB6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8086D42C19BCBF16004ADBB6 /* UIKit.framework */; };
+		8086D45519BCBF16004ADBB6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8086D45319BCBF16004ADBB6 /* InfoPlist.strings */; };
+		8086D45719BCBF16004ADBB6 /* sportblogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8086D45619BCBF16004ADBB6 /* sportblogTests.m */; };
+		BC4C89146E544EFE9221C7EE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3902127B8514FFFA9109974 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8086D44E19BCBF16004ADBB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8086D41D19BCBF16004ADBB6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8086D42419BCBF16004ADBB6;
+			remoteInfo = sportblog;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		805DE22619BCC46500472322 /* camera_disabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera_disabled@2x.png"; sourceTree = "<group>"; };
+		805DE22719BCC46500472322 /* camera_enabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera_enabled@2x.png"; sourceTree = "<group>"; };
+		805DE22A19BF8E6500472322 /* SBWorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutViewController.h; sourceTree = "<group>"; };
+		805DE22B19BF8E6500472322 /* SBWorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutViewController.m; sourceTree = "<group>"; };
+		805DE22D19BF909300472322 /* SBExercisesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExercisesViewController.h; sourceTree = "<group>"; };
+		805DE22E19BF909300472322 /* SBExercisesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBExercisesViewController.m; sourceTree = "<group>"; };
+		805DE23019BF937F00472322 /* SBWorkoutTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutTableViewCell.h; sourceTree = "<group>"; };
+		805DE23119BF937F00472322 /* SBWorkoutTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutTableViewCell.m; sourceTree = "<group>"; };
+		805DE23219BF937F00472322 /* SBWorkoutTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBWorkoutTableViewCell.xib; sourceTree = "<group>"; };
+		805DE23819BF93CB00472322 /* SBAddExerciseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAddExerciseTableViewCell.h; sourceTree = "<group>"; };
+		805DE23919BF93CB00472322 /* SBAddExerciseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAddExerciseTableViewCell.m; sourceTree = "<group>"; };
+		805DE23A19BF93CB00472322 /* SBAddExerciseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBAddExerciseTableViewCell.xib; sourceTree = "<group>"; };
+		805DE23D19BF93DC00472322 /* SBExerciseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExerciseTableViewCell.h; sourceTree = "<group>"; };
+		805DE23E19BF93DC00472322 /* SBExerciseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBExerciseTableViewCell.m; sourceTree = "<group>"; };
+		805DE23F19BF93DC00472322 /* SBExerciseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBExerciseTableViewCell.xib; sourceTree = "<group>"; };
+		8086D42519BCBF16004ADBB6 /* sportblog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sportblog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8086D42819BCBF16004ADBB6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8086D42A19BCBF16004ADBB6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8086D42C19BCBF16004ADBB6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8086D43019BCBF16004ADBB6 /* sportblog-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sportblog-Info.plist"; sourceTree = "<group>"; };
+		8086D43219BCBF16004ADBB6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8086D43419BCBF16004ADBB6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8086D43619BCBF16004ADBB6 /* sportblog-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sportblog-Prefix.pch"; sourceTree = "<group>"; };
+		8086D43719BCBF16004ADBB6 /* SBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBAppDelegate.h; sourceTree = "<group>"; };
+		8086D43819BCBF16004ADBB6 /* SBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBAppDelegate.m; sourceTree = "<group>"; };
+		8086D43B19BCBF16004ADBB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		8086D43E19BCBF16004ADBB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		8086D44019BCBF16004ADBB6 /* SBWorkoutsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBWorkoutsViewController.h; sourceTree = "<group>"; };
+		8086D44119BCBF16004ADBB6 /* SBWorkoutsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutsViewController.m; sourceTree = "<group>"; };
+		8086D44319BCBF16004ADBB6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8086D44919BCBF16004ADBB6 /* sportblogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sportblogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8086D44A19BCBF16004ADBB6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		8086D45219BCBF16004ADBB6 /* sportblogTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sportblogTests-Info.plist"; sourceTree = "<group>"; };
+		8086D45419BCBF16004ADBB6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8086D45619BCBF16004ADBB6 /* sportblogTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sportblogTests.m; sourceTree = "<group>"; };
+		8C865FF5B6964991856E850D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		D3902127B8514FFFA9109974 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8086D42219BCBF16004ADBB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8086D42B19BCBF16004ADBB6 /* CoreGraphics.framework in Frameworks */,
+				8086D42D19BCBF16004ADBB6 /* UIKit.framework in Frameworks */,
+				8086D42919BCBF16004ADBB6 /* Foundation.framework in Frameworks */,
+				BC4C89146E544EFE9221C7EE /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8086D44619BCBF16004ADBB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8086D44B19BCBF16004ADBB6 /* XCTest.framework in Frameworks */,
+				8086D44D19BCBF16004ADBB6 /* UIKit.framework in Frameworks */,
+				8086D44C19BCBF16004ADBB6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		805DE24219BF9C4A00472322 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				805DE23019BF937F00472322 /* SBWorkoutTableViewCell.h */,
+				805DE23119BF937F00472322 /* SBWorkoutTableViewCell.m */,
+				805DE23219BF937F00472322 /* SBWorkoutTableViewCell.xib */,
+				805DE23819BF93CB00472322 /* SBAddExerciseTableViewCell.h */,
+				805DE23919BF93CB00472322 /* SBAddExerciseTableViewCell.m */,
+				805DE23A19BF93CB00472322 /* SBAddExerciseTableViewCell.xib */,
+				805DE23D19BF93DC00472322 /* SBExerciseTableViewCell.h */,
+				805DE23E19BF93DC00472322 /* SBExerciseTableViewCell.m */,
+				805DE23F19BF93DC00472322 /* SBExerciseTableViewCell.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		8086D41C19BCBF16004ADBB6 = {
+			isa = PBXGroup;
+			children = (
+				8086D42E19BCBF16004ADBB6 /* sportblog */,
+				8086D45019BCBF16004ADBB6 /* sportblogTests */,
+				8086D42719BCBF16004ADBB6 /* Frameworks */,
+				8086D42619BCBF16004ADBB6 /* Products */,
+				8C865FF5B6964991856E850D /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		8086D42619BCBF16004ADBB6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8086D42519BCBF16004ADBB6 /* sportblog.app */,
+				8086D44919BCBF16004ADBB6 /* sportblogTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8086D42719BCBF16004ADBB6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8086D42819BCBF16004ADBB6 /* Foundation.framework */,
+				8086D42A19BCBF16004ADBB6 /* CoreGraphics.framework */,
+				8086D42C19BCBF16004ADBB6 /* UIKit.framework */,
+				8086D44A19BCBF16004ADBB6 /* XCTest.framework */,
+				D3902127B8514FFFA9109974 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8086D42E19BCBF16004ADBB6 /* sportblog */ = {
+			isa = PBXGroup;
+			children = (
+				805DE24219BF9C4A00472322 /* Cells */,
+				8086D43719BCBF16004ADBB6 /* SBAppDelegate.h */,
+				8086D43819BCBF16004ADBB6 /* SBAppDelegate.m */,
+				8086D43A19BCBF16004ADBB6 /* Main_iPhone.storyboard */,
+				8086D43D19BCBF16004ADBB6 /* Main_iPad.storyboard */,
+				8086D44019BCBF16004ADBB6 /* SBWorkoutsViewController.h */,
+				8086D44119BCBF16004ADBB6 /* SBWorkoutsViewController.m */,
+				805DE22A19BF8E6500472322 /* SBWorkoutViewController.h */,
+				805DE22B19BF8E6500472322 /* SBWorkoutViewController.m */,
+				805DE22D19BF909300472322 /* SBExercisesViewController.h */,
+				805DE22E19BF909300472322 /* SBExercisesViewController.m */,
+				8086D44319BCBF16004ADBB6 /* Images.xcassets */,
+				8086D42F19BCBF16004ADBB6 /* Supporting Files */,
+			);
+			path = sportblog;
+			sourceTree = "<group>";
+		};
+		8086D42F19BCBF16004ADBB6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				805DE22619BCC46500472322 /* camera_disabled@2x.png */,
+				805DE22719BCC46500472322 /* camera_enabled@2x.png */,
+				8086D43019BCBF16004ADBB6 /* sportblog-Info.plist */,
+				8086D43119BCBF16004ADBB6 /* InfoPlist.strings */,
+				8086D43419BCBF16004ADBB6 /* main.m */,
+				8086D43619BCBF16004ADBB6 /* sportblog-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8086D45019BCBF16004ADBB6 /* sportblogTests */ = {
+			isa = PBXGroup;
+			children = (
+				8086D45619BCBF16004ADBB6 /* sportblogTests.m */,
+				8086D45119BCBF16004ADBB6 /* Supporting Files */,
+			);
+			path = sportblogTests;
+			sourceTree = "<group>";
+		};
+		8086D45119BCBF16004ADBB6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8086D45219BCBF16004ADBB6 /* sportblogTests-Info.plist */,
+				8086D45319BCBF16004ADBB6 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8086D42419BCBF16004ADBB6 /* sportblog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8086D45A19BCBF16004ADBB6 /* Build configuration list for PBXNativeTarget "sportblog" */;
+			buildPhases = (
+				B08B1003EE544468AEE59795 /* Check Pods Manifest.lock */,
+				8086D42119BCBF16004ADBB6 /* Sources */,
+				8086D42219BCBF16004ADBB6 /* Frameworks */,
+				8086D42319BCBF16004ADBB6 /* Resources */,
+				99648F18ECD6433AB70203D1 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = sportblog;
+			productName = sportblog;
+			productReference = 8086D42519BCBF16004ADBB6 /* sportblog.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8086D44819BCBF16004ADBB6 /* sportblogTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8086D45D19BCBF16004ADBB6 /* Build configuration list for PBXNativeTarget "sportblogTests" */;
+			buildPhases = (
+				8086D44519BCBF16004ADBB6 /* Sources */,
+				8086D44619BCBF16004ADBB6 /* Frameworks */,
+				8086D44719BCBF16004ADBB6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8086D44F19BCBF16004ADBB6 /* PBXTargetDependency */,
+			);
+			name = sportblogTests;
+			productName = sportblogTests;
+			productReference = 8086D44919BCBF16004ADBB6 /* sportblogTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8086D41D19BCBF16004ADBB6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SB;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Bullin;
+				TargetAttributes = {
+					8086D44819BCBF16004ADBB6 = {
+						TestTargetID = 8086D42419BCBF16004ADBB6;
+					};
+				};
+			};
+			buildConfigurationList = 8086D42019BCBF16004ADBB6 /* Build configuration list for PBXProject "sportblog" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8086D41C19BCBF16004ADBB6;
+			productRefGroup = 8086D42619BCBF16004ADBB6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8086D42419BCBF16004ADBB6 /* sportblog */,
+				8086D44819BCBF16004ADBB6 /* sportblogTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8086D42319BCBF16004ADBB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				805DE23C19BF93CB00472322 /* SBAddExerciseTableViewCell.xib in Resources */,
+				8086D43F19BCBF16004ADBB6 /* Main_iPad.storyboard in Resources */,
+				805DE24119BF93DC00472322 /* SBExerciseTableViewCell.xib in Resources */,
+				8086D44419BCBF16004ADBB6 /* Images.xcassets in Resources */,
+				805DE22819BCC46500472322 /* camera_disabled@2x.png in Resources */,
+				805DE23419BF937F00472322 /* SBWorkoutTableViewCell.xib in Resources */,
+				8086D43C19BCBF16004ADBB6 /* Main_iPhone.storyboard in Resources */,
+				8086D43319BCBF16004ADBB6 /* InfoPlist.strings in Resources */,
+				805DE22919BCC46500472322 /* camera_enabled@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8086D44719BCBF16004ADBB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8086D45519BCBF16004ADBB6 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		99648F18ECD6433AB70203D1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B08B1003EE544468AEE59795 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8086D42119BCBF16004ADBB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8086D43519BCBF16004ADBB6 /* main.m in Sources */,
+				805DE22F19BF909300472322 /* SBExercisesViewController.m in Sources */,
+				805DE22C19BF8E6500472322 /* SBWorkoutViewController.m in Sources */,
+				8086D44219BCBF16004ADBB6 /* SBWorkoutsViewController.m in Sources */,
+				805DE24019BF93DC00472322 /* SBExerciseTableViewCell.m in Sources */,
+				805DE23319BF937F00472322 /* SBWorkoutTableViewCell.m in Sources */,
+				805DE23B19BF93CB00472322 /* SBAddExerciseTableViewCell.m in Sources */,
+				8086D43919BCBF16004ADBB6 /* SBAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8086D44519BCBF16004ADBB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8086D45719BCBF16004ADBB6 /* sportblogTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8086D44F19BCBF16004ADBB6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8086D42419BCBF16004ADBB6 /* sportblog */;
+			targetProxy = 8086D44E19BCBF16004ADBB6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8086D43119BCBF16004ADBB6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8086D43219BCBF16004ADBB6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8086D43A19BCBF16004ADBB6 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8086D43B19BCBF16004ADBB6 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		8086D43D19BCBF16004ADBB6 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8086D43E19BCBF16004ADBB6 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		8086D45319BCBF16004ADBB6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8086D45419BCBF16004ADBB6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8086D45819BCBF16004ADBB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8086D45919BCBF16004ADBB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8086D45B19BCBF16004ADBB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C865FF5B6964991856E850D /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "sportblog/sportblog-Prefix.pch";
+				INFOPLIST_FILE = "sportblog/sportblog-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8086D45C19BCBF16004ADBB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C865FF5B6964991856E850D /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "sportblog/sportblog-Prefix.pch";
+				INFOPLIST_FILE = "sportblog/sportblog-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		8086D45E19BCBF16004ADBB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/sportblog.app/sportblog";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "sportblog/sportblog-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "sportblogTests/sportblogTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		8086D45F19BCBF16004ADBB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/sportblog.app/sportblog";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "sportblog/sportblog-Prefix.pch";
+				INFOPLIST_FILE = "sportblogTests/sportblogTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8086D42019BCBF16004ADBB6 /* Build configuration list for PBXProject "sportblog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8086D45819BCBF16004ADBB6 /* Debug */,
+				8086D45919BCBF16004ADBB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8086D45A19BCBF16004ADBB6 /* Build configuration list for PBXNativeTarget "sportblog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8086D45B19BCBF16004ADBB6 /* Debug */,
+				8086D45C19BCBF16004ADBB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8086D45D19BCBF16004ADBB6 /* Build configuration list for PBXNativeTarget "sportblogTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8086D45E19BCBF16004ADBB6 /* Debug */,
+				8086D45F19BCBF16004ADBB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8086D41D19BCBF16004ADBB6 /* Project object */;
+}
