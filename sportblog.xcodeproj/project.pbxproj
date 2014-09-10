@@ -32,6 +32,8 @@
 		8086D44D19BCBF16004ADBB6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8086D42C19BCBF16004ADBB6 /* UIKit.framework */; };
 		8086D45519BCBF16004ADBB6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8086D45319BCBF16004ADBB6 /* InfoPlist.strings */; };
 		8086D45719BCBF16004ADBB6 /* sportblogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8086D45619BCBF16004ADBB6 /* sportblogTests.m */; };
+		B3AB6A0B19C059A70002EDF9 /* SBEditWorkoutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AB6A0919C059A70002EDF9 /* SBEditWorkoutTableViewCell.m */; };
+		B3AB6A0C19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3AB6A0A19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib */; };
 		BC4C89146E544EFE9221C7EE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3902127B8514FFFA9109974 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +84,9 @@
 		8086D45419BCBF16004ADBB6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8086D45619BCBF16004ADBB6 /* sportblogTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sportblogTests.m; sourceTree = "<group>"; };
 		8C865FF5B6964991856E850D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		B3AB6A0819C059A70002EDF9 /* SBEditWorkoutTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBEditWorkoutTableViewCell.h; sourceTree = "<group>"; };
+		B3AB6A0919C059A70002EDF9 /* SBEditWorkoutTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBEditWorkoutTableViewCell.m; sourceTree = "<group>"; };
+		B3AB6A0A19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBEditWorkoutTableViewCell.xib; sourceTree = "<group>"; };
 		D3902127B8514FFFA9109974 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -122,6 +127,9 @@
 				805DE23D19BF93DC00472322 /* SBExerciseTableViewCell.h */,
 				805DE23E19BF93DC00472322 /* SBExerciseTableViewCell.m */,
 				805DE23F19BF93DC00472322 /* SBExerciseTableViewCell.xib */,
+				B3AB6A0819C059A70002EDF9 /* SBEditWorkoutTableViewCell.h */,
+				B3AB6A0919C059A70002EDF9 /* SBEditWorkoutTableViewCell.m */,
+				B3AB6A0A19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -288,6 +296,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3AB6A0C19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib in Resources */,
 				805DE23C19BF93CB00472322 /* SBAddExerciseTableViewCell.xib in Resources */,
 				8086D43F19BCBF16004ADBB6 /* Main_iPad.storyboard in Resources */,
 				805DE24119BF93DC00472322 /* SBExerciseTableViewCell.xib in Resources */,
@@ -351,6 +360,7 @@
 				8086D43519BCBF16004ADBB6 /* main.m in Sources */,
 				805DE22F19BF909300472322 /* SBExercisesViewController.m in Sources */,
 				805DE22C19BF8E6500472322 /* SBWorkoutViewController.m in Sources */,
+				B3AB6A0B19C059A70002EDF9 /* SBEditWorkoutTableViewCell.m in Sources */,
 				8086D44219BCBF16004ADBB6 /* SBWorkoutsViewController.m in Sources */,
 				805DE24019BF93DC00472322 /* SBExerciseTableViewCell.m in Sources */,
 				805DE23319BF937F00472322 /* SBWorkoutTableViewCell.m in Sources */,

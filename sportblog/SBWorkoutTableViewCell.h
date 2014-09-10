@@ -10,5 +10,6 @@
 
 @interface SBWorkoutTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *workoutLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @end

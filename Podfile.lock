@@ -1,10 +1,15 @@
 PODS:
+  - Realm (0.84.0):
+    - Realm/Headers
+  - Realm/Headers (0.84.0)
   - RKTabView (1.0.1)
 
 DEPENDENCIES:
+  - Realm (~> 0.84)
   - RKTabView (~> 1.0.1)
 
 SPEC CHECKSUMS:
+  Realm: 097412d7bcbba45ad5037add12e0395136070d88
   RKTabView: fdea8078a5bf962777e4a6f34db5eb147050bfc1
 
 COCOAPODS: 0.33.1

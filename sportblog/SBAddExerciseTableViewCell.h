@@ -10,5 +10,5 @@
 
 @interface SBAddExerciseTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIButton *addExerciseButton;
+@property (weak, nonatomic) IBOutlet UILabel *addExerciseLabel;
 @end
