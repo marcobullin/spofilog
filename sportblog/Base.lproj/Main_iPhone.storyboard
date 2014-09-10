@@ -67,7 +67,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="zzU-KX-3Qk"/>
+                    <navigationItem key="navigationItem" id="zzU-KX-3Qk">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="GpZ-TQ-7l8">
+                            <connections>
+                                <action selector="onWorkoutCompleted:" destination="Xay-rs-VpW" id="erX-Sk-gqm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="dsE-Lz-S7F" id="V10-su-W2y"/>
                     </connections>

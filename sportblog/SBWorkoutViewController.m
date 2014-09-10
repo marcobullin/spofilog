@@ -14,7 +14,7 @@
 #import "SBWorkout.h"
 
 @interface SBWorkoutViewController ()
-
+@property (nonatomic, strong) SBWorkout *workout;
 @end
 
 @implementation SBWorkoutViewController
@@ -30,24 +30,16 @@ bool isEditWorkoutDetails = NO;
     
     self.tableView.dataSource = self;
     
-    SBWorkout *workout = [[SBWorkout alloc] init];
-    workout.name = @"Workout";
-    workout.date = [NSDate date];
-    
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    
-    [realm beginWriteTransaction];
-    [realm addObject:workout];
-    [realm commitWriteTransaction];
+    self.workout = [[SBWorkout alloc] init];
+    self.workout.name = @"Workout";
+    self.workout.date = [NSDate date];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     return count;
 }
 
@@ -155,4 +147,26 @@ bool isEditWorkoutDetails = NO;
     return 44.0;
 }
 
+- (IBAction)onChangeWorkoutName:(id)sender {
+    UITextField *textField = (UITextField *) sender;
+    NSString *workoutName = textField.text;
+    if ([workoutName isEqualToString:@""]) {
+        workoutName = @"Workout";
+    }
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    
+    SBWorkoutTableViewCell *workoutCell = (SBWorkoutTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    
+    workoutCell.workoutLabel.text = workoutName;
+    self.workout.name = workoutName;
+}
+
+- (IBAction)onWorkoutCompleted:(id)sender {
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    
+    [realm beginWriteTransaction];
+    [realm addObject:self.workout];
+    [realm commitWriteTransaction];
+}
 @end
