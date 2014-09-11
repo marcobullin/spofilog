@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "SBWorkout.h"
+#import "SBExercisesViewController.h"
 
-@interface SBWorkoutViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SBWorkoutViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, SBExerciseViewControllerDelegate>
 
 - (IBAction)onWorkoutCompleted:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

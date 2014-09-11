@@ -7,12 +7,28 @@
 //
 
 #import "SBAppDelegate.h"
+#import "RLMRealm.h"
 
 @implementation SBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    RLMMigrationBlock migrationBlock = ^NSUInteger(RLMMigration *migration,
+                                                   NSUInteger oldSchemaVersion) {
+        // We haven’t migrated anything yet, so oldSchemaVersion == 0
+        if (oldSchemaVersion < 1) {
+            // Nothing to do!
+            // Realm will automatically detect new properties and removed properties
+            // And will update the schema on disk automatically
+        }
+        // Return the latest version number (always set manually)
+        // Must be a higher than the previous version or an RLMException is thrown
+        return 1;
+    };
+    
+    // Apply the migration block above to the default Realm
+    [RLMRealm migrateDefaultRealmWithBlock:migrationBlock];
+    
     return YES;
 }
 							

@@ -11,6 +11,7 @@
 #import "SBAddExerciseTableViewCell.h"
 #import "SBExerciseTableViewCell.h"
 #import "SBEditWorkoutTableViewCell.h"
+#import "SBExercisesViewController.h"
 
 @interface SBWorkoutViewController ()
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
@@ -18,8 +19,6 @@
 @end
 
 @implementation SBWorkoutViewController
-
-int count = 3;
 
 - (void)viewDidLoad
 {
@@ -50,7 +49,7 @@ int count = 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    count = 3;
+    int count = [self.workout.exercises count];
     
     if (self.isEditWorkoutDetails) {
         count += 1;
@@ -118,7 +117,17 @@ int count = 3;
         exerciseCell = [nib objectAtIndex:0];
     }
     
-    exerciseCell.exerciseLabel.text = @"Liegestütze";
+    // standard -2 because of (workout and add exercise cell)
+    int index = indexPath.row - 2;
+    
+    // decrement if edit workout cell is visible
+    if (self.isEditWorkoutDetails) {
+        index--;
+    }
+    
+    SBExercise *exercise = [self.workout.exercises objectAtIndex:index];
+    
+    exerciseCell.exerciseLabel.text = exercise.name;
     
     return exerciseCell;
 }
@@ -151,6 +160,13 @@ int count = 3;
             [tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationMiddle];
         }
         
+    }
+    
+    // user touched on add new exercise
+    if ((indexPath.row == 1 && !self.isEditWorkoutDetails) || (indexPath.row == 2 && self.isEditWorkoutDetails)) {
+        SBExercisesViewController *exercisesViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBExercisesViewController"];
+        exercisesViewController.delegate = self;
+        [self.navigationController pushViewController:exercisesViewController animated:YES];
     }
 }
 
@@ -206,4 +222,14 @@ int count = 3;
     
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+- (void)addExercisesViewController:(SBExercisesViewController *)controller didSelectExercise:(SBExercise *) exercise {
+    [self.workout.realm beginWriteTransaction];
+    [self.workout.exercises addObject:exercise];
+    [self.workout.realm commitWriteTransaction];
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    [self.tableView reloadData];
+}
+
 @end

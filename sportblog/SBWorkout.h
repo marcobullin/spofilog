@@ -7,10 +7,12 @@
 //
 
 #import <Realm/Realm.h>
+#import "SBExercise.h"
 
 @interface SBWorkout : RLMObject
 @property NSString *name;
 @property NSDate *date;
+@property RLMArray<SBExercise> *exercises;
 @end
 
 // This protocol enables typed collections. i.e.:

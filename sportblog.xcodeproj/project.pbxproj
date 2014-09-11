@@ -35,6 +35,7 @@
 		B3AB6A0B19C059A70002EDF9 /* SBEditWorkoutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AB6A0919C059A70002EDF9 /* SBEditWorkoutTableViewCell.m */; };
 		B3AB6A0C19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3AB6A0A19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib */; };
 		B3AC2EB319C09EFF00FFD8FD /* SBWorkout.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2EB219C09EFF00FFD8FD /* SBWorkout.m */; };
+		B3AC2EB619C1E6E000FFD8FD /* SBExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2EB519C1E6E000FFD8FD /* SBExercise.m */; };
 		BC4C89146E544EFE9221C7EE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3902127B8514FFFA9109974 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,8 @@
 		B3AB6A0A19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBEditWorkoutTableViewCell.xib; sourceTree = "<group>"; };
 		B3AC2EB119C09EFF00FFD8FD /* SBWorkout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkout.h; sourceTree = "<group>"; };
 		B3AC2EB219C09EFF00FFD8FD /* SBWorkout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkout.m; sourceTree = "<group>"; };
+		B3AC2EB419C1E6E000FFD8FD /* SBExercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExercise.h; sourceTree = "<group>"; };
+		B3AC2EB519C1E6E000FFD8FD /* SBExercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBExercise.m; sourceTree = "<group>"; };
 		D3902127B8514FFFA9109974 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -187,6 +190,8 @@
 				8086D42F19BCBF16004ADBB6 /* Supporting Files */,
 				B3AC2EB119C09EFF00FFD8FD /* SBWorkout.h */,
 				B3AC2EB219C09EFF00FFD8FD /* SBWorkout.m */,
+				B3AC2EB419C1E6E000FFD8FD /* SBExercise.h */,
+				B3AC2EB519C1E6E000FFD8FD /* SBExercise.m */,
 			);
 			path = sportblog;
 			sourceTree = "<group>";
@@ -365,6 +370,7 @@
 				8086D43519BCBF16004ADBB6 /* main.m in Sources */,
 				805DE22F19BF909300472322 /* SBExercisesViewController.m in Sources */,
 				B3AC2EB319C09EFF00FFD8FD /* SBWorkout.m in Sources */,
+				B3AC2EB619C1E6E000FFD8FD /* SBExercise.m in Sources */,
 				805DE22C19BF8E6500472322 /* SBWorkoutViewController.m in Sources */,
 				B3AB6A0B19C059A70002EDF9 /* SBEditWorkoutTableViewCell.m in Sources */,
 				8086D44219BCBF16004ADBB6 /* SBWorkoutsViewController.m in Sources */,

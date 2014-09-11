@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SBExercise.h"
 
-@interface SBExercisesViewController : UIViewController
+@class SBExercisesViewController;
+
+@protocol SBExerciseViewControllerDelegate <NSObject>
+- (void)addExercisesViewController:(SBExercisesViewController *)controller didSelectExercise:(SBExercise *) exercise;
+@end
+
+@interface SBExercisesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) id <SBExerciseViewControllerDelegate> delegate;
 
 @end
