@@ -28,6 +28,7 @@
     self.navigationItem.title = NSLocalizedString(@"Workout", nil);
     
     self.tableView.dataSource = self;
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
     
     if (self.workout == nil) {
         self.workout = [[SBWorkout alloc] init];
@@ -44,12 +45,38 @@
     [self.dateFormatter setTimeStyle:NSDateFormatterNoStyle];
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0 || indexPath.row == 1 || (indexPath.row == 2 && self.isEditWorkoutDetails)) {
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // standard -2 because of (workout and add exercise cell)
+        int index = indexPath.row - 2;
+        
+        // decrement if edit workout cell is visible
+        if (self.isEditWorkoutDetails) {
+            index--;
+        }
+        
+        [self.workout.realm beginWriteTransaction];
+        [self.workout.exercises removeObjectAtIndex:index];
+        [self.workout.realm commitWriteTransaction];
+        
+        [self.tableView reloadData];
+    }
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    int count = [self.workout.exercises count];
+    int count = [self.workout.exercises count] + 2;
     
     if (self.isEditWorkoutDetails) {
         count += 1;
