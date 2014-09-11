@@ -11,28 +11,38 @@
 #import "SBAddExerciseTableViewCell.h"
 #import "SBExerciseTableViewCell.h"
 #import "SBEditWorkoutTableViewCell.h"
-#import "SBWorkout.h"
 
 @interface SBWorkoutViewController ()
-@property (nonatomic, strong) SBWorkout *workout;
+@property (strong, nonatomic) NSDateFormatter *dateFormatter;
+@property (nonatomic) bool isEditWorkoutDetails;
 @end
 
 @implementation SBWorkoutViewController
 
 int count = 3;
-bool isEditWorkoutDetails = NO;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    [self createDateFormatter];
+    
     self.navigationItem.title = NSLocalizedString(@"Workout", nil);
     
     self.tableView.dataSource = self;
     
-    self.workout = [[SBWorkout alloc] init];
-    self.workout.name = @"Workout";
-    self.workout.date = [NSDate date];
+    if (self.workout == nil) {
+        self.workout = [[SBWorkout alloc] init];
+        self.workout.date = [NSDate date];
+    }
+}
+
+- (void)createDateFormatter {
+    
+    self.dateFormatter = [[NSDateFormatter alloc] init];
+    
+    [self.dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    
+    [self.dateFormatter setTimeStyle:NSDateFormatterNoStyle];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -40,6 +50,12 @@ bool isEditWorkoutDetails = NO;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    count = 3;
+    
+    if (self.isEditWorkoutDetails) {
+        count += 1;
+    }
+    
     return count;
 }
 
@@ -56,13 +72,13 @@ bool isEditWorkoutDetails = NO;
             workoutCell = [nib objectAtIndex:0];
         }
         
-        workoutCell.workoutLabel.text = @"Workout";
-        workoutCell.dateLabel.text = @"22.03.2014";
+        workoutCell.workoutLabel.text = self.workout.name ?: NSLocalizedString(@"Workout", nil);
+        workoutCell.dateLabel.text = [self.dateFormatter stringFromDate:self.workout.date];
         
         return workoutCell;
     }
 
-    if (indexPath.row == 1 && isEditWorkoutDetails) {
+    if (indexPath.row == 1 && self.isEditWorkoutDetails) {
         cellIdentifier = @"editWorkoutCell";
         
         SBEditWorkoutTableViewCell *editWorkoutCell = (SBEditWorkoutTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -72,12 +88,15 @@ bool isEditWorkoutDetails = NO;
             editWorkoutCell = [nib objectAtIndex:0];
         }
         
+        editWorkoutCell.workoutTextField.text = self.workout.name;
         editWorkoutCell.workoutTextField.placeholder = @"Workout";
+        
+        editWorkoutCell.datePicker.date = self.workout.date;
 
         return editWorkoutCell;
     }
     
-    if ((indexPath.row == 1 && !isEditWorkoutDetails) || (indexPath.row == 2 && isEditWorkoutDetails)) {
+    if ((indexPath.row == 1 && !self.isEditWorkoutDetails) || (indexPath.row == 2 && self.isEditWorkoutDetails)) {
         cellIdentifier = @"addExerciseCell";
         
         SBAddExerciseTableViewCell *addExerciseCell = (SBAddExerciseTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -116,17 +135,15 @@ bool isEditWorkoutDetails = NO;
         NSArray *indexPaths = [NSArray arrayWithObject :newIndexPath];
         SBWorkoutTableViewCell *workoutCell = (SBWorkoutTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
         
-        if (isEditWorkoutDetails) {
-            isEditWorkoutDetails = NO;
-            count -= 1;
+        if (self.isEditWorkoutDetails) {
+            self.isEditWorkoutDetails = NO;
             
             [workoutCell.workoutLabel setTextColor:[UIColor blackColor]];
             [workoutCell.dateLabel setTextColor:[UIColor blackColor]];
             
             [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationMiddle];
         } else {
-            isEditWorkoutDetails = YES;
-            count += 1;
+            self.isEditWorkoutDetails = YES;
             
             [workoutCell.workoutLabel setTextColor:[UIColor redColor]];
             [workoutCell.dateLabel setTextColor:[UIColor redColor]];
@@ -138,7 +155,7 @@ bool isEditWorkoutDetails = NO;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 1 && isEditWorkoutDetails) {
+    if (indexPath.row == 1 && self.isEditWorkoutDetails) {
         UITableViewCell *editWorkoutCell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
         
         return editWorkoutCell.frame.size.height;
@@ -159,14 +176,34 @@ bool isEditWorkoutDetails = NO;
     SBWorkoutTableViewCell *workoutCell = (SBWorkoutTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
     
     workoutCell.workoutLabel.text = workoutName;
+    
+    [self.workout.realm beginWriteTransaction];
     self.workout.name = workoutName;
+    [self.workout.realm commitWriteTransaction];
+}
+
+- (IBAction)onDateChanged:(UIDatePicker *)sender {
+    [self.workout.realm beginWriteTransaction];
+    self.workout.date = sender.date;
+    [self.workout.realm commitWriteTransaction];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    
+    SBWorkoutTableViewCell *workoutCell = (SBWorkoutTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    workoutCell.dateLabel.text = [self.dateFormatter stringFromDate:sender.date];
 }
 
 - (IBAction)onWorkoutCompleted:(id)sender {
     RLMRealm *realm = [RLMRealm defaultRealm];
     
+    if (!self.workout.name) {
+        self.workout.name = NSLocalizedString(@"Workout", nil);
+    }
+    
     [realm beginWriteTransaction];
     [realm addObject:self.workout];
     [realm commitWriteTransaction];
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end

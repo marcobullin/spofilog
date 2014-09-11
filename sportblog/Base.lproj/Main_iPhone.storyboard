@@ -46,7 +46,7 @@
         <!--Workout View Controller-->
         <scene sceneID="rbH-IT-fKl">
             <objects>
-                <viewController id="Xay-rs-VpW" customClass="SBWorkoutViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SBWorkoutViewController" id="Xay-rs-VpW" customClass="SBWorkoutViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NeJ-Xx-28r"/>
                         <viewControllerLayoutGuide type="bottom" id="VV3-57-8Nf"/>

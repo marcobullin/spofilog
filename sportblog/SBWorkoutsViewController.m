@@ -8,10 +8,13 @@
 
 #import "SBWorkoutsViewController.h"
 #import "SBWorkout.h"
+#import "SBWorkoutTableViewCell.h"
+#import "SBWorkoutViewController.h"
 
 @interface SBWorkoutsViewController ()
-    @property (nonatomic, strong) RKTabView *tabView;
-    @property (nonatomic, strong) RLMArray *workouts;
+@property (nonatomic, strong) RKTabView *tabView;
+@property (nonatomic, strong) RLMArray *workouts;
+@property (strong, nonatomic) NSDateFormatter *dateFormatter;
 @end
 
 @implementation SBWorkoutsViewController
@@ -19,6 +22,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self createDateFormatter];
+    
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
     
     self.navigationItem.title = NSLocalizedString(@"Workouts", nil);
     
@@ -44,7 +50,11 @@
     
     self.tableView.dataSource = self;
     
-    self.workouts = [SBWorkout allObjects];
+    self.workouts = [[SBWorkout allObjects] arraySortedByProperty:@"date" ascending:NO];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self.tableView reloadData];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -54,21 +64,58 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"workoutCell";
     
-    UITableViewCell *workoutCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    SBWorkoutTableViewCell *workoutCell = (SBWorkoutTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         
     if (workoutCell == nil) {
-        workoutCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        
-        SBWorkout *workout = [self.workouts objectAtIndex:indexPath.row];
-        workoutCell.textLabel.text = workout.name;
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBWorkoutTableViewCell" owner:self options:nil];
+        workoutCell = [nib objectAtIndex:0];
     }
     
+    SBWorkout *workout = [self.workouts objectAtIndex:indexPath.row];
+    workoutCell.workoutLabel.text = workout.name;
+    workoutCell.dateLabel.text = [self.dateFormatter stringFromDate:workout.date];
+    
     return workoutCell;
+}
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    SBWorkout *workout = [self.workouts objectAtIndex:indexPath.row];
+    
+    SBWorkoutViewController* workoutViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBWorkoutViewController"];
+
+    workoutViewController.workout = workout;
+    
+    [self.navigationController pushViewController:workoutViewController animated:YES];
+}
+
+- (void)createDateFormatter {
+    
+    self.dateFormatter = [[NSDateFormatter alloc] init];
+    
+    [self.dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    
+    [self.dateFormatter setTimeStyle:NSDateFormatterNoStyle];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        SBWorkout *workout = [self.workouts objectAtIndex:indexPath.row];
+        
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        [realm beginWriteTransaction];
+        [realm deleteObject:workout];
+        [realm commitWriteTransaction];
+        
+        [self.tableView reloadData];
+    }
 }
 
 - (void)tabView:(RKTabView *)tabView tabBecameDisabledAtIndex:(int)index tab:(RKTabItem *)tabItem

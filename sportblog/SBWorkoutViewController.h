@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SBWorkout.h"
 
 @interface SBWorkoutViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 - (IBAction)onWorkoutCompleted:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) SBWorkout *workout;
 @end
