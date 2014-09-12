@@ -115,6 +115,38 @@
             </objects>
             <point key="canvasLocation" x="1418" y="-413"/>
         </scene>
+        <!--Sets View Controller-->
+        <scene sceneID="Zcm-Ti-TED">
+            <objects>
+                <viewController storyboardIdentifier="SBSetsViewController" id="qJS-Rs-7yg" customClass="SBSetsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aoj-3F-gTo"/>
+                        <viewControllerLayoutGuide type="bottom" id="j8U-CD-qu6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KPT-87-20S">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5IA-Kc-4OM">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="qJS-Rs-7yg" id="yya-j6-bpe"/>
+                                    <outlet property="delegate" destination="qJS-Rs-7yg" id="bJD-Pc-nHX"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="5IA-Kc-4OM" id="kYr-H5-3rs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xyh-vA-ygS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1909" y="-411"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="yye-ep-3Hn">
             <objects>

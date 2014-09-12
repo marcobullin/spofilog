@@ -8,7 +8,7 @@
 
 #import "SBWorkoutsViewController.h"
 #import "SBWorkout.h"
-#import "SBWorkoutTableViewCell.h"
+#import "SBLeftRightTableViewCell.h"
 #import "SBWorkoutViewController.h"
 
 @interface SBWorkoutsViewController ()
@@ -64,16 +64,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"workoutCell";
     
-    SBWorkoutTableViewCell *workoutCell = (SBWorkoutTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    SBLeftRightTableViewCell *workoutCell = (SBLeftRightTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         
     if (workoutCell == nil) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBWorkoutTableViewCell" owner:self options:nil];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBLeftRightTableViewCell" owner:self options:nil];
         workoutCell = [nib objectAtIndex:0];
     }
     
     SBWorkout *workout = [self.workouts objectAtIndex:indexPath.row];
-    workoutCell.workoutLabel.text = workout.name;
-    workoutCell.dateLabel.text = [self.dateFormatter stringFromDate:workout.date];
+    workoutCell.leftLabel.text = workout.name;
+    workoutCell.rightLabel.text = [self.dateFormatter stringFromDate:workout.date];
     
     return workoutCell;
 }
@@ -126,6 +126,11 @@
 - (void)tabView:(RKTabView *)tabView tabBecameEnabledAtIndex:(int)index tab:(RKTabItem *)tabItem
 {
     
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.tableView setEditing:NO];
 }
 
 - (IBAction)createWorkout:(id)sender {

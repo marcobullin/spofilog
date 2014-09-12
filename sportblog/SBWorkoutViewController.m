@@ -7,11 +7,12 @@
 //
 
 #import "SBWorkoutViewController.h"
-#import "SBWorkoutTableViewCell.h"
-#import "SBAddExerciseTableViewCell.h"
+#import "SBLeftRightTableViewCell.h"
+#import "SBAddEntryTableViewCell.h"
 #import "SBExerciseTableViewCell.h"
 #import "SBEditWorkoutTableViewCell.h"
 #import "SBExercisesViewController.h"
+#import "SBSetsViewController.h"
 
 @interface SBWorkoutViewController ()
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
@@ -91,15 +92,15 @@
     
     if (indexPath.row == 0) {
         cellIdentifier = @"workoutCell";
-        SBWorkoutTableViewCell *workoutCell = (SBWorkoutTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        SBLeftRightTableViewCell *workoutCell = (SBLeftRightTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         
         if (workoutCell == nil) {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBWorkoutTableViewCell" owner:self options:nil];
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBLeftRightTableViewCell" owner:self options:nil];
             workoutCell = [nib objectAtIndex:0];
         }
         
-        workoutCell.workoutLabel.text = self.workout.name ?: NSLocalizedString(@"Workout", nil);
-        workoutCell.dateLabel.text = [self.dateFormatter stringFromDate:self.workout.date];
+        workoutCell.leftLabel.text = self.workout.name ?: NSLocalizedString(@"Workout", nil);
+        workoutCell.rightLabel.text = [self.dateFormatter stringFromDate:self.workout.date];
         
         return workoutCell;
     }
@@ -125,22 +126,22 @@
     if ((indexPath.row == 1 && !self.isEditWorkoutDetails) || (indexPath.row == 2 && self.isEditWorkoutDetails)) {
         cellIdentifier = @"addExerciseCell";
         
-        SBAddExerciseTableViewCell *addExerciseCell = (SBAddExerciseTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        SBAddEntryTableViewCell *addExerciseCell = (SBAddEntryTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         
         if (addExerciseCell == nil) {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBAddExerciseTableViewCell" owner:self options:nil];
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBAddEntryTableViewCell" owner:self options:nil];
             addExerciseCell = [nib objectAtIndex:0];
         }
         
-        addExerciseCell.addExerciseLabel.text = @"Add exercise";
+        addExerciseCell.addEntryLabel.text = @"Add exercise";
         
         return addExerciseCell;
     }
     
-    SBExerciseTableViewCell *exerciseCell = (SBExerciseTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    SBLeftRightTableViewCell *exerciseCell = (SBLeftRightTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (exerciseCell == nil) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBExerciseTableViewCell" owner:self options:nil];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBLeftRightTableViewCell" owner:self options:nil];
         exerciseCell = [nib objectAtIndex:0];
     }
     
@@ -154,7 +155,8 @@
     
     SBExercise *exercise = [self.workout.exercises objectAtIndex:index];
     
-    exerciseCell.exerciseLabel.text = exercise.name;
+    exerciseCell.leftLabel.text = exercise.name;
+    exerciseCell.rightLabel.text = [NSString stringWithFormat:@"%d Sets", [exercise.sets count]];
     
     return exerciseCell;
 }
@@ -169,24 +171,25 @@
         NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:row+1 inSection:section];
         
         NSArray *indexPaths = [NSArray arrayWithObject :newIndexPath];
-        SBWorkoutTableViewCell *workoutCell = (SBWorkoutTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+        SBLeftRightTableViewCell *workoutCell = (SBLeftRightTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
         
         if (self.isEditWorkoutDetails) {
             self.isEditWorkoutDetails = NO;
             
-            [workoutCell.workoutLabel setTextColor:[UIColor blackColor]];
-            [workoutCell.dateLabel setTextColor:[UIColor blackColor]];
+            [workoutCell.leftLabel setTextColor:[UIColor blackColor]];
+            [workoutCell.rightLabel setTextColor:[UIColor blackColor]];
             
             [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationMiddle];
         } else {
             self.isEditWorkoutDetails = YES;
             
-            [workoutCell.workoutLabel setTextColor:[UIColor redColor]];
-            [workoutCell.dateLabel setTextColor:[UIColor redColor]];
+            [workoutCell.leftLabel setTextColor:[UIColor redColor]];
+            [workoutCell.rightLabel setTextColor:[UIColor redColor]];
             
             [tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationMiddle];
         }
         
+        return;
     }
     
     // user touched on add new exercise
@@ -194,7 +197,25 @@
         SBExercisesViewController *exercisesViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBExercisesViewController"];
         exercisesViewController.delegate = self;
         [self.navigationController pushViewController:exercisesViewController animated:YES];
+        
+        return;
     }
+    
+    // user touched on an exercise
+    SBSetsViewController *setViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBSetsViewController"];
+    
+    // standard -2 because of (workout and add exercise cell)
+    int index = indexPath.row - 2;
+    
+    // decrement if edit workout cell is visible
+    if (self.isEditWorkoutDetails) {
+        index--;
+    }
+    
+    SBExercise *exercise = [self.workout.exercises objectAtIndex:index];
+    setViewController.exercise = exercise;
+    
+    [self.navigationController pushViewController:setViewController animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -216,9 +237,9 @@
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     
-    SBWorkoutTableViewCell *workoutCell = (SBWorkoutTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    SBLeftRightTableViewCell *workoutCell = (SBLeftRightTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
     
-    workoutCell.workoutLabel.text = workoutName;
+    workoutCell.leftLabel.text = workoutName;
     
     [self.workout.realm beginWriteTransaction];
     self.workout.name = workoutName;
@@ -232,8 +253,8 @@
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     
-    SBWorkoutTableViewCell *workoutCell = (SBWorkoutTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-    workoutCell.dateLabel.text = [self.dateFormatter stringFromDate:sender.date];
+    SBLeftRightTableViewCell *workoutCell = (SBLeftRightTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    workoutCell.rightLabel.text = [self.dateFormatter stringFromDate:sender.date];
 }
 
 - (IBAction)onWorkoutCompleted:(id)sender {
@@ -257,6 +278,11 @@
     
     [self.navigationController popViewControllerAnimated:YES];
     [self.tableView reloadData];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.tableView setEditing:NO];
 }
 
 @end

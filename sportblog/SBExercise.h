@@ -7,9 +7,11 @@
 //
 
 #import <Realm/Realm.h>
+#import "SBSet.h"
 
 @interface SBExercise : RLMObject
 @property NSString *name;
+@property RLMArray<SBSet> *sets;
 @end
 
 // This protocol enables typed collections. i.e.:

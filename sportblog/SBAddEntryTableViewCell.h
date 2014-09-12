@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SBAddExerciseTableViewCell : UITableViewCell
+@interface SBAddEntryTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *addExerciseLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addEntryLabel;
 @end

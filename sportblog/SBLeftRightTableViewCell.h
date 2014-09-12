@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SBWorkoutTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *workoutLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@interface SBLeftRightTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *leftLabel;
+@property (weak, nonatomic) IBOutlet UILabel *rightLabel;
 
 @end
