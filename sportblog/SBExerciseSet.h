@@ -1,9 +1,11 @@
 #import <Realm/Realm.h>
+#import "SBSet.h"
 
-@interface SBExercise : RLMObject
+@interface SBExerciseSet : RLMObject
 @property NSString *name;
+@property RLMArray<SBSet> *sets;
 @end
 
 // This protocol enables typed collections. i.e.:
 // RLMArray<SBExercise>
-RLM_ARRAY_TYPE(SBExercise)
+RLM_ARRAY_TYPE(SBExerciseSet)

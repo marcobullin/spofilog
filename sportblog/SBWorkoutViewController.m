@@ -13,6 +13,7 @@
 #import "SBEditWorkoutTableViewCell.h"
 #import "SBExercisesViewController.h"
 #import "SBSetsViewController.h"
+#import "SBExerciseSet.h"
 
 @interface SBWorkoutViewController ()
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
@@ -153,7 +154,7 @@
         index--;
     }
     
-    SBExercise *exercise = [self.workout.exercises objectAtIndex:index];
+    SBExerciseSet *exercise = [self.workout.exercises objectAtIndex:index];
     
     exerciseCell.leftLabel.text = exercise.name;
     exerciseCell.rightLabel.text = [NSString stringWithFormat:@"%d Sets", [exercise.sets count]];
@@ -179,14 +180,14 @@
             [workoutCell.leftLabel setTextColor:[UIColor blackColor]];
             [workoutCell.rightLabel setTextColor:[UIColor blackColor]];
             
-            [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationMiddle];
+            [self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationMiddle];
         } else {
             self.isEditWorkoutDetails = YES;
             
             [workoutCell.leftLabel setTextColor:[UIColor redColor]];
             [workoutCell.rightLabel setTextColor:[UIColor redColor]];
             
-            [tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationMiddle];
+            [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationMiddle];
         }
         
         return;
@@ -212,7 +213,7 @@
         index--;
     }
     
-    SBExercise *exercise = [self.workout.exercises objectAtIndex:index];
+    SBExerciseSet *exercise = [self.workout.exercises objectAtIndex:index];
     setViewController.exercise = exercise;
     
     [self.navigationController pushViewController:setViewController animated:YES];
@@ -272,8 +273,11 @@
 }
 
 - (void)addExercisesViewController:(SBExercisesViewController *)controller didSelectExercise:(SBExercise *) exercise {
+    SBExerciseSet *exerciseSet =  [[SBExerciseSet alloc] init];
+    exerciseSet.name = exercise.name;
+    
     [self.workout.realm beginWriteTransaction];
-    [self.workout.exercises addObject:exercise];
+    [self.workout.exercises addObject:exerciseSet];
     [self.workout.realm commitWriteTransaction];
     
     [self.navigationController popViewControllerAnimated:YES];

@@ -17,6 +17,10 @@
 		805DE23C19BF93CB00472322 /* SBAddEntryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 805DE23A19BF93CB00472322 /* SBAddEntryTableViewCell.xib */; };
 		805DE24019BF93DC00472322 /* SBExerciseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE23E19BF93DC00472322 /* SBExerciseTableViewCell.m */; };
 		805DE24119BF93DC00472322 /* SBExerciseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 805DE23F19BF93DC00472322 /* SBExerciseTableViewCell.xib */; };
+		805DE24519C4BE1900472322 /* SBExerciseSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE24419C4BE1900472322 /* SBExerciseSet.m */; };
+		805DE24819C4C19000472322 /* SBSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE24719C4C19000472322 /* SBSetViewController.m */; };
+		805DE24C19C4CF5B00472322 /* SBPickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE24A19C4CF5B00472322 /* SBPickerTableViewCell.m */; };
+		805DE24D19C4CF5B00472322 /* SBPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 805DE24B19C4CF5B00472322 /* SBPickerTableViewCell.xib */; };
 		8086D42919BCBF16004ADBB6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8086D42819BCBF16004ADBB6 /* Foundation.framework */; };
 		8086D42B19BCBF16004ADBB6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8086D42A19BCBF16004ADBB6 /* CoreGraphics.framework */; };
 		8086D42D19BCBF16004ADBB6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8086D42C19BCBF16004ADBB6 /* UIKit.framework */; };
@@ -67,6 +71,13 @@
 		805DE23D19BF93DC00472322 /* SBExerciseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExerciseTableViewCell.h; sourceTree = "<group>"; };
 		805DE23E19BF93DC00472322 /* SBExerciseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBExerciseTableViewCell.m; sourceTree = "<group>"; };
 		805DE23F19BF93DC00472322 /* SBExerciseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBExerciseTableViewCell.xib; sourceTree = "<group>"; };
+		805DE24319C4BE1900472322 /* SBExerciseSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExerciseSet.h; sourceTree = "<group>"; };
+		805DE24419C4BE1900472322 /* SBExerciseSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBExerciseSet.m; sourceTree = "<group>"; };
+		805DE24619C4C19000472322 /* SBSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetViewController.h; sourceTree = "<group>"; };
+		805DE24719C4C19000472322 /* SBSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSetViewController.m; sourceTree = "<group>"; };
+		805DE24919C4CF5B00472322 /* SBPickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBPickerTableViewCell.h; sourceTree = "<group>"; };
+		805DE24A19C4CF5B00472322 /* SBPickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBPickerTableViewCell.m; sourceTree = "<group>"; };
+		805DE24B19C4CF5B00472322 /* SBPickerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBPickerTableViewCell.xib; sourceTree = "<group>"; };
 		8086D42519BCBF16004ADBB6 /* sportblog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sportblog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8086D42819BCBF16004ADBB6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8086D42A19BCBF16004ADBB6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -142,6 +153,9 @@
 				B3AB6A0819C059A70002EDF9 /* SBEditWorkoutTableViewCell.h */,
 				B3AB6A0919C059A70002EDF9 /* SBEditWorkoutTableViewCell.m */,
 				B3AB6A0A19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib */,
+				805DE24919C4CF5B00472322 /* SBPickerTableViewCell.h */,
+				805DE24A19C4CF5B00472322 /* SBPickerTableViewCell.m */,
+				805DE24B19C4CF5B00472322 /* SBPickerTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -194,6 +208,8 @@
 				805DE22E19BF909300472322 /* SBExercisesViewController.m */,
 				B3AC2ED119C322A200FFD8FD /* SBSetsViewController.h */,
 				B3AC2ED219C322A300FFD8FD /* SBSetsViewController.m */,
+				805DE24619C4C19000472322 /* SBSetViewController.h */,
+				805DE24719C4C19000472322 /* SBSetViewController.m */,
 				8086D44319BCBF16004ADBB6 /* Images.xcassets */,
 				8086D42F19BCBF16004ADBB6 /* Supporting Files */,
 				B3AC2EB119C09EFF00FFD8FD /* SBWorkout.h */,
@@ -202,6 +218,8 @@
 				B3AC2EB519C1E6E000FFD8FD /* SBExercise.m */,
 				B3AC2ECE19C31F1100FFD8FD /* SBSet.h */,
 				B3AC2ECF19C31F1100FFD8FD /* SBSet.m */,
+				805DE24319C4BE1900472322 /* SBExerciseSet.h */,
+				805DE24419C4BE1900472322 /* SBExerciseSet.m */,
 			);
 			path = sportblog;
 			sourceTree = "<group>";
@@ -318,6 +336,7 @@
 			files = (
 				B3AB6A0C19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib in Resources */,
 				805DE23C19BF93CB00472322 /* SBAddEntryTableViewCell.xib in Resources */,
+				805DE24D19C4CF5B00472322 /* SBPickerTableViewCell.xib in Resources */,
 				8086D43F19BCBF16004ADBB6 /* Main_iPad.storyboard in Resources */,
 				805DE24119BF93DC00472322 /* SBExerciseTableViewCell.xib in Resources */,
 				8086D44419BCBF16004ADBB6 /* Images.xcassets in Resources */,
@@ -383,7 +402,10 @@
 				B3AC2ED019C31F1100FFD8FD /* SBSet.m in Sources */,
 				B3AC2EB619C1E6E000FFD8FD /* SBExercise.m in Sources */,
 				805DE22C19BF8E6500472322 /* SBWorkoutViewController.m in Sources */,
+				805DE24819C4C19000472322 /* SBSetViewController.m in Sources */,
 				B3AB6A0B19C059A70002EDF9 /* SBEditWorkoutTableViewCell.m in Sources */,
+				805DE24C19C4CF5B00472322 /* SBPickerTableViewCell.m in Sources */,
+				805DE24519C4BE1900472322 /* SBExerciseSet.m in Sources */,
 				8086D44219BCBF16004ADBB6 /* SBWorkoutsViewController.m in Sources */,
 				805DE24019BF93DC00472322 /* SBExerciseTableViewCell.m in Sources */,
 				805DE23319BF937F00472322 /* SBLeftRightTableViewCell.m in Sources */,

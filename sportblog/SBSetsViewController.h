@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SBExercise.h"
+#import "SBExerciseSet.h"
 
 @interface SBSetsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) SBExercise *exercise;
+@property (nonatomic, strong) SBExerciseSet *exercise;
 
 @end

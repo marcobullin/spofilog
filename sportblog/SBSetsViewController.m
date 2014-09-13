@@ -7,6 +7,7 @@
 //
 
 #import "SBSetsViewController.h"
+#import "SBSetViewController.h"
 #import "SBAddEntryTableViewCell.h"
 #import "SBSet.h"
 #import "SBLeftRightTableViewCell.h"
@@ -25,12 +26,16 @@
     self.tableView.dataSource = self;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [self.tableView reloadData];
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    int count = 1;
+    int count = [self.exercise.sets count] + 1;
     
     return count;
 }
@@ -69,6 +74,26 @@
     setCell.rightLabel.text = [NSString stringWithFormat:@"%fkg | %dreps", set.weight, set.repetitions];
 
     return setCell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    SBSetViewController *setViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBSetViewController"];
+    
+    SBSet *set;
+    // user touched on workout to edit name or date
+    if (indexPath.row > 0) {
+        set = [self.exercise.sets objectAtIndex:(indexPath.row-1)];
+    } else {
+        set = [[SBSet alloc] init];
+        [self.exercise.realm beginWriteTransaction];
+        [self.exercise.sets addObject:set];
+        [self.exercise.realm commitWriteTransaction];
+    }
+
+    setViewController.currentSet = set;
+    
+    [self.navigationController pushViewController:setViewController animated:YES];
 }
 
 @end
