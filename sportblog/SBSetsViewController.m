@@ -71,7 +71,7 @@
     SBSet *set = [self.exercise.sets objectAtIndex:index];
     
     setCell.leftLabel.text = [NSString stringWithFormat:@"Set - %d", set.number];
-    setCell.rightLabel.text = [NSString stringWithFormat:@"%fkg | %dreps", set.weight, set.repetitions];
+    setCell.rightLabel.text = [NSString stringWithFormat:@"%.01fkg | %dreps", set.weight, set.repetitions];
 
     return setCell;
 }
@@ -86,6 +86,10 @@
         set = [self.exercise.sets objectAtIndex:(indexPath.row-1)];
     } else {
         set = [[SBSet alloc] init];
+        set.number = 1;
+        set.weight = 0.0;
+        set.repetitions = 0;
+        
         [self.exercise.realm beginWriteTransaction];
         [self.exercise.sets addObject:set];
         [self.exercise.realm commitWriteTransaction];

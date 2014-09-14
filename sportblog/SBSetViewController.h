@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SBSet.h"
 
-@interface SBSetViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SBSetViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) SBSet *currentSet;
 

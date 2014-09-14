@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B906DBC6D88D4530A74A3060"
+               BlueprintIdentifier = "6C06813723304908A249D54C"
                BuildableName = "libPods-RKTabView.a"
                BlueprintName = "Pods-RKTabView"
                ReferencedContainer = "container:Pods.xcodeproj">

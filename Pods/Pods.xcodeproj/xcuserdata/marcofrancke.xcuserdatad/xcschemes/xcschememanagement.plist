@@ -8,45 +8,31 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>Pods-Realm.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>317A2C513D6E416E9748B9AE</key>
+		<key>51C42FBADF464F77B3D260D6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>895D802483AC4EEEB7E87C94</key>
+		<key>6C06813723304908A249D54C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>97738391A6244B21B7033310</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B906DBC6D88D4530A74A3060</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D42803DCB50944AB9FF3213E</key>
+		<key>8384F0F4B3844DAC81B404FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
