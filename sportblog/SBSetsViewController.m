@@ -81,23 +81,27 @@
     SBSetViewController *setViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBSetViewController"];
     
     SBSet *set;
-    // user touched on workout to edit name or date
+    // user touched on a set to edit it
     if (indexPath.row > 0) {
         set = [self.exercise.sets objectAtIndex:(indexPath.row-1)];
-    } else {
-        set = [[SBSet alloc] init];
-        set.number = 1;
-        set.weight = 0.0;
-        set.repetitions = 0;
-        
-        [self.exercise.realm beginWriteTransaction];
-        [self.exercise.sets addObject:set];
-        [self.exercise.realm commitWriteTransaction];
     }
 
+    // new
+    if (indexPath.row == 0) {
+        SBSet *previousSet = [self.exercise.sets lastObject];
+        setViewController.previousSet = previousSet;
+    }
+    
     setViewController.currentSet = set;
+    setViewController.delegate = self;
     
     [self.navigationController pushViewController:setViewController animated:YES];
+}
+
+- (void)addSetViewController:(SBSetViewController *)controller didCreatedNewSet:(SBSet *)set {
+    [self.exercise.realm beginWriteTransaction];
+    [self.exercise.sets addObject:set];
+    [self.exercise.realm commitWriteTransaction];
 }
 
 @end

@@ -29,6 +29,21 @@ UIActionSheet *actionSheet;
     
     self.navigationItem.rightBarButtonItem = doneButton;
     
+    if (self.currentSet) {
+        self.number = self.currentSet.number;
+        self.weight = self.currentSet.weight;
+        self.repetitions = self.currentSet.repetitions;
+    } else {
+        if (self.previousSet) {
+            self.number = self.previousSet.number+1;
+            self.weight = self.previousSet.weight;
+            self.repetitions = self.previousSet.repetitions;
+        } else {
+            self.number = 1;
+            self.weight = 0.0;
+            self.repetitions = 0;
+        }
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -41,61 +56,43 @@ UIActionSheet *actionSheet;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *cellIdentifier;
+    static NSString *cellIdentifier = @"cell";
+    
+    SBLeftRightTableViewCell *cell = (SBLeftRightTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil) {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBLeftRightTableViewCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
     
     // set cell
     if (indexPath.row == 0) {
-        cellIdentifier = @"setCell";
-        SBLeftRightTableViewCell *setCell = (SBLeftRightTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        
-        if (setCell == nil) {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBLeftRightTableViewCell" owner:self options:nil];
-            setCell = [nib objectAtIndex:0];
-        }
-        
-        setCell.leftLabel.text = NSLocalizedString(@"Satz", nil);
-        setCell.rightLabel.text = [NSString stringWithFormat:@"%d", self.currentSet.number];
-        
-        return setCell;
+        cell.leftLabel.text = NSLocalizedString(@"Satz", nil);
+        cell.rightLabel.text = [NSString stringWithFormat:@"%d", self.number];
+        return cell;
     }
     
     // weight cell
     if (indexPath.row == 1) {
-        cellIdentifier = @"weightCell";
-        SBLeftRightTableViewCell *weightCell = (SBLeftRightTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        
-        if (weightCell == nil) {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBLeftRightTableViewCell" owner:self options:nil];
-            weightCell = [nib objectAtIndex:0];
-        }
-        
-        weightCell.leftLabel.text = NSLocalizedString(@"Gewicht", nil);
-        weightCell.rightLabel.text = [NSString stringWithFormat:@"%.01fkg", self.currentSet.weight];
-        
-        return weightCell;
+        cell.leftLabel.text = NSLocalizedString(@"Gewicht", nil);
+        cell.rightLabel.text = [NSString stringWithFormat:@"%.01fkg", self.weight];
+        return cell;
     }
 
-    cellIdentifier = @"repetitionCell";
-    SBLeftRightTableViewCell *repetitionCell = (SBLeftRightTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    // repetition cell
+    cell.leftLabel.text = NSLocalizedString(@"Wiederholungen", nil);
+    cell.rightLabel.text = [NSString stringWithFormat:@"%d", self.repetitions];
     
-    if (repetitionCell == nil) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBLeftRightTableViewCell" owner:self options:nil];
-        repetitionCell = [nib objectAtIndex:0];
-    }
-    
-    repetitionCell.leftLabel.text = NSLocalizedString(@"Wiederholungen", nil);
-    repetitionCell.rightLabel.text = [NSString stringWithFormat:@"%d", self.currentSet.repetitions];
-    
-    return repetitionCell;
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     actionSheet = [[UIActionSheet alloc] initWithTitle:nil
-                                                             delegate:self
-                                                    cancelButtonTitle:nil
-                                               destructiveButtonTitle:nil
-                                                    otherButtonTitles:nil];
+                                              delegate:self
+                                     cancelButtonTitle:nil
+                                destructiveButtonTitle:nil
+                                     otherButtonTitles:nil];
 
     [actionSheet showInView:[self.view window]];
     [actionSheet setBounds:CGRectMake(0, 0, 320, 390)];
@@ -103,7 +100,6 @@ UIActionSheet *actionSheet;
     picker = [[UIPickerView alloc] init];
     picker.frame = CGRectMake(0, 44, 320, 162);
     picker.showsSelectionIndicator = YES;
-    //picker.bounds = CGRectMake(0, 0, 150, 0);
     picker.dataSource = self;
     picker.delegate = self;
 
@@ -112,7 +108,7 @@ UIActionSheet *actionSheet;
         self.isEditSet = YES;
         self.isEditWeight = NO;
         self.isEditRepetitions = NO;
-        [picker selectRow:self.currentSet.number-1 inComponent:0 animated:NO];
+        [picker selectRow:self.number-1 inComponent:0 animated:NO];
         [actionSheet addSubview:[self createToolbar:@"Satz"]];
     }
     
@@ -121,7 +117,7 @@ UIActionSheet *actionSheet;
         self.isEditWeight = YES;
         self.isEditRepetitions = NO;
         
-        NSString *str= [NSString stringWithFormat:@"%.01f", self.currentSet.weight];
+        NSString *str= [NSString stringWithFormat:@"%.01f", self.weight];
         NSArray *arr = [str componentsSeparatedByString:@"."];
         int first=[[arr firstObject] intValue];
         int last=[[arr lastObject] intValue];
@@ -136,7 +132,7 @@ UIActionSheet *actionSheet;
         self.isEditSet = NO;
         self.isEditWeight = NO;
         self.isEditRepetitions = YES;
-        [picker selectRow:self.currentSet.repetitions inComponent:0 animated:NO];
+        [picker selectRow:self.repetitions inComponent:0 animated:NO];
         [actionSheet addSubview:[self createToolbar:@"Wiederholungen"]];
     }
     
@@ -240,20 +236,18 @@ UIActionSheet *actionSheet;
 }
 
 - (void)done:(id)sender {
-    [self.currentSet.realm beginWriteTransaction];
+    
     if (self.isEditSet) {
-        self.currentSet.number = [picker selectedRowInComponent:0]+1;
+        self.number = [picker selectedRowInComponent:0]+1;
     }
     
     if (self.isEditWeight) {
-        self.currentSet.weight = [[NSString stringWithFormat:@"%d.%d", [picker selectedRowInComponent:0], [picker selectedRowInComponent:2]] floatValue];
+        self.weight = [[NSString stringWithFormat:@"%d.%d", [picker selectedRowInComponent:0], [picker selectedRowInComponent:2]] floatValue];
     }
     
     if (self.isEditRepetitions) {
-        self.currentSet.repetitions = [picker selectedRowInComponent:0];
+        self.repetitions = [picker selectedRowInComponent:0];
     }
-    
-    [self.currentSet.realm commitWriteTransaction];
     
     [self.tableView reloadData];
     
@@ -265,6 +259,21 @@ UIActionSheet *actionSheet;
 }
 
 - (void)onDone:(id)sender {
+    if (!self.currentSet) {
+        SBSet *set = [[SBSet alloc] init];
+        set.number = self.number;
+        set.weight = self.weight;
+        set.repetitions = self.repetitions;
+        
+        [self.delegate addSetViewController:self didCreatedNewSet:set];
+    } else {
+        [self.currentSet.realm beginWriteTransaction];
+        self.currentSet.number = self.number;
+        self.currentSet.weight = self.weight;
+        self.currentSet.repetitions = self.repetitions;
+        [self.currentSet.realm commitWriteTransaction];
+    }
+
     [self.navigationController popViewControllerAnimated:YES];
 }
 
