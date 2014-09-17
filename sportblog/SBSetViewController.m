@@ -25,9 +25,14 @@ UIActionSheet *actionSheet;
 {
     [super viewDidLoad];
     
+    self.navigationItem.hidesBackButton = YES;
+    
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onDone:)];
     
     self.navigationItem.rightBarButtonItem = doneButton;
+    
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(onCancelSet:)];
+    self.navigationItem.leftBarButtonItem = cancelButton;
     
     if (self.currentSet) {
         self.number = self.currentSet.number;
@@ -274,6 +279,10 @@ UIActionSheet *actionSheet;
         [self.currentSet.realm commitWriteTransaction];
     }
 
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)onCancelSet:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 

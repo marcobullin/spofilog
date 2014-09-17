@@ -9,8 +9,8 @@
             <objects>
                 <viewController storyboardIdentifier="SBWorkoutsViewController" id="vXZ-lx-hvc" customClass="SBWorkoutsViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                        <viewControllerLayoutGuide type="top" id="1Qf-Rf-ich"/>
+                        <viewControllerLayoutGuide type="bottom" id="69I-2Z-SCX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -48,8 +48,8 @@
             <objects>
                 <viewController storyboardIdentifier="SBWorkoutViewController" id="Xay-rs-VpW" customClass="SBWorkoutViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="NeJ-Xx-28r"/>
-                        <viewControllerLayoutGuide type="bottom" id="VV3-57-8Nf"/>
+                        <viewControllerLayoutGuide type="top" id="rro-tc-Np5"/>
+                        <viewControllerLayoutGuide type="bottom" id="ObX-fu-yQR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="NvO-7o-J5I">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -68,6 +68,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="zzU-KX-3Qk">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="wjz-KC-vDg">
+                            <connections>
+                                <action selector="onCancelWorkout:" destination="Xay-rs-VpW" id="y7O-4V-hiy"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="GpZ-TQ-7l8">
                             <connections>
                                 <action selector="onWorkoutCompleted:" destination="Xay-rs-VpW" id="erX-Sk-gqm"/>
@@ -87,8 +92,8 @@
             <objects>
                 <viewController storyboardIdentifier="SBExercisesViewController" id="gQ3-LR-fLo" customClass="SBExercisesViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="0YS-tg-6mn"/>
-                        <viewControllerLayoutGuide type="bottom" id="oE0-N0-qrW"/>
+                        <viewControllerLayoutGuide type="top" id="QR4-Gj-qoU"/>
+                        <viewControllerLayoutGuide type="bottom" id="2ap-wH-Jt2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dsL-KS-aBb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -120,8 +125,8 @@
             <objects>
                 <viewController storyboardIdentifier="SBSetsViewController" id="qJS-Rs-7yg" customClass="SBSetsViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="aoj-3F-gTo"/>
-                        <viewControllerLayoutGuide type="bottom" id="j8U-CD-qu6"/>
+                        <viewControllerLayoutGuide type="top" id="sWS-f4-CrT"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZbI-jQ-ZI8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="KPT-87-20S">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -152,8 +157,8 @@
             <objects>
                 <viewController storyboardIdentifier="SBFinishedExercisesViewController" id="DtT-Af-2EI" customClass="SBFinishedExercisesViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="bPJ-bs-5G1"/>
-                        <viewControllerLayoutGuide type="bottom" id="SOe-0j-wRZ"/>
+                        <viewControllerLayoutGuide type="top" id="Eod-FI-7PY"/>
+                        <viewControllerLayoutGuide type="bottom" id="iSW-L8-rag"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hd9-H9-Ve6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -184,8 +189,8 @@
             <objects>
                 <viewController storyboardIdentifier="SBStatisticViewController" id="MdC-qB-Gy4" customClass="SBStatisticViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="j58-Gu-5HQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="1Kt-Gu-jbV"/>
+                        <viewControllerLayoutGuide type="top" id="QEd-Cc-4Fp"/>
+                        <viewControllerLayoutGuide type="bottom" id="VD3-a6-7vn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="UPu-dD-PPd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -202,8 +207,8 @@
             <objects>
                 <viewController storyboardIdentifier="SBSetViewController" id="X4s-2B-YGo" customClass="SBSetViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="d02-Sy-xvv"/>
-                        <viewControllerLayoutGuide type="bottom" id="lIt-ga-2gV"/>
+                        <viewControllerLayoutGuide type="top" id="eGQ-iv-bg7"/>
+                        <viewControllerLayoutGuide type="bottom" id="qth-S3-LYD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VPF-9z-4SD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -248,6 +253,7 @@
             <point key="canvasLocation" x="-87" y="-414"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

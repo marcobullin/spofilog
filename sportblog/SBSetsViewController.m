@@ -13,7 +13,7 @@
 #import "SBLeftRightTableViewCell.h"
 
 @interface SBSetsViewController ()
-
+@property (nonatomic, strong) NSMutableArray *sets;
 @end
 
 @implementation SBSetsViewController
@@ -23,7 +23,20 @@
     [super viewDidLoad];
     
     self.navigationItem.title = self.exercise.name;
+    self.navigationItem.hidesBackButton = YES;
+    
     self.tableView.dataSource = self;
+    
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onDoneSets:)];
+    self.navigationItem.rightBarButtonItem = doneButton;
+    
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(onCancelSets:)];
+    self.navigationItem.leftBarButtonItem = cancelButton;
+    
+    self.sets = [[NSMutableArray alloc] init];
+    for (SBSet *set in self.exercise.sets) {
+        [self.sets addObject:set];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -35,7 +48,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    int count = [self.exercise.sets count] + 1;
+    int count = [self.sets count] + 1;
     
     return count;
 }
@@ -68,7 +81,7 @@
     // standard -1 because of the add set cell
     int index = indexPath.row - 1;
     
-    SBSet *set = [self.exercise.sets objectAtIndex:index];
+    SBSet *set = [self.sets objectAtIndex:index];
     
     setCell.leftLabel.text = [NSString stringWithFormat:@"Set - %d", set.number];
     setCell.rightLabel.text = [NSString stringWithFormat:@"%.01fkg | %dreps", set.weight, set.repetitions];
@@ -83,12 +96,12 @@
     SBSet *set;
     // user touched on a set to edit it
     if (indexPath.row > 0) {
-        set = [self.exercise.sets objectAtIndex:(indexPath.row-1)];
+        set = [self.sets objectAtIndex:(indexPath.row-1)];
     }
 
     // new
     if (indexPath.row == 0) {
-        SBSet *previousSet = [self.exercise.sets lastObject];
+        SBSet *previousSet = [self.sets lastObject];
         setViewController.previousSet = previousSet;
     }
     
@@ -99,9 +112,20 @@
 }
 
 - (void)addSetViewController:(SBSetViewController *)controller didCreatedNewSet:(SBSet *)set {
+    [self.sets addObject:set];
+}
+
+- (void)onCancelSets:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)onDoneSets:(id)sender {
     [self.exercise.realm beginWriteTransaction];
-    [self.exercise.sets addObject:set];
+    [self.exercise.sets removeAllObjects];
+    [self.exercise.sets addObjectsFromArray:self.sets];
     [self.exercise.realm commitWriteTransaction];
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

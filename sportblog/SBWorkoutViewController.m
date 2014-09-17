@@ -31,11 +31,16 @@
     
     self.tableView.dataSource = self;
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
+    self.navigationItem.hidesBackButton = YES;
     
     if (self.workout == nil) {
         self.workout = [[SBWorkout alloc] init];
         self.workout.date = [NSDate date];
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self.tableView reloadData];
 }
 
 - (void)createDateFormatter {
@@ -269,6 +274,10 @@
     [realm addObject:self.workout];
     [realm commitWriteTransaction];
     
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)onCancelWorkout:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
