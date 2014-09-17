@@ -567,12 +567,11 @@ public:
 
     // Queries
     // Using where(tv) is the new method to perform queries on TableView. The 'tv' can have any order; it does not
-    // need to be sorted, and, resulting view retains its order. Using where.tableview(tv) is deprecated and needs 
-    // 'tv' to be sorted.
-    Query where(TableViewBase* tv = null_ptr) { return Query(*this, tv); }
+    // need to be sorted, and, resulting view retains its order.
+    Query where(RowIndexes* tv = null_ptr) { return Query(*this, tv); }
 
     // FIXME: We need a ConstQuery class or runtime check against modifications in read transaction.
-    Query where(TableViewBase* tv = null_ptr) const { return Query(*this, tv); }
+    Query where(RowIndexes* tv = null_ptr) const { return Query(*this, tv); }
 
     Table& link(size_t link_column);
 
@@ -897,7 +896,7 @@ private:
                               const TableViewBase* new_addr) TIGHTDB_NOEXCEPT;
     void discard_views() TIGHTDB_NOEXCEPT;
 
-    void register_row_accessor(RowBase*) const;
+    void register_row_accessor(RowBase*) const TIGHTDB_NOEXCEPT;
     void unregister_row_accessor(RowBase*) const TIGHTDB_NOEXCEPT;
 
     class UnbindGuard;
@@ -1087,6 +1086,7 @@ private:
     friend class RowBase;
     friend class LinksToNode;
     friend class LinkMap;
+    friend class LinkView;
 };
 
 

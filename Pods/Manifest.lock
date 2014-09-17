@@ -1,15 +1,18 @@
 PODS:
-  - Realm (0.84.0):
+  - iOSPlot (1.0.1)
+  - Realm (0.85.0):
     - Realm/Headers
-  - Realm/Headers (0.84.0)
+  - Realm/Headers (0.85.0)
   - RKTabView (1.0.1)
 
 DEPENDENCIES:
+  - iOSPlot (~> 1.0)
   - Realm (~> 0.84)
   - RKTabView (~> 1.0.1)
 
 SPEC CHECKSUMS:
-  Realm: 097412d7bcbba45ad5037add12e0395136070d88
+  iOSPlot: 93934987c4be73bfdd229d0068bb1302efa05109
+  Realm: 01c074b534be68b55ba4228a3b16cf41da7af14d
   RKTabView: fdea8078a5bf962777e4a6f34db5eb147050bfc1
 
 COCOAPODS: 0.33.1

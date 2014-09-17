@@ -10,6 +10,8 @@
 #import "SBWorkout.h"
 #import "SBLeftRightTableViewCell.h"
 #import "SBWorkoutViewController.h"
+#import "SBStatisticViewController.h"
+#import "SBFinishedExercisesViewController.h"
 
 @interface SBWorkoutsViewController ()
 @property (nonatomic, strong) RKTabView *tabView;
@@ -19,20 +21,22 @@
 
 @implementation SBWorkoutsViewController
 
+RKTabItem *tabItem1;
+RKTabItem *tabItem2;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self createDateFormatter];
     
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
-    
     self.navigationItem.title = NSLocalizedString(@"Workouts", nil);
     
-    RKTabItem *tabItem1 = [RKTabItem createUsualItemWithImageEnabled:[UIImage imageNamed:@"camera_enabled.png"] imageDisabled:[UIImage imageNamed:@"camera_disabled.png"]];
+    tabItem1 = [RKTabItem createUsualItemWithImageEnabled:[UIImage imageNamed:@"camera_enabled.png"] imageDisabled:[UIImage imageNamed:@"camera_disabled.png"]];
     
     tabItem1.tabState = TabStateEnabled;
     
-    RKTabItem *tabItem2 = [RKTabItem createUsualItemWithImageEnabled:[UIImage imageNamed:@"camera_enabled.png"] imageDisabled:[UIImage imageNamed:@"camera_disabled.png"]];
+    tabItem2 = [RKTabItem createUsualItemWithImageEnabled:[UIImage imageNamed:@"camera_enabled.png"] imageDisabled:[UIImage imageNamed:@"camera_disabled.png"]];
     RKTabItem *tabItem3 = [RKTabItem createUsualItemWithImageEnabled:[UIImage imageNamed:@"camera_enabled.png"] imageDisabled:[UIImage imageNamed:@"camera_disabled.png"]];
     RKTabItem *tabItem4 = [RKTabItem createUsualItemWithImageEnabled:[UIImage imageNamed:@"camera_enabled.png"] imageDisabled:[UIImage imageNamed:@"camera_disabled.png"]];
     
@@ -41,11 +45,10 @@
     
     self.tabView.horizontalInsets = HorizontalEdgeInsetsMake(25, 25);
     self.tabView.darkensBackgroundForEnabledTabs = YES;
-    self.tabView.enabledTabBackgrondColor = [UIColor darkGrayColor];
-    self.tabView.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.5];
+    self.tabView.enabledTabBackgrondColor = [UIColor colorWithRed:0.8 green:0.8 blue:1 alpha:1];
+    self.tabView.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
     self.tabView.delegate = self;
   
-    self.view.backgroundColor = [UIColor grayColor];
     [self.view addSubview:self.tabView];
     
     self.tableView.dataSource = self;
@@ -54,6 +57,10 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    tabItem1.tabState = TabStateEnabled;
+    tabItem2.tabState = TabStateDisabled;
+    [self.tabView setNeedsDisplay];
+    
     [self.tableView reloadData];
 }
 
@@ -125,7 +132,10 @@
 
 - (void)tabView:(RKTabView *)tabView tabBecameEnabledAtIndex:(int)index tab:(RKTabItem *)tabItem
 {
-    
+    if (index == 1) {
+        SBFinishedExercisesViewController *finishedExercises = [self.storyboard instantiateViewControllerWithIdentifier:@"SBFinishedExercisesViewController"];
+        [self.navigationController pushViewController:finishedExercises animated:NO];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

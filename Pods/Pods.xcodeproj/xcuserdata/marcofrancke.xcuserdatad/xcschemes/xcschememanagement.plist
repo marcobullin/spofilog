@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-iOSPlot.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>51C42FBADF464F77B3D260D6</key>
+		<key>35D6DFBA76894DEC84F6230F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6C06813723304908A249D54C</key>
+		<key>657D616BF9814DE79D3C32C1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8384F0F4B3844DAC81B404FB</key>
+		<key>D933696D5E894A269BBCD7E0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E75A33007AD24FA2813E9B4E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

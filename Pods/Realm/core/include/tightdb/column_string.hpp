@@ -44,7 +44,7 @@ class StringIndex;
 /// column.
 ///
 /// FIXME: Rename AdaptiveStringColumn to StringColumn
-class AdaptiveStringColumn: public ColumnBase {
+class AdaptiveStringColumn : public ColumnBase, public ColumnTemplate<StringData> {
 public:
     typedef StringData value_type;
 
@@ -71,6 +71,15 @@ public:
                            std::size_t end = npos) const;
     void find_all(Column& result, StringData value, std::size_t begin = 0,
                   std::size_t end = npos) const;
+
+    int compare_values(size_t row1, size_t row2) const TIGHTDB_OVERRIDE
+    {        
+        StringData a = get(row1);
+        StringData b = get(row2);
+        if (a == b)
+            return 0;
+        return utf8_compare(a, b) ? 1 : -1;        
+    }
 
     //@{
     /// Find the lower/upper bound for the specified value assuming
@@ -125,6 +134,9 @@ public:
     void dump_node_structure(std::ostream&, int level) const TIGHTDB_OVERRIDE;
     using ColumnBase::dump_node_structure;
 #endif
+
+protected:
+    StringData get_val(size_t row) const { return get(row); }
 
 private:
     StringIndex* m_search_index;
@@ -253,32 +265,6 @@ inline std::size_t AdaptiveStringColumn::get_size_from_ref(ref_type root_ref,
         return ArrayBigBlobs::get_size_from_header(root_header);
     }
     return Array::get_bptree_size_from_header(root_header);
-}
-
-inline void AdaptiveStringColumn::update_from_parent(std::size_t old_baseline) TIGHTDB_NOEXCEPT
-{
-    if (root_is_leaf()) {
-        bool long_strings = m_array->has_refs();
-        if (!long_strings) {
-            // Small strings root leaf
-            ArrayString* leaf = static_cast<ArrayString*>(m_array);
-            leaf->update_from_parent(old_baseline);
-            return;
-        }
-        bool is_big = m_array->get_context_flag();
-        if (!is_big) {
-            // Medium strings root leaf
-            ArrayStringLong* leaf = static_cast<ArrayStringLong*>(m_array);
-            leaf->update_from_parent(old_baseline);
-            return;
-        }
-        // Big strings root leaf
-        ArrayBigBlobs* leaf = static_cast<ArrayBigBlobs*>(m_array);
-        leaf->update_from_parent(old_baseline);
-        return;
-    }
-    // Non-leaf root
-    m_array->update_from_parent(old_baseline);
 }
 
 inline bool AdaptiveStringColumn::is_string_col() const TIGHTDB_NOEXCEPT

@@ -161,8 +161,9 @@ typedef void(^RLMNotificationBlock)(NSString *notification, RLMRealm *realm);
 
  It receives the following parameters:
 
- - `NSString` \***notification**:    The name of the incoming notification.
-    `RLMRealmDidChangeNotification` is the only notification currently supported.
+ - `NSString` \***notification**:    The name of the incoming notification. See
+                                     RLMRealmNotification for information on what
+                                     notifications are sent.
  - `RLMRealm` \***realm**:           The realm for which this notification occurred
 
  @param block   A block which is called to process RLMRealm notifications.
@@ -225,8 +226,10 @@ typedef void(^RLMNotificationBlock)(NSString *notification, RLMRealm *realm);
 
 /**
  Update an `RLMRealm` and outstanding objects to point to the most recent data for this `RLMRealm`.
+
+ @return    Whether the realm had any updates. Note that this may return YES even if no data has actually changed.
  */
-- (void)refresh;
+- (BOOL)refresh;
 
 /**
  Set to YES to automatically update this Realm when changes happen in other threads.
@@ -287,6 +290,26 @@ typedef void(^RLMNotificationBlock)(NSString *notification, RLMRealm *realm);
  @see   addObject:
  */
 - (void)addObjectsFromArray:(id)array;
+
+/**
+ Adds or updates an object to be persisted it in this Realm. The object provided must have a designated
+ primary key. If no objects exist in the RLMRealm instance with the same primary key value, the object is
+ inserted. Otherwise, the existing object is updated with any changed values.
+
+ @param object  Object to be added or updated.
+ */
+- (void)addOrUpdateObject:(RLMObject *)object;
+
+/**
+ Adds or updates objects in the given array to be persisted it in this Realm.
+
+ This is the equivalent of `addOrUpdateObject:` except for an array of objects.
+
+ @param array  `NSArray` or `RLMArray` of `RLMObject`s (or subclasses) to be added to this Realm.
+
+ @see   addOrUpdateObject:
+ */
+- (void)addOrUpdateObjectsFromArray:(id)array;
 
 /**
  Delete an object from this Realm.

@@ -17,30 +17,13 @@
 ////////////////////////////////////////////////////////////////////////////
 
 #import "RLMArray.h"
-#import "RLMObjectSchema.h"
-#import "RLMProperty.h"
 #import "RLMObject.h"
 
-@interface RLMRealm ()
+@interface RLMRealm (Swift)
 + (void)clearRealmCache;
 @end
 
-@interface RLMProperty ()
-
-- (instancetype)initWithName:(NSString *)name
-                        type:(RLMPropertyType)type
-             objectClassName:(NSString *)objectClassName
-                  attributes:(RLMPropertyAttributes)attributes;
-
-@end
-
-@interface RLMObjectSchema ()
-
-- (instancetype)initWithClassName:(NSString *)objectClassName objectClass:(Class)objectClass properties:(NSArray *)properties;
-
-@end
-
-@interface RLMArray ()
+@interface RLMArray (Swift)
 
 - (instancetype)initWithObjectClassName:(NSString *)objectClassName;
 
@@ -49,7 +32,7 @@
 
 @end
 
-@interface RLMObject ()
+@interface RLMObject (Swift)
 
 + (RLMArray *)objectsWhere:(NSString *)predicateFormat args:(va_list)args;
 + (RLMArray *)objectsInRealm:(RLMRealm *)realm where:(NSString *)predicateFormat args:(va_list)args;

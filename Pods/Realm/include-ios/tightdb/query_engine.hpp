@@ -90,7 +90,7 @@ AggregateState      State of the aggregate - contains a state variable that stor
 #include <functional>
 #include <algorithm>
 
-#include <tightdb/util/bind_ptr.hpp>
+#include <tightdb/util/shared_ptr.hpp>
 #include <tightdb/util/meta.hpp>
 #include <tightdb/unicode.hpp>
 #include <tightdb/utilities.hpp>
@@ -536,13 +536,13 @@ protected:
 // Used for performing queries on a Tableview. This is done by simply passing the TableView to this query condition
 class ListviewNode: public ParentNode {
 public:
-    ListviewNode(const TableView& tv) : m_max(0), m_next(0), m_size(tv.size()), m_tv(tv) { m_child = 0; m_dT = 0.0; }
+    ListviewNode(TableView& tv) : m_max(0), m_next(0), m_size(tv.size()), m_tv(tv) { m_child = 0; m_dT = 0.0; }
     ~ListviewNode() TIGHTDB_NOEXCEPT TIGHTDB_OVERRIDE {  }
 
     // Return the n'th table row index contained in the TableView.
     size_t tableindex(size_t n)
     {
-        return to_size_t(m_tv.get_ref_column().get(n));
+        return to_size_t(m_tv.m_row_indexes.get(n));
     }
 
     virtual void init(const Table& table) TIGHTDB_OVERRIDE
@@ -563,7 +563,7 @@ public:
     {
         // Simply return index of first table row which is >= start
         size_t r;
-        r = m_tv.get_ref_column().find_gte(start, m_next);
+        r = m_tv.m_row_indexes.find_gte(start, m_next);
 
         if (r >= end)
             return not_found;
@@ -596,7 +596,7 @@ protected:
     size_t m_next;
     size_t m_size;
 
-    const TableView& m_tv;
+    TableView& m_tv;
 };
 
 // For conditions on a subtable (encapsulated in subtable()...end_subtable()). These return the parent row as match if and
@@ -1880,16 +1880,13 @@ protected:
 class ExpressionNode: public ParentNode {
 
 public:
-    ~ExpressionNode() TIGHTDB_NOEXCEPT
-    {
-        m_compare.reset();
-    }
+    ~ExpressionNode() TIGHTDB_NOEXCEPT { }
 
     ExpressionNode(Expression* compare, bool auto_delete)
     {
         m_auto_delete = auto_delete;
         m_child = 0;
-        m_compare = util::bind_ptr<Expression>(compare);
+        m_compare = util::SharedPtr<Expression>(compare);
         m_dD = 10.0;
         m_dT = 50.0;
     }
@@ -1925,7 +1922,7 @@ public:
     }
 
     bool m_auto_delete;
-    util::bind_ptr<Expression> m_compare;
+    util::SharedPtr<Expression> m_compare;
 };
 
 
@@ -1939,7 +1936,7 @@ public:
         m_dT = 50.0;
     }
 
-    void init(const Table& table)  TIGHTDB_OVERRIDE
+    void init(const Table& table) TIGHTDB_OVERRIDE
     {
         m_table = &table;
         if (m_child)

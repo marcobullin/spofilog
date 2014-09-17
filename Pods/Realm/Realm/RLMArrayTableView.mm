@@ -21,7 +21,7 @@
 #import "RLMRealm_Private.hpp"
 #import "RLMSchema_Private.h"
 #import "RLMObjectSchema_Private.hpp"
-#import "RLMObjectStore.h"
+#import "RLMObjectStore.hpp"
 #import "RLMQueryUtil.hpp"
 #import "RLMConstants.h"
 #import <objc/runtime.h>
@@ -63,14 +63,12 @@ static inline void RLMArrayTableViewValidateAttached(RLMArrayTableView *ar) {
         }
         ar->_backingView.sync_if_needed();
     }
-    RLMCheckThread(ar->_realm);
-    ar->_backingView.sync_if_needed();
 }
 static inline void RLMArrayTableViewValidate(RLMArrayTableView *ar) {
     RLMArrayTableViewValidateAttached(ar);
     RLMCheckThread(ar->_realm);
-    ar->_backingView.sync_if_needed();
 }
+
 static inline void RLMArrayTableViewValidateInWriteTransaction(RLMArrayTableView *ar) {
     // first verify attached
     RLMArrayTableViewValidate(ar);
@@ -86,13 +84,18 @@ static inline void RLMArrayTableViewValidateInWriteTransaction(RLMArrayTableView
 // public method implementations
 //
 - (NSUInteger)count {
-    RLMArrayTableViewValidate(self);
-    return _backingView.size();
+    if (_viewCreated) {
+        RLMArrayTableViewValidate(self);
+        return _backingView.size();
+    }
+    else {
+        RLMCheckThread(_realm);
+        return _backingQuery.count();
+    }
 }
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(__unsafe_unretained id [])buffer count:(NSUInteger)len {
-    RLMArrayTableViewValidateAttached(self);
-    RLMCheckThread(_realm);
+    RLMArrayTableViewValidate(self);
 
     __autoreleasing RLMCArrayHolder *items;
     if (state->state == 0) {

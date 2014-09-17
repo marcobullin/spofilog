@@ -275,6 +275,7 @@
 - (void)addExercisesViewController:(SBExercisesViewController *)controller didSelectExercise:(SBExercise *) exercise {
     SBExerciseSet *exerciseSet =  [[SBExerciseSet alloc] init];
     exerciseSet.name = exercise.name;
+    exerciseSet.date = self.workout.date;
     
     [self.workout.realm beginWriteTransaction];
     [self.workout.exercises addObject:exerciseSet];

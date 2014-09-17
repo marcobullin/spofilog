@@ -3,6 +3,7 @@
 
 @interface SBExerciseSet : RLMObject
 @property NSString *name;
+@property NSDate *date;
 @property RLMArray<SBSet> *sets;
 @end
 
