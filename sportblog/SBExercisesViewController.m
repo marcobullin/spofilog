@@ -118,7 +118,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    SBExercise *exercise = [self.exercises objectAtIndex:indexPath.row];
+    if (indexPath.row == 0) {
+        return;
+    }
+    
+    SBExercise *exercise = [self.exercises objectAtIndex:indexPath.row - 1];
     
     [self.delegate addExercisesViewController:self didSelectExercise:exercise];
 }
@@ -145,6 +149,11 @@
     self.exercises = [SBExercise allObjects];
     [self.tableView reloadData];
     
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.tableView setEditing:NO];
 }
 
 
