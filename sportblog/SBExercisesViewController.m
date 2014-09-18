@@ -23,6 +23,7 @@
     
     self.navigationItem.title = NSLocalizedString(@"Exercises", nil);
     self.tableView.delegate = self;
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
     
     /*
     SBExercise *exercise = [[SBExercise alloc] init];
@@ -51,6 +52,30 @@
      */
     
     self.exercises = [SBExercise allObjects];
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        int index = indexPath.row - 1;
+        
+        SBExercise *exercise = [self.exercises objectAtIndex:index];
+        
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        
+        [realm beginWriteTransaction];
+        [realm deleteObject:exercise];
+        [realm commitWriteTransaction];
+        
+        [self.tableView reloadData];
+    }
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
