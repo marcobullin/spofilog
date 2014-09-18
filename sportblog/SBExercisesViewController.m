@@ -9,6 +9,7 @@
 #import "SBExercisesViewController.h"
 #import "SBExercise.h"
 #import "SBExerciseTableViewCell.h"
+#import "SBCreateExerciseTableViewCell.h"
 
 @interface SBExercisesViewController ()
 @property (nonatomic, strong) RLMArray *exercises;
@@ -57,7 +58,26 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"exerciseCell";
+    static NSString *cellIdentifier;
+    
+    if (indexPath.row == 0) {
+        cellIdentifier = @"createExerciseCell";
+        
+        SBCreateExerciseTableViewCell *createExerciseCell = (SBCreateExerciseTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        
+        if (createExerciseCell == nil) {
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBCreateExerciseTableViewCell" owner:self options:nil];
+            createExerciseCell = [nib objectAtIndex:0];
+        }
+        
+        createExerciseCell.exerciseField.placeholder = @"New exercise";
+        [createExerciseCell.addButton setTitle:@"Create" forState:UIControlStateNormal];
+        [createExerciseCell.addButton addTarget:self action:@selector(onCreatedExercise:) forControlEvents:UIControlEventTouchUpInside];
+        
+        return createExerciseCell;
+    }
+    
+    cellIdentifier = @"exerciseCell";
     
     SBExerciseTableViewCell *exerciseCell = (SBExerciseTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
@@ -66,7 +86,7 @@
         exerciseCell = [nib objectAtIndex:0];
     }
     
-    SBExercise *exercise = [self.exercises objectAtIndex:indexPath.row];
+    SBExercise *exercise = [self.exercises objectAtIndex:indexPath.row-1];
     exerciseCell.exerciseLabel.text = exercise.name;
     
     return exerciseCell;
@@ -80,6 +100,26 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
+}
+
+- (void)onCreatedExercise:(id)sender {
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    
+    SBCreateExerciseTableViewCell *cell = (SBCreateExerciseTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    NSString *exerciseName = cell.exerciseField.text;
+    
+    SBExercise *exercise = [[SBExercise alloc] init];
+    exercise.name = exerciseName;
+    
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    
+    [realm beginWriteTransaction];
+    [realm addObject:exercise];
+    [realm commitWriteTransaction];
+    
+    self.exercises = [SBExercise allObjects];
+    [self.tableView reloadData];
+    
 }
 
 
