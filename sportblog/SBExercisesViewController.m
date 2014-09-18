@@ -25,31 +25,36 @@
     self.tableView.delegate = self;
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     
-    /*
-    SBExercise *exercise = [[SBExercise alloc] init];
-    exercise.name = @"Kreuzheuben";
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+    NSString *key = @"exercisesImported";
     
-    SBExercise *exercise2 = [[SBExercise alloc] init];
-    exercise2.name = @"Bankdrücken";
-    
-    SBExercise *exercise3 = [[SBExercise alloc] init];
-    exercise3.name = @"Butterfly";
-    
-    SBExercise *exercise4 = [[SBExercise alloc] init];
-    exercise4.name = @"Bizeps";
-    
-    SBExercise *exercise5 = [[SBExercise alloc] init];
-    exercise5.name = @"Trizeps";
-    
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    [realm beginWriteTransaction];
-    [realm addObject:exercise];
+    if([preferences objectForKey:key] == nil) {
+        SBExercise *exercise = [[SBExercise alloc] init];
+        exercise.name = @"Kreuzheuben";
+        
+        SBExercise *exercise2 = [[SBExercise alloc] init];
+        exercise2.name = @"Bankdrücken";
+        
+        SBExercise *exercise3 = [[SBExercise alloc] init];
+        exercise3.name = @"Butterfly";
+        
+        SBExercise *exercise4 = [[SBExercise alloc] init];
+        exercise4.name = @"Bizeps";
+        
+        SBExercise *exercise5 = [[SBExercise alloc] init];
+        exercise5.name = @"Trizeps";
+        
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        [realm beginWriteTransaction];
+        [realm addObject:exercise];
         [realm addObject:exercise2];
         [realm addObject:exercise3];
         [realm addObject:exercise4];
         [realm addObject:exercise5];
-    [realm commitWriteTransaction];
-     */
+        [realm commitWriteTransaction];
+        
+        [preferences setInteger:1 forKey:key];
+    }
     
     self.exercises = [SBExercise allObjects];
 }
