@@ -50,6 +50,7 @@ UIActionSheet *actionSheet;
         }
     }
     
+    self.tableView.delegate = self;
     self.tableView.backgroundColor = [UIColor clearColor];
     
     self.view.backgroundColor = [UIColor colorWithRed:140.0f/255.0f green:150.0f/255.0f blue:160.0f/255.0f alpha:1];
@@ -116,7 +117,6 @@ UIActionSheet *actionSheet;
     picker.showsSelectionIndicator = YES;
     picker.dataSource = self;
     picker.delegate = self;
-
     
     if (indexPath.row == 0) {
         self.isEditSet = YES;

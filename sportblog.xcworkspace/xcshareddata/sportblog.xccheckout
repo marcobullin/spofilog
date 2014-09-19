@@ -10,29 +10,29 @@
 	<string>sportblog</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>87539228-5281-4EAC-A1DD-0329DA4FA719</key>
+		<key>1DA9BCD9AFE189466DE04BDC77C7E6F86E1AF75F</key>
 		<string>https://bitbucket.org/marcobullin/sportblog.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>sportblog.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>87539228-5281-4EAC-A1DD-0329DA4FA719</key>
+		<key>1DA9BCD9AFE189466DE04BDC77C7E6F86E1AF75F</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://bitbucket.org/marcobullin/sportblog.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>87539228-5281-4EAC-A1DD-0329DA4FA719</string>
+	<string>1DA9BCD9AFE189466DE04BDC77C7E6F86E1AF75F</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>87539228-5281-4EAC-A1DD-0329DA4FA719</string>
+			<string>1DA9BCD9AFE189466DE04BDC77C7E6F86E1AF75F</string>
 			<key>IDESourceControlWCCName</key>
 			<string>sportblog</string>
 		</dict>

@@ -85,7 +85,7 @@
     
     NSString *tutorialKey = [NSString stringWithFormat:@"%@_%@_tutorial_%@", NSStringFromClass ([self class]), NSStringFromSelector(_cmd), infoText];
     
-    BOOL wasShown = false;//[[NSUserDefaults standardUserDefaults] boolForKey:tutorialKey];
+    BOOL wasShown = [[NSUserDefaults standardUserDefaults] boolForKey:tutorialKey];
     
     if (wasShown) {
         return;
