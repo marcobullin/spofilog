@@ -15,7 +15,7 @@
 - (void)addExercisesViewController:(SBExercisesViewController *)controller didSelectExercise:(SBExercise *) exercise;
 @end
 
-@interface SBExercisesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SBExercisesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) id <SBExerciseViewControllerDelegate> delegate;
 

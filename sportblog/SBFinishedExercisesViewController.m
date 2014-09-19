@@ -49,6 +49,10 @@
     self.tabView.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
     self.tabView.delegate = self;
     
+    self.tableView.backgroundColor = [UIColor clearColor];
+    
+    self.view.backgroundColor = [UIColor colorWithRed:140.0f/255.0f green:150.0f/255.0f blue:160.0f/255.0f alpha:1];
+    
     [self.view addSubview:self.tabView];
 }
 

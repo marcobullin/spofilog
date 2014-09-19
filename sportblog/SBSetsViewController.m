@@ -26,6 +26,9 @@
     self.navigationItem.hidesBackButton = YES;
     
     self.tableView.dataSource = self;
+    self.tableView.backgroundColor = [UIColor clearColor];
+    
+    self.view.backgroundColor = [UIColor colorWithRed:140.0f/255.0f green:150.0f/255.0f blue:160.0f/255.0f alpha:1];
     
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onDoneSets:)];
     self.navigationItem.rightBarButtonItem = doneButton;
@@ -66,7 +69,9 @@
             addSetCell = [nib objectAtIndex:0];
         }
         
+        addSetCell.backgroundColor = [UIColor clearColor];
         addSetCell.addEntryLabel.text = NSLocalizedString(@"Add new set", nil);
+        addSetCell.addEntryLabel.textColor = [UIColor whiteColor];
         
         return addSetCell;
     }
@@ -83,9 +88,12 @@
     
     SBSet *set = [self.sets objectAtIndex:index];
     
+    setCell.backgroundColor = [UIColor clearColor];
     setCell.leftLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Set - %d", nil), set.number];
     setCell.rightLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%.01fkg | %dreps", nil), set.weight, set.repetitions];
-
+    setCell.leftLabel.textColor = [UIColor whiteColor];
+    setCell.rightLabel.textColor = [UIColor whiteColor];
+    
     return setCell;
 }
 

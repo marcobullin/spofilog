@@ -47,12 +47,15 @@ RKTabItem *tabItem2;
     self.tabView.horizontalInsets = HorizontalEdgeInsetsMake(25, 25);
     self.tabView.darkensBackgroundForEnabledTabs = YES;
     self.tabView.enabledTabBackgrondColor = [UIColor colorWithRed:0.8 green:0.8 blue:1 alpha:1];
-    self.tabView.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
+    self.tabView.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:0.8];
     self.tabView.delegate = self;
   
     [self.view addSubview:self.tabView];
     
     self.tableView.dataSource = self;
+    self.tableView.backgroundColor = [UIColor clearColor];
+    
+    self.view.backgroundColor = [UIColor colorWithRed:140.0f/255.0f green:150.0f/255.0f blue:160.0f/255.0f alpha:1];
     
     self.workouts = [[SBWorkout allObjects] arraySortedByProperty:@"date" ascending:NO];
  
@@ -84,9 +87,13 @@ RKTabItem *tabItem2;
         workoutCell = [nib objectAtIndex:0];
     }
     
+    workoutCell.backgroundColor = [UIColor clearColor];
+    
     SBWorkout *workout = [self.workouts objectAtIndex:indexPath.row];
     workoutCell.leftLabel.text = workout.name;
     workoutCell.rightLabel.text = [self.dateFormatter stringFromDate:workout.date];
+    workoutCell.leftLabel.textColor = [UIColor whiteColor];
+    workoutCell.rightLabel.textColor = [UIColor whiteColor];
     
     return workoutCell;
 }

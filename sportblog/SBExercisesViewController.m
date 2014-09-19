@@ -24,6 +24,9 @@
     self.navigationItem.title = NSLocalizedString(@"Exercises", nil);
     self.tableView.delegate = self;
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
+    self.tableView.backgroundColor = [UIColor clearColor];
+    
+    self.view.backgroundColor = [UIColor colorWithRed:140.0f/255.0f green:150.0f/255.0f blue:160.0f/255.0f alpha:1];
     
     NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
     NSString *key = @"exercisesImported";
@@ -99,10 +102,14 @@
             NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBCreateExerciseTableViewCell" owner:self options:nil];
             createExerciseCell = [nib objectAtIndex:0];
         }
-        
+
+        createExerciseCell.backgroundColor = [UIColor clearColor];
+        createExerciseCell.exerciseField.backgroundColor = [UIColor clearColor];
         createExerciseCell.exerciseField.placeholder = NSLocalizedString(@"New exercise", nil);
-        [createExerciseCell.addButton setTitle:NSLocalizedString(@"Create", nil) forState:UIControlStateNormal];
-        [createExerciseCell.addButton addTarget:self action:@selector(onCreatedExercise:) forControlEvents:UIControlEventTouchUpInside];
+        createExerciseCell.exerciseField.delegate = self;
+        createExerciseCell.exerciseField.textColor = [UIColor whiteColor];
+        createExerciseCell.exerciseField.layer.borderColor = [[UIColor whiteColor] CGColor];
+        createExerciseCell.exerciseField.layer.borderWidth = 1.0;
         
         return createExerciseCell;
     }
@@ -117,26 +124,15 @@
     }
     
     SBExercise *exercise = [self.exercises objectAtIndex:indexPath.row-1];
+    exerciseCell.backgroundColor = [UIColor clearColor];
     exerciseCell.exerciseLabel.text = exercise.name;
+    exerciseCell.exerciseLabel.textColor = [UIColor whiteColor];
     
     return exerciseCell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
-        return;
-    }
-    
-    SBExercise *exercise = [self.exercises objectAtIndex:indexPath.row - 1];
-    
-    [self.delegate addExercisesViewController:self didSelectExercise:exercise];
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (void)onCreatedExercise:(id)sender {
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     
     SBCreateExerciseTableViewCell *cell = (SBCreateExerciseTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
@@ -144,7 +140,8 @@
                               [NSCharacterSet whitespaceCharacterSet]];
     
     if ([exerciseName isEqualToString:@""]) {
-        return;
+        [textField resignFirstResponder];
+        return YES;
     }
     
     SBExercise *exercise = [[SBExercise alloc] init];
@@ -159,6 +156,23 @@
     self.exercises = [SBExercise allObjects];
     [self.tableView reloadData];
     
+    [textField resignFirstResponder];
+    
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        return;
+    }
+    
+    SBExercise *exercise = [self.exercises objectAtIndex:indexPath.row - 1];
+    
+    [self.delegate addExercisesViewController:self didSelectExercise:exercise];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

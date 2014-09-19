@@ -11,8 +11,7 @@
 
 // SBExercisesViewController
 "Exercises" = "Übungen";
-"New exercise" = "Neue Übung";
-"Create" = "Erstellen";
+"New exercise" = "Neue Übung erstellen";
 
 // SBSetsViewController
 "Add new set" = "Satz hinzufügen";

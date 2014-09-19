@@ -49,6 +49,10 @@ UIActionSheet *actionSheet;
             self.repetitions = 0;
         }
     }
+    
+    self.tableView.backgroundColor = [UIColor clearColor];
+    
+    self.view.backgroundColor = [UIColor colorWithRed:140.0f/255.0f green:150.0f/255.0f blue:160.0f/255.0f alpha:1];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -70,10 +74,15 @@ UIActionSheet *actionSheet;
         cell = [nib objectAtIndex:0];
     }
     
+    cell.backgroundColor = [UIColor clearColor];
+    cell.leftLabel.textColor = [UIColor whiteColor];
+    cell.rightLabel.textColor = [UIColor whiteColor];
+    
     // set cell
     if (indexPath.row == 0) {
         cell.leftLabel.text = NSLocalizedString(@"Set", nil);
         cell.rightLabel.text = [NSString stringWithFormat:@"%d", self.number];
+        
         return cell;
     }
     

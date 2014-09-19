@@ -44,6 +44,7 @@
 		B3AC2EE019CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3AC2EDE19CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.xib */; };
 		B3AC2EE419CC1B5700FFD8FD /* DKCircleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2EE319CC1B5700FFD8FD /* DKCircleImageView.m */; };
 		B3AC2EE719CC1B6D00FFD8FD /* UIViewController+Tutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2EE619CC1B6D00FFD8FD /* UIViewController+Tutorial.m */; };
+		B3AC2EF419CC599F00FFD8FD /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3AC2EF219CC599F00FFD8FD /* Main_iPhone.storyboard */; };
 		BC4C89146E544EFE9221C7EE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3902127B8514FFFA9109974 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +121,7 @@
 		B3AC2EE619CC1B6D00FFD8FD /* UIViewController+Tutorial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Tutorial.m"; sourceTree = "<group>"; };
 		B3AC2EEE19CC46FE00FFD8FD /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B3AC2EEF19CC46FE00FFD8FD /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B3AC2EF319CC599F00FFD8FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		D3902127B8514FFFA9109974 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -205,6 +207,7 @@
 		8086D42E19BCBF16004ADBB6 /* sportblog */ = {
 			isa = PBXGroup;
 			children = (
+				B3AC2EF219CC599F00FFD8FD /* Main_iPhone.storyboard */,
 				B3AC2EE119CC1B2C00FFD8FD /* ThirdParty */,
 				805DE24219BF9C4A00472322 /* Cells */,
 				8086D43719BCBF16004ADBB6 /* SBAppDelegate.h */,
@@ -361,6 +364,7 @@
 			files = (
 				B3AB6A0C19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib in Resources */,
 				B3AC2EE019CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.xib in Resources */,
+				B3AC2EF419CC599F00FFD8FD /* Main_iPhone.storyboard in Resources */,
 				805DE23C19BF93CB00472322 /* SBAddEntryTableViewCell.xib in Resources */,
 				805DE24119BF93DC00472322 /* SBExerciseTableViewCell.xib in Resources */,
 				8086D44419BCBF16004ADBB6 /* Images.xcassets in Resources */,
@@ -479,6 +483,14 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
+		B3AC2EF219CC599F00FFD8FD /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B3AC2EF319CC599F00FFD8FD /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -566,7 +578,7 @@
 				INFOPLIST_FILE = "sportblog/sportblog-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -583,7 +595,7 @@
 				INFOPLIST_FILE = "sportblog/sportblog-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

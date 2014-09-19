@@ -32,6 +32,8 @@
     
     self.tableView.dataSource = self;
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
+    self.tableView.backgroundColor = [UIColor clearColor];
+    
     self.navigationItem.hidesBackButton = YES;
     
     if (self.workout == nil) {
@@ -43,6 +45,8 @@
                            atPoint:CGPointMake(160, self.view.frame.size.height / 2 - 50)
               withFingerprintPoint:CGPointMake(50, 85)
               shouldHideBackground:NO];
+    
+    self.view.backgroundColor = [UIColor colorWithRed:140.0f/255.0f green:150.0f/255.0f blue:160.0f/255.0f alpha:1];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -113,6 +117,11 @@
         
         workoutCell.leftLabel.text = self.workout.name ?: NSLocalizedString(@"Workout", nil);
         workoutCell.rightLabel.text = [self.dateFormatter stringFromDate:self.workout.date];
+        workoutCell.leftLabel.textColor = [UIColor whiteColor];
+        workoutCell.rightLabel.textColor = [UIColor whiteColor];
+        
+        workoutCell.backgroundColor = [UIColor clearColor];
+        
         
         return workoutCell;
     }
@@ -129,9 +138,13 @@
         
         editWorkoutCell.workoutTextField.text = self.workout.name;
         editWorkoutCell.workoutTextField.placeholder = NSLocalizedString(@"Workout", nil);
+        editWorkoutCell.workoutTextField.textColor = [UIColor whiteColor];
+        editWorkoutCell.workoutTextField.layer.borderColor = [[UIColor whiteColor] CGColor];
+        editWorkoutCell.workoutTextField.layer.borderWidth = 1.0;
         
         editWorkoutCell.datePicker.date = self.workout.date;
-
+        editWorkoutCell.backgroundColor = [UIColor clearColor];
+        
         return editWorkoutCell;
     }
     
@@ -146,6 +159,7 @@
         }
         
         addExerciseCell.addEntryLabel.text = NSLocalizedString(@"Add exercise", nil);
+        addExerciseCell.backgroundColor = [UIColor clearColor];
         
         return addExerciseCell;
     }
@@ -169,6 +183,10 @@
     
     exerciseCell.leftLabel.text = exercise.name;
     exerciseCell.rightLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%d Sets", nil), [exercise.sets count]];
+    exerciseCell.leftLabel.textColor = [UIColor whiteColor];
+    exerciseCell.rightLabel.textColor = [UIColor whiteColor];
+    
+    exerciseCell.backgroundColor = [UIColor clearColor];
     
     return exerciseCell;
 }
