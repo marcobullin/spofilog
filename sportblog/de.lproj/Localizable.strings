@@ -1,0 +1,25 @@
+// SBWorkoutsViewController
+"Workouts" = "Workouts";
+"Add a new workout" = "Workout hinzufügen";
+
+// SBWorkoutViewController
+"Workout" = "Workout";
+"Touch to edit workout" = "Workout bearbeiten";
+"Add exercise" = "Übung hinzufügen";
+"%d Sets" = "%d Sätze";
+"Touch to add or edit sets" = "Sätze hinzufügen oder bearbeiten";
+
+// SBExercisesViewController
+"Exercises" = "Übungen";
+"New exercise" = "Neue Übung";
+"Create" = "Erstellen";
+
+// SBSetsViewController
+"Add new set" = "Satz hinzufügen";
+"Set - %d" = "%d. Satz";
+"%.01fkg | %dreps" = "%.01fkg | %dWdh";
+
+// SBSetViewController
+"Set" = "Satz";
+"Weight" = "Gewicht";
+"Repetitions" = "Wiederholungen";

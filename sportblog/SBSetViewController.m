@@ -72,20 +72,20 @@ UIActionSheet *actionSheet;
     
     // set cell
     if (indexPath.row == 0) {
-        cell.leftLabel.text = NSLocalizedString(@"Satz", nil);
+        cell.leftLabel.text = NSLocalizedString(@"Set", nil);
         cell.rightLabel.text = [NSString stringWithFormat:@"%d", self.number];
         return cell;
     }
     
     // weight cell
     if (indexPath.row == 1) {
-        cell.leftLabel.text = NSLocalizedString(@"Gewicht", nil);
+        cell.leftLabel.text = NSLocalizedString(@"Weight", nil);
         cell.rightLabel.text = [NSString stringWithFormat:@"%.01fkg", self.weight];
         return cell;
     }
 
     // repetition cell
-    cell.leftLabel.text = NSLocalizedString(@"Wiederholungen", nil);
+    cell.leftLabel.text = NSLocalizedString(@"Repetitions", nil);
     cell.rightLabel.text = [NSString stringWithFormat:@"%d", self.repetitions];
     
     return cell;
@@ -114,7 +114,7 @@ UIActionSheet *actionSheet;
         self.isEditWeight = NO;
         self.isEditRepetitions = NO;
         [picker selectRow:self.number-1 inComponent:0 animated:NO];
-        [actionSheet addSubview:[self createToolbar:@"Satz"]];
+        [actionSheet addSubview:[self createToolbar:NSLocalizedString(@"Set", nil)]];
     }
     
     if (indexPath.row == 1) {
@@ -130,7 +130,7 @@ UIActionSheet *actionSheet;
         [picker selectRow:first inComponent:0 animated:NO];
         [picker selectRow:last inComponent:2 animated:NO];
         
-        [actionSheet addSubview:[self createToolbar:@"Gewicht"]];
+        [actionSheet addSubview:[self createToolbar:NSLocalizedString(@"Weight", nil)]];
     }
     
     if (indexPath.row == 2) {
@@ -138,7 +138,7 @@ UIActionSheet *actionSheet;
         self.isEditWeight = NO;
         self.isEditRepetitions = YES;
         [picker selectRow:self.repetitions inComponent:0 animated:NO];
-        [actionSheet addSubview:[self createToolbar:@"Wiederholungen"]];
+        [actionSheet addSubview:[self createToolbar:NSLocalizedString(@"Repetitions", nil)]];
     }
     
     [actionSheet addSubview:picker];

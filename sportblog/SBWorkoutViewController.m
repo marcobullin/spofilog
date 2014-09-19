@@ -128,7 +128,7 @@
         }
         
         editWorkoutCell.workoutTextField.text = self.workout.name;
-        editWorkoutCell.workoutTextField.placeholder = @"Workout";
+        editWorkoutCell.workoutTextField.placeholder = NSLocalizedString(@"Workout", nil);
         
         editWorkoutCell.datePicker.date = self.workout.date;
 
@@ -145,7 +145,7 @@
             addExerciseCell = [nib objectAtIndex:0];
         }
         
-        addExerciseCell.addEntryLabel.text = @"Add exercise";
+        addExerciseCell.addEntryLabel.text = NSLocalizedString(@"Add exercise", nil);
         
         return addExerciseCell;
     }
@@ -168,7 +168,7 @@
     SBExerciseSet *exercise = [self.workout.exercises objectAtIndex:index];
     
     exerciseCell.leftLabel.text = exercise.name;
-    exerciseCell.rightLabel.text = [NSString stringWithFormat:@"%d Sets", [exercise.sets count]];
+    exerciseCell.rightLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%d Sets", nil), [exercise.sets count]];
     
     return exerciseCell;
 }
@@ -244,7 +244,7 @@
     UITextField *textField = (UITextField *) sender;
     NSString *workoutName = textField.text;
     if ([workoutName isEqualToString:@""]) {
-        workoutName = @"Workout";
+        workoutName = NSLocalizedString(@"Workout", nil);
     }
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];

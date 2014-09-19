@@ -30,19 +30,19 @@
     
     if([preferences objectForKey:key] == nil) {
         SBExercise *exercise = [[SBExercise alloc] init];
-        exercise.name = @"Kreuzheuben";
+        exercise.name = NSLocalizedString(@"Kreuzheuben", nil);
         
         SBExercise *exercise2 = [[SBExercise alloc] init];
-        exercise2.name = @"Bankdrücken";
+        exercise2.name = NSLocalizedString(@"Bankdrücken", nil);
         
         SBExercise *exercise3 = [[SBExercise alloc] init];
-        exercise3.name = @"Butterfly";
+        exercise3.name = NSLocalizedString(@"Butterfly", nil);
         
         SBExercise *exercise4 = [[SBExercise alloc] init];
-        exercise4.name = @"Bizeps";
+        exercise4.name = NSLocalizedString(@"Bizeps", nil);
         
         SBExercise *exercise5 = [[SBExercise alloc] init];
-        exercise5.name = @"Trizeps";
+        exercise5.name = NSLocalizedString(@"Trizeps", nil);
         
         RLMRealm *realm = [RLMRealm defaultRealm];
         [realm beginWriteTransaction];
@@ -100,8 +100,8 @@
             createExerciseCell = [nib objectAtIndex:0];
         }
         
-        createExerciseCell.exerciseField.placeholder = @"New exercise";
-        [createExerciseCell.addButton setTitle:@"Create" forState:UIControlStateNormal];
+        createExerciseCell.exerciseField.placeholder = NSLocalizedString(@"New exercise", nil);
+        [createExerciseCell.addButton setTitle:NSLocalizedString(@"Create", nil) forState:UIControlStateNormal];
         [createExerciseCell.addButton addTarget:self action:@selector(onCreatedExercise:) forControlEvents:UIControlEventTouchUpInside];
         
         return createExerciseCell;
@@ -140,7 +140,12 @@
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     
     SBCreateExerciseTableViewCell *cell = (SBCreateExerciseTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-    NSString *exerciseName = cell.exerciseField.text;
+    NSString *exerciseName = [cell.exerciseField.text stringByTrimmingCharactersInSet:
+                              [NSCharacterSet whitespaceCharacterSet]];
+    
+    if ([exerciseName isEqualToString:@""]) {
+        return;
+    }
     
     SBExercise *exercise = [[SBExercise alloc] init];
     exercise.name = exerciseName;

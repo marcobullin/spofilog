@@ -66,7 +66,7 @@
             addSetCell = [nib objectAtIndex:0];
         }
         
-        addSetCell.addEntryLabel.text = @"Add new set";
+        addSetCell.addEntryLabel.text = NSLocalizedString(@"Add new set", nil);
         
         return addSetCell;
     }
@@ -83,8 +83,8 @@
     
     SBSet *set = [self.sets objectAtIndex:index];
     
-    setCell.leftLabel.text = [NSString stringWithFormat:@"Set - %d", set.number];
-    setCell.rightLabel.text = [NSString stringWithFormat:@"%.01fkg | %dreps", set.weight, set.repetitions];
+    setCell.leftLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Set - %d", nil), set.number];
+    setCell.rightLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%.01fkg | %dreps", nil), set.weight, set.repetitions];
 
     return setCell;
 }
