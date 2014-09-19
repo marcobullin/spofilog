@@ -44,6 +44,8 @@
 		B3AC2ED319C322A300FFD8FD /* SBSetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2ED219C322A300FFD8FD /* SBSetsViewController.m */; };
 		B3AC2EDF19CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2EDD19CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.m */; };
 		B3AC2EE019CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3AC2EDE19CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.xib */; };
+		B3AC2EE419CC1B5700FFD8FD /* DKCircleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2EE319CC1B5700FFD8FD /* DKCircleImageView.m */; };
+		B3AC2EE719CC1B6D00FFD8FD /* UIViewController+Tutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2EE619CC1B6D00FFD8FD /* UIViewController+Tutorial.m */; };
 		BC4C89146E544EFE9221C7EE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3902127B8514FFFA9109974 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +118,10 @@
 		B3AC2EDC19CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBCreateExerciseTableViewCell.h; sourceTree = "<group>"; };
 		B3AC2EDD19CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBCreateExerciseTableViewCell.m; sourceTree = "<group>"; };
 		B3AC2EDE19CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBCreateExerciseTableViewCell.xib; sourceTree = "<group>"; };
+		B3AC2EE219CC1B5700FFD8FD /* DKCircleImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKCircleImageView.h; sourceTree = "<group>"; };
+		B3AC2EE319CC1B5700FFD8FD /* DKCircleImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKCircleImageView.m; sourceTree = "<group>"; };
+		B3AC2EE519CC1B6D00FFD8FD /* UIViewController+Tutorial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Tutorial.h"; sourceTree = "<group>"; };
+		B3AC2EE619CC1B6D00FFD8FD /* UIViewController+Tutorial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Tutorial.m"; sourceTree = "<group>"; };
 		D3902127B8514FFFA9109974 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -201,6 +207,7 @@
 		8086D42E19BCBF16004ADBB6 /* sportblog */ = {
 			isa = PBXGroup;
 			children = (
+				B3AC2EE119CC1B2C00FFD8FD /* ThirdParty */,
 				805DE24219BF9C4A00472322 /* Cells */,
 				8086D43719BCBF16004ADBB6 /* SBAppDelegate.h */,
 				8086D43819BCBF16004ADBB6 /* SBAppDelegate.m */,
@@ -263,6 +270,17 @@
 				8086D45319BCBF16004ADBB6 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B3AC2EE119CC1B2C00FFD8FD /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				B3AC2EE219CC1B5700FFD8FD /* DKCircleImageView.h */,
+				B3AC2EE319CC1B5700FFD8FD /* DKCircleImageView.m */,
+				B3AC2EE519CC1B6D00FFD8FD /* UIViewController+Tutorial.h */,
+				B3AC2EE619CC1B6D00FFD8FD /* UIViewController+Tutorial.m */,
+			);
+			name = ThirdParty;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -415,6 +433,8 @@
 				80B6016A19C9B8D800CC455A /* SBFinishedExercisesViewController.m in Sources */,
 				805DE22C19BF8E6500472322 /* SBWorkoutViewController.m in Sources */,
 				805DE24819C4C19000472322 /* SBSetViewController.m in Sources */,
+				B3AC2EE419CC1B5700FFD8FD /* DKCircleImageView.m in Sources */,
+				B3AC2EE719CC1B6D00FFD8FD /* UIViewController+Tutorial.m in Sources */,
 				B3AB6A0B19C059A70002EDF9 /* SBEditWorkoutTableViewCell.m in Sources */,
 				805DE24519C4BE1900472322 /* SBExerciseSet.m in Sources */,
 				8086D44219BCBF16004ADBB6 /* SBWorkoutsViewController.m in Sources */,
@@ -563,7 +583,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sportblog/sportblog-Prefix.pch";
 				INFOPLIST_FILE = "sportblog/sportblog-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -578,7 +600,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sportblog/sportblog-Prefix.pch";
 				INFOPLIST_FILE = "sportblog/sportblog-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

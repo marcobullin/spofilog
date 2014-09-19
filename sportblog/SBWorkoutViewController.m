@@ -14,6 +14,7 @@
 #import "SBExercisesViewController.h"
 #import "SBSetsViewController.h"
 #import "SBExerciseSet.h"
+#import "UIViewController+Tutorial.h"
 
 @interface SBWorkoutViewController ()
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
@@ -37,6 +38,11 @@
         self.workout = [[SBWorkout alloc] init];
         self.workout.date = [NSDate date];
     }
+    
+    [self startTapTutorialWithInfo:NSLocalizedString(@"Touch to edit workout", nil)
+                           atPoint:CGPointMake(160, self.view.frame.size.height / 2 - 50)
+              withFingerprintPoint:CGPointMake(50, 85)
+              shouldHideBackground:NO];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -282,6 +288,12 @@
 }
 
 - (void)addExercisesViewController:(SBExercisesViewController *)controller didSelectExercise:(SBExercise *) exercise {
+    
+    [self startTapTutorialWithInfo:NSLocalizedString(@"Touch to add or edit sets", nil)
+                           atPoint:CGPointMake(160, self.view.frame.size.height / 2 + 50)
+              withFingerprintPoint:CGPointMake(50, 180)
+              shouldHideBackground:NO];
+    
     SBExerciseSet *exerciseSet =  [[SBExerciseSet alloc] init];
     exerciseSet.name = exercise.name;
     exerciseSet.date = self.workout.date;

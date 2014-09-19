@@ -12,6 +12,7 @@
 #import "SBWorkoutViewController.h"
 #import "SBStatisticViewController.h"
 #import "SBFinishedExercisesViewController.h"
+#import "UIViewController+Tutorial.h"
 
 @interface SBWorkoutsViewController ()
 @property (nonatomic, strong) RKTabView *tabView;
@@ -54,6 +55,11 @@ RKTabItem *tabItem2;
     self.tableView.dataSource = self;
     
     self.workouts = [[SBWorkout allObjects] arraySortedByProperty:@"date" ascending:NO];
+ 
+    [self startTapTutorialWithInfo:NSLocalizedString(@"Add a new workout", nil)
+                           atPoint:CGPointMake(160, self.view.frame.size.height / 2 - 50)
+              withFingerprintPoint:CGPointMake(self.view.frame.size.width - 25, 42)
+              shouldHideBackground:NO];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

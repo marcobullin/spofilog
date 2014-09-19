@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <RKTabView.h>
 
-
 @interface SBWorkoutsViewController : UIViewController <RKTabViewDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
