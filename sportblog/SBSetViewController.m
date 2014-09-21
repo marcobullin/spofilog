@@ -19,7 +19,7 @@
 
 @implementation SBSetViewController
 UIPickerView *picker;
-UIActionSheet *actionSheet;
+UIView *changeView;
 
 - (void)viewDidLoad
 {
@@ -102,15 +102,11 @@ UIActionSheet *actionSheet;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+ 
+    changeView = [[UIView alloc] initWithFrame:CGRectMake(0, self.tableView.frame.size.height, self.tableView.frame.size.width, 200)];
+    changeView.backgroundColor = [UIColor colorWithRed:200.0f/255.0f green:200.0f/255.0f blue:200.0f/255.0f alpha:0.8];
     
-    actionSheet = [[UIActionSheet alloc] initWithTitle:nil
-                                              delegate:self
-                                     cancelButtonTitle:nil
-                                destructiveButtonTitle:nil
-                                     otherButtonTitles:nil];
-
-    [actionSheet showInView:[self.view window]];
-    [actionSheet setBounds:CGRectMake(0, 0, 320, 390)];
+    [self.view addSubview:changeView];
     
     picker = [[UIPickerView alloc] init];
     picker.frame = CGRectMake(0, 44, 320, 162);
@@ -123,7 +119,7 @@ UIActionSheet *actionSheet;
         self.isEditWeight = NO;
         self.isEditRepetitions = NO;
         [picker selectRow:self.number-1 inComponent:0 animated:NO];
-        [actionSheet addSubview:[self createToolbar:NSLocalizedString(@"Set", nil)]];
+        [changeView addSubview:[self createToolbar:NSLocalizedString(@"Set", nil)]];
     }
     
     if (indexPath.row == 1) {
@@ -139,7 +135,7 @@ UIActionSheet *actionSheet;
         [picker selectRow:first inComponent:0 animated:NO];
         [picker selectRow:last inComponent:2 animated:NO];
         
-        [actionSheet addSubview:[self createToolbar:NSLocalizedString(@"Weight", nil)]];
+       [changeView addSubview:[self createToolbar:NSLocalizedString(@"Weight", nil)]];
     }
     
     if (indexPath.row == 2) {
@@ -147,10 +143,14 @@ UIActionSheet *actionSheet;
         self.isEditWeight = NO;
         self.isEditRepetitions = YES;
         [picker selectRow:self.repetitions inComponent:0 animated:NO];
-        [actionSheet addSubview:[self createToolbar:NSLocalizedString(@"Repetitions", nil)]];
+        [changeView addSubview:[self createToolbar:NSLocalizedString(@"Repetitions", nil)]];
     }
     
-    [actionSheet addSubview:picker];
+    [changeView addSubview:picker];
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        changeView.frame = CGRectMake(0, self.tableView.frame.size.height - changeView.frame.size.height,self.tableView.frame.size.width, 200);
+    }];
 }
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
@@ -184,7 +184,7 @@ UIActionSheet *actionSheet;
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     if (self.isEditWeight) {
         if (component == 0 || component == 2) {
-            return [NSString stringWithFormat:@"%d", row];
+            return [NSString stringWithFormat:@"%ld", row];
         }
         
         if (component == 1) {
@@ -197,10 +197,10 @@ UIActionSheet *actionSheet;
     }
     
     if (self.isEditSet) {
-        return [NSString stringWithFormat:@"%d", row + 1];
+        return [NSString stringWithFormat:@"%ld", row + 1];
     }
     
-    return [NSString stringWithFormat:@"%d", row];
+    return [NSString stringWithFormat:@"%ld", row];
 }
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
@@ -252,11 +252,11 @@ UIActionSheet *actionSheet;
 - (void)done:(id)sender {
     
     if (self.isEditSet) {
-        self.number = [picker selectedRowInComponent:0]+1;
+        self.number = [picker selectedRowInComponent:0] + 1;
     }
     
     if (self.isEditWeight) {
-        self.weight = [[NSString stringWithFormat:@"%d.%d", [picker selectedRowInComponent:0], [picker selectedRowInComponent:2]] floatValue];
+        self.weight = [[NSString stringWithFormat:@"%ld.%ld", [picker selectedRowInComponent:0], [picker selectedRowInComponent:2]] floatValue];
     }
     
     if (self.isEditRepetitions) {
@@ -265,11 +265,19 @@ UIActionSheet *actionSheet;
     
     [self.tableView reloadData];
     
-    [actionSheet dismissWithClickedButtonIndex:0 animated:YES];
+    [UIView animateWithDuration:.5 animations:^{
+        changeView.frame = CGRectMake(0, self.tableView.frame.size.height, self.tableView.frame.size.width, 200);
+    } completion:^(BOOL finished) {
+        [changeView removeFromSuperview];
+    }];
 }
     
 - (void)cancel:(id)sender {
-    [actionSheet dismissWithClickedButtonIndex:0 animated:YES];
+    [UIView animateWithDuration:.5 animations:^{
+        changeView.frame = CGRectMake(0, self.tableView.frame.size.height, self.tableView.frame.size.width, 200);
+    } completion:^(BOOL finished) {
+        [changeView removeFromSuperview];
+    }];
 }
 
 - (void)onDone:(id)sender {
