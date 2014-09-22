@@ -29,6 +29,8 @@
     // Apply the migration block above to the default Realm
     [RLMRealm migrateDefaultRealmWithBlock:migrationBlock];
     
+//    self.window.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"hantel.png"]];
+    
     return YES;
 }
 							

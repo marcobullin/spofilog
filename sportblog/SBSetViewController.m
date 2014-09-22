@@ -53,7 +53,10 @@ UIView *changeView;
     self.tableView.delegate = self;
     self.tableView.backgroundColor = [UIColor clearColor];
     
-    self.view.backgroundColor = [UIColor colorWithRed:140.0f/255.0f green:150.0f/255.0f blue:160.0f/255.0f alpha:1];
+    //self.view.backgroundColor = [UIColor colorWithRed:140.0f/255.0f green:150.0f/255.0f blue:160.0f/255.0f alpha:1];
+    UIImageView *imageView = [[UIImageView alloc] init];
+    [imageView setImage:[UIImage imageNamed:@"hantel.png"]];
+    [self.tableView setBackgroundView:imageView];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -182,9 +185,10 @@ UIView *changeView;
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    
     if (self.isEditWeight) {
         if (component == 0 || component == 2) {
-            return [NSString stringWithFormat:@"%ld", row];
+            return [NSString stringWithFormat:@"%d", (int)row];
         }
         
         if (component == 1) {
@@ -197,10 +201,10 @@ UIView *changeView;
     }
     
     if (self.isEditSet) {
-        return [NSString stringWithFormat:@"%ld", row + 1];
+        return [NSString stringWithFormat:@"%d", (int)row + 1];
     }
     
-    return [NSString stringWithFormat:@"%ld", row];
+    return [NSString stringWithFormat:@"%d", (int)row];
 }
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
@@ -256,7 +260,7 @@ UIView *changeView;
     }
     
     if (self.isEditWeight) {
-        self.weight = [[NSString stringWithFormat:@"%ld.%ld", [picker selectedRowInComponent:0], [picker selectedRowInComponent:2]] floatValue];
+        self.weight = [[NSString stringWithFormat:@"%d.%d", [picker selectedRowInComponent:0], [picker selectedRowInComponent:2]] floatValue];
     }
     
     if (self.isEditRepetitions) {

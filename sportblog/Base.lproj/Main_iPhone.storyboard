@@ -29,7 +29,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Usb-oZ-IWM">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="FmD-E4-oKm">
-                            <color key="tintColor" red="0.0" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="Xay-rs-VpW" kind="push" id="Hvc-Uq-v20"/>
                             </connections>
@@ -255,5 +255,5 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <color key="tintColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

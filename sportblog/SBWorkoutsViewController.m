@@ -30,6 +30,12 @@ RKTabItem *tabItem2;
     [super viewDidLoad];
     [self createDateFormatter];
     
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"header.png"] forBarMetrics:UIBarMetricsDefault];
+//    self.navigationController.navigationBar.shadowImage = [UIImage new];
+//    self.navigationController.navigationBar.translucent = YES;
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+
+    
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     self.navigationItem.title = NSLocalizedString(@"Workouts", nil);
     
@@ -55,7 +61,11 @@ RKTabItem *tabItem2;
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor clearColor];
     
-    self.view.backgroundColor = [UIColor colorWithRed:140.0f/255.0f green:150.0f/255.0f blue:160.0f/255.0f alpha:1];
+    // self.view.backgroundColor = [UIColor colorWithRed:140.0f/255.0f green:150.0f/255.0f blue:160.0f/255.0f alpha:1];
+    UIImageView *imageView = [[UIImageView alloc] init];
+    [imageView setImage:[UIImage imageNamed:@"hantel.png"]];
+    [self.tableView setBackgroundView:imageView];
+
     
     self.workouts = [[SBWorkout allObjects] arraySortedByProperty:@"date" ascending:NO];
  

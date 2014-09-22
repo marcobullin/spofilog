@@ -51,7 +51,10 @@
     
     self.tableView.backgroundColor = [UIColor clearColor];
     
-    self.view.backgroundColor = [UIColor colorWithRed:140.0f/255.0f green:150.0f/255.0f blue:160.0f/255.0f alpha:1];
+    //self.view.backgroundColor = [UIColor colorWithRed:140.0f/255.0f green:150.0f/255.0f blue:160.0f/255.0f alpha:1];
+    UIImageView *imageView = [[UIImageView alloc] init];
+    [imageView setImage:[UIImage imageNamed:@"hantel.png"]];
+    [self.tableView setBackgroundView:imageView];
     
     [self.view addSubview:self.tabView];
 }
@@ -94,6 +97,9 @@
     }
 }
 
+- (void)tabView:(RKTabView *)tabView tabBecameDisabledAtIndex:(int)index tab:(RKTabItem *)tabItem {
+    
+}
 
 
 @end
