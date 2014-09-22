@@ -107,12 +107,15 @@
         }
 
         createExerciseCell.backgroundColor = [UIColor clearColor];
-        createExerciseCell.exerciseField.backgroundColor = [UIColor clearColor];
         createExerciseCell.exerciseField.placeholder = NSLocalizedString(@"New exercise", nil);
         createExerciseCell.exerciseField.delegate = self;
         createExerciseCell.exerciseField.textColor = [UIColor whiteColor];
-        createExerciseCell.exerciseField.layer.borderColor = [[UIColor whiteColor] CGColor];
-        createExerciseCell.exerciseField.layer.borderWidth = 1.0;
+        createExerciseCell.exerciseField.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.2];
+        
+        UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, createExerciseCell.exerciseField.frame.size.height)];
+        leftView.backgroundColor = [UIColor clearColor];
+        createExerciseCell.exerciseField.leftView = leftView;
+        createExerciseCell.exerciseField.leftViewMode = UITextFieldViewModeAlways;
         
         return createExerciseCell;
     }
@@ -174,6 +177,16 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+        
+        return cell.frame.size.height;
+    }
+    
+    return 44.0;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

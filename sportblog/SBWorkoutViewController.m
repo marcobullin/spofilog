@@ -144,8 +144,12 @@
         editWorkoutCell.workoutTextField.text = self.workout.name;
         editWorkoutCell.workoutTextField.placeholder = NSLocalizedString(@"Workout", nil);
         editWorkoutCell.workoutTextField.textColor = [UIColor whiteColor];
-        editWorkoutCell.workoutTextField.layer.borderColor = [[UIColor whiteColor] CGColor];
-        editWorkoutCell.workoutTextField.layer.borderWidth = 1.0;
+        editWorkoutCell.workoutTextField.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.2];
+        
+        UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, editWorkoutCell.workoutTextField.frame.size.height)];
+        leftView.backgroundColor = [UIColor clearColor];
+        editWorkoutCell.workoutTextField.leftView = leftView;
+        editWorkoutCell.workoutTextField.leftViewMode = UITextFieldViewModeAlways;
         
         editWorkoutCell.datePicker.date = self.workout.date;
         editWorkoutCell.backgroundColor = [UIColor clearColor];
@@ -211,8 +215,8 @@
         if (self.isEditWorkoutDetails) {
             self.isEditWorkoutDetails = NO;
             
-            [workoutCell.leftLabel setTextColor:[UIColor blackColor]];
-            [workoutCell.rightLabel setTextColor:[UIColor blackColor]];
+            [workoutCell.leftLabel setTextColor:[UIColor whiteColor]];
+            [workoutCell.rightLabel setTextColor:[UIColor whiteColor]];
             
             [self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationMiddle];
         } else {
@@ -327,6 +331,23 @@
     
     [self.navigationController popViewControllerAnimated:YES];
     [self.tableView reloadData];
+}
+
+- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
+    cell.contentView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
+    cell.selectedBackgroundView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+}
+
+- (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0 && !self.isEditWorkoutDetails) {
+        return;
+    }
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.backgroundColor = [UIColor clearColor];
+    cell.contentView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
