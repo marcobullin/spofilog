@@ -27,6 +27,7 @@
     
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
     
     self.view.backgroundColor = [UIColor colorWithRed:140.0f/255.0f green:150.0f/255.0f blue:160.0f/255.0f alpha:1];
     
@@ -43,6 +44,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [self.tableView reloadData];
 }
 
@@ -134,6 +136,29 @@
     [self.exercise.realm commitWriteTransaction];
     
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        int index = indexPath.row - 1;
+        
+        [self.sets removeObjectAtIndex:index];
+        
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.tableView setEditing:NO];
 }
 
 @end

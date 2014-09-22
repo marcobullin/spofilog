@@ -66,6 +66,8 @@ RKTabItem *tabItem2;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
     tabItem1.tabState = TabStateEnabled;
     tabItem2.tabState = TabStateDisabled;
     [self.tabView setNeedsDisplay];
@@ -128,13 +130,21 @@ RKTabItem *tabItem2;
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         SBWorkout *workout = [self.workouts objectAtIndex:indexPath.row];
+
+        [RLMRealm.defaultRealm beginWriteTransaction];
         
-        RLMRealm *realm = [RLMRealm defaultRealm];
-        [realm beginWriteTransaction];
-        [realm deleteObject:workout];
-        [realm commitWriteTransaction];
+        for (SBExerciseSet *exercise in workout.exercises) {
+            for (SBSet *set in exercise.sets) {
+                [workout.exercises.realm deleteObject:set];
+            }
+            
+            [workout.realm deleteObject:exercise];
+        }
         
-        [self.tableView reloadData];
+        [RLMRealm.defaultRealm deleteObject:workout];
+        [RLMRealm.defaultRealm commitWriteTransaction];
+        
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
     }
 }
 
@@ -154,8 +164,5 @@ RKTabItem *tabItem2;
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.tableView setEditing:NO];
-}
-
-- (IBAction)createWorkout:(id)sender {
 }
 @end

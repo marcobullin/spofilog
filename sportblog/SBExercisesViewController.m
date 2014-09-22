@@ -82,12 +82,12 @@
         [realm deleteObject:exercise];
         [realm commitWriteTransaction];
         
-        [self.tableView reloadData];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
     }
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.exercises count];
+    return [self.exercises count]+1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -147,11 +147,9 @@
     SBExercise *exercise = [[SBExercise alloc] init];
     exercise.name = exerciseName;
     
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    
-    [realm beginWriteTransaction];
-    [realm addObject:exercise];
-    [realm commitWriteTransaction];
+    [RLMRealm.defaultRealm beginWriteTransaction];
+    [RLMRealm.defaultRealm addObject:exercise];
+    [RLMRealm.defaultRealm commitWriteTransaction];
     
     self.exercises = [SBExercise allObjects];
     [self.tableView reloadData];

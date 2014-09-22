@@ -50,6 +50,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [self.tableView reloadData];
 }
 
@@ -84,7 +85,7 @@
         [self.workout.exercises removeObjectAtIndex:index];
         [self.workout.realm commitWriteTransaction];
         
-        [self.tableView reloadData];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
     }
 }
 
