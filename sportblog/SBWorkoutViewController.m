@@ -51,7 +51,7 @@
               shouldHideBackground:NO];
     
     [self.tableView setBackgroundColor:[UIColor tableViewColor]];
-    [self.tableView setTableFooterView:[UIView new]];
+//    [self.tableView setTableFooterView:[UIView new]];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -198,9 +198,9 @@
     SBExerciseSet *exercise = [self.workout.exercises objectAtIndex:index];
     
     exerciseCell.topLabel.text = exercise.name;
-    exerciseCell.topLabel.textColor = [UIColor whiteColor];
+    exerciseCell.topLabel.textColor = [UIColor textColor];
     exerciseCell.bottomLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%d Sets", nil), [exercise.sets count]];
-    exerciseCell.bottomLabel.textColor = [UIColor whiteColor];
+    exerciseCell.bottomLabel.textColor = [UIColor textColor];
     
     exerciseCell.backgroundColor = [UIColor clearColor];
     exerciseCell.layoutMargins = UIEdgeInsetsZero;

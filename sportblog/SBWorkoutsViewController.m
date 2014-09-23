@@ -72,7 +72,7 @@ RKTabItem *tabItem2;
               withFingerprintPoint:CGPointMake(self.view.frame.size.width - 25, 42)
               shouldHideBackground:NO];
     
-    [self.tableView setTableFooterView:[UIView new]];
+//    [self.tableView setTableFooterView:[UIView new]];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -101,10 +101,10 @@ RKTabItem *tabItem2;
     
     SBWorkout *workout = [self.workouts objectAtIndex:indexPath.row];
     workoutCell.topLabel.text = workout.name;
-    workoutCell.topLabel.textColor = [UIColor whiteColor];
+    workoutCell.topLabel.textColor = [UIColor textColor];
     
     workoutCell.bottomLabel.text = [self.dateFormatter stringFromDate:workout.date];
-    workoutCell.bottomLabel.textColor = [UIColor whiteColor];
+    workoutCell.bottomLabel.textColor = [UIColor textColor];
     workoutCell.backgroundColor = [UIColor clearColor];
     
     workoutCell.layoutMargins = UIEdgeInsetsZero;

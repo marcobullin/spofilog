@@ -13,4 +13,5 @@
 + (UIColor *)tableViewColor;
 + (UIColor *)importantCellColor;
 + (UIColor *)actionCellColor;
++ (UIColor *)textColor;
 @end

@@ -7,7 +7,7 @@
 }
 
 + (UIColor *)tableViewColor {
-    return [UIColor colorWithRed:140.0/255.0f green:190.0/255.0f blue:230.0/255.0f alpha:1];
+    return [UIColor whiteColor];//[UIColor colorWithRed:140.0/255.0f green:190.0/255.0f blue:230.0/255.0f alpha:1];
 }
 
 + (UIColor *)importantCellColor {
@@ -17,4 +17,9 @@
 + (UIColor *)actionCellColor {
     return [UIColor colorWithRed:90.0/255.0f green:175.0/255.0f blue:230.0/255.0f alpha:1];
 }
+
++ (UIColor *)textColor {
+    return [UIColor colorWithRed:51.0/255.0f green:51.0/255.0f blue:51.0/255.0f alpha:1];
+}
+
 @end
