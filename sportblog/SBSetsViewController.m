@@ -10,7 +10,8 @@
 #import "SBSetViewController.h"
 #import "SBAddEntryTableViewCell.h"
 #import "SBSet.h"
-#import "SBLeftRightTableViewCell.h"
+#import "SBSmallTopBottomCell.h"
+#import "UIColor+SBColor.h"
 
 @interface SBSetsViewController ()
 @property (nonatomic, strong) NSMutableArray *sets;
@@ -26,13 +27,9 @@
     self.navigationItem.hidesBackButton = YES;
     
     self.tableView.dataSource = self;
-    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.layoutMargins = UIEdgeInsetsZero;
+    self.tableView.backgroundColor = [UIColor tableViewColor];
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
-    
-    //self.view.backgroundColor = [UIColor colorWithRed:140.0f/255.0f green:150.0f/255.0f blue:160.0f/255.0f alpha:1];
-    UIImageView *imageView = [[UIImageView alloc] init];
-    [imageView setImage:[UIImage imageNamed:@"hantel.png"]];
-    [self.tableView setBackgroundView:imageView];
     
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onDoneSets:)];
     self.navigationItem.rightBarButtonItem = doneButton;
@@ -74,17 +71,20 @@
             addSetCell = [nib objectAtIndex:0];
         }
         
-        addSetCell.backgroundColor = [UIColor clearColor];
+        addSetCell.backgroundColor = [UIColor actionCellColor];
         addSetCell.addEntryLabel.text = NSLocalizedString(@"Add new set", nil);
         addSetCell.addEntryLabel.textColor = [UIColor whiteColor];
+        addSetCell.layoutMargins = UIEdgeInsetsZero;
+        addSetCell.separatorInset = UIEdgeInsetsMake(0.f, 0.f, 0.f, addSetCell.bounds.size.width);
+        addSetCell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return addSetCell;
     }
     
-    SBLeftRightTableViewCell *setCell = (SBLeftRightTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    SBSmallTopBottomCell *setCell = (SBSmallTopBottomCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (setCell == nil) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBLeftRightTableViewCell" owner:self options:nil];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBSmallTopBottomCell" owner:self options:nil];
         setCell = [nib objectAtIndex:0];
     }
     
@@ -94,10 +94,12 @@
     SBSet *set = [self.sets objectAtIndex:index];
     
     setCell.backgroundColor = [UIColor clearColor];
-    setCell.leftLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Set - %d", nil), set.number];
-    setCell.rightLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%.01fkg | %dreps", nil), set.weight, set.repetitions];
-    setCell.leftLabel.textColor = [UIColor whiteColor];
-    setCell.rightLabel.textColor = [UIColor whiteColor];
+    setCell.topLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Set - %d", nil), set.number];
+    setCell.bottomLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%.01fkg | %dreps", nil), set.weight, set.repetitions];
+    setCell.topLabel.textColor = [UIColor textColor];
+    setCell.bottomLabel.textColor = [UIColor textColor];
+    setCell.layoutMargins = UIEdgeInsetsZero;
+    setCell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return setCell;
 }
@@ -157,6 +159,11 @@
         
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    return cell.frame.size.height;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

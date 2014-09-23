@@ -35,8 +35,6 @@ RKTabItem *tabItem2;
     self.navigationController.navigationBar.barTintColor = [UIColor navigationBarColor];
     self.navigationController.navigationBar.translucent = NO;
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
-    
-    self.tableView.allowsMultipleSelectionDuringEditing = NO;
     self.navigationItem.title = NSLocalizedString(@"Workouts", nil);
     
     
@@ -63,7 +61,8 @@ RKTabItem *tabItem2;
     
     self.tableView.dataSource = self;
     self.tableView.layoutMargins = UIEdgeInsetsZero;
-    [self.tableView setBackgroundColor:[UIColor tableViewColor]];
+    self.tableView.backgroundColor = [UIColor tableViewColor];
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
     
     self.workouts = [[SBWorkout allObjects] arraySortedByProperty:@"date" ascending:NO];
  
@@ -71,8 +70,6 @@ RKTabItem *tabItem2;
                            atPoint:CGPointMake(160, self.view.frame.size.height / 2 - 50)
               withFingerprintPoint:CGPointMake(self.view.frame.size.width - 25, 42)
               shouldHideBackground:NO];
-    
-//    [self.tableView setTableFooterView:[UIView new]];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

@@ -35,7 +35,7 @@
     
     self.tableView.dataSource = self;
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
-    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.backgroundColor = [UIColor tableViewColor];
     self.tableView.layoutMargins = UIEdgeInsetsZero;
     
     self.navigationItem.hidesBackButton = YES;
@@ -49,9 +49,6 @@
                            atPoint:CGPointMake(160, self.view.frame.size.height / 2 - 50)
               withFingerprintPoint:CGPointMake(50, 85)
               shouldHideBackground:NO];
-    
-    [self.tableView setBackgroundColor:[UIColor tableViewColor]];
-//    [self.tableView setTableFooterView:[UIView new]];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
