@@ -111,7 +111,6 @@
 		B3752EFE19D185970091E207 /* SBSmallTopBottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBSmallTopBottomCell.xib; sourceTree = "<group>"; };
 		B3752F0019D1863E0091E207 /* SBSmallTopBottomCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBSmallTopBottomCell.h; sourceTree = "<group>"; };
 		B3752F0519D187C70091E207 /* SBSmallTopBottomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSmallTopBottomCell.m; sourceTree = "<group>"; };
-		B3752F0719D18C570091E207 /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		B3752F0819D18DCD0091E207 /* UIColor+SBColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SBColor.h"; sourceTree = "<group>"; };
 		B3752F0919D18DCD0091E207 /* UIColor+SBColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SBColor.m"; sourceTree = "<group>"; };
 		B3AB6A0819C059A70002EDF9 /* SBEditWorkoutTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBEditWorkoutTableViewCell.h; sourceTree = "<group>"; };
@@ -252,7 +251,6 @@
 				B3AC2ECF19C31F1100FFD8FD /* SBSet.m */,
 				805DE24319C4BE1900472322 /* SBExerciseSet.h */,
 				805DE24419C4BE1900472322 /* SBExerciseSet.m */,
-				B3752F0719D18C570091E207 /* constants.h */,
 				B3752F0819D18DCD0091E207 /* UIColor+SBColor.h */,
 				B3752F0919D18DCD0091E207 /* UIColor+SBColor.m */,
 			);

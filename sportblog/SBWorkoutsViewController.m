@@ -8,7 +8,7 @@
 
 #import "SBWorkoutsViewController.h"
 #import "SBWorkout.h"
-#import "SBLeftRightTableViewCell.h"
+#import "SBSmallTopBottomCell.h"
 #import "SBWorkoutViewController.h"
 #import "SBStatisticViewController.h"
 #import "SBFinishedExercisesViewController.h"
@@ -32,9 +32,15 @@ RKTabItem *tabItem2;
     [self createDateFormatter];
     
     self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.barTintColor = [UIColor navigationBarColor];
+    self.navigationController.navigationBar.translucent = NO;
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     self.navigationItem.title = NSLocalizedString(@"Workouts", nil);
+    
+    
+    
     
     tabItem1 = [RKTabItem createUsualItemWithImageEnabled:[UIImage imageNamed:@"camera_enabled.png"] imageDisabled:[UIImage imageNamed:@"camera_disabled.png"]];
     
@@ -52,10 +58,11 @@ RKTabItem *tabItem2;
     self.tabView.enabledTabBackgrondColor = [UIColor colorWithRed:0.8 green:0.8 blue:1 alpha:1];
     self.tabView.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:0.8];
     self.tabView.delegate = self;
-  
+    
     [self.view addSubview:self.tabView];
     
     self.tableView.dataSource = self;
+    self.tableView.layoutMargins = UIEdgeInsetsZero;
     [self.tableView setBackgroundColor:[UIColor tableViewColor]];
     
     self.workouts = [[SBWorkout allObjects] arraySortedByProperty:@"date" ascending:NO];
@@ -64,6 +71,8 @@ RKTabItem *tabItem2;
                            atPoint:CGPointMake(160, self.view.frame.size.height / 2 - 50)
               withFingerprintPoint:CGPointMake(self.view.frame.size.width - 25, 42)
               shouldHideBackground:NO];
+    
+    [self.tableView setTableFooterView:[UIView new]];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -83,19 +92,23 @@ RKTabItem *tabItem2;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"workoutCell";
     
-    SBLeftRightTableViewCell *workoutCell = (SBLeftRightTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    SBSmallTopBottomCell *workoutCell = (SBSmallTopBottomCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         
     if (workoutCell == nil) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBLeftRightTableViewCell" owner:self options:nil];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBSmallTopBottomCell" owner:self options:nil];
         workoutCell = [nib objectAtIndex:0];
     }
     
     SBWorkout *workout = [self.workouts objectAtIndex:indexPath.row];
-    workoutCell.leftLabel.text = workout.name;
-    workoutCell.rightLabel.text = [self.dateFormatter stringFromDate:workout.date];
-    workoutCell.leftLabel.textColor = [UIColor whiteColor];
-    workoutCell.rightLabel.textColor = [UIColor whiteColor];
+    workoutCell.topLabel.text = workout.name;
+    workoutCell.topLabel.textColor = [UIColor whiteColor];
+    
+    workoutCell.bottomLabel.text = [self.dateFormatter stringFromDate:workout.date];
+    workoutCell.bottomLabel.textColor = [UIColor whiteColor];
     workoutCell.backgroundColor = [UIColor clearColor];
+    
+    workoutCell.layoutMargins = UIEdgeInsetsZero;
+    workoutCell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return workoutCell;
 }
@@ -165,20 +178,6 @@ RKTabItem *tabItem2;
         SBFinishedExercisesViewController *finishedExercises = [self.storyboard instantiateViewControllerWithIdentifier:@"SBFinishedExercisesViewController"];
         [self.navigationController pushViewController:finishedExercises animated:NO];
     }
-}
-
-- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
-    cell.contentView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
-    cell.selectedBackgroundView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-}
-
-- (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.backgroundColor = [UIColor clearColor];
-    cell.contentView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

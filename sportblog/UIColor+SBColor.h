@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface UIColor (SBColor)
++ (UIColor *)navigationBarColor;
 + (UIColor *)tableViewColor;
 + (UIColor *)importantCellColor;
 + (UIColor *)actionCellColor;

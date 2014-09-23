@@ -36,6 +36,7 @@
     self.tableView.dataSource = self;
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.layoutMargins = UIEdgeInsetsZero;
     
     self.navigationItem.hidesBackButton = YES;
     
@@ -50,6 +51,7 @@
               shouldHideBackground:NO];
     
     [self.tableView setBackgroundColor:[UIColor tableViewColor]];
+    [self.tableView setTableFooterView:[UIView new]];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -125,7 +127,8 @@
         workoutCell.rightLabel.textColor = [UIColor whiteColor];
         
         workoutCell.backgroundColor = [UIColor importantCellColor];
-        
+        workoutCell.layoutMargins = UIEdgeInsetsZero;
+        workoutCell.separatorInset = UIEdgeInsetsMake(0.f, 0.f, 0.f, workoutCell.bounds.size.width);
         
         return workoutCell;
     }
@@ -152,6 +155,8 @@
         
         editWorkoutCell.datePicker.date = self.workout.date;
         editWorkoutCell.backgroundColor = [UIColor clearColor];
+        editWorkoutCell.layoutMargins = UIEdgeInsetsZero;
+        editWorkoutCell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return editWorkoutCell;
     }
@@ -168,6 +173,9 @@
         
         addExerciseCell.addEntryLabel.text = NSLocalizedString(@"Add exercise", nil);
         addExerciseCell.backgroundColor = [UIColor actionCellColor];
+        addExerciseCell.layoutMargins = UIEdgeInsetsZero;
+        addExerciseCell.separatorInset = UIEdgeInsetsMake(0.f, 0.f, 0.f, addExerciseCell.bounds.size.width);
+        addExerciseCell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return addExerciseCell;
     }
@@ -195,10 +203,8 @@
     exerciseCell.bottomLabel.textColor = [UIColor whiteColor];
     
     exerciseCell.backgroundColor = [UIColor clearColor];
-    
-    UIImageView *line = [[UIImageView alloc] initWithFrame:CGRectMake(0, exerciseCell.frame.size.height, exerciseCell.frame.size.width, 0.5)];
-    line.backgroundColor = [UIColor whiteColor];
-    [exerciseCell addSubview:line];
+    exerciseCell.layoutMargins = UIEdgeInsetsZero;
+    exerciseCell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return exerciseCell;
 }
@@ -330,23 +336,6 @@
     
     [self.navigationController popViewControllerAnimated:YES];
     [self.tableView reloadData];
-}
-
-- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
-    cell.contentView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
-    cell.selectedBackgroundView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-}
-
-- (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0 && !self.isEditWorkoutDetails) {
-        return;
-    }
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.backgroundColor = [UIColor clearColor];
-    cell.contentView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
