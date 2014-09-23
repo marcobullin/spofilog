@@ -31,6 +31,7 @@
     
 //    self.window.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"hantel.png"]];
     
+    
     return YES;
 }
 							

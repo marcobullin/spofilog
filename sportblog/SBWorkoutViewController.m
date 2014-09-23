@@ -15,6 +15,8 @@
 #import "SBSetsViewController.h"
 #import "SBExerciseSet.h"
 #import "UIViewController+Tutorial.h"
+#import "SBSmallTopBottomCell.h"
+#import "UIColor+SBColor.h"
 
 @interface SBWorkoutViewController ()
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
@@ -27,6 +29,7 @@
 {
     [super viewDidLoad];
     [self createDateFormatter];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
     
     self.navigationItem.title = NSLocalizedString(@"Workout", nil);
     
@@ -46,11 +49,7 @@
               withFingerprintPoint:CGPointMake(50, 85)
               shouldHideBackground:NO];
     
-//    self.view.backgroundColor = [UIColor colorWithRed:140.0f/255.0f green:150.0f/255.0f blue:160.0f/255.0f alpha:1];
-    UIImageView *imageView = [[UIImageView alloc] init];
-    [imageView setImage:[UIImage imageNamed:@"hantel.png"]];
-    [self.tableView setBackgroundView:imageView];
-
+    [self.tableView setBackgroundColor:[UIColor tableViewColor]];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -125,7 +124,7 @@
         workoutCell.leftLabel.textColor = [UIColor whiteColor];
         workoutCell.rightLabel.textColor = [UIColor whiteColor];
         
-        workoutCell.backgroundColor = [UIColor clearColor];
+        workoutCell.backgroundColor = [UIColor importantCellColor];
         
         
         return workoutCell;
@@ -168,15 +167,15 @@
         }
         
         addExerciseCell.addEntryLabel.text = NSLocalizedString(@"Add exercise", nil);
-        addExerciseCell.backgroundColor = [UIColor clearColor];
+        addExerciseCell.backgroundColor = [UIColor actionCellColor];
         
         return addExerciseCell;
     }
     
-    SBLeftRightTableViewCell *exerciseCell = (SBLeftRightTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    SBSmallTopBottomCell *exerciseCell = (SBSmallTopBottomCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (exerciseCell == nil) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBLeftRightTableViewCell" owner:self options:nil];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBSmallTopBottomCell" owner:self options:nil];
         exerciseCell = [nib objectAtIndex:0];
     }
     
@@ -190,12 +189,16 @@
     
     SBExerciseSet *exercise = [self.workout.exercises objectAtIndex:index];
     
-    exerciseCell.leftLabel.text = exercise.name;
-    exerciseCell.rightLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%d Sets", nil), [exercise.sets count]];
-    exerciseCell.leftLabel.textColor = [UIColor whiteColor];
-    exerciseCell.rightLabel.textColor = [UIColor whiteColor];
+    exerciseCell.topLabel.text = exercise.name;
+    exerciseCell.topLabel.textColor = [UIColor whiteColor];
+    exerciseCell.bottomLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%d Sets", nil), [exercise.sets count]];
+    exerciseCell.bottomLabel.textColor = [UIColor whiteColor];
     
     exerciseCell.backgroundColor = [UIColor clearColor];
+    
+    UIImageView *line = [[UIImageView alloc] initWithFrame:CGRectMake(0, exerciseCell.frame.size.height, exerciseCell.frame.size.width, 0.5)];
+    line.backgroundColor = [UIColor whiteColor];
+    [exerciseCell addSubview:line];
     
     return exerciseCell;
 }
@@ -258,13 +261,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 1 && self.isEditWorkoutDetails) {
-        UITableViewCell *editWorkoutCell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
-        
-        return editWorkoutCell.frame.size.height;
-    }
-    
-    return 44.0;
+    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+
+    return cell.frame.size.height;
 }
 
 - (IBAction)onChangeWorkoutName:(id)sender {

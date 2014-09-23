@@ -13,6 +13,7 @@
 #import "SBStatisticViewController.h"
 #import "SBFinishedExercisesViewController.h"
 #import "UIViewController+Tutorial.h"
+#import "UIColor+SBColor.h"
 
 @interface SBWorkoutsViewController ()
 @property (nonatomic, strong) RKTabView *tabView;
@@ -30,11 +31,7 @@ RKTabItem *tabItem2;
     [super viewDidLoad];
     [self createDateFormatter];
     
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"header.png"] forBarMetrics:UIBarMetricsDefault];
-//    self.navigationController.navigationBar.shadowImage = [UIImage new];
-//    self.navigationController.navigationBar.translucent = YES;
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
-
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
     
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     self.navigationItem.title = NSLocalizedString(@"Workouts", nil);
@@ -59,13 +56,7 @@ RKTabItem *tabItem2;
     [self.view addSubview:self.tabView];
     
     self.tableView.dataSource = self;
-    self.tableView.backgroundColor = [UIColor clearColor];
-    
-    // self.view.backgroundColor = [UIColor colorWithRed:140.0f/255.0f green:150.0f/255.0f blue:160.0f/255.0f alpha:1];
-    UIImageView *imageView = [[UIImageView alloc] init];
-    [imageView setImage:[UIImage imageNamed:@"hantel.png"]];
-    [self.tableView setBackgroundView:imageView];
-
+    [self.tableView setBackgroundColor:[UIColor tableViewColor]];
     
     self.workouts = [[SBWorkout allObjects] arraySortedByProperty:@"date" ascending:NO];
  
@@ -99,15 +90,20 @@ RKTabItem *tabItem2;
         workoutCell = [nib objectAtIndex:0];
     }
     
-    workoutCell.backgroundColor = [UIColor clearColor];
-    
     SBWorkout *workout = [self.workouts objectAtIndex:indexPath.row];
     workoutCell.leftLabel.text = workout.name;
     workoutCell.rightLabel.text = [self.dateFormatter stringFromDate:workout.date];
     workoutCell.leftLabel.textColor = [UIColor whiteColor];
     workoutCell.rightLabel.textColor = [UIColor whiteColor];
+    workoutCell.backgroundColor = [UIColor clearColor];
     
     return workoutCell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    
+    return cell.frame.size.height;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

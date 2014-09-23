@@ -1,0 +1,1 @@
+#define kBackgroundColor = [UIColor redColor];
