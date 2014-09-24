@@ -10,6 +10,7 @@
 #import "SBExercise.h"
 #import "SBExerciseTableViewCell.h"
 #import "SBCreateExerciseTableViewCell.h"
+#import "UIColor+SBColor.h"
 
 @interface SBExercisesViewController ()
 @property (nonatomic, strong) RLMArray *exercises;
@@ -23,13 +24,9 @@
     
     self.navigationItem.title = NSLocalizedString(@"Exercises", nil);
     self.tableView.delegate = self;
+    self.tableView.layoutMargins = UIEdgeInsetsZero;
+    self.tableView.backgroundColor = [UIColor tableViewColor];
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
-    self.tableView.backgroundColor = [UIColor clearColor];
-    
-//    self.view.backgroundColor = [UIColor colorWithRed:140.0f/255.0f green:150.0f/255.0f blue:160.0f/255.0f alpha:1];
-    UIImageView *imageView = [[UIImageView alloc] init];
-    [imageView setImage:[UIImage imageNamed:@"hantel.png"]];
-    [self.tableView setBackgroundView:imageView];
     
     NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
     NSString *key = @"exercisesImported";
@@ -106,11 +103,11 @@
             createExerciseCell = [nib objectAtIndex:0];
         }
 
-        createExerciseCell.backgroundColor = [UIColor clearColor];
         createExerciseCell.exerciseField.placeholder = NSLocalizedString(@"New exercise", nil);
         createExerciseCell.exerciseField.delegate = self;
-        createExerciseCell.exerciseField.textColor = [UIColor whiteColor];
-        createExerciseCell.exerciseField.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.2];
+        createExerciseCell.exerciseField.textColor = [UIColor textColor];
+        createExerciseCell.exerciseField.backgroundColor = [UIColor whiteColor];
+        createExerciseCell.backgroundColor = [UIColor actionCellColor];
         
         UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, createExerciseCell.exerciseField.frame.size.height)];
         leftView.backgroundColor = [UIColor clearColor];
@@ -130,9 +127,11 @@
     }
     
     SBExercise *exercise = [self.exercises objectAtIndex:indexPath.row-1];
-    exerciseCell.backgroundColor = [UIColor clearColor];
     exerciseCell.exerciseLabel.text = exercise.name;
-    exerciseCell.exerciseLabel.textColor = [UIColor whiteColor];
+    exerciseCell.exerciseLabel.textColor = [UIColor textColor];
+    exerciseCell.layoutMargins = UIEdgeInsetsZero;
+    exerciseCell.selectionStyle = UITableViewCellSelectionStyleNone;
+    exerciseCell.backgroundColor = [UIColor clearColor];
     
     return exerciseCell;
 }
@@ -180,13 +179,8 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
-        UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
-        
-        return cell.frame.size.height;
-    }
-    
-    return 44.0;
+    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    return cell.frame.size.height;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

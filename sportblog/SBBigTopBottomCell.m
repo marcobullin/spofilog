@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Bullin. All rights reserved.
 //
 
-#import "SBLeftRightTableViewCell.h"
+#import "SBBigTopBottomCell.h"
 
-@implementation SBLeftRightTableViewCell
+@implementation SBBigTopBottomCell
 
 - (void)awakeFromNib
 {

@@ -7,7 +7,7 @@
 //
 
 #import "SBWorkoutViewController.h"
-#import "SBLeftRightTableViewCell.h"
+#import "SBBigTopBottomCell.h"
 #import "SBAddEntryTableViewCell.h"
 #import "SBExerciseTableViewCell.h"
 #import "SBEditWorkoutTableViewCell.h"
@@ -111,17 +111,17 @@
     
     if (indexPath.row == 0) {
         cellIdentifier = @"workoutCell";
-        SBLeftRightTableViewCell *workoutCell = (SBLeftRightTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        SBBigTopBottomCell *workoutCell = (SBBigTopBottomCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         
         if (workoutCell == nil) {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBLeftRightTableViewCell" owner:self options:nil];
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBBigTopBottomCell" owner:self options:nil];
             workoutCell = [nib objectAtIndex:0];
         }
         
-        workoutCell.leftLabel.text = self.workout.name ?: NSLocalizedString(@"Workout", nil);
-        workoutCell.rightLabel.text = [self.dateFormatter stringFromDate:self.workout.date];
-        workoutCell.leftLabel.textColor = [UIColor whiteColor];
-        workoutCell.rightLabel.textColor = [UIColor whiteColor];
+        workoutCell.topLabel.text = self.workout.name ?: NSLocalizedString(@"Workout", nil);
+        workoutCell.bottomLabel.text = [self.dateFormatter stringFromDate:self.workout.date];
+        workoutCell.topLabel.textColor = [UIColor whiteColor];
+        workoutCell.bottomLabel.textColor = [UIColor whiteColor];
         
         workoutCell.backgroundColor = [UIColor importantCellColor];
         workoutCell.layoutMargins = UIEdgeInsetsZero;
@@ -216,20 +216,20 @@
         NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:row+1 inSection:section];
         
         NSArray *indexPaths = [NSArray arrayWithObject :newIndexPath];
-        SBLeftRightTableViewCell *workoutCell = (SBLeftRightTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+        SBBigTopBottomCell *workoutCell = (SBBigTopBottomCell *)[tableView cellForRowAtIndexPath:indexPath];
         
         if (self.isEditWorkoutDetails) {
             self.isEditWorkoutDetails = NO;
             
-            [workoutCell.leftLabel setTextColor:[UIColor whiteColor]];
-            [workoutCell.rightLabel setTextColor:[UIColor whiteColor]];
+            [workoutCell.topLabel setTextColor:[UIColor whiteColor]];
+            [workoutCell.bottomLabel setTextColor:[UIColor whiteColor]];
             
             [self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationMiddle];
         } else {
             self.isEditWorkoutDetails = YES;
             
-            [workoutCell.leftLabel setTextColor:[UIColor redColor]];
-            [workoutCell.rightLabel setTextColor:[UIColor redColor]];
+            [workoutCell.topLabel setTextColor:[UIColor redColor]];
+            [workoutCell.bottomLabel setTextColor:[UIColor redColor]];
             
             [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationMiddle];
         }
@@ -278,9 +278,9 @@
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     
-    SBLeftRightTableViewCell *workoutCell = (SBLeftRightTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    SBBigTopBottomCell *workoutCell = (SBBigTopBottomCell *)[self.tableView cellForRowAtIndexPath:indexPath];
     
-    workoutCell.leftLabel.text = workoutName;
+    workoutCell.topLabel.text = workoutName;
     
     [self.workout.realm beginWriteTransaction];
     self.workout.name = workoutName;
@@ -294,8 +294,8 @@
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     
-    SBLeftRightTableViewCell *workoutCell = (SBLeftRightTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-    workoutCell.rightLabel.text = [self.dateFormatter stringFromDate:sender.date];
+    SBBigTopBottomCell *workoutCell = (SBBigTopBottomCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    workoutCell.bottomLabel.text = [self.dateFormatter stringFromDate:sender.date];
 }
 
 - (IBAction)onWorkoutCompleted:(id)sender {

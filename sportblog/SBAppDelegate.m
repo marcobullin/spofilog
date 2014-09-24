@@ -8,6 +8,7 @@
 
 #import "SBAppDelegate.h"
 #import "RLMRealm.h"
+#import "FLEXManager.h"
 
 @implementation SBAppDelegate
 
@@ -29,8 +30,7 @@
     // Apply the migration block above to the default Realm
     [RLMRealm migrateDefaultRealmWithBlock:migrationBlock];
     
-//    self.window.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"hantel.png"]];
-    
+    [[FLEXManager sharedManager] showExplorer];
     
     return YES;
 }

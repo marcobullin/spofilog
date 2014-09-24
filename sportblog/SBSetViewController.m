@@ -7,7 +7,8 @@
 //
 
 #import "SBSetViewController.h"
-#import "SBLeftRightTableViewCell.h"
+#import "SBLeftRightCell.h"
+#import "UIColor+SBColor.h"
 
 @interface SBSetViewController ()
 
@@ -20,6 +21,7 @@
 @implementation SBSetViewController
 UIPickerView *picker;
 UIView *changeView;
+UIView *overlayView;
 
 - (void)viewDidLoad
 {
@@ -45,18 +47,15 @@ UIView *changeView;
             self.repetitions = self.previousSet.repetitions;
         } else {
             self.number = 1;
-            self.weight = 0.0;
-            self.repetitions = 0;
+            self.weight = 10.0;
+            self.repetitions = 10;
         }
     }
     
     self.tableView.delegate = self;
-    self.tableView.backgroundColor = [UIColor clearColor];
-    
-    //self.view.backgroundColor = [UIColor colorWithRed:140.0f/255.0f green:150.0f/255.0f blue:160.0f/255.0f alpha:1];
-    UIImageView *imageView = [[UIImageView alloc] init];
-    [imageView setImage:[UIImage imageNamed:@"hantel.png"]];
-    [self.tableView setBackgroundView:imageView];
+    self.tableView.layoutMargins = UIEdgeInsetsZero;
+    self.tableView.backgroundColor = [UIColor tableViewColor];
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -71,16 +70,18 @@ UIView *changeView;
     
     static NSString *cellIdentifier = @"cell";
     
-    SBLeftRightTableViewCell *cell = (SBLeftRightTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    SBLeftRightCell *cell = (SBLeftRightCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (cell == nil) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBLeftRightTableViewCell" owner:self options:nil];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBLeftRightCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
     
-    cell.backgroundColor = [UIColor clearColor];
+    cell.backgroundColor = [UIColor actionCellColor];
     cell.leftLabel.textColor = [UIColor whiteColor];
     cell.rightLabel.textColor = [UIColor whiteColor];
+    cell.layoutMargins = UIEdgeInsetsZero;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     // set cell
     if (indexPath.row == 0) {
@@ -105,10 +106,16 @@ UIView *changeView;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
- 
-    changeView = [[UIView alloc] initWithFrame:CGRectMake(0, self.tableView.frame.size.height, self.tableView.frame.size.width, 200)];
-    changeView.backgroundColor = [UIColor colorWithRed:200.0f/255.0f green:200.0f/255.0f blue:200.0f/255.0f alpha:0.8];
+    changeView = [[UIView alloc] initWithFrame:CGRectMake(0, self.tableView.frame.size.height, self.tableView.frame.size.width, 280)];
+    changeView.backgroundColor = [UIColor whiteColor];
     
+    if (overlayView == nil) {
+        overlayView = [UIView new];
+        overlayView.frame = self.tableView.frame;
+        overlayView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+    }
+
+    [self.view addSubview:overlayView];
     [self.view addSubview:changeView];
     
     picker = [[UIPickerView alloc] init];
@@ -152,7 +159,7 @@ UIView *changeView;
     [changeView addSubview:picker];
     
     [UIView animateWithDuration:0.5 animations:^{
-        changeView.frame = CGRectMake(0, self.tableView.frame.size.height - changeView.frame.size.height,self.tableView.frame.size.width, 200);
+        changeView.frame = CGRectMake(0, self.tableView.frame.size.height - changeView.frame.size.height,self.tableView.frame.size.width, 280);
     }];
 }
 
@@ -229,6 +236,8 @@ UIView *changeView;
 
 - (UIView *)createToolbar:(NSString *)titleString {
     UIToolbar *inputAccessoryView = [[UIToolbar alloc] init];
+    inputAccessoryView.translucent = NO;
+    inputAccessoryView.barTintColor = [UIColor actionCellColor];
     inputAccessoryView.barStyle = UIBarStyleDefault;
     inputAccessoryView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     [inputAccessoryView sizeToFit];
@@ -243,6 +252,7 @@ UIView *changeView;
         
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0 , 11.0f, 100, 21.0f)];
     [titleLabel setText:titleString];
+    titleLabel.textColor = [UIColor whiteColor];
     [titleLabel setTextAlignment:NSTextAlignmentCenter];
         
     UIBarButtonItem *title = [[UIBarButtonItem alloc] initWithCustomView:titleLabel];
@@ -270,16 +280,19 @@ UIView *changeView;
     [self.tableView reloadData];
     
     [UIView animateWithDuration:.5 animations:^{
-        changeView.frame = CGRectMake(0, self.tableView.frame.size.height, self.tableView.frame.size.width, 200);
+        changeView.frame = CGRectMake(0, self.tableView.frame.size.height, self.tableView.frame.size.width, 280);
     } completion:^(BOOL finished) {
+        [overlayView removeFromSuperview];
         [changeView removeFromSuperview];
     }];
 }
     
 - (void)cancel:(id)sender {
+
     [UIView animateWithDuration:.5 animations:^{
-        changeView.frame = CGRectMake(0, self.tableView.frame.size.height, self.tableView.frame.size.width, 200);
+        changeView.frame = CGRectMake(0, self.tableView.frame.size.height, self.tableView.frame.size.width, 280);
     } completion:^(BOOL finished) {
+        [overlayView removeFromSuperview];
         [changeView removeFromSuperview];
     }];
 }
@@ -305,6 +318,11 @@ UIView *changeView;
 
 - (void)onCancelSet:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    return cell.frame.size.height;
 }
 
 @end
