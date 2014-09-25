@@ -24,6 +24,10 @@
 @end
 
 @implementation SBWorkoutViewController
+UIDatePicker *picker;
+UIView *changeView;
+UIView *overlayView;
+UITextField *textfield;
 
 - (void)viewDidLoad
 {
@@ -49,6 +53,16 @@
                            atPoint:CGPointMake(160, self.view.frame.size.height / 2 - 50)
               withFingerprintPoint:CGPointMake(50, 85)
               shouldHideBackground:NO];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidShow:)
+                                                 name:UIKeyboardDidShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidHide:)
+                                                 name:UIKeyboardDidHideNotification
+                                               object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -126,6 +140,7 @@
         workoutCell.backgroundColor = [UIColor importantCellColor];
         workoutCell.layoutMargins = UIEdgeInsetsZero;
         workoutCell.separatorInset = UIEdgeInsetsMake(0.f, 0.f, 0.f, workoutCell.bounds.size.width);
+        workoutCell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return workoutCell;
     }
@@ -208,32 +223,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSInteger row = [indexPath row];
-    NSInteger section = [indexPath section];
-    
     // user touched on workout to edit name or date
     if (indexPath.row == 0) {
-        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:row+1 inSection:section];
-        
-        NSArray *indexPaths = [NSArray arrayWithObject :newIndexPath];
-        SBBigTopBottomCell *workoutCell = (SBBigTopBottomCell *)[tableView cellForRowAtIndexPath:indexPath];
-        
-        if (self.isEditWorkoutDetails) {
-            self.isEditWorkoutDetails = NO;
-            
-            [workoutCell.topLabel setTextColor:[UIColor whiteColor]];
-            [workoutCell.bottomLabel setTextColor:[UIColor whiteColor]];
-            
-            [self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationMiddle];
-        } else {
-            self.isEditWorkoutDetails = YES;
-            
-            [workoutCell.topLabel setTextColor:[UIColor redColor]];
-            [workoutCell.bottomLabel setTextColor:[UIColor redColor]];
-            
-            [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationMiddle];
-        }
-        
+        [self displayEditWorkoutView];
         return;
     }
     
@@ -269,35 +261,6 @@
     return cell.frame.size.height;
 }
 
-- (IBAction)onChangeWorkoutName:(id)sender {
-    UITextField *textField = (UITextField *) sender;
-    NSString *workoutName = textField.text;
-    if ([workoutName isEqualToString:@""]) {
-        workoutName = NSLocalizedString(@"Workout", nil);
-    }
-    
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    
-    SBBigTopBottomCell *workoutCell = (SBBigTopBottomCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-    
-    workoutCell.topLabel.text = workoutName;
-    
-    [self.workout.realm beginWriteTransaction];
-    self.workout.name = workoutName;
-    [self.workout.realm commitWriteTransaction];
-}
-
-- (IBAction)onDateChanged:(UIDatePicker *)sender {
-    [self.workout.realm beginWriteTransaction];
-    self.workout.date = sender.date;
-    [self.workout.realm commitWriteTransaction];
-    
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    
-    SBBigTopBottomCell *workoutCell = (SBBigTopBottomCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-    workoutCell.bottomLabel.text = [self.dateFormatter stringFromDate:sender.date];
-}
-
 - (IBAction)onWorkoutCompleted:(id)sender {
     RLMRealm *realm = [RLMRealm defaultRealm];
     
@@ -308,6 +271,8 @@
     [realm beginWriteTransaction];
     [realm addObject:self.workout];
     [realm commitWriteTransaction];
+    
+    [self.delegate addWorkoutViewController:self newWorkout:self.workout];
     
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -334,6 +299,140 @@
     [self.navigationController popViewControllerAnimated:YES];
     [self.tableView reloadData];
 }
+
+- (void)displayEditWorkoutView {
+    changeView = [[UIView alloc] initWithFrame:CGRectMake(0, self.tableView.frame.size.height, self.tableView.frame.size.width, 340)];
+    changeView.backgroundColor = [UIColor whiteColor];
+    
+    if (overlayView == nil) {
+        overlayView = [UIView new];
+        overlayView.frame = self.tableView.frame;
+        overlayView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+    }
+    
+    [self.view addSubview:overlayView];
+    [self.view addSubview:changeView];
+    
+    UIView *v = [UIView new];
+    v.frame = CGRectMake(0, 44, self.view.frame.size.width, 64);
+    v.backgroundColor = [UIColor actionCellColor];
+    
+    textfield = [UITextField new];
+    textfield.frame = CGRectMake(8, 17, self.view.frame.size.width - 16, 30);
+    textfield.text = self.workout.name;
+    textfield.placeholder = NSLocalizedString(@"Workout", nil);
+    textfield.textColor = [UIColor textColor];
+    textfield.tintColor = [UIColor textColor];
+    textfield.backgroundColor = [UIColor whiteColor];
+    textfield.delegate = (id)self;
+    
+
+    UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, textfield.frame.size.height)];
+    leftView.backgroundColor = [UIColor clearColor];
+    textfield.leftView = leftView;
+    textfield.leftViewMode = UITextFieldViewModeAlways;
+    
+    [v addSubview:textfield];
+    
+    
+    picker = [[UIDatePicker alloc] init];
+    picker.frame = CGRectMake(0, 108, 320, 162);
+    picker.date = self.workout.date;
+    picker.datePickerMode = UIDatePickerModeDate;
+    
+    [changeView addSubview:[self createToolbar:NSLocalizedString(@"Workout", nil)]];
+    [changeView addSubview:v];
+    [changeView addSubview:picker];
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        changeView.frame = CGRectMake(0, self.tableView.frame.size.height - changeView.frame.size.height,self.tableView.frame.size.width, 340);
+    }];
+}
+
+- (UIView *)createToolbar:(NSString *)titleString {
+    UIToolbar *inputAccessoryView = [[UIToolbar alloc] init];
+    inputAccessoryView.translucent = NO;
+    inputAccessoryView.barTintColor = [UIColor importantCellColor];
+    inputAccessoryView.barStyle = UIBarStyleDefault;
+    inputAccessoryView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    [inputAccessoryView sizeToFit];
+    
+    CGRect frame = inputAccessoryView.frame;
+    frame.size.height = 44.0f;
+    inputAccessoryView.frame = frame;
+    
+    UIBarButtonItem *doneBtn =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done:)];
+    UIBarButtonItem *flexibleSpaceLeft = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *cancelBtn =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)];
+    
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0 , 11.0f, 100, 21.0f)];
+    [titleLabel setText:titleString];
+    titleLabel.textColor = [UIColor whiteColor];
+    [titleLabel setTextAlignment:NSTextAlignmentCenter];
+    
+    UIBarButtonItem *title = [[UIBarButtonItem alloc] initWithCustomView:titleLabel];
+    
+    NSMutableArray *array = [NSMutableArray arrayWithObjects:cancelBtn,flexibleSpaceLeft,title,flexibleSpaceLeft, doneBtn, nil];
+    [inputAccessoryView setItems:array];
+    
+    return inputAccessoryView;
+}
+
+- (void)cancel:(id)sender {
+    [UIView animateWithDuration:.5 animations:^{
+        changeView.frame = CGRectMake(0, self.tableView.frame.size.height, self.tableView.frame.size.width, 340);
+    } completion:^(BOOL finished) {
+        [overlayView removeFromSuperview];
+        [changeView removeFromSuperview];
+    }];
+}
+
+- (void)done:(id)sender {
+    [self.workout.realm beginWriteTransaction];
+    self.workout.date = picker.date;
+    [self.workout.realm commitWriteTransaction];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    
+    SBBigTopBottomCell *workoutCell = (SBBigTopBottomCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    workoutCell.bottomLabel.text = [self.dateFormatter stringFromDate:picker.date];
+    
+    NSString *workoutName = textfield.text;
+    if ([workoutName isEqualToString:@""]) {
+        workoutName = NSLocalizedString(@"Workout", nil);
+    }
+    
+    workoutCell.topLabel.text = workoutName;
+    
+    [self.workout.realm beginWriteTransaction];
+    self.workout.name = workoutName;
+    [self.workout.realm commitWriteTransaction];
+    
+    [UIView animateWithDuration:.5 animations:^{
+        changeView.frame = CGRectMake(0, self.tableView.frame.size.height, self.tableView.frame.size.width, 340);
+    } completion:^(BOOL finished) {
+        [overlayView removeFromSuperview];
+        [changeView removeFromSuperview];
+    }];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (void)keyboardDidShow: (NSNotification *) notif{
+    CGRect keyboardRect = [notif.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    keyboardRect = [self.view convertRect:keyboardRect fromView:nil];
+    
+    changeView.frame = CGRectMake(changeView.frame.origin.x, keyboardRect.origin.y - 44 - 64, changeView.frame.size.width, changeView.frame.size.height);
+}
+
+- (void)keyboardDidHide: (NSNotification *) notif{
+    changeView.frame = CGRectMake(changeView.frame.origin.x, self.tableView.frame.size.height - 340, changeView.frame.size.width, changeView.frame.size.height);
+}
+
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];

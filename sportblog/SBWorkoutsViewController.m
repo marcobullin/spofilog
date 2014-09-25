@@ -26,6 +26,8 @@
 RKTabItem *tabItem1;
 RKTabItem *tabItem2;
 
+SBWorkout *highlightedWorkout;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -38,6 +40,8 @@ RKTabItem *tabItem2;
     self.navigationItem.title = NSLocalizedString(@"Workouts", nil);
     
     
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onAddWorkout:)];
+    self.navigationItem.rightBarButtonItem = addButton;
     
     
     tabItem1 = [RKTabItem createUsualItemWithImageEnabled:[UIImage imageNamed:@"camera_enabled.png"] imageDisabled:[UIImage imageNamed:@"camera_disabled.png"]];
@@ -48,16 +52,15 @@ RKTabItem *tabItem2;
     RKTabItem *tabItem3 = [RKTabItem createUsualItemWithImageEnabled:[UIImage imageNamed:@"camera_enabled.png"] imageDisabled:[UIImage imageNamed:@"camera_disabled.png"]];
     RKTabItem *tabItem4 = [RKTabItem createUsualItemWithImageEnabled:[UIImage imageNamed:@"camera_enabled.png"] imageDisabled:[UIImage imageNamed:@"camera_disabled.png"]];
     
-    self.tabView = [[RKTabView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 44, self.view.frame.size.width, 44)];
+    self.tabView = [[RKTabView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 64 - 44, self.view.frame.size.width, 44)];
     self.tabView.tabItems = @[tabItem1, tabItem2, tabItem3, tabItem4];
     
     self.tabView.horizontalInsets = HorizontalEdgeInsetsMake(25, 25);
     self.tabView.darkensBackgroundForEnabledTabs = YES;
     self.tabView.enabledTabBackgrondColor = [UIColor colorWithRed:0.8 green:0.8 blue:1 alpha:1];
-    self.tabView.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:0.8];
+    self.tabView.backgroundColor = [UIColor navigationBarColor];
     self.tabView.delegate = self;
     
-    [self.view addSubview:self.tabView];
     
     self.tableView.dataSource = self;
     self.tableView.layoutMargins = UIEdgeInsetsZero;
@@ -70,6 +73,9 @@ RKTabItem *tabItem2;
                            atPoint:CGPointMake(160, self.view.frame.size.height / 2 - 50)
               withFingerprintPoint:CGPointMake(self.view.frame.size.width - 25, 42)
               shouldHideBackground:NO];
+    
+    
+    [self.view addSubview:self.tabView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -102,12 +108,26 @@ RKTabItem *tabItem2;
     
     workoutCell.bottomLabel.text = [self.dateFormatter stringFromDate:workout.date];
     workoutCell.bottomLabel.textColor = [UIColor textColor];
-    workoutCell.backgroundColor = [UIColor clearColor];
+    
     
     workoutCell.layoutMargins = UIEdgeInsetsZero;
     workoutCell.selectionStyle = UITableViewCellSelectionStyleNone;
     
+    if ([highlightedWorkout isEqualToObject:workout]) {
+        workoutCell.backgroundColor = [UIColor highlightColor];
+        [UIView animateWithDuration:1.0 animations:^{
+            workoutCell.backgroundColor = [UIColor clearColor];
+        }];
+    } else {
+        workoutCell.backgroundColor = [UIColor clearColor];
+    }
+
+    
     return workoutCell;
+}
+
+- (void)addWorkoutViewController:(SBWorkoutViewController *)controller newWorkout:(SBWorkout *)workout {
+    highlightedWorkout = workout;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -122,6 +142,14 @@ RKTabItem *tabItem2;
     SBWorkoutViewController* workoutViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBWorkoutViewController"];
 
     workoutViewController.workout = workout;
+    workoutViewController.delegate = self;
+    
+    [self.navigationController pushViewController:workoutViewController animated:YES];
+}
+
+- (void)onAddWorkout:(id)sender {
+    SBWorkoutViewController* workoutViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBWorkoutViewController"];
+    workoutViewController.delegate = self;
     
     [self.navigationController pushViewController:workoutViewController animated:YES];
 }

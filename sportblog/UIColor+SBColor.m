@@ -22,4 +22,7 @@
     return [UIColor colorWithRed:51.0/255.0f green:51.0/255.0f blue:51.0/255.0f alpha:1];
 }
 
++ (UIColor *)highlightColor {
+    return [UIColor colorWithRed:76.0/255.0f green:217.0/255.0f blue:100.0/255.0f alpha:1];
+}
 @end

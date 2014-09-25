@@ -36,21 +36,10 @@ UIView *overlayView;
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(onCancelSet:)];
     self.navigationItem.leftBarButtonItem = cancelButton;
     
-    if (self.currentSet) {
-        self.number = self.currentSet.number;
-        self.weight = self.currentSet.weight;
-        self.repetitions = self.currentSet.repetitions;
-    } else {
-        if (self.previousSet) {
-            self.number = self.previousSet.number+1;
-            self.weight = self.previousSet.weight;
-            self.repetitions = self.previousSet.repetitions;
-        } else {
-            self.number = 1;
-            self.weight = 10.0;
-            self.repetitions = 10;
-        }
-    }
+
+    self.number = self.currentSet.number;
+    self.weight = self.currentSet.weight;
+    self.repetitions = self.currentSet.repetitions;
     
     self.tableView.delegate = self;
     self.tableView.layoutMargins = UIEdgeInsetsZero;

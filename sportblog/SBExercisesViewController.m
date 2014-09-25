@@ -106,6 +106,7 @@
         createExerciseCell.exerciseField.placeholder = NSLocalizedString(@"New exercise", nil);
         createExerciseCell.exerciseField.delegate = self;
         createExerciseCell.exerciseField.textColor = [UIColor textColor];
+        createExerciseCell.exerciseField.tintColor = [UIColor textColor];
         createExerciseCell.exerciseField.backgroundColor = [UIColor whiteColor];
         createExerciseCell.backgroundColor = [UIColor actionCellColor];
         

@@ -10,10 +10,17 @@
 #import "SBWorkout.h"
 #import "SBExercisesViewController.h"
 
+@class SBWorkoutViewController;
+
+@protocol SBWorkoutViewControllerDelegate <NSObject>
+- (void)addWorkoutViewController:(SBWorkoutViewController *)controller newWorkout:(SBWorkout *)workout;
+@end
+
 @interface SBWorkoutViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, SBExerciseViewControllerDelegate>
 
 - (IBAction)onWorkoutCompleted:(id)sender;
 - (IBAction)onCancelWorkout:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) SBWorkout *workout;
+@property (nonatomic, weak) id <SBWorkoutViewControllerDelegate> delegate;
 @end

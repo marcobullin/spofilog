@@ -105,21 +105,28 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // add new set
+    if (indexPath.row == 0) {
+        SBSet *set = [SBSet new];
+        if ([self.sets count] > 0) {
+            SBSet *previousSet = [self.sets lastObject];
+            set.number = previousSet.number + 1;
+            set.weight = previousSet.weight;
+            set.repetitions = previousSet.repetitions;
+        } else {
+            set.number = 1;
+            set.weight = 10.0;
+            set.repetitions = 10;
+        }
+        
+        [self.sets addObject:set];
+        [self.tableView reloadData];
+        return;
+    }
     
     SBSetViewController *setViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBSetViewController"];
     
-    SBSet *set;
-    // user touched on a set to edit it
-    if (indexPath.row > 0) {
-        set = [self.sets objectAtIndex:(indexPath.row-1)];
-    }
-
-    // new
-    if (indexPath.row == 0) {
-        SBSet *previousSet = [self.sets lastObject];
-        setViewController.previousSet = previousSet;
-    }
-    
+    SBSet *set = [self.sets objectAtIndex:(indexPath.row-1)];
     setViewController.currentSet = set;
     setViewController.delegate = self;
     
