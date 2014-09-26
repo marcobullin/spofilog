@@ -42,6 +42,7 @@
 		B3752F0C19D1C5080091E207 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B3752F0B19D1C5080091E207 /* arrow.png */; };
 		B3752F0E19D2B8280091E207 /* SBLeftRightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3752F0D19D2B8280091E207 /* SBLeftRightCell.m */; };
 		B3752F1119D2B85B0091E207 /* SBLeftRightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3752F1019D2B85B0091E207 /* SBLeftRightCell.xib */; };
+		B3752F1319D46B540091E207 /* zange.png in Resources */ = {isa = PBXBuildFile; fileRef = B3752F1219D46B540091E207 /* zange.png */; };
 		B3AB6A0B19C059A70002EDF9 /* SBEditWorkoutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AB6A0919C059A70002EDF9 /* SBEditWorkoutTableViewCell.m */; };
 		B3AB6A0C19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3AB6A0A19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib */; };
 		B3AC2EB319C09EFF00FFD8FD /* SBWorkout.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2EB219C09EFF00FFD8FD /* SBWorkout.m */; };
@@ -120,6 +121,7 @@
 		B3752F0D19D2B8280091E207 /* SBLeftRightCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBLeftRightCell.m; sourceTree = "<group>"; };
 		B3752F0F19D2B8410091E207 /* SBLeftRightCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBLeftRightCell.h; sourceTree = "<group>"; };
 		B3752F1019D2B85B0091E207 /* SBLeftRightCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBLeftRightCell.xib; sourceTree = "<group>"; };
+		B3752F1219D46B540091E207 /* zange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zange.png; sourceTree = "<group>"; };
 		B3AB6A0819C059A70002EDF9 /* SBEditWorkoutTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBEditWorkoutTableViewCell.h; sourceTree = "<group>"; };
 		B3AB6A0919C059A70002EDF9 /* SBEditWorkoutTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBEditWorkoutTableViewCell.m; sourceTree = "<group>"; };
 		B3AB6A0A19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBEditWorkoutTableViewCell.xib; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 		8086D42F19BCBF16004ADBB6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B3752F1219D46B540091E207 /* zange.png */,
 				B3752F0B19D1C5080091E207 /* arrow.png */,
 				B325B8AC19D05AD600A369D2 /* hantel.png */,
 				B325B8AA19D056FF00A369D2 /* header.png */,
@@ -393,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3AB6A0C19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib in Resources */,
+				B3752F1319D46B540091E207 /* zange.png in Resources */,
 				B3752F1119D2B85B0091E207 /* SBLeftRightCell.xib in Resources */,
 				B325B8AD19D05AD600A369D2 /* hantel.png in Resources */,
 				B3AC2EE019CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.xib in Resources */,

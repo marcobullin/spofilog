@@ -1,11 +1,12 @@
 // SBWorkoutsViewController
 "Workouts" = "Workouts";
-"Add a new workout" = "Add a new workout";
+"Add a new workout" = "Add your first workout";
 
 // SBWorkoutViewController
 "Workout" = "Workout";
 "Touch to edit workout" = "Touch to edit workout";
-"Add exercise" = "Add exercise";
+"Add exercise" = "Add your first exercise";
+"Add another exercise" = "Add another exercise";
 "%d Sets" = "%d Sets";
 "Touch to add or edit sets" = "Touch to add or edit sets";
 
@@ -14,9 +15,11 @@
 "New exercise" = "Create new exercise";
 
 // SBSetsViewController
-"Add new set" = "Add new set";
+"Add new set" = "Add your first set";
+"Add another set" = "Add another set";
 "Set - %d" = "Set - %d";
 "%.01fkg | %dreps" = "%.01fkg | %dreps";
+"Touch to change values" = "Touch to change values";
 
 // SBSetViewController
 "Set" = "Set";

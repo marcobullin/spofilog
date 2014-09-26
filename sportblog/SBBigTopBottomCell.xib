@@ -14,13 +14,16 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="zange.png" translatesAutoresizingMaskIntoConstraints="NO" id="6Xp-Hn-y8z">
+                        <rect key="frame" x="279" y="17" width="33" height="35"/>
+                    </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hua-0J-I0L">
-                        <rect key="frame" x="8" y="8" width="304" height="32"/>
+                        <rect key="frame" x="8" y="8" width="263" height="32"/>
                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpF-ju-21l">
-                        <rect key="frame" x="8" y="36" width="304" height="26"/>
+                        <rect key="frame" x="8" y="36" width="263" height="26"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -34,6 +37,9 @@
             <point key="canvasLocation" x="420" y="267"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="zange.png" width="92" height="91"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

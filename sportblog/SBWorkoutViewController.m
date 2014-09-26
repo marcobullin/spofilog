@@ -49,11 +49,6 @@ UITextField *textfield;
         self.workout.date = [NSDate date];
     }
     
-    [self startTapTutorialWithInfo:NSLocalizedString(@"Touch to edit workout", nil)
-                           atPoint:CGPointMake(160, self.view.frame.size.height / 2 - 50)
-              withFingerprintPoint:CGPointMake(50, 85)
-              shouldHideBackground:NO];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardDidShow:)
                                                  name:UIKeyboardDidShowNotification
@@ -67,7 +62,7 @@ UITextField *textfield;
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.tableView reloadData];
+//    [self.tableView reloadData];
 }
 
 - (void)createDateFormatter {
@@ -102,6 +97,10 @@ UITextField *textfield;
         [self.workout.realm commitWriteTransaction];
         
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
+        
+        if ([self.workout.exercises count] == 0) {
+            [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+        }
     }
 }
 
@@ -145,35 +144,7 @@ UITextField *textfield;
         return workoutCell;
     }
 
-    if (indexPath.row == 1 && self.isEditWorkoutDetails) {
-        cellIdentifier = @"editWorkoutCell";
-        
-        SBEditWorkoutTableViewCell *editWorkoutCell = (SBEditWorkoutTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        
-        if (editWorkoutCell == nil) {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBEditWorkoutTableViewCell" owner:self options:nil];
-            editWorkoutCell = [nib objectAtIndex:0];
-        }
-        
-        editWorkoutCell.workoutTextField.text = self.workout.name;
-        editWorkoutCell.workoutTextField.placeholder = NSLocalizedString(@"Workout", nil);
-        editWorkoutCell.workoutTextField.textColor = [UIColor whiteColor];
-        editWorkoutCell.workoutTextField.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.2];
-        
-        UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, editWorkoutCell.workoutTextField.frame.size.height)];
-        leftView.backgroundColor = [UIColor clearColor];
-        editWorkoutCell.workoutTextField.leftView = leftView;
-        editWorkoutCell.workoutTextField.leftViewMode = UITextFieldViewModeAlways;
-        
-        editWorkoutCell.datePicker.date = self.workout.date;
-        editWorkoutCell.backgroundColor = [UIColor clearColor];
-        editWorkoutCell.layoutMargins = UIEdgeInsetsZero;
-        editWorkoutCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        return editWorkoutCell;
-    }
-    
-    if ((indexPath.row == 1 && !self.isEditWorkoutDetails) || (indexPath.row == 2 && self.isEditWorkoutDetails)) {
+    if (indexPath.row == 1) {
         cellIdentifier = @"addExerciseCell";
         
         SBAddEntryTableViewCell *addExerciseCell = (SBAddEntryTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -183,7 +154,11 @@ UITextField *textfield;
             addExerciseCell = [nib objectAtIndex:0];
         }
         
-        addExerciseCell.addEntryLabel.text = NSLocalizedString(@"Add exercise", nil);
+        if ([self.workout.exercises count] > 0) {
+            addExerciseCell.addEntryLabel.text = NSLocalizedString(@"Add another exercise", nil);
+        } else {
+            addExerciseCell.addEntryLabel.text = NSLocalizedString(@"Add exercise", nil);
+        }
         addExerciseCell.backgroundColor = [UIColor actionCellColor];
         addExerciseCell.layoutMargins = UIEdgeInsetsZero;
         addExerciseCell.separatorInset = UIEdgeInsetsMake(0.f, 0.f, 0.f, addExerciseCell.bounds.size.width);
@@ -213,8 +188,8 @@ UITextField *textfield;
     exerciseCell.topLabel.textColor = [UIColor textColor];
     exerciseCell.bottomLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%d Sets", nil), [exercise.sets count]];
     exerciseCell.bottomLabel.textColor = [UIColor textColor];
-    
     exerciseCell.backgroundColor = [UIColor clearColor];
+    
     exerciseCell.layoutMargins = UIEdgeInsetsZero;
     exerciseCell.selectionStyle = UITableViewCellSelectionStyleNone;
     
@@ -272,8 +247,6 @@ UITextField *textfield;
     [realm addObject:self.workout];
     [realm commitWriteTransaction];
     
-    [self.delegate addWorkoutViewController:self newWorkout:self.workout];
-    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -285,19 +258,26 @@ UITextField *textfield;
     
     [self startTapTutorialWithInfo:NSLocalizedString(@"Touch to add or edit sets", nil)
                            atPoint:CGPointMake(160, self.view.frame.size.height / 2 + 50)
-              withFingerprintPoint:CGPointMake(50, 180)
+              withFingerprintPoint:CGPointMake(50, 205)
               shouldHideBackground:NO];
     
     SBExerciseSet *exerciseSet =  [[SBExerciseSet alloc] init];
     exerciseSet.name = exercise.name;
     exerciseSet.date = self.workout.date;
+    exerciseSet.created = [[NSDate date] timeIntervalSince1970];
     
     [self.workout.realm beginWriteTransaction];
     [self.workout.exercises addObject:exerciseSet];
     [self.workout.realm commitWriteTransaction];
     
     [self.navigationController popViewControllerAnimated:YES];
-    [self.tableView reloadData];
+    
+    NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[self.workout.exercises count]+1 inSection:0];
+    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
+    
+    if ([self.workout.exercises count] == 1) {
+        [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    }
 }
 
 - (void)displayEditWorkoutView {

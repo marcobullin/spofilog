@@ -26,8 +26,6 @@
 RKTabItem *tabItem1;
 RKTabItem *tabItem2;
 
-SBWorkout *highlightedWorkout;
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -60,7 +58,6 @@ SBWorkout *highlightedWorkout;
     self.tabView.enabledTabBackgrondColor = [UIColor colorWithRed:0.8 green:0.8 blue:1 alpha:1];
     self.tabView.backgroundColor = [UIColor navigationBarColor];
     self.tabView.delegate = self;
-    
     
     self.tableView.dataSource = self;
     self.tableView.layoutMargins = UIEdgeInsetsZero;
@@ -112,22 +109,9 @@ SBWorkout *highlightedWorkout;
     
     workoutCell.layoutMargins = UIEdgeInsetsZero;
     workoutCell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    if ([highlightedWorkout isEqualToObject:workout]) {
-        workoutCell.backgroundColor = [UIColor highlightColor];
-        [UIView animateWithDuration:1.0 animations:^{
-            workoutCell.backgroundColor = [UIColor clearColor];
-        }];
-    } else {
-        workoutCell.backgroundColor = [UIColor clearColor];
-    }
-
+    workoutCell.backgroundColor = [UIColor clearColor];
     
     return workoutCell;
-}
-
-- (void)addWorkoutViewController:(SBWorkoutViewController *)controller newWorkout:(SBWorkout *)workout {
-    highlightedWorkout = workout;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -142,14 +126,12 @@ SBWorkout *highlightedWorkout;
     SBWorkoutViewController* workoutViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBWorkoutViewController"];
 
     workoutViewController.workout = workout;
-    workoutViewController.delegate = self;
     
     [self.navigationController pushViewController:workoutViewController animated:YES];
 }
 
 - (void)onAddWorkout:(id)sender {
     SBWorkoutViewController* workoutViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBWorkoutViewController"];
-    workoutViewController.delegate = self;
     
     [self.navigationController pushViewController:workoutViewController animated:YES];
 }

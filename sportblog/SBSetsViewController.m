@@ -12,6 +12,7 @@
 #import "SBSet.h"
 #import "SBSmallTopBottomCell.h"
 #import "UIColor+SBColor.h"
+#import "UIViewController+Tutorial.h"
 
 @interface SBSetsViewController ()
 @property (nonatomic, strong) NSMutableArray *sets;
@@ -72,7 +73,12 @@
         }
         
         addSetCell.backgroundColor = [UIColor actionCellColor];
-        addSetCell.addEntryLabel.text = NSLocalizedString(@"Add new set", nil);
+        
+        if ([self.sets count] > 0) {
+            addSetCell.addEntryLabel.text = NSLocalizedString(@"Add another set", nil);
+        } else {
+            addSetCell.addEntryLabel.text = NSLocalizedString(@"Add new set", nil);
+        }
         addSetCell.addEntryLabel.textColor = [UIColor whiteColor];
         addSetCell.layoutMargins = UIEdgeInsetsZero;
         addSetCell.separatorInset = UIEdgeInsetsMake(0.f, 0.f, 0.f, addSetCell.bounds.size.width);
@@ -107,6 +113,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // add new set
     if (indexPath.row == 0) {
+        
+        [self startTapTutorialWithInfo:NSLocalizedString(@"Touch to change values", nil)
+                               atPoint:CGPointMake(160, self.view.frame.size.height / 2 + 50)
+                  withFingerprintPoint:CGPointMake(50, 140)
+                  shouldHideBackground:NO];
+        
+        
         SBSet *set = [SBSet new];
         if ([self.sets count] > 0) {
             SBSet *previousSet = [self.sets lastObject];
@@ -120,7 +133,14 @@
         }
         
         [self.sets addObject:set];
-        [self.tableView reloadData];
+
+        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[self.sets count] inSection:0];
+        [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
+        
+        if ([self.sets count] == 1) {
+            [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+        }
+        
         return;
     }
     
@@ -165,6 +185,10 @@
         [self.sets removeObjectAtIndex:index];
         
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
+        
+        if ([self.sets count] == 0) {
+            [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+        }
     }
 }
 

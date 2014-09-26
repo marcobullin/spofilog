@@ -5,6 +5,7 @@
 @property NSString *name;
 @property NSDate *date;
 @property RLMArray<SBSet> *sets;
+@property int created;
 @end
 
 // This protocol enables typed collections. i.e.:
