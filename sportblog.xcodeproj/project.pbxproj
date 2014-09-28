@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8039788719D85286000DEED5 /* SBArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8039788619D85286000DEED5 /* SBArrayDataSource.m */; };
 		805DE22819BCC46500472322 /* camera_disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 805DE22619BCC46500472322 /* camera_disabled@2x.png */; };
 		805DE22919BCC46500472322 /* camera_enabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 805DE22719BCC46500472322 /* camera_enabled@2x.png */; };
 		805DE22C19BF8E6500472322 /* SBWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE22B19BF8E6500472322 /* SBWorkoutViewController.m */; };
@@ -68,6 +69,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8039788519D85269000DEED5 /* SBArrayDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBArrayDataSource.h; sourceTree = "<group>"; };
+		8039788619D85286000DEED5 /* SBArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBArrayDataSource.m; sourceTree = "<group>"; };
 		805DE22619BCC46500472322 /* camera_disabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera_disabled@2x.png"; sourceTree = "<group>"; };
 		805DE22719BCC46500472322 /* camera_enabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera_enabled@2x.png"; sourceTree = "<group>"; };
 		805DE22A19BF8E6500472322 /* SBWorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutViewController.h; sourceTree = "<group>"; };
@@ -171,6 +174,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8039788419D85252000DEED5 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				8039788519D85269000DEED5 /* SBArrayDataSource.h */,
+				8039788619D85286000DEED5 /* SBArrayDataSource.m */,
+			);
+			name = DataSource;
+			sourceTree = "<group>";
+		};
 		805DE24219BF9C4A00472322 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +246,7 @@
 		8086D42E19BCBF16004ADBB6 /* sportblog */ = {
 			isa = PBXGroup;
 			children = (
+				8039788419D85252000DEED5 /* DataSource */,
 				B3AC2EF219CC599F00FFD8FD /* Main_iPhone.storyboard */,
 				B3AC2EE119CC1B2C00FFD8FD /* ThirdParty */,
 				805DE24219BF9C4A00472322 /* Cells */,
@@ -483,6 +496,7 @@
 				805DE23319BF937F00472322 /* SBBigTopBottomCell.m in Sources */,
 				805DE23B19BF93CB00472322 /* SBAddEntryTableViewCell.m in Sources */,
 				B3AC2ED319C322A300FFD8FD /* SBSetsViewController.m in Sources */,
+				8039788719D85286000DEED5 /* SBArrayDataSource.m in Sources */,
 				B3752F0E19D2B8280091E207 /* SBLeftRightCell.m in Sources */,
 				8086D43919BCBF16004ADBB6 /* SBAppDelegate.m in Sources */,
 			);

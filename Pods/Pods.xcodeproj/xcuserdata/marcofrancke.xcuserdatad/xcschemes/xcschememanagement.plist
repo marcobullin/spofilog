@@ -4,35 +4,68 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-FLEX.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>Pods-RKTabView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>Pods-Realm.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 		<key>Pods-iOSPlot.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>010D0D6AD73C4DED858A95EF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2ADAB867AC384792B60922B2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>35D6DFBA76894DEC84F6230F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>625657B3B95746069A6635E1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>657D616BF9814DE79D3C32C1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6ED150CDE9964B6C93429FE0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -43,6 +76,11 @@
 			<true/>
 		</dict>
 		<key>E75A33007AD24FA2813E9B4E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EBE60EB876C94649AA4BDECD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

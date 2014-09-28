@@ -3,6 +3,11 @@
 
 @implementation SBSmallTopBottomCell
 
++ (UINib *)nib
+{
+    return [UINib nibWithNibName:@"SBSmallTopBottomCell" bundle:nil];
+}
+
 - (void)awakeFromNib
 {
     // Initialization code
