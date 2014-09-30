@@ -24,6 +24,6 @@
 @property (strong, nonatomic) SBSet *previousSet;
 @property (nonatomic, weak) id <SBSetViewControllerDelegate> delegate;
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) UITableView *tableView;
 
 @end

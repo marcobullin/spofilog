@@ -20,28 +20,41 @@
 
 @implementation SBSetsViewController
 
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
+    if (self) {
+        self.navigationItem.hidesBackButton = YES;
+        
+        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onDoneSets:)];
+        self.navigationItem.rightBarButtonItem = doneButton;
+        
+        UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(onCancelSets:)];
+        self.navigationItem.leftBarButtonItem = cancelButton;
+    }
+    
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.navigationItem.title = self.exercise.name;
-    self.navigationItem.hidesBackButton = YES;
-    
+    self.title = self.exercise.name;
+
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
+    self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.layoutMargins = UIEdgeInsetsZero;
     self.tableView.backgroundColor = [UIColor tableViewColor];
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onDoneSets:)];
-    self.navigationItem.rightBarButtonItem = doneButton;
-    
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(onCancelSets:)];
-    self.navigationItem.leftBarButtonItem = cancelButton;
-    
     self.sets = [[NSMutableArray alloc] init];
     for (SBSet *set in self.exercise.sets) {
         [self.sets addObject:set];
     }
+    
+    [self.view addSubview:self.tableView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -144,7 +157,7 @@
         return;
     }
     
-    SBSetViewController *setViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBSetViewController"];
+    SBSetViewController *setViewController = [[SBSetViewController alloc] initWithNibName:@"SBSetViewController" bundle:nil];
     
     SBSet *set = [self.sets objectAtIndex:(indexPath.row-1)];
     setViewController.currentSet = set;

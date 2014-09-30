@@ -12,8 +12,7 @@
 
 @interface SBWorkoutViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, SBExerciseViewControllerDelegate>
 
-- (IBAction)onWorkoutCompleted:(id)sender;
-- (IBAction)onCancelWorkout:(id)sender;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) SBWorkout *workout;
+
 @end

@@ -9,6 +9,9 @@
 #import "SBAppDelegate.h"
 #import "RLMRealm.h"
 #import "FLEXManager.h"
+#import "SBFinishedExercisesViewController.h"
+#import "SBWorkoutsViewController.h"
+#import "UIColor+SBColor.h"
 
 @implementation SBAppDelegate
 
@@ -31,6 +34,32 @@
     [RLMRealm migrateDefaultRealmWithBlock:migrationBlock];
     
     //[[FLEXManager sharedManager] showExplorer];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    SBWorkoutsViewController *workoutsViewController = [[SBWorkoutsViewController alloc] initWithNibName:@"SBWorkoutsViewController" bundle:nil];
+
+    self.workoutNavigationController = [[UINavigationController alloc] initWithRootViewController:workoutsViewController];
+    self.workoutNavigationController.navigationBar.shadowImage = [UIImage new];
+    self.workoutNavigationController.navigationBar.barTintColor = [UIColor navigationBarColor];
+    self.workoutNavigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [self.workoutNavigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+
+    SBFinishedExercisesViewController *finishedExercises = [[SBFinishedExercisesViewController alloc] initWithNibName:@"SBFinishedExercisesViewController" bundle:nil];
+    self.statisticNavigationController = [[UINavigationController alloc] initWithRootViewController:finishedExercises];
+    self.statisticNavigationController.navigationBar.shadowImage = [UIImage new];
+    self.statisticNavigationController.navigationBar.barTintColor = [UIColor navigationBarColor];
+    self.statisticNavigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [self.statisticNavigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    
+    self.tabBarController = [[UITabBarController alloc] init];
+    self.tabBarController.viewControllers = @[self.workoutNavigationController, self.statisticNavigationController];
+    self.tabBarController.tabBar.barTintColor = [UIColor navigationBarColor];
+    self.tabBarController.tabBar.tintColor = [UIColor whiteColor];
+    
+    self.window.rootViewController = self.tabBarController;
+    
+    [self.window makeKeyAndVisible];
     
     return YES;
 }

@@ -16,7 +16,8 @@
 @end
 
 @interface SBExercisesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, weak) id <SBExerciseViewControllerDelegate> delegate;
 
 @end

@@ -23,28 +23,39 @@ UIPickerView *picker;
 UIView *changeView;
 UIView *overlayView;
 
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
+    if (self) {
+        self.navigationItem.hidesBackButton = YES;
+        
+        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onDone:)];
+        
+        self.navigationItem.rightBarButtonItem = doneButton;
+        
+        UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(onCancelSet:)];
+        self.navigationItem.leftBarButtonItem = cancelButton;
+    }
+    
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.navigationItem.hidesBackButton = YES;
-    
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onDone:)];
-    
-    self.navigationItem.rightBarButtonItem = doneButton;
-    
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(onCancelSet:)];
-    self.navigationItem.leftBarButtonItem = cancelButton;
-    
-
     self.number = self.currentSet.number;
     self.weight = self.currentSet.weight;
     self.repetitions = self.currentSet.repetitions;
     
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     self.tableView.layoutMargins = UIEdgeInsetsZero;
     self.tableView.backgroundColor = [UIColor tableViewColor];
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
+    
+    [self.view addSubview:self.tableView];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -227,6 +238,7 @@ UIView *overlayView;
     UIToolbar *inputAccessoryView = [[UIToolbar alloc] init];
     inputAccessoryView.translucent = NO;
     inputAccessoryView.barTintColor = [UIColor actionCellColor];
+    inputAccessoryView.tintColor = [UIColor whiteColor];
     inputAccessoryView.barStyle = UIBarStyleDefault;
     inputAccessoryView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     [inputAccessoryView sizeToFit];

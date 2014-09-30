@@ -18,12 +18,23 @@
 
 @implementation SBExercisesViewController
 
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
+    if (self) {
+        self.title = NSLocalizedString(@"Exercises", nil);
+    }
+    
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.navigationItem.title = NSLocalizedString(@"Exercises", nil);
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     self.tableView.layoutMargins = UIEdgeInsetsZero;
     self.tableView.backgroundColor = [UIColor tableViewColor];
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
@@ -60,6 +71,8 @@
     }
     
     self.exercises = [SBExercise allObjects];
+    
+    [self.view addSubview:self.tableView];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

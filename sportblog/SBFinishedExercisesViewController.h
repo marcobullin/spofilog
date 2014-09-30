@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <RKTabView.h>
 
-@interface SBFinishedExercisesViewController : UIViewController <RKTabViewDelegate, UITableViewDataSource, UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@interface SBFinishedExercisesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) UITableView *tableView;
 
 @end

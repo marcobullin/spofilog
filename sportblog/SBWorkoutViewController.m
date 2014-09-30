@@ -29,15 +29,36 @@ UIView *changeView;
 UIView *overlayView;
 UITextField *textfield;
 
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
+    if (self) {
+        self.title = NSLocalizedString(@"Workout", nil);
+        
+        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                                                                   target:self
+                                                                                   action:@selector(onWorkoutCompleted:)];
+
+        UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+                                                                                    target:self
+                                                                                    action:@selector(onCancelWorkout:)];
+        
+        self.navigationItem.rightBarButtonItem = doneButton;
+        self.navigationItem.leftBarButtonItem = cancelButton;
+    }
+    
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self createDateFormatter];
-    self.navigationController.navigationBar.shadowImage = [UIImage new];
     
-    self.navigationItem.title = NSLocalizedString(@"Workout", nil);
     
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     self.tableView.backgroundColor = [UIColor tableViewColor];
     self.tableView.layoutMargins = UIEdgeInsetsZero;
@@ -58,11 +79,13 @@ UITextField *textfield;
                                              selector:@selector(keyboardDidHide:)
                                                  name:UIKeyboardDidHideNotification
                                                object:nil];
+    
+    [self.view addSubview:self.tableView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-//    [self.tableView reloadData];
+    [self.tableView reloadData];
 }
 
 - (void)createDateFormatter {
@@ -206,7 +229,8 @@ UITextField *textfield;
     
     // user touched on add new exercise
     if ((indexPath.row == 1 && !self.isEditWorkoutDetails) || (indexPath.row == 2 && self.isEditWorkoutDetails)) {
-        SBExercisesViewController *exercisesViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBExercisesViewController"];
+        SBExercisesViewController *exercisesViewController = [[SBExercisesViewController alloc] initWithNibName:@"SBExercisesViewController" bundle:nil];
+        
         exercisesViewController.delegate = self;
         [self.navigationController pushViewController:exercisesViewController animated:YES];
         
@@ -214,7 +238,7 @@ UITextField *textfield;
     }
     
     // user touched on an exercise
-    SBSetsViewController *setViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBSetsViewController"];
+    SBSetsViewController *setViewController = [[SBSetsViewController alloc] initWithNibName:@"SBSetsViewController" bundle:nil];
     
     // standard -2 because of (workout and add exercise cell)
     int index = indexPath.row - 2;
@@ -333,6 +357,7 @@ UITextField *textfield;
     UIToolbar *inputAccessoryView = [[UIToolbar alloc] init];
     inputAccessoryView.translucent = NO;
     inputAccessoryView.barTintColor = [UIColor importantCellColor];
+    inputAccessoryView.tintColor = [UIColor whiteColor];
     inputAccessoryView.barStyle = UIBarStyleDefault;
     inputAccessoryView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     [inputAccessoryView sizeToFit];

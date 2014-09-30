@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SBWorkoutsViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic, strong) UITableView *tableView;
 
 @end

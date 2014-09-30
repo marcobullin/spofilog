@@ -25,3 +25,6 @@
 "Set" = "Satz";
 "Weight" = "Gewicht";
 "Repetitions" = "Wiederholungen";
+
+// SBFinishedExercisesViewController
+"Statistics" = "Statistiken";

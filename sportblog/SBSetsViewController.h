@@ -11,7 +11,8 @@
 #import "SBSetViewController.h"
 
 @interface SBSetsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, SBSetViewControllerDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) SBExerciseSet *exercise;
 
 @end
