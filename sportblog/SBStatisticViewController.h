@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "PCLineChartView.h"
 
-@interface SBStatisticViewController : UIViewController
+@interface SBStatisticViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) NSString *exerciseName;
 @property (nonatomic, strong) PCLineChartView *lineChartView;
+@property (nonatomic, strong) UITableView *tableView;
 @end

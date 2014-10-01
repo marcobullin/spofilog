@@ -9,18 +9,36 @@
 #import "SBStatisticViewController.h"
 #import "SBExerciseSet.h"
 #import "PCHalfPieChart.h"
+#import "SBStatisticCell.h"
+#import "UIColor+SBColor.h"
 
 @interface SBStatisticViewController ()
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 @end
 
+static NSString * const StatisticCellIdentifier = @"StatisticCell";
+
 @implementation SBStatisticViewController
+
+int count;
+int statisticCountOfSets;
+float statisticMinWeight;
+float statisticMaxWeight;
+int statisticRepetitions;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.tableView = [[UITableView alloc] init];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
+    self.tableView.backgroundColor = [UIColor tableViewColor];
+    self.tableView.layoutMargins = UIEdgeInsetsZero;
+    
     [self createDateFormatter];
-    self.navigationItem.title = self.exerciseName;
+    self.title = self.exerciseName;
     
     NSMutableArray *reps = [[NSMutableArray alloc] init];
     NSMutableArray *weights = [[NSMutableArray alloc] init];
@@ -28,10 +46,12 @@
     
     RLMArray *exercises = [SBExerciseSet objectsWhere:[NSString stringWithFormat:@"name = '%@'", self.exerciseName]];
     
-    int count = 1;
-    int statisticCountOfSets = 0;
-    float statisticMinWeight = 0;
-    float statisticMaxWeight = 0;
+    count = 1;
+    statisticCountOfSets = 0;
+    statisticMinWeight = 0;
+    statisticMaxWeight = 0;
+    statisticRepetitions = 0;
+    
     for (int i = 0; i < [exercises count]; i++) {
         SBExerciseSet *exercise = [exercises objectAtIndex:i];
         
@@ -49,13 +69,16 @@
                 statisticMaxWeight = set.weight;
             }
             
+            statisticRepetitions += set.repetitions;
+            
             [reps addObject:[NSNumber numberWithInt:set.repetitions]];
             [weights addObject:[NSNumber numberWithFloat:set.weight]];
             [labels addObject:[self.dateFormatter stringFromDate:exercise.date]];
             count++;
         }
     }
-    CGRect frame = CGRectMake(20, 44, self.view.frame.size.width - 20, self.view.frame.size.height/2);
+    
+    CGRect frame = CGRectMake(0, self.navigationController.navigationBar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height/2);
     
     self.lineChartView = [[PCLineChartView alloc] initWithFrame:frame];
     [self.lineChartView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
@@ -68,8 +91,6 @@
         self.lineChartView.numXIntervals = ceil(count/3) ;
     }
     
-    [self.view addSubview:self.lineChartView];
-    
     NSMutableArray *components = [NSMutableArray array];
 
     PCLineChartViewComponent *component = [[PCLineChartViewComponent alloc] init];
@@ -79,26 +100,12 @@
     [self.lineChartView setComponents:components];
     [self.lineChartView setXLabels:labels];
     
+    self.tableView.frame = CGRectMake(0, self.lineChartView.frame.origin.y + self.lineChartView.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.lineChartView.frame.origin.y - self.lineChartView.frame.size.height - self.navigationController.navigationBar.frame.size.height);
     
-    UILabel *statSetsLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, self.lineChartView.frame.origin.y + self.lineChartView.frame.size.height, self.view.frame.size.width, 44)];
-    
-    statSetsLabel.text = [NSString stringWithFormat:@"Count of Sets: %d", statisticCountOfSets];
-    
-    [self.view addSubview:statSetsLabel];
-    
-    UILabel *statMinWeightLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, statSetsLabel.frame.origin.y + statSetsLabel.frame.size.height, self.view.frame.size.width, 44)];
-    
-    statMinWeightLabel.text = [NSString stringWithFormat:@"You startet with %.01fkg", statisticMinWeight];
-    
-    [self.view addSubview:statMinWeightLabel];
-    
-    UILabel *statMaxWeightLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, statMinWeightLabel.frame.origin.y + statMinWeightLabel.frame.size.height, self.view.frame.size.width, 44)];
-    
-    statMaxWeightLabel.text = [NSString stringWithFormat:@"Now you can handle %.01fkg", statisticMaxWeight];
-    
-    [self.view addSubview:statMaxWeightLabel];
-    
+    [self.view addSubview:self.lineChartView];
+    [self.view addSubview:self.tableView];
 }
+
 - (void)createDateFormatter {
     
     self.dateFormatter = [[NSDateFormatter alloc] init];
@@ -110,6 +117,69 @@
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
 	[self.lineChartView setNeedsDisplay];
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 5;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    SBStatisticCell *cell = (SBStatisticCell *)[tableView dequeueReusableCellWithIdentifier:StatisticCellIdentifier];
+    
+    if (cell == nil) {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBStatisticCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+    
+    cell.headlineLabel.backgroundColor = [UIColor clearColor];
+    cell.headlineLabel.textColor = [UIColor whiteColor];
+    cell.valueLabel.textColor = [UIColor whiteColor];
+    
+    cell.layoutMargins = UIEdgeInsetsZero;
+    cell.separatorInset = UIEdgeInsetsMake(0.f, 0.f, 0.f, cell.bounds.size.width);
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
+    
+    if (indexPath.row == 0) {
+        cell.headlineLabel.text = @"Total count of sets";
+        cell.valueLabel.text = [NSString stringWithFormat:@"%d", statisticCountOfSets];
+        cell.backgroundColor = [UIColor colorWithRed:40.0/255.0f green:160.0/255.0f blue:240.0/255.0f alpha:1];
+    }
+    
+    if (indexPath.row == 1) {
+        cell.headlineLabel.text = @"Min weight";
+        cell.valueLabel.text = [NSString stringWithFormat:@"%.01fkg", statisticMinWeight];
+        cell.backgroundColor = [UIColor colorWithRed:50.0/255.0f green:170.0/255.0f blue:240.0/255.0f alpha:1];
+    }
+    
+    if (indexPath.row == 2) {
+        cell.headlineLabel.text = @"Max weight";
+        cell.valueLabel.text = [NSString stringWithFormat:@"%.01fkg", statisticMaxWeight];
+        cell.backgroundColor = [UIColor colorWithRed:60.0/255.0f green:180.0/255.0f blue:240.0/255.0f alpha:1];
+    }
+    
+    if (indexPath.row == 3) {
+        cell.headlineLabel.text = @"Repetitions";
+        cell.valueLabel.text = [NSString stringWithFormat:@"%d", statisticRepetitions];
+        cell.backgroundColor = [UIColor colorWithRed:70.0/255.0f green:190.0/255.0f blue:240.0/255.0f alpha:1];
+    }
+    
+    if (indexPath.row == 4) {
+        cell.headlineLabel.text = @"Progress";
+        cell.valueLabel.text = [NSString stringWithFormat:@"%.01f%%", 100 - ((statisticMinWeight / statisticMaxWeight) * 100)];
+        cell.backgroundColor = [UIColor colorWithRed:80.0/255.0f green:200.0/255.0f blue:240.0/255.0f alpha:1];
+    }
+
+    return cell;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    return cell.frame.size.height;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
