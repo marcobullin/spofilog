@@ -25,6 +25,7 @@
     if (self) {
         self.title = NSLocalizedString(@"Exercises", nil);
         self.tabBarItem.title = NSLocalizedString(@"Statistics", nil);
+        self.tabBarItem.image = [UIImage imageNamed:@"stats"];
     }
     
     return self;
@@ -47,6 +48,8 @@
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    self.tableView.layoutMargins = UIEdgeInsetsZero;
     
     [self.view addSubview:self.tableView];
 }

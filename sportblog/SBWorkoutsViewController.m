@@ -35,6 +35,7 @@ static NSString * const WorkoutCellIdentifier = @"WorkoutCell";
     if (self) {
         self.title = NSLocalizedString(@"Workouts", nil);
         self.tabBarItem.title = NSLocalizedString(@"Workouts", nil);
+        self.tabBarItem.image = [UIImage imageNamed:@"hantel"];
         
         UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                    target:self
@@ -88,6 +89,7 @@ static NSString * const WorkoutCellIdentifier = @"WorkoutCell";
     
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     
+    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     self.tableView.layoutMargins = UIEdgeInsetsZero;
     self.tableView.backgroundColor = [UIColor tableViewColor];
     self.tableView.allowsMultipleSelectionDuringEditing = NO;

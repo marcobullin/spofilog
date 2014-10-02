@@ -30,7 +30,8 @@ int statisticRepetitions;
 {
     [super viewDidLoad];
     
-    self.tableView = [[UITableView alloc] init];
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
+    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
@@ -100,9 +101,8 @@ int statisticRepetitions;
     [self.lineChartView setComponents:components];
     [self.lineChartView setXLabels:labels];
     
-    self.tableView.frame = CGRectMake(0, self.lineChartView.frame.origin.y + self.lineChartView.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.lineChartView.frame.origin.y - self.lineChartView.frame.size.height - self.navigationController.navigationBar.frame.size.height);
+    self.tableView.tableHeaderView = self.lineChartView;
     
-    [self.view addSubview:self.lineChartView];
     [self.view addSubview:self.tableView];
 }
 
@@ -141,34 +141,36 @@ int statisticRepetitions;
 
     
     if (indexPath.row == 0) {
-        cell.headlineLabel.text = @"Total count of sets";
+        cell.headlineLabel.text = NSLocalizedString(@"Total amount of sets", nil);
         cell.valueLabel.text = [NSString stringWithFormat:@"%d", statisticCountOfSets];
         cell.backgroundColor = [UIColor colorWithRed:40.0/255.0f green:160.0/255.0f blue:240.0/255.0f alpha:1];
     }
     
     if (indexPath.row == 1) {
-        cell.headlineLabel.text = @"Min weight";
+        cell.headlineLabel.text = NSLocalizedString(@"Your minimum weight", nil);
         cell.valueLabel.text = [NSString stringWithFormat:@"%.01fkg", statisticMinWeight];
         cell.backgroundColor = [UIColor colorWithRed:50.0/255.0f green:170.0/255.0f blue:240.0/255.0f alpha:1];
     }
     
     if (indexPath.row == 2) {
-        cell.headlineLabel.text = @"Max weight";
+        cell.headlineLabel.text = NSLocalizedString(@"Your maximum weight", nil);
         cell.valueLabel.text = [NSString stringWithFormat:@"%.01fkg", statisticMaxWeight];
         cell.backgroundColor = [UIColor colorWithRed:60.0/255.0f green:180.0/255.0f blue:240.0/255.0f alpha:1];
     }
     
     if (indexPath.row == 3) {
-        cell.headlineLabel.text = @"Repetitions";
-        cell.valueLabel.text = [NSString stringWithFormat:@"%d", statisticRepetitions];
+        cell.headlineLabel.text = NSLocalizedString(@"Your Weight-Progress", nil);
+        cell.valueLabel.text = [NSString stringWithFormat:@"%.01f%%", 100 - ((statisticMinWeight / statisticMaxWeight) * 100)];
         cell.backgroundColor = [UIColor colorWithRed:70.0/255.0f green:190.0/255.0f blue:240.0/255.0f alpha:1];
     }
     
     if (indexPath.row == 4) {
-        cell.headlineLabel.text = @"Progress";
-        cell.valueLabel.text = [NSString stringWithFormat:@"%.01f%%", 100 - ((statisticMinWeight / statisticMaxWeight) * 100)];
+        cell.headlineLabel.text = NSLocalizedString(@"Total amount of repetitions", nil);
+        cell.valueLabel.text = [NSString stringWithFormat:@"%d", statisticRepetitions];
         cell.backgroundColor = [UIColor colorWithRed:80.0/255.0f green:200.0/255.0f blue:240.0/255.0f alpha:1];
     }
+    
+
 
     return cell;
 }

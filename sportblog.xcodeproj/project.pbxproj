@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8039788719D85286000DEED5 /* SBArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8039788619D85286000DEED5 /* SBArrayDataSource.m */; };
-		805DE22819BCC46500472322 /* camera_disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 805DE22619BCC46500472322 /* camera_disabled@2x.png */; };
-		805DE22919BCC46500472322 /* camera_enabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 805DE22719BCC46500472322 /* camera_enabled@2x.png */; };
 		805DE22C19BF8E6500472322 /* SBWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE22B19BF8E6500472322 /* SBWorkoutViewController.m */; };
 		805DE22F19BF909300472322 /* SBExercisesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE22E19BF909300472322 /* SBExercisesViewController.m */; };
 		805DE23319BF937F00472322 /* SBBigTopBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE23119BF937F00472322 /* SBBigTopBottomCell.m */; };
@@ -35,8 +33,6 @@
 		8086D45519BCBF16004ADBB6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8086D45319BCBF16004ADBB6 /* InfoPlist.strings */; };
 		8086D45719BCBF16004ADBB6 /* sportblogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8086D45619BCBF16004ADBB6 /* sportblogTests.m */; };
 		80B6016A19C9B8D800CC455A /* SBFinishedExercisesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B6016919C9B8D800CC455A /* SBFinishedExercisesViewController.m */; };
-		B325B8AB19D056FF00A369D2 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = B325B8AA19D056FF00A369D2 /* header.png */; };
-		B325B8AD19D05AD600A369D2 /* hantel.png in Resources */ = {isa = PBXBuildFile; fileRef = B325B8AC19D05AD600A369D2 /* hantel.png */; };
 		B35A21DA19DBEFF600BCECAB /* SBStatisticCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B35A21D919DBEFF600BCECAB /* SBStatisticCell.xib */; };
 		B35A21DC19DBF00A00BCECAB /* SBStatisticCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B35A21DB19DBF00A00BCECAB /* SBStatisticCell.m */; };
 		B3752EFF19D185970091E207 /* SBSmallTopBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3752EFE19D185970091E207 /* SBSmallTopBottomCell.xib */; };
@@ -65,6 +61,12 @@
 		B3AC2EE419CC1B5700FFD8FD /* DKCircleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2EE319CC1B5700FFD8FD /* DKCircleImageView.m */; };
 		B3AC2EE719CC1B6D00FFD8FD /* UIViewController+Tutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2EE619CC1B6D00FFD8FD /* UIViewController+Tutorial.m */; };
 		B3AC2EF419CC599F00FFD8FD /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3AC2EF219CC599F00FFD8FD /* Main_iPhone.storyboard */; };
+		B3AED24119DD76C90006A4A9 /* hantel.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED23B19DD76C90006A4A9 /* hantel.png */; };
+		B3AED24219DD76C90006A4A9 /* hantel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED23C19DD76C90006A4A9 /* hantel@2x.png */; };
+		B3AED24319DD76C90006A4A9 /* hantel@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED23D19DD76C90006A4A9 /* hantel@3x.png */; };
+		B3AED24419DD76C90006A4A9 /* stats.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED23E19DD76C90006A4A9 /* stats.png */; };
+		B3AED24519DD76C90006A4A9 /* stats@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED23F19DD76C90006A4A9 /* stats@2x.png */; };
+		B3AED24619DD76C90006A4A9 /* stats@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED24019DD76C90006A4A9 /* stats@3x.png */; };
 		BC4C89146E544EFE9221C7EE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3902127B8514FFFA9109974 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -81,8 +83,6 @@
 /* Begin PBXFileReference section */
 		8039788519D85269000DEED5 /* SBArrayDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBArrayDataSource.h; sourceTree = "<group>"; };
 		8039788619D85286000DEED5 /* SBArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBArrayDataSource.m; sourceTree = "<group>"; };
-		805DE22619BCC46500472322 /* camera_disabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera_disabled@2x.png"; sourceTree = "<group>"; };
-		805DE22719BCC46500472322 /* camera_enabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera_enabled@2x.png"; sourceTree = "<group>"; };
 		805DE22A19BF8E6500472322 /* SBWorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutViewController.h; sourceTree = "<group>"; };
 		805DE22B19BF8E6500472322 /* SBWorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutViewController.m; sourceTree = "<group>"; };
 		805DE22D19BF909300472322 /* SBExercisesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExercisesViewController.h; sourceTree = "<group>"; };
@@ -123,8 +123,6 @@
 		80B6016819C9B8D800CC455A /* SBFinishedExercisesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBFinishedExercisesViewController.h; sourceTree = "<group>"; };
 		80B6016919C9B8D800CC455A /* SBFinishedExercisesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBFinishedExercisesViewController.m; sourceTree = "<group>"; };
 		8C865FF5B6964991856E850D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		B325B8AA19D056FF00A369D2 /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header.png; sourceTree = "<group>"; };
-		B325B8AC19D05AD600A369D2 /* hantel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hantel.png; sourceTree = "<group>"; };
 		B35A21D919DBEFF600BCECAB /* SBStatisticCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBStatisticCell.xib; sourceTree = "<group>"; };
 		B35A21DB19DBF00A00BCECAB /* SBStatisticCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBStatisticCell.m; sourceTree = "<group>"; };
 		B35A21DD19DBF01B00BCECAB /* SBStatisticCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBStatisticCell.h; sourceTree = "<group>"; };
@@ -168,6 +166,12 @@
 		B3AC2EEE19CC46FE00FFD8FD /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B3AC2EEF19CC46FE00FFD8FD /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B3AC2EF319CC599F00FFD8FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		B3AED23B19DD76C90006A4A9 /* hantel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hantel.png; sourceTree = "<group>"; };
+		B3AED23C19DD76C90006A4A9 /* hantel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hantel@2x.png"; sourceTree = "<group>"; };
+		B3AED23D19DD76C90006A4A9 /* hantel@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hantel@3x.png"; sourceTree = "<group>"; };
+		B3AED23E19DD76C90006A4A9 /* stats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stats.png; sourceTree = "<group>"; };
+		B3AED23F19DD76C90006A4A9 /* stats@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stats@2x.png"; sourceTree = "<group>"; };
+		B3AED24019DD76C90006A4A9 /* stats@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stats@3x.png"; sourceTree = "<group>"; };
 		D3902127B8514FFFA9109974 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -311,12 +315,14 @@
 		8086D42F19BCBF16004ADBB6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B3AED23B19DD76C90006A4A9 /* hantel.png */,
+				B3AED23C19DD76C90006A4A9 /* hantel@2x.png */,
+				B3AED23D19DD76C90006A4A9 /* hantel@3x.png */,
+				B3AED23E19DD76C90006A4A9 /* stats.png */,
+				B3AED23F19DD76C90006A4A9 /* stats@2x.png */,
+				B3AED24019DD76C90006A4A9 /* stats@3x.png */,
 				B3752F1219D46B540091E207 /* zange.png */,
 				B3752F0B19D1C5080091E207 /* arrow.png */,
-				B325B8AC19D05AD600A369D2 /* hantel.png */,
-				B325B8AA19D056FF00A369D2 /* header.png */,
-				805DE22619BCC46500472322 /* camera_disabled@2x.png */,
-				805DE22719BCC46500472322 /* camera_enabled@2x.png */,
 				8086D43019BCBF16004ADBB6 /* sportblog-Info.plist */,
 				8086D43119BCBF16004ADBB6 /* Localizable.strings */,
 				8086D43419BCBF16004ADBB6 /* main.m */,
@@ -463,24 +469,26 @@
 				B3752F1319D46B540091E207 /* zange.png in Resources */,
 				B3752F2719DAC8A40091E207 /* SBSetsViewController.xib in Resources */,
 				B3752F1119D2B85B0091E207 /* SBLeftRightCell.xib in Resources */,
-				B325B8AD19D05AD600A369D2 /* hantel.png in Resources */,
 				B3AC2EE019CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.xib in Resources */,
 				B3AC2EF419CC599F00FFD8FD /* Main_iPhone.storyboard in Resources */,
 				805DE23C19BF93CB00472322 /* SBAddEntryTableViewCell.xib in Resources */,
+				B3AED24219DD76C90006A4A9 /* hantel@2x.png in Resources */,
 				B35A21DA19DBEFF600BCECAB /* SBStatisticCell.xib in Resources */,
 				B3752F0C19D1C5080091E207 /* arrow.png in Resources */,
 				805DE24119BF93DC00472322 /* SBExerciseTableViewCell.xib in Resources */,
 				B3752F2919DAC9CF0091E207 /* SBSetViewController.xib in Resources */,
+				B3AED24619DD76C90006A4A9 /* stats@3x.png in Resources */,
 				B3752F2119DAA8580091E207 /* SBFinishedExercisesViewController.xib in Resources */,
 				8086D44419BCBF16004ADBB6 /* Images.xcassets in Resources */,
 				B3752F1F19DAA6720091E207 /* SBWorkoutsViewController.xib in Resources */,
-				B325B8AB19D056FF00A369D2 /* header.png in Resources */,
+				B3AED24519DD76C90006A4A9 /* stats@2x.png in Resources */,
 				B3752F2519DAC6140091E207 /* SBExercisesViewController.xib in Resources */,
-				805DE22819BCC46500472322 /* camera_disabled@2x.png in Resources */,
 				805DE23419BF937F00472322 /* SBBigTopBottomCell.xib in Resources */,
+				B3AED24319DD76C90006A4A9 /* hantel@3x.png in Resources */,
+				B3AED24419DD76C90006A4A9 /* stats.png in Resources */,
 				8086D43319BCBF16004ADBB6 /* Localizable.strings in Resources */,
 				B3752F2319DAC1170091E207 /* SBWorkoutViewController.xib in Resources */,
-				805DE22919BCC46500472322 /* camera_enabled@2x.png in Resources */,
+				B3AED24119DD76C90006A4A9 /* hantel.png in Resources */,
 				B3752EFF19D185970091E207 /* SBSmallTopBottomCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

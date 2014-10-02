@@ -57,6 +57,8 @@
     self.tabBarController.tabBar.barTintColor = [UIColor navigationBarColor];
     self.tabBarController.tabBar.tintColor = [UIColor whiteColor];
     
+    self.tabBarController.delegate = self;
+    
     self.window.rootViewController = self.tabBarController;
     
     [self.window makeKeyAndVisible];
@@ -89,6 +91,13 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    if (viewController == self.statisticNavigationController) {
+        [self.statisticNavigationController popToRootViewControllerAnimated:YES];
+        return;
+    }
 }
 
 @end

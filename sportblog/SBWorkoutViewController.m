@@ -57,6 +57,7 @@ UITextField *textfield;
     
     
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
+    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.allowsMultipleSelectionDuringEditing = NO;

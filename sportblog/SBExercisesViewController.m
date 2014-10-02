@@ -33,6 +33,7 @@
     [super viewDidLoad];
     
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
+    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.layoutMargins = UIEdgeInsetsZero;
