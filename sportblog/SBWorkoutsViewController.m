@@ -17,6 +17,7 @@
 #import "SBArrayDataSource.h"
 #import "SBWorkoutViewModel.h"
 #import "SBAppDelegate.h"
+#import "SBDataManager.h"
 
 @interface SBWorkoutsViewController () <UITableViewDelegate>
 
@@ -49,37 +50,16 @@ static NSString * const WorkoutCellIdentifier = @"WorkoutCell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
-    self.workouts = [[SBWorkout allObjects] arraySortedByProperty:@"date" ascending:NO];
+    self.workouts = [self.indicator findWorkouts];
     
     SBCellBlock cellBlock = ^(SBSmallTopBottomCell *workoutCell, SBWorkout *workout) {
         SBWorkoutViewModel *vm = [[SBWorkoutViewModel alloc] initWithWorkout:workout];
-        
-        workoutCell.topLabel.text = vm.nameText;
-        workoutCell.topLabel.textColor = [UIColor textColor];
-        
-        workoutCell.bottomLabel.text = vm.dateText;
-        workoutCell.bottomLabel.textColor = [UIColor textColor];
-        
-        workoutCell.layoutMargins = UIEdgeInsetsZero;
-        workoutCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        workoutCell.backgroundColor = [UIColor clearColor];
+        [workoutCell render:vm];
     };
     
+    
     SBOnDeleteBlock deleteBlock = ^(SBWorkout *workout) {
-        [RLMRealm.defaultRealm beginWriteTransaction];
-        
-        for (SBExerciseSet *exercise in workout.exercises) {
-            for (SBSet *set in exercise.sets) {
-                [workout.exercises.realm deleteObject:set];
-            }
-            
-            [workout.realm deleteObject:exercise];
-        }
-        
-        [RLMRealm.defaultRealm deleteObject:workout];
-        [RLMRealm.defaultRealm commitWriteTransaction];
+        [self.indicator deleteWorkout:workout];
     };
     
     self.arrayDataSource = [[SBArrayDataSource alloc] initWithItems:self.workouts
@@ -90,7 +70,7 @@ static NSString * const WorkoutCellIdentifier = @"WorkoutCell";
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-    self.tableView.layoutMargins = UIEdgeInsetsZero;
+    [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     self.tableView.backgroundColor = [UIColor tableViewColor];
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     
@@ -129,6 +109,11 @@ static NSString * const WorkoutCellIdentifier = @"WorkoutCell";
 
 - (void)onAddWorkout:(id)sender {
     SBWorkoutViewController* workoutViewController = [[SBWorkoutViewController alloc] initWithNibName:@"SBWorkoutViewController" bundle:nil];
+    
+    SBWorkout *workout = [self.indicator createWorkoutWithName:NSLocalizedString(@"Workout", nil)
+                                                  andDate:[NSDate date]];
+
+    workoutViewController.workout = workout;
     [self.navigationController pushViewController:workoutViewController animated:YES];
 }
 

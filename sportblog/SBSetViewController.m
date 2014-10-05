@@ -52,7 +52,7 @@ UIView *overlayView;
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.layoutMargins = UIEdgeInsetsZero;
+    [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     self.tableView.backgroundColor = [UIColor tableViewColor];
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     
@@ -81,7 +81,7 @@ UIView *overlayView;
     cell.backgroundColor = [UIColor actionCellColor];
     cell.leftLabel.textColor = [UIColor whiteColor];
     cell.rightLabel.textColor = [UIColor whiteColor];
-    cell.layoutMargins = UIEdgeInsetsZero;
+    //cell.layoutMargins = UIEdgeInsetsZero;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     // set cell
@@ -268,15 +268,15 @@ UIView *overlayView;
 - (void)done:(id)sender {
     
     if (self.isEditSet) {
-        self.number = [picker selectedRowInComponent:0] + 1;
+        self.number = (int)[picker selectedRowInComponent:0] + 1;
     }
     
     if (self.isEditWeight) {
-        self.weight = [[NSString stringWithFormat:@"%d.%d", [picker selectedRowInComponent:0], [picker selectedRowInComponent:2]] floatValue];
+        self.weight = [[NSString stringWithFormat:@"%d.%d", (int)[picker selectedRowInComponent:0], (int)[picker selectedRowInComponent:2]] floatValue];
     }
     
     if (self.isEditRepetitions) {
-        self.repetitions = [picker selectedRowInComponent:0];
+        self.repetitions = (int)[picker selectedRowInComponent:0];
     }
     
     [self.tableView reloadData];

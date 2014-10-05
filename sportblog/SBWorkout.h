@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Bullin. All rights reserved.
 //
 
-#import <Realm/Realm.h>
 #import "SBExerciseSet.h"
 
 @interface SBWorkout : RLMObject

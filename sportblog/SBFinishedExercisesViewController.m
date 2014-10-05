@@ -35,7 +35,21 @@
 {
     [super viewDidLoad];
 
-    self.exercises = [[NSMutableArray alloc] init];
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    [self.tableView setSeparatorInset:UIEdgeInsetsZero];
+    
+    [self.view addSubview:self.tableView];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    if (!self.exercises) {
+        self.exercises = [[NSMutableArray alloc] init];
+    }
+    
+    [self.exercises removeAllObjects];
     
     RLMArray *exercises = [SBExerciseSet allObjects];
     
@@ -45,13 +59,7 @@
         }
     }
     
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-    self.tableView.layoutMargins = UIEdgeInsetsZero;
-    
-    [self.view addSubview:self.tableView];
+    [self.tableView reloadData];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

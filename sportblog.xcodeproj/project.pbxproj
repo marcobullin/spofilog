@@ -7,7 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29269F6C20B540AA99C7A12B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3902127B8514FFFA9109974 /* libPods.a */; };
 		8039788719D85286000DEED5 /* SBArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8039788619D85286000DEED5 /* SBArrayDataSource.m */; };
+		8039788919DEBAEF000DEED5 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8039788819DEBAEF000DEED5 /* Launch Screen.xib */; };
+		8039788C19DED578000DEED5 /* SBDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8039788B19DED578000DEED5 /* SBDataManager.m */; };
+		8039788E19DEE2F1000DEED5 /* SBExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2EB519C1E6E000FFD8FD /* SBExercise.m */; };
+		8039788F19DEE2F4000DEED5 /* SBSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2ECF19C31F1100FFD8FD /* SBSet.m */; };
+		8039789019DEE2F8000DEED5 /* SBExerciseSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE24419C4BE1900472322 /* SBExerciseSet.m */; };
+		8039789119DEE68F000DEED5 /* SBWorkout.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2EB219C09EFF00FFD8FD /* SBWorkout.m */; };
+		8039789E19DFEF7A000DEED5 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8039789C19DFEF36000DEED5 /* libc++.dylib */; };
+		803978A819E063E4000DEED5 /* SBWorkoutsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 803978A619E063E4000DEED5 /* SBWorkoutsInteractor.m */; };
 		805DE22C19BF8E6500472322 /* SBWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE22B19BF8E6500472322 /* SBWorkoutViewController.m */; };
 		805DE22F19BF909300472322 /* SBExercisesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE22E19BF909300472322 /* SBExercisesViewController.m */; };
 		805DE23319BF937F00472322 /* SBBigTopBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE23119BF937F00472322 /* SBBigTopBottomCell.m */; };
@@ -83,6 +92,12 @@
 /* Begin PBXFileReference section */
 		8039788519D85269000DEED5 /* SBArrayDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBArrayDataSource.h; sourceTree = "<group>"; };
 		8039788619D85286000DEED5 /* SBArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBArrayDataSource.m; sourceTree = "<group>"; };
+		8039788819DEBAEF000DEED5 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
+		8039788A19DED578000DEED5 /* SBDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBDataManager.h; sourceTree = "<group>"; };
+		8039788B19DED578000DEED5 /* SBDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBDataManager.m; sourceTree = "<group>"; };
+		8039789C19DFEF36000DEED5 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		803978A619E063E4000DEED5 /* SBWorkoutsInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutsInteractor.m; sourceTree = "<group>"; };
+		803978A719E063E4000DEED5 /* SBWorkoutsInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutsInteractor.h; sourceTree = "<group>"; };
 		805DE22A19BF8E6500472322 /* SBWorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutViewController.h; sourceTree = "<group>"; };
 		805DE22B19BF8E6500472322 /* SBWorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutViewController.m; sourceTree = "<group>"; };
 		805DE22D19BF909300472322 /* SBExercisesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExercisesViewController.h; sourceTree = "<group>"; };
@@ -191,9 +206,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8039789E19DFEF7A000DEED5 /* libc++.dylib in Frameworks */,
 				8086D44B19BCBF16004ADBB6 /* XCTest.framework in Frameworks */,
 				8086D44D19BCBF16004ADBB6 /* UIKit.framework in Frameworks */,
 				8086D44C19BCBF16004ADBB6 /* Foundation.framework in Frameworks */,
+				29269F6C20B540AA99C7A12B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +224,37 @@
 				8039788619D85286000DEED5 /* SBArrayDataSource.m */,
 			);
 			name = DataSource;
+			sourceTree = "<group>";
+		};
+		8039789F19E05B6B000DEED5 /* Workouts */ = {
+			isa = PBXGroup;
+			children = (
+				8086D44119BCBF16004ADBB6 /* SBWorkoutsViewController.m */,
+				8086D44019BCBF16004ADBB6 /* SBWorkoutsViewController.h */,
+				B3752F1E19DAA6720091E207 /* SBWorkoutsViewController.xib */,
+				B3752F1919DA95920091E207 /* SBWorkoutViewModel.h */,
+				B3752F1A19DA95920091E207 /* SBWorkouViewModel.m */,
+			);
+			name = Workouts;
+			sourceTree = "<group>";
+		};
+		803978A919E13D9C000DEED5 /* EditWorkout */ = {
+			isa = PBXGroup;
+			children = (
+				805DE22B19BF8E6500472322 /* SBWorkoutViewController.m */,
+				805DE22A19BF8E6500472322 /* SBWorkoutViewController.h */,
+				B3752F2219DAC1170091E207 /* SBWorkoutViewController.xib */,
+			);
+			name = EditWorkout;
+			sourceTree = "<group>";
+		};
+		803978AA19E19A04000DEED5 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				803978A619E063E4000DEED5 /* SBWorkoutsInteractor.m */,
+				803978A719E063E4000DEED5 /* SBWorkoutsInteractor.h */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 		805DE24219BF9C4A00472322 /* Cells */ = {
@@ -263,6 +311,7 @@
 		8086D42719BCBF16004ADBB6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8039789C19DFEF36000DEED5 /* libc++.dylib */,
 				8086D42819BCBF16004ADBB6 /* Foundation.framework */,
 				8086D42A19BCBF16004ADBB6 /* CoreGraphics.framework */,
 				8086D42C19BCBF16004ADBB6 /* UIKit.framework */,
@@ -275,6 +324,9 @@
 		8086D42E19BCBF16004ADBB6 /* sportblog */ = {
 			isa = PBXGroup;
 			children = (
+				803978AA19E19A04000DEED5 /* Common */,
+				8039789F19E05B6B000DEED5 /* Workouts */,
+				803978A919E13D9C000DEED5 /* EditWorkout */,
 				B3752F1D19DAA4EA0091E207 /* Models */,
 				B3752F1C19DA95B40091E207 /* ViewModels */,
 				8039788419D85252000DEED5 /* DataSource */,
@@ -283,12 +335,6 @@
 				805DE24219BF9C4A00472322 /* Cells */,
 				8086D43719BCBF16004ADBB6 /* SBAppDelegate.h */,
 				8086D43819BCBF16004ADBB6 /* SBAppDelegate.m */,
-				8086D44019BCBF16004ADBB6 /* SBWorkoutsViewController.h */,
-				8086D44119BCBF16004ADBB6 /* SBWorkoutsViewController.m */,
-				B3752F1E19DAA6720091E207 /* SBWorkoutsViewController.xib */,
-				805DE22A19BF8E6500472322 /* SBWorkoutViewController.h */,
-				805DE22B19BF8E6500472322 /* SBWorkoutViewController.m */,
-				B3752F2219DAC1170091E207 /* SBWorkoutViewController.xib */,
 				805DE22D19BF909300472322 /* SBExercisesViewController.h */,
 				805DE22E19BF909300472322 /* SBExercisesViewController.m */,
 				B3752F2419DAC6130091E207 /* SBExercisesViewController.xib */,
@@ -308,6 +354,8 @@
 				8086D42F19BCBF16004ADBB6 /* Supporting Files */,
 				B3752F0819D18DCD0091E207 /* UIColor+SBColor.h */,
 				B3752F0919D18DCD0091E207 /* UIColor+SBColor.m */,
+				8039788A19DED578000DEED5 /* SBDataManager.h */,
+				8039788B19DED578000DEED5 /* SBDataManager.m */,
 			);
 			path = sportblog;
 			sourceTree = "<group>";
@@ -327,6 +375,7 @@
 				8086D43119BCBF16004ADBB6 /* Localizable.strings */,
 				8086D43419BCBF16004ADBB6 /* main.m */,
 				8086D43619BCBF16004ADBB6 /* sportblog-Prefix.pch */,
+				8039788819DEBAEF000DEED5 /* Launch Screen.xib */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -352,8 +401,6 @@
 		B3752F1C19DA95B40091E207 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				B3752F1919DA95920091E207 /* SBWorkoutViewModel.h */,
-				B3752F1A19DA95920091E207 /* SBWorkouViewModel.m */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -410,9 +457,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8086D45D19BCBF16004ADBB6 /* Build configuration list for PBXNativeTarget "sportblogTests" */;
 			buildPhases = (
+				3F06FC925C584A04972EE6BF /* Check Pods Manifest.lock */,
 				8086D44519BCBF16004ADBB6 /* Sources */,
 				8086D44619BCBF16004ADBB6 /* Frameworks */,
 				8086D44719BCBF16004ADBB6 /* Resources */,
+				005B6256C2E24BA8AB207580 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -466,6 +515,7 @@
 			files = (
 				B3752F2B19DAEB440091E207 /* SBStatisticViewController.xib in Resources */,
 				B3AB6A0C19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib in Resources */,
+				8039788919DEBAEF000DEED5 /* Launch Screen.xib in Resources */,
 				B3752F1319D46B540091E207 /* zange.png in Resources */,
 				B3752F2719DAC8A40091E207 /* SBSetsViewController.xib in Resources */,
 				B3752F1119D2B85B0091E207 /* SBLeftRightCell.xib in Resources */,
@@ -504,6 +554,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		005B6256C2E24BA8AB207580 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3F06FC925C584A04972EE6BF /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		99648F18ECD6433AB70203D1 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -546,9 +626,11 @@
 				805DE25019C85E4C00472322 /* SBStatisticViewController.m in Sources */,
 				B3AC2EB319C09EFF00FFD8FD /* SBWorkout.m in Sources */,
 				B3AC2ED019C31F1100FFD8FD /* SBSet.m in Sources */,
+				803978A819E063E4000DEED5 /* SBWorkoutsInteractor.m in Sources */,
 				B3AC2EB619C1E6E000FFD8FD /* SBExercise.m in Sources */,
 				80B6016A19C9B8D800CC455A /* SBFinishedExercisesViewController.m in Sources */,
 				805DE22C19BF8E6500472322 /* SBWorkoutViewController.m in Sources */,
+				8039788C19DED578000DEED5 /* SBDataManager.m in Sources */,
 				B3752F0619D187C70091E207 /* SBSmallTopBottomCell.m in Sources */,
 				805DE24819C4C19000472322 /* SBSetViewController.m in Sources */,
 				B3AC2EE419CC1B5700FFD8FD /* DKCircleImageView.m in Sources */,
@@ -574,7 +656,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8039788E19DEE2F1000DEED5 /* SBExercise.m in Sources */,
 				8086D45719BCBF16004ADBB6 /* sportblogTests.m in Sources */,
+				8039789119DEE68F000DEED5 /* SBWorkout.m in Sources */,
+				8039788F19DEE2F4000DEED5 /* SBSet.m in Sources */,
+				8039789019DEE2F8000DEED5 /* SBExerciseSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,6 +783,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/sportblog",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sportblog/sportblog-Prefix.pch";
 				INFOPLIST_FILE = "sportblog/sportblog-Info.plist";
@@ -714,6 +804,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/sportblog",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sportblog/sportblog-Prefix.pch";
 				INFOPLIST_FILE = "sportblog/sportblog-Info.plist";
@@ -726,12 +820,15 @@
 		};
 		8086D45E19BCBF16004ADBB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C865FF5B6964991856E850D /* Pods.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/sportblog.app/sportblog";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)/sportblogTests",
+					"$(PROJECT_DIR)/sportblog",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sportblog/sportblog-Prefix.pch";
@@ -748,12 +845,15 @@
 		};
 		8086D45F19BCBF16004ADBB6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C865FF5B6964991856E850D /* Pods.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/sportblog.app/sportblog";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)/sportblogTests",
+					"$(PROJECT_DIR)/sportblog",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sportblog/sportblog-Prefix.pch";

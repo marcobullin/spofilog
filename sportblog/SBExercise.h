@@ -1,4 +1,3 @@
-#import <Realm/Realm.h>
 
 @interface SBExercise : RLMObject
 @property NSString *name;

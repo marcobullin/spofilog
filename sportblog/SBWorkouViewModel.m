@@ -1,4 +1,5 @@
 #import "SBWorkoutViewModel.h"
+#import "UIColor+SBColor.h"
 
 @implementation SBWorkoutViewModel
 
@@ -15,6 +16,9 @@
         [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
 
         _dateText = [dateFormatter stringFromDate:workout.date];
+        
+        _nameTextColor = [UIColor textColor];
+        _dateTextColor = [UIColor textColor];
     }
     
     return self;

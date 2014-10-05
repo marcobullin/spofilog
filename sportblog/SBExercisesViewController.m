@@ -36,7 +36,7 @@
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.layoutMargins = UIEdgeInsetsZero;
+    [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     self.tableView.backgroundColor = [UIColor tableViewColor];
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     
@@ -86,7 +86,7 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        int index = indexPath.row - 1;
+        int index = (int)indexPath.row - 1;
         
         SBExercise *exercise = [self.exercises objectAtIndex:index];
         
@@ -144,7 +144,7 @@
     SBExercise *exercise = [self.exercises objectAtIndex:indexPath.row-1];
     exerciseCell.exerciseLabel.text = exercise.name;
     exerciseCell.exerciseLabel.textColor = [UIColor textColor];
-    exerciseCell.layoutMargins = UIEdgeInsetsZero;
+    //exerciseCell.layoutMargins = UIEdgeInsetsZero;
     exerciseCell.selectionStyle = UITableViewCellSelectionStyleNone;
     exerciseCell.backgroundColor = [UIColor clearColor];
     

@@ -8,16 +8,15 @@
     return [UINib nibWithNibName:@"SBSmallTopBottomCell" bundle:nil];
 }
 
-- (void)awakeFromNib
-{
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
+- (void)render:(SBWorkoutViewModel *)viewData {
+    self.topLabel.text = viewData.nameText;
+    self.topLabel.textColor = viewData.nameTextColor;
     
-    // Configure the view for the selected state
-}
+    self.bottomLabel.text = viewData.dateText;
+    self.bottomLabel.textColor = viewData.dateTextColor;
+    
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.backgroundColor = [UIColor clearColor];
 
+}
 @end

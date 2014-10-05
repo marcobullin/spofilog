@@ -16,7 +16,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#import "RLMRealm.h"
+#import "RLMAccessor.h"
 
 //
 // Table modifications
@@ -40,8 +40,7 @@ void RLMRealmInitializeReadOnlyWithSchema(RLMRealm *realm, RLMSchema *targetSche
 //
 
 // add an object to the given realm
-// if tryUpdate is 'true', update an existing object with the same primary key value
-void RLMAddObjectToRealm(RLMObject *object, RLMRealm *realm, bool tryUpdate = false);
+void RLMAddObjectToRealm(RLMObject *object, RLMRealm *realm, RLMSetFlag options = 0);
 
 // delete an object from its realm
 void RLMDeleteObjectFromRealm(RLMObject *object);
@@ -49,9 +48,11 @@ void RLMDeleteObjectFromRealm(RLMObject *object);
 // get objects of a given class
 RLMArray *RLMGetObjects(RLMRealm *realm, NSString *objectClassName, NSPredicate *predicate);
 
+// get an object with the given primary key
+id RLMGetObject(RLMRealm *realm, NSString *objectClassName, id key);
+
 // create object from array or dictionary
-// if tryUpdate is 'true', update an existing object with the same primary key value
-RLMObject *RLMCreateObjectInRealmWithValue(RLMRealm *realm, NSString *className, id value, bool tryUpdate = false);
+RLMObject *RLMCreateObjectInRealmWithValue(RLMRealm *realm, NSString *className, id value, RLMSetFlag options = 0);
 
 
 //

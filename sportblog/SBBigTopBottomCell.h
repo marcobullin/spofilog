@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SBWorkoutViewModel.h"
 
 @interface SBBigTopBottomCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *topLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bottomLabel;
+
+- (void)render:(SBWorkoutViewModel *)viewData;
 
 @end

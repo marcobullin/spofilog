@@ -1,5 +1,4 @@
 #import <Foundation/Foundation.h>
-#import "RLMArray.h"
 
 typedef void (^SBCellBlock)(id cell, id item);
 typedef void (^SBOnDeleteBlock)(id item);

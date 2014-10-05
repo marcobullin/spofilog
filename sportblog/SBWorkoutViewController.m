@@ -53,23 +53,27 @@ UITextField *textfield;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.interactor = [SBWorkoutsInteractor new];
+    
+    
+    
+    
+    
+    
     [self createDateFormatter];
     
     
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
+    [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     self.tableView.backgroundColor = [UIColor tableViewColor];
-    self.tableView.layoutMargins = UIEdgeInsetsZero;
     
     self.navigationItem.hidesBackButton = YES;
     
-    if (self.workout == nil) {
-        self.workout = [[SBWorkout alloc] init];
-        self.workout.date = [NSDate date];
-    }
+    
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardDidShow:)
@@ -109,16 +113,14 @@ UITextField *textfield;
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // standard -2 because of (workout and add exercise cell)
-        int index = indexPath.row - 2;
+        int index = (int)indexPath.row - 2;
         
         // decrement if edit workout cell is visible
         if (self.isEditWorkoutDetails) {
             index--;
         }
         
-        [self.workout.realm beginWriteTransaction];
-        [self.workout.exercises removeObjectAtIndex:index];
-        [self.workout.realm commitWriteTransaction];
+        [self.interactor removeExerciseAtRow:index fromWorkout:self.workout];
         
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
         
@@ -133,7 +135,7 @@ UITextField *textfield;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    int count = [self.workout.exercises count] + 2;
+    int count = (int)[self.workout.exercises count] + 2;
     
     if (self.isEditWorkoutDetails) {
         count += 1;
@@ -155,15 +157,8 @@ UITextField *textfield;
             workoutCell = [nib objectAtIndex:0];
         }
         
-        workoutCell.topLabel.text = self.workout.name ?: NSLocalizedString(@"Workout", nil);
-        workoutCell.bottomLabel.text = [self.dateFormatter stringFromDate:self.workout.date];
-        workoutCell.topLabel.textColor = [UIColor whiteColor];
-        workoutCell.bottomLabel.textColor = [UIColor whiteColor];
-        
-        workoutCell.backgroundColor = [UIColor importantCellColor];
-        workoutCell.layoutMargins = UIEdgeInsetsZero;
-        workoutCell.separatorInset = UIEdgeInsetsMake(0.f, 0.f, 0.f, workoutCell.bounds.size.width);
-        workoutCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        SBWorkoutViewModel *workoutViewModel = [[SBWorkoutViewModel alloc] initWithWorkout:self.workout];
+        [workoutCell render:workoutViewModel];
         
         return workoutCell;
     }
@@ -199,7 +194,7 @@ UITextField *textfield;
     }
     
     // standard -2 because of (workout and add exercise cell)
-    int index = indexPath.row - 2;
+    int index = (int)indexPath.row - 2;
     
     // decrement if edit workout cell is visible
     if (self.isEditWorkoutDetails) {
@@ -242,7 +237,7 @@ UITextField *textfield;
     SBSetsViewController *setViewController = [[SBSetsViewController alloc] initWithNibName:@"SBSetsViewController" bundle:nil];
     
     // standard -2 because of (workout and add exercise cell)
-    int index = indexPath.row - 2;
+    int index = (int)indexPath.row - 2;
     
     // decrement if edit workout cell is visible
     if (self.isEditWorkoutDetails) {
@@ -262,16 +257,6 @@ UITextField *textfield;
 }
 
 - (IBAction)onWorkoutCompleted:(id)sender {
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    
-    if (!self.workout.name) {
-        self.workout.name = NSLocalizedString(@"Workout", nil);
-    }
-    
-    [realm beginWriteTransaction];
-    [realm addObject:self.workout];
-    [realm commitWriteTransaction];
-    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -394,25 +379,21 @@ UITextField *textfield;
 }
 
 - (void)done:(id)sender {
-    [self.workout.realm beginWriteTransaction];
-    self.workout.date = picker.date;
-    [self.workout.realm commitWriteTransaction];
-    
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    
-    SBBigTopBottomCell *workoutCell = (SBBigTopBottomCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-    workoutCell.bottomLabel.text = [self.dateFormatter stringFromDate:picker.date];
-    
+    NSDate *date = picker.date;
     NSString *workoutName = textfield.text;
+
     if ([workoutName isEqualToString:@""]) {
         workoutName = NSLocalizedString(@"Workout", nil);
     }
     
-    workoutCell.topLabel.text = workoutName;
+    [self.interactor updateWorkout:self.workout withName:workoutName andDate:date];
+
+
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     
-    [self.workout.realm beginWriteTransaction];
-    self.workout.name = workoutName;
-    [self.workout.realm commitWriteTransaction];
+    SBBigTopBottomCell *workoutCell = (SBBigTopBottomCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    workoutCell.bottomLabel.text = [self.dateFormatter stringFromDate:picker.date];
+    workoutCell.topLabel.text = workoutName;
     
     [UIView animateWithDuration:.5 animations:^{
         changeView.frame = CGRectMake(0, self.tableView.frame.size.height, self.tableView.frame.size.width, 340);

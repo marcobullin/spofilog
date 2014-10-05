@@ -7,11 +7,11 @@
 //
 
 #import "SBAppDelegate.h"
-#import "RLMRealm.h"
 #import "FLEXManager.h"
 #import "SBFinishedExercisesViewController.h"
 #import "SBWorkoutsViewController.h"
 #import "UIColor+SBColor.h"
+#import "SBWorkoutsInteractor.h"
 
 @implementation SBAppDelegate
 
@@ -20,14 +20,14 @@
     RLMMigrationBlock migrationBlock = ^NSUInteger(RLMMigration *migration,
                                                    NSUInteger oldSchemaVersion) {
         // We haven’t migrated anything yet, so oldSchemaVersion == 0
-        if (oldSchemaVersion < 5) {
+        if (oldSchemaVersion < 7) {
             // Nothing to do!
             // Realm will automatically detect new properties and removed properties
             // And will update the schema on disk automatically
         }
         // Return the latest version number (always set manually)
         // Must be a higher than the previous version or an RLMException is thrown
-        return 5;
+        return 7;
     };
     
     // Apply the migration block above to the default Realm
@@ -37,7 +37,15 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    
+    
+    
+    
+    SBWorkoutsInteractor *workoutsInteractor = [SBWorkoutsInteractor new];
+    
     SBWorkoutsViewController *workoutsViewController = [[SBWorkoutsViewController alloc] initWithNibName:@"SBWorkoutsViewController" bundle:nil];
+    
+    workoutsViewController.indicator = workoutsInteractor;
 
     self.workoutNavigationController = [[UINavigationController alloc] initWithRootViewController:workoutsViewController];
     self.workoutNavigationController.navigationBar.shadowImage = [UIImage new];

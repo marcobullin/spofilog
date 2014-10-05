@@ -87,19 +87,26 @@
 }
 
 +(instancetype)createInDefaultRealmWithObject:(id)object {
-    return RLMCreateObjectInRealmWithValue([RLMRealm defaultRealm], [self className], object);
+    return RLMCreateObjectInRealmWithValue([RLMRealm defaultRealm], [self className], object, RLMSetFlagAllowCopy);
 }
 
 +(instancetype)createInRealm:(RLMRealm *)realm withObject:(id)value {
-    return RLMCreateObjectInRealmWithValue(realm, [self className], value);
+    return RLMCreateObjectInRealmWithValue(realm, [self className], value, RLMSetFlagAllowCopy);
 }
 
 +(instancetype)createOrUpdateInDefaultRealmWithObject:(id)object {
-    return RLMCreateObjectInRealmWithValue([RLMRealm defaultRealm], [self className], object, true);
+    // verify primary key
+    RLMObjectSchema *schema = [self sharedSchema];
+    if (!schema.primaryKeyProperty) {
+        NSString *reason = [NSString stringWithFormat:@"'%@' does not have a primary key and can not be updated", schema.className];
+        @throw [NSException exceptionWithName:@"RLMExecption" reason:reason userInfo:nil];
+    }
+
+    return RLMCreateObjectInRealmWithValue([RLMRealm defaultRealm], [self className], object, RLMSetFlagUpdateOrCreate | RLMSetFlagAllowCopy);
 }
 
 +(instancetype)createOrUpdateInRealm:(RLMRealm *)realm withObject:(id)value {
-    return RLMCreateObjectInRealmWithValue(realm, [self className], value, true);
+    return RLMCreateObjectInRealmWithValue(realm, [self className], value, RLMSetFlagUpdateOrCreate | RLMSetFlagAllowCopy);
 }
 
 // default attributes for property implementation
@@ -180,6 +187,14 @@
     return RLMGetObjects(realm, self.className, predicate);
 }
 
++ (instancetype)objectForPrimaryKey:(id)primaryKey {
+    return RLMGetObject(RLMRealm.defaultRealm, self.className, primaryKey);
+}
+
++ (instancetype)objectInRealm:(RLMRealm *)realm forPrimaryKey:(id)primaryKey {
+    return RLMGetObject(realm, self.className, primaryKey);
+}
+
 - (NSString *)JSONString {
     @throw [NSException exceptionWithName:@"RLMNotImplementedException"
                                    reason:@"Not yet implemented" userInfo:nil];
@@ -201,6 +216,10 @@
 
 - (NSString *)description
 {
+    if (self.isDeletedFromRealm) {
+        return @"[deleted object]";
+    }
+
     return [self descriptionWithMaxDepth:5];
 }
 

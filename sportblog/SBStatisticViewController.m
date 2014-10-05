@@ -36,7 +36,7 @@ int statisticRepetitions;
     self.tableView.dataSource = self;
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     self.tableView.backgroundColor = [UIColor tableViewColor];
-    self.tableView.layoutMargins = UIEdgeInsetsZero;
+    [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     
     [self createDateFormatter];
     self.title = self.exerciseName;
@@ -82,7 +82,7 @@ int statisticRepetitions;
     CGRect frame = CGRectMake(0, self.navigationController.navigationBar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height/2);
     
     self.lineChartView = [[PCLineChartView alloc] initWithFrame:frame];
-    [self.lineChartView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+    //[self.lineChartView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
     [self.lineChartView setInterval:5.0];
     self.lineChartView.autoscaleYAxis = YES;
     
@@ -135,7 +135,7 @@ int statisticRepetitions;
     cell.headlineLabel.textColor = [UIColor whiteColor];
     cell.valueLabel.textColor = [UIColor whiteColor];
     
-    cell.layoutMargins = UIEdgeInsetsZero;
+    //cell.layoutMargins = UIEdgeInsetsZero;
     cell.separatorInset = UIEdgeInsetsMake(0.f, 0.f, 0.f, cell.bounds.size.width);
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
@@ -187,6 +187,8 @@ int statisticRepetitions;
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.lineChartView removeFromSuperview];// = nil;
+    self.tableView.delegate = nil;
+    self.tableView.dataSource = nil;
 }
 
 @end

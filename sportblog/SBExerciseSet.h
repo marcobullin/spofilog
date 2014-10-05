@@ -1,4 +1,3 @@
-#import <Realm/Realm.h>
 #import "SBSet.h"
 
 @interface SBExerciseSet : RLMObject

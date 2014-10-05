@@ -7,19 +7,19 @@
 //
 
 #import "SBBigTopBottomCell.h"
+#import "UIColor+SBColor.h"
 
 @implementation SBBigTopBottomCell
 
-- (void)awakeFromNib
-{
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)render:(SBWorkoutViewModel *)viewData {
+    _topLabel.text = viewData.nameText;
+    _topLabel.textColor = [UIColor whiteColor];
+    
+    _bottomLabel.text = viewData.dateText;
+    _bottomLabel.textColor = [UIColor whiteColor];
+    
+    self.backgroundColor = [UIColor importantCellColor];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 @end

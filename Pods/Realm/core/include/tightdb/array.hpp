@@ -485,8 +485,8 @@ public:
     /// Add \a diff to all the elements in the specified index range.
     void adjust(std::size_t begin, std::size_t end, int_fast64_t diff);
 
-    /// Add \a diff to all elements that are greater than, or equal to the
-    /// specified limit.
+    /// Add signed \a diff to all elements that are greater than, or equal to \a
+    /// limit.
     void adjust_ge(int_fast64_t limit, int_fast64_t diff);
 
     //@{
@@ -554,14 +554,14 @@ public:
     /// This information is guaranteed to be cached in the array accessor.
     bool is_inner_bptree_node() const TIGHTDB_NOEXCEPT;
 
-    /// Returns true if type is either type_HasRefs or type_InnerColumnNode
+    /// Returns true if type is either type_HasRefs or type_InnerColumnNode.
     ///
     /// This information is guaranteed to be cached in the array accessor.
     bool has_refs() const TIGHTDB_NOEXCEPT;
 
     /// This information is guaranteed to be cached in the array accessor.
     ///
-    /// Columns and indexes can use the context bit to diffentiate leaf types
+    /// Columns and indexes can use the context bit to differentiate leaf types.
     bool get_context_flag() const TIGHTDB_NOEXCEPT;
     void set_context_flag(bool) TIGHTDB_NOEXCEPT;
 
@@ -2966,7 +2966,7 @@ TIGHTDB_FORCEINLINE bool Array::FindSSE_intern(__m128i* action_data, __m128i* da
 
             size_t idx = FirstSetBit(resmask) * 8 / no0(width);
             s += idx;
-            if (!find_action<action, Callback>( s + baseindex, GetUniversal<width>(reinterpret_cast<char*>(data), s), state, callback))
+            if (!find_action<action, Callback>( s + baseindex, GetUniversal<width>(reinterpret_cast<char*>(action_data), s), state, callback))
                 return false;
             resmask >>= (idx + 1) * no0(width) / 8;
             ++s;

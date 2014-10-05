@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SBWorkoutsInteractor.h"
 
 @interface SBWorkoutsViewController : UIViewController
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) SBWorkoutsInteractor *indicator;
 
 @end

@@ -46,7 +46,7 @@
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.layoutMargins = UIEdgeInsetsZero;
+    [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     self.tableView.backgroundColor = [UIColor tableViewColor];
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     
@@ -68,7 +68,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    int count = [self.sets count] + 1;
+    int count = (int)[self.sets count] + 1;
     
     return count;
 }
@@ -94,7 +94,7 @@
             addSetCell.addEntryLabel.text = NSLocalizedString(@"Add new set", nil);
         }
         addSetCell.addEntryLabel.textColor = [UIColor whiteColor];
-        addSetCell.layoutMargins = UIEdgeInsetsZero;
+        //addSetCell.layoutMargins = UIEdgeInsetsZero;
         addSetCell.separatorInset = UIEdgeInsetsMake(0.f, 0.f, 0.f, addSetCell.bounds.size.width);
         addSetCell.selectionStyle = UITableViewCellSelectionStyleNone;
         
@@ -109,7 +109,7 @@
     }
     
     // standard -1 because of the add set cell
-    int index = indexPath.row - 1;
+    int index = (int)indexPath.row - 1;
     
     SBSet *set = [self.sets objectAtIndex:index];
     
@@ -118,7 +118,7 @@
     setCell.bottomLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%.01fkg | %dreps", nil), set.weight, set.repetitions];
     setCell.topLabel.textColor = [UIColor textColor];
     setCell.bottomLabel.textColor = [UIColor textColor];
-    setCell.layoutMargins = UIEdgeInsetsZero;
+    //setCell.layoutMargins = UIEdgeInsetsZero;
     setCell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return setCell;
@@ -194,7 +194,7 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        int index = indexPath.row - 1;
+        int index = (int)indexPath.row - 1;
         
         [self.sets removeObjectAtIndex:index];
         
