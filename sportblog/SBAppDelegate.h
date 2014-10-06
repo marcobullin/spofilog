@@ -14,5 +14,6 @@
 @property (strong, nonatomic) UITabBarController *tabBarController;
 @property (strong, nonatomic) UINavigationController *workoutNavigationController;
 @property (strong, nonatomic) UINavigationController *statisticNavigationController;
+@property (strong, nonatomic) UINavigationController *settingsNavigationController;
 
 @end

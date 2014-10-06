@@ -81,6 +81,11 @@
 		B3AED25A19E2CDB50006A4A9 /* hintArrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED25919E2CDB50006A4A9 /* hintArrow@3x.png */; };
 		B3AED25D19E2CDFE0006A4A9 /* hintArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED25B19E2CDFE0006A4A9 /* hintArrow.png */; };
 		B3AED25E19E2CDFE0006A4A9 /* hintArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED25C19E2CDFE0006A4A9 /* hintArrow@2x.png */; };
+		B3AED26819E2E26C0006A4A9 /* SBSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AED26619E2E26C0006A4A9 /* SBSettingsViewController.m */; };
+		B3AED26919E2E26C0006A4A9 /* SBSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3AED26719E2E26C0006A4A9 /* SBSettingsViewController.xib */; };
+		B3AED26D19E2E3520006A4A9 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED26A19E2E3520006A4A9 /* settings.png */; };
+		B3AED26E19E2E3520006A4A9 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED26B19E2E3520006A4A9 /* settings@2x.png */; };
+		B3AED26F19E2E3520006A4A9 /* settings@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED26C19E2E3520006A4A9 /* settings@3x.png */; };
 		BC4C89146E544EFE9221C7EE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3902127B8514FFFA9109974 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -199,6 +204,12 @@
 		B3AED25919E2CDB50006A4A9 /* hintArrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hintArrow@3x.png"; sourceTree = "<group>"; };
 		B3AED25B19E2CDFE0006A4A9 /* hintArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hintArrow.png; sourceTree = "<group>"; };
 		B3AED25C19E2CDFE0006A4A9 /* hintArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hintArrow@2x.png"; sourceTree = "<group>"; };
+		B3AED26519E2E26C0006A4A9 /* SBSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSettingsViewController.h; sourceTree = "<group>"; };
+		B3AED26619E2E26C0006A4A9 /* SBSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSettingsViewController.m; sourceTree = "<group>"; };
+		B3AED26719E2E26C0006A4A9 /* SBSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBSettingsViewController.xib; sourceTree = "<group>"; };
+		B3AED26A19E2E3520006A4A9 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		B3AED26B19E2E3520006A4A9 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
+		B3AED26C19E2E3520006A4A9 /* settings@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@3x.png"; sourceTree = "<group>"; };
 		D3902127B8514FFFA9109974 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -340,6 +351,7 @@
 				B3AED24F19E2BD3E0006A4A9 /* Set */,
 				B3AED25019E2BD500006A4A9 /* StatExercises */,
 				B3AED25119E2BD7B0006A4A9 /* Statistic */,
+				B3AED26419E2E2480006A4A9 /* Settings */,
 				B3752F1D19DAA4EA0091E207 /* Models */,
 				B3752F1C19DA95B40091E207 /* ViewModels */,
 				8039788419D85252000DEED5 /* DataSource */,
@@ -361,6 +373,9 @@
 		8086D42F19BCBF16004ADBB6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B3AED26A19E2E3520006A4A9 /* settings.png */,
+				B3AED26B19E2E3520006A4A9 /* settings@2x.png */,
+				B3AED26C19E2E3520006A4A9 /* settings@3x.png */,
 				B3AED25B19E2CDFE0006A4A9 /* hintArrow.png */,
 				B3AED25C19E2CDFE0006A4A9 /* hintArrow@2x.png */,
 				B3AED25919E2CDB50006A4A9 /* hintArrow@3x.png */,
@@ -498,6 +513,16 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		B3AED26419E2E2480006A4A9 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B3AED26519E2E26C0006A4A9 /* SBSettingsViewController.h */,
+				B3AED26619E2E26C0006A4A9 /* SBSettingsViewController.m */,
+				B3AED26719E2E26C0006A4A9 /* SBSettingsViewController.xib */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -582,6 +607,7 @@
 			files = (
 				B3AED25D19E2CDFE0006A4A9 /* hintArrow.png in Resources */,
 				B3752F2B19DAEB440091E207 /* SBStatisticViewController.xib in Resources */,
+				B3AED26F19E2E3520006A4A9 /* settings@3x.png in Resources */,
 				B3AB6A0C19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib in Resources */,
 				8039788919DEBAEF000DEED5 /* Launch Screen.xib in Resources */,
 				B3752F1319D46B540091E207 /* zange.png in Resources */,
@@ -596,10 +622,13 @@
 				B3752F0C19D1C5080091E207 /* arrow.png in Resources */,
 				805DE24119BF93DC00472322 /* SBExerciseTableViewCell.xib in Resources */,
 				B3752F2919DAC9CF0091E207 /* SBSetViewController.xib in Resources */,
+				B3AED26D19E2E3520006A4A9 /* settings.png in Resources */,
 				B3AED24619DD76C90006A4A9 /* stats@3x.png in Resources */,
 				B3752F2119DAA8580091E207 /* SBFinishedExercisesViewController.xib in Resources */,
+				B3AED26919E2E26C0006A4A9 /* SBSettingsViewController.xib in Resources */,
 				8086D44419BCBF16004ADBB6 /* Images.xcassets in Resources */,
 				B3752F1F19DAA6720091E207 /* SBWorkoutsViewController.xib in Resources */,
+				B3AED26E19E2E3520006A4A9 /* settings@2x.png in Resources */,
 				B3AED24519DD76C90006A4A9 /* stats@2x.png in Resources */,
 				B3752F2519DAC6140091E207 /* SBExercisesViewController.xib in Resources */,
 				805DE23419BF937F00472322 /* SBBigTopBottomCell.xib in Resources */,
@@ -708,6 +737,7 @@
 				B3AC2EE719CC1B6D00FFD8FD /* UIViewController+Tutorial.m in Sources */,
 				B3AB6A0B19C059A70002EDF9 /* SBEditWorkoutTableViewCell.m in Sources */,
 				805DE24519C4BE1900472322 /* SBExerciseSet.m in Sources */,
+				B3AED26819E2E26C0006A4A9 /* SBSettingsViewController.m in Sources */,
 				8086D44219BCBF16004ADBB6 /* SBWorkoutsViewController.m in Sources */,
 				B3AC2EDF19CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.m in Sources */,
 				B3752F0A19D18DCD0091E207 /* UIColor+SBColor.m in Sources */,

@@ -10,6 +10,7 @@
 #import "FLEXManager.h"
 #import "SBFinishedExercisesViewController.h"
 #import "SBWorkoutsViewController.h"
+#import "SBSettingsViewController.h"
 #import "UIColor+SBColor.h"
 #import "SBWorkoutsInteractor.h"
 
@@ -60,8 +61,16 @@
     self.statisticNavigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self.statisticNavigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     
+    
+    SBSettingsViewController *settings = [[SBSettingsViewController alloc] initWithNibName:@"SBSettingsViewController" bundle:nil];
+    self.settingsNavigationController = [[UINavigationController alloc] initWithRootViewController:settings];
+    self.settingsNavigationController.navigationBar.shadowImage = [UIImage new];
+    self.settingsNavigationController.navigationBar.barTintColor = [UIColor navigationBarColor];
+    self.settingsNavigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [self.settingsNavigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    
     self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = @[self.workoutNavigationController, self.statisticNavigationController];
+    self.tabBarController.viewControllers = @[self.workoutNavigationController, self.statisticNavigationController, self.settingsNavigationController];
     self.tabBarController.tabBar.barTintColor = [UIColor navigationBarColor];
     self.tabBarController.tabBar.tintColor = [UIColor whiteColor];
     
