@@ -7,7 +7,6 @@
 - (RLMArray *)findWorkouts;
 - (void)deleteWorkout:(SBWorkout *)workout;
 - (void)updateWorkout:(SBWorkout *)workout withName:(NSString *)name andDate:(NSDate *)date;
-- (void)addExercise:(SBExerciseSet *)exercise toWorkout:(SBWorkout *)workout;
 - (SBWorkout *)createWorkoutWithName:(NSString *)name andDate:(NSDate *)date;
 - (void)removeExerciseAtRow:(int)row fromWorkout:(SBWorkout *)workout;
 

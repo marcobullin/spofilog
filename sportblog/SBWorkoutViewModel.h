@@ -5,7 +5,6 @@
 
 - (instancetype)initWithWorkout:(SBWorkout *)workout;
 
-@property (nonatomic) int *workoutId;
 @property (nonatomic, readonly) NSString *nameText;
 @property (nonatomic, readonly) NSString *dateText;
 @property (nonatomic, readonly) UIColor *nameTextColor;

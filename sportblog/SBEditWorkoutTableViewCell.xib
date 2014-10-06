@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,8 +15,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="262"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rXY-if-byZ">
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rXY-if-byZ">
                         <rect key="frame" x="8" y="8" width="304" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="kAn-Z8-d42"/>
+                        </constraints>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <textInputTraits key="textInputTraits"/>
@@ -23,7 +27,7 @@
                             <action selector="onChangeWorkoutName:" destination="-2" eventType="editingChanged" id="M44-Ox-cDc"/>
                         </connections>
                     </textField>
-                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="GIO-H8-iFa">
+                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="GIO-H8-iFa">
                         <rect key="frame" x="0.0" y="50" width="320" height="162"/>
                         <date key="date" timeIntervalSinceReferenceDate="432036459.97882003">
                             <!--2014-09-10 10:07:39 +0000-->
@@ -33,6 +37,13 @@
                         </connections>
                     </datePicker>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="GIO-H8-iFa" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="7Da-um-Wlc"/>
+                    <constraint firstItem="GIO-H8-iFa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="8BW-vQ-pbe"/>
+                    <constraint firstItem="GIO-H8-iFa" firstAttribute="centerX" secondItem="rXY-if-byZ" secondAttribute="centerX" id="Irz-hQ-itB"/>
+                    <constraint firstItem="rXY-if-byZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="oOD-Rq-fVL"/>
+                    <constraint firstItem="rXY-if-byZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="oxR-gG-4BX"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="datePicker" destination="GIO-H8-iFa" id="7PN-Xm-er0"/>

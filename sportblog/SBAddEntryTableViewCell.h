@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SBAddEntryViewModel.h"
 
 @interface SBAddEntryTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *addEntryLabel;
+
+- (void)render:(SBAddEntryViewModel *)viewData;
+
 @end

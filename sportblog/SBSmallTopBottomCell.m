@@ -17,6 +17,17 @@
     
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.backgroundColor = [UIColor clearColor];
-
 }
+
+- (void)renderWithExerciseSetVM:(SBExerciseSetViewModel *)viewData {
+    self.topLabel.text = viewData.nameText;
+    self.topLabel.textColor = viewData.nameTextColor;
+    
+    self.bottomLabel.text = viewData.setsText;
+    self.bottomLabel.textColor = viewData.setsTextColor;
+
+    self.backgroundColor = [UIColor clearColor];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+}
+
 @end

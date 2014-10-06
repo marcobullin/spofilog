@@ -10,16 +10,10 @@
 
 @implementation SBAddEntryTableViewCell
 
-- (void)awakeFromNib
-{
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)render:(SBAddEntryViewModel *)viewData {
+    self.addEntryLabel.text = viewData.text;
+    self.backgroundColor = viewData.backgroundColor;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 @end

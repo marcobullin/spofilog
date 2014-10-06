@@ -16,11 +16,11 @@
 #import "SBExerciseSet.h"
 #import "UIViewController+Tutorial.h"
 #import "SBSmallTopBottomCell.h"
-#import "UIColor+SBColor.h"
+#import "SBExerciseSetViewModel.h"
+#import "SBAddEntryViewModel.h"
 
 @interface SBWorkoutViewController ()
-@property (strong, nonatomic) NSDateFormatter *dateFormatter;
-@property (nonatomic) bool isEditWorkoutDetails;
+
 @end
 
 @implementation SBWorkoutViewController
@@ -55,25 +55,14 @@ UITextField *textfield;
     [super viewDidLoad];
     self.interactor = [SBWorkoutsInteractor new];
     
-    
-    
-    
-    
-    
-    [self createDateFormatter];
-    
-    
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
-    [self.tableView setSeparatorInset:UIEdgeInsetsZero];
-    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     self.tableView.backgroundColor = [UIColor tableViewColor];
     
     self.navigationItem.hidesBackButton = YES;
-    
-    
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardDidShow:)
@@ -85,7 +74,31 @@ UITextField *textfield;
                                                  name:UIKeyboardDidHideNotification
                                                object:nil];
     
+    
+    
     [self.view addSubview:self.tableView];
+}
+
+-(void)viewDidLayoutSubviews
+{
+    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+        [self.tableView setSeparatorInset:UIEdgeInsetsZero];
+    }
+    
+    if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+        [self.tableView setLayoutMargins:UIEdgeInsetsZero];
+    }
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:UIEdgeInsetsZero];
+    }
+    
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -93,17 +106,8 @@ UITextField *textfield;
     [self.tableView reloadData];
 }
 
-- (void)createDateFormatter {
-    
-    self.dateFormatter = [[NSDateFormatter alloc] init];
-    
-    [self.dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-    
-    [self.dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-}
-
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0 || indexPath.row == 1 || (indexPath.row == 2 && self.isEditWorkoutDetails)) {
+    if (indexPath.row == 0 || indexPath.row == 1) {
         return NO;
     }
     
@@ -114,11 +118,6 @@ UITextField *textfield;
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // standard -2 because of (workout and add exercise cell)
         int index = (int)indexPath.row - 2;
-        
-        // decrement if edit workout cell is visible
-        if (self.isEditWorkoutDetails) {
-            index--;
-        }
         
         [self.interactor removeExerciseAtRow:index fromWorkout:self.workout];
         
@@ -136,10 +135,6 @@ UITextField *textfield;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     int count = (int)[self.workout.exercises count] + 2;
-    
-    if (self.isEditWorkoutDetails) {
-        count += 1;
-    }
     
     return count;
 }
@@ -173,15 +168,9 @@ UITextField *textfield;
             addExerciseCell = [nib objectAtIndex:0];
         }
         
-        if ([self.workout.exercises count] > 0) {
-            addExerciseCell.addEntryLabel.text = NSLocalizedString(@"Add another exercise", nil);
-        } else {
-            addExerciseCell.addEntryLabel.text = NSLocalizedString(@"Add exercise", nil);
-        }
-        addExerciseCell.backgroundColor = [UIColor actionCellColor];
-        addExerciseCell.layoutMargins = UIEdgeInsetsZero;
-        addExerciseCell.separatorInset = UIEdgeInsetsMake(0.f, 0.f, 0.f, addExerciseCell.bounds.size.width);
-        addExerciseCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        SBAddEntryViewModel *addEntryViewModel = [[SBAddEntryViewModel alloc] initWithExercises:self.workout.exercises];
+        
+        [addExerciseCell render:addEntryViewModel];
         
         return addExerciseCell;
     }
@@ -196,21 +185,11 @@ UITextField *textfield;
     // standard -2 because of (workout and add exercise cell)
     int index = (int)indexPath.row - 2;
     
-    // decrement if edit workout cell is visible
-    if (self.isEditWorkoutDetails) {
-        index--;
-    }
-    
     SBExerciseSet *exercise = [self.workout.exercises objectAtIndex:index];
     
-    exerciseCell.topLabel.text = exercise.name;
-    exerciseCell.topLabel.textColor = [UIColor textColor];
-    exerciseCell.bottomLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%d Sets", nil), [exercise.sets count]];
-    exerciseCell.bottomLabel.textColor = [UIColor textColor];
-    exerciseCell.backgroundColor = [UIColor clearColor];
+    SBExerciseSetViewModel *exerciseSetViewModel = [[SBExerciseSetViewModel alloc] initWithExercise:exercise];
     
-    exerciseCell.layoutMargins = UIEdgeInsetsZero;
-    exerciseCell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [exerciseCell renderWithExerciseSetVM:exerciseSetViewModel];
     
     return exerciseCell;
 }
@@ -224,7 +203,7 @@ UITextField *textfield;
     }
     
     // user touched on add new exercise
-    if ((indexPath.row == 1 && !self.isEditWorkoutDetails) || (indexPath.row == 2 && self.isEditWorkoutDetails)) {
+    if (indexPath.row == 1) {
         SBExercisesViewController *exercisesViewController = [[SBExercisesViewController alloc] initWithNibName:@"SBExercisesViewController" bundle:nil];
         
         exercisesViewController.delegate = self;
@@ -238,11 +217,6 @@ UITextField *textfield;
     
     // standard -2 because of (workout and add exercise cell)
     int index = (int)indexPath.row - 2;
-    
-    // decrement if edit workout cell is visible
-    if (self.isEditWorkoutDetails) {
-        index--;
-    }
     
     SBExerciseSet *exercise = [self.workout.exercises objectAtIndex:index];
     setViewController.exercise = exercise;
@@ -281,7 +255,7 @@ UITextField *textfield;
     [self.workout.realm commitWriteTransaction];
     
     [self.navigationController popViewControllerAnimated:YES];
-    
+        
     NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[self.workout.exercises count]+1 inSection:0];
     [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
     
@@ -388,12 +362,11 @@ UITextField *textfield;
     
     [self.interactor updateWorkout:self.workout withName:workoutName andDate:date];
 
-
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     
     SBBigTopBottomCell *workoutCell = (SBBigTopBottomCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-    workoutCell.bottomLabel.text = [self.dateFormatter stringFromDate:picker.date];
-    workoutCell.topLabel.text = workoutName;
+    SBWorkoutViewModel *workoutViewModel = [[SBWorkoutViewModel alloc] initWithWorkout:self.workout];
+    [workoutCell render:workoutViewModel];
     
     [UIView animateWithDuration:.5 animations:^{
         changeView.frame = CGRectMake(0, self.tableView.frame.size.height, self.tableView.frame.size.width, 340);
@@ -419,7 +392,6 @@ UITextField *textfield;
 - (void)keyboardDidHide: (NSNotification *) notif{
     changeView.frame = CGRectMake(changeView.frame.origin.x, self.tableView.frame.size.height - 340, changeView.frame.size.width, changeView.frame.size.height);
 }
-
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
