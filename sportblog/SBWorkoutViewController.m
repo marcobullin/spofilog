@@ -300,7 +300,7 @@ UITextField *textfield;
     
     
     picker = [[UIDatePicker alloc] init];
-    picker.frame = CGRectMake(0, 108, 320, 162);
+    picker.frame = CGRectMake(0, 108, self.view.frame.size.width, 162);
     picker.date = self.workout.date;
     picker.datePickerMode = UIDatePickerModeDate;
     

@@ -141,7 +141,7 @@ UIView *overlayView;
     [self.view addSubview:changeView];
     
     picker = [[UIPickerView alloc] init];
-    picker.frame = CGRectMake(0, 44, 320, 162);
+    picker.frame = CGRectMake(0, 44, self.view.frame.size.width, 162);
     picker.showsSelectionIndicator = YES;
     picker.dataSource = self;
     picker.delegate = self;
