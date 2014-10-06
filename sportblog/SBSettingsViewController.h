@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SBSettingsViewController : UIViewController
+@interface SBSettingsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) UITableView *tableView;
 
 @end
