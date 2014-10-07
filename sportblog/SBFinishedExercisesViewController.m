@@ -31,6 +31,11 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.screenName = @"Statistic Exercises Screen";
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

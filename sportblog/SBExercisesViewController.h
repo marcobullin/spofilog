@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SBExercise.h"
+#import "GAITrackedViewController.h"
 
 @class SBExercisesViewController;
 
@@ -15,7 +16,7 @@
 - (void)addExercisesViewController:(SBExercisesViewController *)controller didSelectExercise:(SBExercise *) exercise;
 @end
 
-@interface SBExercisesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+@interface SBExercisesViewController : GAITrackedViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, weak) id <SBExerciseViewControllerDelegate> delegate;

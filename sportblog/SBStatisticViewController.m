@@ -26,6 +26,11 @@ float statisticMinWeight;
 float statisticMaxWeight;
 int statisticRepetitions;
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.screenName = @"Statistic Screen";
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

@@ -13,6 +13,7 @@
 #import "SBSettingsViewController.h"
 #import "UIColor+SBColor.h"
 #import "SBWorkoutsInteractor.h"
+#import "GAI.h"
 
 @implementation SBAppDelegate
 
@@ -35,6 +36,20 @@
     [RLMRealm migrateDefaultRealmWithBlock:migrationBlock];
     
     //[[FLEXManager sharedManager] showExplorer];
+    
+    
+    // Optional: automatically send uncaught exceptions to Google Analytics.
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    
+    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [GAI sharedInstance].dispatchInterval = 20;
+    
+    // Optional: set Logger to VERBOSE for debug information.
+    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+    
+    // Initialize tracker. Replace with your tracking ID.
+    [[GAI sharedInstance] trackerWithTrackingId:@"UA-47906840-3"];
+    
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 

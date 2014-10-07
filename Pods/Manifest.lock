@@ -1,5 +1,6 @@
 PODS:
   - FLEX (1.1.1)
+  - GoogleAnalytics-iOS-SDK (3.0.9)
   - iOSPlot (1.0.1)
   - Realm (0.86.2):
     - Realm/Headers
@@ -8,12 +9,14 @@ PODS:
 
 DEPENDENCIES:
   - FLEX (~> 1.1)
+  - GoogleAnalytics-iOS-SDK (~> 3.0)
   - iOSPlot (~> 1.0)
   - Realm (~> 0.85)
   - UAAppReviewManager
 
 SPEC CHECKSUMS:
   FLEX: 8e53751b915759215d77c7c72b1c7bd28665dac2
+  GoogleAnalytics-iOS-SDK: d9e198b1f955259a72886769be7377cdfcdb2250
   iOSPlot: 93934987c4be73bfdd229d0068bb1302efa05109
   Realm: 50c570655ff10c4311e6929e621f50ab619cf939
   UAAppReviewManager: f23428de9c9cd242c2ffd899e218ba3620bd0683

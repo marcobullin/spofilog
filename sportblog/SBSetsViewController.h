@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "SBExerciseSet.h"
 #import "SBSetViewController.h"
+#import "GAITrackedViewController.h"
 
-@interface SBSetsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, SBSetViewControllerDelegate>
+@interface SBSetsViewController : GAITrackedViewController <UITableViewDataSource, UITableViewDelegate, SBSetViewControllerDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) SBExerciseSet *exercise;

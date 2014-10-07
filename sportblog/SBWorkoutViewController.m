@@ -50,6 +50,11 @@ UITextField *textfield;
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.screenName = @"Edit Workout Screen";
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

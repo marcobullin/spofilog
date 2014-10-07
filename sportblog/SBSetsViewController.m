@@ -36,6 +36,11 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.screenName = @"Sets Screen";
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

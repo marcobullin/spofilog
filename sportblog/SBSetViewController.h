@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SBSet.h"
+#import "GAITrackedViewController.h"
 
 @class SBSetViewController;
 
@@ -15,7 +16,7 @@
 - (void)addSetViewController:(SBSetViewController *)controller didCreatedNewSet:(SBSet *)set;
 @end
 
-@interface SBSetViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
+@interface SBSetViewController : GAITrackedViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (nonatomic) int number;
 @property (nonatomic) float weight;

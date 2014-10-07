@@ -40,6 +40,11 @@ UIView *overlayView;
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.screenName = @"Set Screen";
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

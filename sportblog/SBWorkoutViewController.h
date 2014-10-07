@@ -2,8 +2,9 @@
 #import "SBWorkout.h"
 #import "SBExercisesViewController.h"
 #import "SBWorkoutsInteractor.h"
+#import "GAITrackedViewController.h"
 
-@interface SBWorkoutViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, SBExerciseViewControllerDelegate>
+@interface SBWorkoutViewController : GAITrackedViewController <UITableViewDataSource, UITableViewDelegate, SBExerciseViewControllerDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) SBWorkout *workout;

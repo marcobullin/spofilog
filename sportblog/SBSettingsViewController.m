@@ -27,6 +27,11 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.screenName = @"Settings Screen";
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 

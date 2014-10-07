@@ -47,6 +47,11 @@ static NSString * const WorkoutCellIdentifier = @"WorkoutCell";
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.screenName = @"Workouts Screen";
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

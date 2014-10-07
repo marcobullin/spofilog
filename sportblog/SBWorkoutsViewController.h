@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "SBWorkoutsInteractor.h"
+#import "GAITrackedViewController.h"
 
-@interface SBWorkoutsViewController : UIViewController
+@interface SBWorkoutsViewController : GAITrackedViewController
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) SBWorkoutsInteractor *indicator;
