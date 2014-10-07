@@ -7,7 +7,6 @@
 //
 
 #import "SBAppDelegate.h"
-#import "FLEXManager.h"
 #import "SBFinishedExercisesViewController.h"
 #import "SBWorkoutsViewController.h"
 #import "SBSettingsViewController.h"

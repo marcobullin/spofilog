@@ -1,1 +1,0 @@
-../../UAAppReviewManager/UAAppReviewManager.h
