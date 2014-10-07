@@ -37,10 +37,13 @@
     //[[FLEXManager sharedManager] showExplorer];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    
-    
-    
+
+    [UAAppReviewManager setDebug:YES];
+    [UAAppReviewManager setAppID:@"926711710"];
+    [UAAppReviewManager setSignificantEventsUntilPrompt:1];
+    [UAAppReviewManager showPromptIfNecessary];
+    [UAAppReviewManager setReviewTitle:NSLocalizedString(@"REVIEW_TITLE", nil)];
+    [UAAppReviewManager setReviewMessage:NSLocalizedString(@"REVIEW_MESSAGE", nil)];
     
     SBWorkoutsInteractor *workoutsInteractor = [SBWorkoutsInteractor new];
     

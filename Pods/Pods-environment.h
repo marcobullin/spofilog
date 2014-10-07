@@ -16,13 +16,19 @@
 #define COCOAPODS_POD_AVAILABLE_Realm
 #define COCOAPODS_VERSION_MAJOR_Realm 0
 #define COCOAPODS_VERSION_MINOR_Realm 86
-#define COCOAPODS_VERSION_PATCH_Realm 0
+#define COCOAPODS_VERSION_PATCH_Realm 2
 
 // Realm/Headers
 #define COCOAPODS_POD_AVAILABLE_Realm_Headers
 #define COCOAPODS_VERSION_MAJOR_Realm_Headers 0
 #define COCOAPODS_VERSION_MINOR_Realm_Headers 86
-#define COCOAPODS_VERSION_PATCH_Realm_Headers 0
+#define COCOAPODS_VERSION_PATCH_Realm_Headers 2
+
+// UAAppReviewManager
+#define COCOAPODS_POD_AVAILABLE_UAAppReviewManager
+#define COCOAPODS_VERSION_MAJOR_UAAppReviewManager 0
+#define COCOAPODS_VERSION_MINOR_UAAppReviewManager 2
+#define COCOAPODS_VERSION_PATCH_UAAppReviewManager 6
 
 // iOSPlot
 #define COCOAPODS_POD_AVAILABLE_iOSPlot

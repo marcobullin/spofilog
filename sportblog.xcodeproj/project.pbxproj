@@ -69,7 +69,6 @@
 		B3AC2EE019CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3AC2EDE19CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.xib */; };
 		B3AC2EE419CC1B5700FFD8FD /* DKCircleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2EE319CC1B5700FFD8FD /* DKCircleImageView.m */; };
 		B3AC2EE719CC1B6D00FFD8FD /* UIViewController+Tutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2EE619CC1B6D00FFD8FD /* UIViewController+Tutorial.m */; };
-		B3AC2EF419CC599F00FFD8FD /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3AC2EF219CC599F00FFD8FD /* Main_iPhone.storyboard */; };
 		B3AED24119DD76C90006A4A9 /* hantel.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED23B19DD76C90006A4A9 /* hantel.png */; };
 		B3AED24219DD76C90006A4A9 /* hantel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED23C19DD76C90006A4A9 /* hantel@2x.png */; };
 		B3AED24319DD76C90006A4A9 /* hantel@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED23D19DD76C90006A4A9 /* hantel@3x.png */; };
@@ -86,6 +85,9 @@
 		B3AED26D19E2E3520006A4A9 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED26A19E2E3520006A4A9 /* settings.png */; };
 		B3AED26E19E2E3520006A4A9 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED26B19E2E3520006A4A9 /* settings@2x.png */; };
 		B3AED26F19E2E3520006A4A9 /* settings@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED26C19E2E3520006A4A9 /* settings@3x.png */; };
+		B3AED27319E3E31E0006A4A9 /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED27019E3E31E0006A4A9 /* appIcon.png */; };
+		B3AED27419E3E31E0006A4A9 /* appIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED27119E3E31E0006A4A9 /* appIcon@2x.png */; };
+		B3AED27519E3E31E0006A4A9 /* appIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED27219E3E31E0006A4A9 /* appIcon@3x.png */; };
 		BC4C89146E544EFE9221C7EE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3902127B8514FFFA9109974 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -190,7 +192,6 @@
 		B3AC2EE619CC1B6D00FFD8FD /* UIViewController+Tutorial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Tutorial.m"; sourceTree = "<group>"; };
 		B3AC2EEE19CC46FE00FFD8FD /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B3AC2EEF19CC46FE00FFD8FD /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B3AC2EF319CC599F00FFD8FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		B3AED23B19DD76C90006A4A9 /* hantel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hantel.png; sourceTree = "<group>"; };
 		B3AED23C19DD76C90006A4A9 /* hantel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hantel@2x.png"; sourceTree = "<group>"; };
 		B3AED23D19DD76C90006A4A9 /* hantel@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hantel@3x.png"; sourceTree = "<group>"; };
@@ -210,6 +211,9 @@
 		B3AED26A19E2E3520006A4A9 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		B3AED26B19E2E3520006A4A9 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
 		B3AED26C19E2E3520006A4A9 /* settings@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@3x.png"; sourceTree = "<group>"; };
+		B3AED27019E3E31E0006A4A9 /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
+		B3AED27119E3E31E0006A4A9 /* appIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appIcon@2x.png"; sourceTree = "<group>"; };
+		B3AED27219E3E31E0006A4A9 /* appIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appIcon@3x.png"; sourceTree = "<group>"; };
 		D3902127B8514FFFA9109974 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -355,7 +359,6 @@
 				B3752F1D19DAA4EA0091E207 /* Models */,
 				B3752F1C19DA95B40091E207 /* ViewModels */,
 				8039788419D85252000DEED5 /* DataSource */,
-				B3AC2EF219CC599F00FFD8FD /* Main_iPhone.storyboard */,
 				B3AC2EE119CC1B2C00FFD8FD /* ThirdParty */,
 				805DE24219BF9C4A00472322 /* Cells */,
 				8086D43719BCBF16004ADBB6 /* SBAppDelegate.h */,
@@ -373,6 +376,9 @@
 		8086D42F19BCBF16004ADBB6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B3AED27019E3E31E0006A4A9 /* appIcon.png */,
+				B3AED27119E3E31E0006A4A9 /* appIcon@2x.png */,
+				B3AED27219E3E31E0006A4A9 /* appIcon@3x.png */,
 				B3AED26A19E2E3520006A4A9 /* settings.png */,
 				B3AED26B19E2E3520006A4A9 /* settings@2x.png */,
 				B3AED26C19E2E3520006A4A9 /* settings@3x.png */,
@@ -575,6 +581,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Bullin;
 				TargetAttributes = {
+					8086D42419BCBF16004ADBB6 = {
+						DevelopmentTeam = 3KXCSFEMK3;
+					};
 					8086D44819BCBF16004ADBB6 = {
 						TestTargetID = 8086D42419BCBF16004ADBB6;
 					};
@@ -614,8 +623,8 @@
 				B3752F2719DAC8A40091E207 /* SBSetsViewController.xib in Resources */,
 				B3752F1119D2B85B0091E207 /* SBLeftRightCell.xib in Resources */,
 				B3AED25A19E2CDB50006A4A9 /* hintArrow@3x.png in Resources */,
+				B3AED27319E3E31E0006A4A9 /* appIcon.png in Resources */,
 				B3AC2EE019CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.xib in Resources */,
-				B3AC2EF419CC599F00FFD8FD /* Main_iPhone.storyboard in Resources */,
 				805DE23C19BF93CB00472322 /* SBAddEntryTableViewCell.xib in Resources */,
 				B3AED24219DD76C90006A4A9 /* hantel@2x.png in Resources */,
 				B35A21DA19DBEFF600BCECAB /* SBStatisticCell.xib in Resources */,
@@ -628,6 +637,7 @@
 				B3AED26919E2E26C0006A4A9 /* SBSettingsViewController.xib in Resources */,
 				8086D44419BCBF16004ADBB6 /* Images.xcassets in Resources */,
 				B3752F1F19DAA6720091E207 /* SBWorkoutsViewController.xib in Resources */,
+				B3AED27519E3E31E0006A4A9 /* appIcon@3x.png in Resources */,
 				B3AED26E19E2E3520006A4A9 /* settings@2x.png in Resources */,
 				B3AED24519DD76C90006A4A9 /* stats@2x.png in Resources */,
 				B3752F2519DAC6140091E207 /* SBExercisesViewController.xib in Resources */,
@@ -637,6 +647,7 @@
 				B3AED24419DD76C90006A4A9 /* stats.png in Resources */,
 				8086D43319BCBF16004ADBB6 /* Localizable.strings in Resources */,
 				B3752F2319DAC1170091E207 /* SBWorkoutViewController.xib in Resources */,
+				B3AED27419E3E31E0006A4A9 /* appIcon@2x.png in Resources */,
 				B3AED24119DD76C90006A4A9 /* hantel.png in Resources */,
 				B3752EFF19D185970091E207 /* SBSmallTopBottomCell.xib in Resources */,
 			);
@@ -795,14 +806,6 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		B3AC2EF219CC599F00FFD8FD /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B3AC2EF319CC599F00FFD8FD /* Base */,
-			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -885,6 +888,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/sportblog",
@@ -894,6 +899,7 @@
 				INFOPLIST_FILE = "sportblog/sportblog-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "30ba5098-b864-42dc-9258-29b95f1b2df4";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -906,6 +912,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Marco Francke (E6579M9K8Z)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/sportblog",
@@ -915,6 +923,7 @@
 				INFOPLIST_FILE = "sportblog/sportblog-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "30ba5098-b864-42dc-9258-29b95f1b2df4";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

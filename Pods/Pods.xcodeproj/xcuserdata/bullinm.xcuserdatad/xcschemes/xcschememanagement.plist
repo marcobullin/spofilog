@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-UAAppReviewManager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-iOSPlot.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -24,45 +29,40 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>UAAppReviewManager-iOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1D45CB91F4E948FE85E62065</key>
+		<key>2AE0A3EBFCDD4F21923A0BBE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2EB8FAA1DA174B30A863437E</key>
+		<key>85D80A9794804BB89F478D43</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>72727C7696B54C3498D442C5</key>
+		<key>990A5717A94442F8B82D1AFC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>822DA4FE41034222955AC4D5</key>
+		<key>D741A0C8930444A1832B3D14</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9F36D36B05F34F6C82D1588F</key>
+		<key>F12C1A9A08834C7FBA9D396A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AEA68782F1104717B29FC1C2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B2960BBB3AF7459E8E48150F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DC53B2EB55614132B2CA9295</key>
+		<key>FCDBF238DAEF45EE816D4584</key>
 		<dict>
 			<key>primary</key>
 			<true/>

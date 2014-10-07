@@ -28,3 +28,7 @@
 
 // SBFinishedExercisesViewController
 "Statistics" = "Statistiken";
+
+// REVIEW
+"REVIEW_TITLE" = "Spofilog App bewerten";
+"REVIEW_MESSAGE" = "Gefällt dir die Spofilog App? Cool, dann wäre es super wenn du sie mit 5 Sternen bewerten könntest? Vielen Dank!";

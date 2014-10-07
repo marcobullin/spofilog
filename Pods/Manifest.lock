@@ -1,18 +1,21 @@
 PODS:
   - FLEX (1.1.1)
   - iOSPlot (1.0.1)
-  - Realm (0.86.0):
+  - Realm (0.86.2):
     - Realm/Headers
-  - Realm/Headers (0.86.0)
+  - Realm/Headers (0.86.2)
+  - UAAppReviewManager (0.2.6)
 
 DEPENDENCIES:
   - FLEX (~> 1.1)
   - iOSPlot (~> 1.0)
   - Realm (~> 0.85)
+  - UAAppReviewManager
 
 SPEC CHECKSUMS:
   FLEX: 8e53751b915759215d77c7c72b1c7bd28665dac2
   iOSPlot: 93934987c4be73bfdd229d0068bb1302efa05109
-  Realm: 7a3d4307d55a07d81d8de7fb620a182029dfb74c
+  Realm: 50c570655ff10c4311e6929e621f50ab619cf939
+  UAAppReviewManager: f23428de9c9cd242c2ffd899e218ba3620bd0683
 
 COCOAPODS: 0.33.1

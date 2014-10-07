@@ -14,4 +14,5 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import <Realm/Realm.h>
+    #import <UAAppReviewManager.h>
 #endif

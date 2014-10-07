@@ -522,11 +522,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sportblog/SBAppDelegate.m"
-            timestampString = "434299744.918873"
+            timestampString = "434375677.209493"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "-applicationWillTerminate:"
             landmarkType = "5">
          </BreakpointContent>
@@ -656,6 +656,38 @@
             startingLineNumber = "116"
             endingLineNumber = "116"
             landmarkName = "-tableView:heightForRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "sportblog/SBAppDelegate.m"
+            timestampString = "434375296.851429"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "-application:didFinishLaunchingWithOptions:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/UAAppReviewManager/UAAppReviewManager.m"
+            timestampString = "434375164.082874"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "716"
+            endingLineNumber = "716"
+            landmarkName = "-showPromptIfNecessary:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
