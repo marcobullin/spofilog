@@ -29,6 +29,17 @@
 // SBFinishedExercisesViewController
 "Statistics" = "Statistiken";
 
+// SBStatisticViewController
+"Total amount of sets" = "Gesamtanzahl Sätze";
+"Your minimum weight" = "Minimalgewicht";
+"Your maximum weight" = "Maximalgewicht";
+"Your Weight-Progress" = "Fortschritt";
+"Total amount of repetitions" = "Gesamtanzahl Wiederholungen";
+
+// SBSettingsViewController
+"Settings" = "Einstellungen";
+
 // REVIEW
 "REVIEW_TITLE" = "Spofilog App bewerten";
-"REVIEW_MESSAGE" = "Gefällt dir die Spofilog App? Cool, dann wäre es super wenn du sie mit 5 Sternen bewerten könntest? Vielen Dank!";
+"REVIEW_MESSAGE" = "Gefällt dir die Spofilog App? Cool, dann wäre es super wenn du sie mit 5 Sternen bewerten könntest. Vielen Dank!";
+"REVIEW_RATE_BUTTON" = "Spofilog App bewerten";

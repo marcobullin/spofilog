@@ -40,10 +40,11 @@
 
     [UAAppReviewManager setDebug:YES];
     [UAAppReviewManager setAppID:@"926711710"];
-    [UAAppReviewManager setSignificantEventsUntilPrompt:1];
+    [UAAppReviewManager setSignificantEventsUntilPrompt:2];
     [UAAppReviewManager showPromptIfNecessary];
     [UAAppReviewManager setReviewTitle:NSLocalizedString(@"REVIEW_TITLE", nil)];
     [UAAppReviewManager setReviewMessage:NSLocalizedString(@"REVIEW_MESSAGE", nil)];
+    [UAAppReviewManager setRateButtonTitle:NSLocalizedString(@"REVIEW_RATE_BUTTON", nil)];
     
     SBWorkoutsInteractor *workoutsInteractor = [SBWorkoutsInteractor new];
     
