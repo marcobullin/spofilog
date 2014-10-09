@@ -24,6 +24,8 @@
 		803978BF19E6DA50000DEED5 /* launcherImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 803978BC19E6DA50000DEED5 /* launcherImage.png */; };
 		803978C019E6DA50000DEED5 /* launcherImageIP5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 803978BD19E6DA50000DEED5 /* launcherImageIP5@2x.png */; };
 		803978C119E6DA50000DEED5 /* launcherImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 803978BE19E6DA50000DEED5 /* launcherImage@2x.png */; };
+		803978C519E6EF66000DEED5 /* SBStandardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 803978C319E6EF66000DEED5 /* SBStandardCell.m */; };
+		803978C619E6EF66000DEED5 /* SBStandardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 803978C419E6EF66000DEED5 /* SBStandardCell.xib */; };
 		805DE22C19BF8E6500472322 /* SBWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE22B19BF8E6500472322 /* SBWorkoutViewController.m */; };
 		805DE22F19BF909300472322 /* SBExercisesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE22E19BF909300472322 /* SBExercisesViewController.m */; };
 		805DE23319BF937F00472322 /* SBBigTopBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE23119BF937F00472322 /* SBBigTopBottomCell.m */; };
@@ -125,6 +127,9 @@
 		803978BC19E6DA50000DEED5 /* launcherImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launcherImage.png; sourceTree = "<group>"; };
 		803978BD19E6DA50000DEED5 /* launcherImageIP5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launcherImageIP5@2x.png"; sourceTree = "<group>"; };
 		803978BE19E6DA50000DEED5 /* launcherImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launcherImage@2x.png"; sourceTree = "<group>"; };
+		803978C219E6EF66000DEED5 /* SBStandardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBStandardCell.h; sourceTree = "<group>"; };
+		803978C319E6EF66000DEED5 /* SBStandardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBStandardCell.m; sourceTree = "<group>"; };
+		803978C419E6EF66000DEED5 /* SBStandardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBStandardCell.xib; sourceTree = "<group>"; };
 		805DE22A19BF8E6500472322 /* SBWorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutViewController.h; sourceTree = "<group>"; };
 		805DE22B19BF8E6500472322 /* SBWorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutViewController.m; sourceTree = "<group>"; };
 		805DE22D19BF909300472322 /* SBExercisesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExercisesViewController.h; sourceTree = "<group>"; };
@@ -329,6 +334,9 @@
 				B35A21DB19DBF00A00BCECAB /* SBStatisticCell.m */,
 				B35A21DD19DBF01B00BCECAB /* SBStatisticCell.h */,
 				B35A21D919DBEFF600BCECAB /* SBStatisticCell.xib */,
+				803978C219E6EF66000DEED5 /* SBStandardCell.h */,
+				803978C319E6EF66000DEED5 /* SBStandardCell.m */,
+				803978C419E6EF66000DEED5 /* SBStandardCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -672,6 +680,7 @@
 				805DE23419BF937F00472322 /* SBBigTopBottomCell.xib in Resources */,
 				803978C019E6DA50000DEED5 /* launcherImageIP5@2x.png in Resources */,
 				B3AED24319DD76C90006A4A9 /* hantel@3x.png in Resources */,
+				803978C619E6EF66000DEED5 /* SBStandardCell.xib in Resources */,
 				B3AED25E19E2CDFE0006A4A9 /* hintArrow@2x.png in Resources */,
 				B3AED24419DD76C90006A4A9 /* stats.png in Resources */,
 				8086D43319BCBF16004ADBB6 /* Localizable.strings in Resources */,
@@ -778,6 +787,7 @@
 				805DE24519C4BE1900472322 /* SBExerciseSet.m in Sources */,
 				B3AED26819E2E26C0006A4A9 /* SBSettingsViewController.m in Sources */,
 				8086D44219BCBF16004ADBB6 /* SBWorkoutsViewController.m in Sources */,
+				803978C519E6EF66000DEED5 /* SBStandardCell.m in Sources */,
 				B3AC2EDF19CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.m in Sources */,
 				803978B919E6AAF7000DEED5 /* SBImprintViewController.m in Sources */,
 				B3752F0A19D18DCD0091E207 /* UIColor+SBColor.m in Sources */,

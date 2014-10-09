@@ -1,5 +1,5 @@
 //
-//  SBImprintViewController.h
+//  SBStandardCell.h
 //  sportblog
 //
 //  Created by Marco Bullin on 09/10/14.
@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SBImprintViewController : UIViewController <UIWebViewDelegate>
+@interface SBStandardCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *label;
 
 @end

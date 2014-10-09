@@ -9,6 +9,7 @@
 #import "SBSettingsViewController.h"
 #import "UIColor+SBColor.h"
 #import "SBImprintViewController.h"
+#import "SBStandardCell.h"
 
 @interface SBSettingsViewController ()
 
@@ -56,21 +57,22 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    SBStandardCell *cell = (SBStandardCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBStandardCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
     }
     
     if (indexPath.row == 0) {
-        cell.textLabel.text = NSLocalizedString(@"Feedback", nil);
+        cell.label.text = NSLocalizedString(@"Feedback", nil);
     }
     
     if (indexPath.row == 1) {
-        cell.textLabel.text = NSLocalizedString(@"Rate in App Store", nil);
+        cell.label.text = NSLocalizedString(@"Rate in App Store", nil);
     }
 
     if (indexPath.row == 2) {
-        cell.textLabel.text = NSLocalizedString(@"Imprint", nil);
+        cell.label.text = NSLocalizedString(@"Imprint", nil);
     }
     
     return cell;
