@@ -17,7 +17,7 @@
         
         NSString *key = message;
         
-        BOOL wasShown = false;//[[NSUserDefaults standardUserDefaults] boolForKey:key];
+        BOOL wasShown = [[NSUserDefaults standardUserDefaults] boolForKey:key];
         
         if (wasShown) {
             return self;
@@ -52,7 +52,7 @@
     CGRect holeRect = CGRectMake(_hintPoint.x, _hintPoint.y, 50, 50);
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    CGContextSetFillColorWithColor( context, [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5].CGColor );
+    CGContextSetFillColorWithColor( context, [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7].CGColor );
     CGContextFillRect( context, rect );
     
     CGRectIntersection( holeRect, rect );

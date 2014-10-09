@@ -20,6 +20,10 @@
 		803978AC19E4735D000DEED5 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 803978AB19E4735D000DEED5 /* Settings.bundle */; };
 		803978B519E68708000DEED5 /* SBHelperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 803978B419E68708000DEED5 /* SBHelperView.m */; };
 		803978B919E6AAF7000DEED5 /* SBImprintViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 803978B819E6AAF7000DEED5 /* SBImprintViewController.m */; };
+		803978BB19E6D660000DEED5 /* launcherImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 803978BA19E6D660000DEED5 /* launcherImage@3x.png */; };
+		803978BF19E6DA50000DEED5 /* launcherImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 803978BC19E6DA50000DEED5 /* launcherImage.png */; };
+		803978C019E6DA50000DEED5 /* launcherImageIP5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 803978BD19E6DA50000DEED5 /* launcherImageIP5@2x.png */; };
+		803978C119E6DA50000DEED5 /* launcherImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 803978BE19E6DA50000DEED5 /* launcherImage@2x.png */; };
 		805DE22C19BF8E6500472322 /* SBWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE22B19BF8E6500472322 /* SBWorkoutViewController.m */; };
 		805DE22F19BF909300472322 /* SBExercisesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE22E19BF909300472322 /* SBExercisesViewController.m */; };
 		805DE23319BF937F00472322 /* SBBigTopBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE23119BF937F00472322 /* SBBigTopBottomCell.m */; };
@@ -117,6 +121,10 @@
 		803978B419E68708000DEED5 /* SBHelperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBHelperView.m; sourceTree = "<group>"; };
 		803978B719E6AAF7000DEED5 /* SBImprintViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBImprintViewController.h; sourceTree = "<group>"; };
 		803978B819E6AAF7000DEED5 /* SBImprintViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBImprintViewController.m; sourceTree = "<group>"; };
+		803978BA19E6D660000DEED5 /* launcherImage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launcherImage@3x.png"; sourceTree = "<group>"; };
+		803978BC19E6DA50000DEED5 /* launcherImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launcherImage.png; sourceTree = "<group>"; };
+		803978BD19E6DA50000DEED5 /* launcherImageIP5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launcherImageIP5@2x.png"; sourceTree = "<group>"; };
+		803978BE19E6DA50000DEED5 /* launcherImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launcherImage@2x.png"; sourceTree = "<group>"; };
 		805DE22A19BF8E6500472322 /* SBWorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutViewController.h; sourceTree = "<group>"; };
 		805DE22B19BF8E6500472322 /* SBWorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutViewController.m; sourceTree = "<group>"; };
 		805DE22D19BF909300472322 /* SBExercisesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExercisesViewController.h; sourceTree = "<group>"; };
@@ -391,6 +399,10 @@
 		8086D42F19BCBF16004ADBB6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				803978BC19E6DA50000DEED5 /* launcherImage.png */,
+				803978BD19E6DA50000DEED5 /* launcherImageIP5@2x.png */,
+				803978BE19E6DA50000DEED5 /* launcherImage@2x.png */,
+				803978BA19E6D660000DEED5 /* launcherImage@3x.png */,
 				B3AED27019E3E31E0006A4A9 /* appIcon.png */,
 				B3AED27119E3E31E0006A4A9 /* appIcon@2x.png */,
 				B3AED27219E3E31E0006A4A9 /* appIcon@3x.png */,
@@ -630,6 +642,7 @@
 				803978AC19E4735D000DEED5 /* Settings.bundle in Resources */,
 				B3AED25D19E2CDFE0006A4A9 /* hintArrow.png in Resources */,
 				B3752F2B19DAEB440091E207 /* SBStatisticViewController.xib in Resources */,
+				803978BF19E6DA50000DEED5 /* launcherImage.png in Resources */,
 				B3AED26F19E2E3520006A4A9 /* settings@3x.png in Resources */,
 				B3AB6A0C19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib in Resources */,
 				8039788919DEBAEF000DEED5 /* Launch Screen.xib in Resources */,
@@ -654,14 +667,17 @@
 				B3AED27519E3E31E0006A4A9 /* appIcon@3x.png in Resources */,
 				B3AED26E19E2E3520006A4A9 /* settings@2x.png in Resources */,
 				B3AED24519DD76C90006A4A9 /* stats@2x.png in Resources */,
+				803978BB19E6D660000DEED5 /* launcherImage@3x.png in Resources */,
 				B3752F2519DAC6140091E207 /* SBExercisesViewController.xib in Resources */,
 				805DE23419BF937F00472322 /* SBBigTopBottomCell.xib in Resources */,
+				803978C019E6DA50000DEED5 /* launcherImageIP5@2x.png in Resources */,
 				B3AED24319DD76C90006A4A9 /* hantel@3x.png in Resources */,
 				B3AED25E19E2CDFE0006A4A9 /* hintArrow@2x.png in Resources */,
 				B3AED24419DD76C90006A4A9 /* stats.png in Resources */,
 				8086D43319BCBF16004ADBB6 /* Localizable.strings in Resources */,
 				B3752F2319DAC1170091E207 /* SBWorkoutViewController.xib in Resources */,
 				B3AED27419E3E31E0006A4A9 /* appIcon@2x.png in Resources */,
+				803978C119E6DA50000DEED5 /* launcherImage@2x.png in Resources */,
 				B3AED24119DD76C90006A4A9 /* hantel.png in Resources */,
 				B3752EFF19D185970091E207 /* SBSmallTopBottomCell.xib in Resources */,
 			);
@@ -913,7 +929,7 @@
 				INFOPLIST_FILE = "sportblog/sportblog-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "30ba5098-b864-42dc-9258-29b95f1b2df4";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -926,8 +942,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Marco Francke (E6579M9K8Z)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/sportblog",
@@ -937,7 +953,7 @@
 				INFOPLIST_FILE = "sportblog/sportblog-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "30ba5098-b864-42dc-9258-29b95f1b2df4";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
