@@ -1,6 +1,7 @@
 PODS:
   - GoogleAnalytics-iOS-SDK (3.0.9)
   - iOSPlot (1.0.1)
+  - MMPopLabel (0.1.1)
   - Realm (0.86.2):
     - Realm/Headers
   - Realm/Headers (0.86.2)
@@ -9,12 +10,14 @@ PODS:
 DEPENDENCIES:
   - GoogleAnalytics-iOS-SDK (~> 3.0)
   - iOSPlot (~> 1.0)
+  - MMPopLabel
   - Realm (~> 0.85)
   - UAAppReviewManager
 
 SPEC CHECKSUMS:
   GoogleAnalytics-iOS-SDK: d9e198b1f955259a72886769be7377cdfcdb2250
   iOSPlot: 93934987c4be73bfdd229d0068bb1302efa05109
+  MMPopLabel: 93cf43ff12eb7d102d0cfac7f8d78ec7a5477285
   Realm: 50c570655ff10c4311e6929e621f50ab619cf939
   UAAppReviewManager: f23428de9c9cd242c2ffd899e218ba3620bd0683
 

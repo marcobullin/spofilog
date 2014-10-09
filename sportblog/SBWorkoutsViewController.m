@@ -12,12 +12,15 @@
 #import "SBWorkoutViewController.h"
 #import "SBStatisticViewController.h"
 #import "SBFinishedExercisesViewController.h"
-#import "UIViewController+Tutorial.h"
 #import "UIColor+SBColor.h"
 #import "SBArrayDataSource.h"
 #import "SBWorkoutViewModel.h"
 #import "SBAppDelegate.h"
 #import "SBDataManager.h"
+#import "MMPopLabel.h"
+#import "SBHelperView.h"
+
+#define iPhone6Plus ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone && [UIScreen mainScreen].bounds.size.height == 736)
 
 @interface SBWorkoutsViewController () <UITableViewDelegate>
 
@@ -82,11 +85,6 @@ static NSString * const WorkoutCellIdentifier = @"WorkoutCell";
 
     [self.tableView registerNib:[SBSmallTopBottomCell nib] forCellReuseIdentifier:WorkoutCellIdentifier];
 
-    [self startTapTutorialWithInfo:NSLocalizedString(@"Add a new workout", nil)
-                           atPoint:CGPointMake(160, self.view.frame.size.height / 2 - 50)
-              withFingerprintPoint:CGPointMake(self.view.frame.size.width - 25, 40)
-              shouldHideBackground:NO];
-    
     [self.view addSubview:self.tableView];
 }
 
@@ -114,6 +112,21 @@ static NSString * const WorkoutCellIdentifier = @"WorkoutCell";
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+    CGPoint hintPoint;
+    if (iPhone6Plus) {
+        hintPoint = CGPointMake(self.view.frame.size.width - 54, 15);
+    } else {
+        hintPoint = CGPointMake(self.view.frame.size.width - 50, 15);
+    }
+    
+    SBHelperView *helperView =[[SBHelperView alloc] initWithMessage:NSLocalizedString(@"Add a new workout", nil)
+                                                            onPoint:CGPointMake(20, 100)
+                                                     andHintOnPoint:hintPoint
+                                                    andRenderOnView:self.parentViewController.view];
+    
+    helperView.frame = self.view.frame;
+    
     [self.tableView reloadData];
 }
 

@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-MMPopLabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Realm.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,32 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>020E9FE346363F5F280F4611</key>
+		<key>05B19F114A7648968AB2E8AF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>31137D3926043AFC026ED67F</key>
+		<key>18BCAB2AD066EC9C5CCD0BF5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>42B3692096DB918D556AE295</key>
+		<key>46DFEDFF4CFD0B4E7CFB79E0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6B3C0174D24F8C4B582F9EB1</key>
+		<key>5A776BF379AA3F7DD8CADC7A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8ADD44748BE68729F9510F1D</key>
+		<key>5ED75CC0C274378F022FC324</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FA7160F2226234B44EEA4C5F</key>
+		<key>6E5552578D90A9CE6FFCD4B4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EF9DE0066C6003B16CC85607</key>
 		<dict>
 			<key>primary</key>
 			<true/>

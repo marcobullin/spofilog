@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "18BCAB2AD066EC9C5CCD0BF5"
-               BuildableName = "libPods-GoogleAnalytics-iOS-SDK.a"
-               BlueprintName = "Pods-GoogleAnalytics-iOS-SDK"
+               BlueprintIdentifier = "05B19F114A7648968AB2E8AF"
+               BuildableName = "libPods-MMPopLabel.a"
+               BlueprintName = "Pods-MMPopLabel"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

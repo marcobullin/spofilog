@@ -14,10 +14,10 @@
 #import "SBExercisesViewController.h"
 #import "SBSetsViewController.h"
 #import "SBExerciseSet.h"
-#import "UIViewController+Tutorial.h"
 #import "SBSmallTopBottomCell.h"
 #import "SBExerciseSetViewModel.h"
 #import "SBAddEntryViewModel.h"
+#import "SBHelperView.h"
 
 @interface SBWorkoutViewController ()
 
@@ -245,10 +245,12 @@ UITextField *textfield;
 
 - (void)addExercisesViewController:(SBExercisesViewController *)controller didSelectExercise:(SBExercise *) exercise {
     
-    [self startTapTutorialWithInfo:NSLocalizedString(@"Touch to add or edit sets", nil)
-                           atPoint:CGPointMake(160, self.view.frame.size.height / 2 + 50)
-              withFingerprintPoint:CGPointMake(50, 205)
-              shouldHideBackground:NO];
+    SBHelperView *helperView = [[SBHelperView alloc] initWithMessage:NSLocalizedString(@"Touch to add or edit sets", nil)
+                                                             onPoint:CGPointMake(20, 240)
+                                                      andHintOnPoint:CGPointMake(20, 180)
+                                                     andRenderOnView:self.parentViewController.view];
+    
+    helperView.frame = self.view.frame;
     
     SBExerciseSet *exerciseSet =  [[SBExerciseSet alloc] init];
     exerciseSet.name = exercise.name;

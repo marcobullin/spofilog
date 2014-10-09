@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -18,7 +17,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKh-Is-Yem">
                         <rect key="frame" x="8" y="8" width="148" height="28"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="148" id="Gip-XU-RJj"/>
+                            <constraint firstAttribute="width" constant="148" id="qaZ-0t-ch0"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -32,13 +31,13 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="PKh-Is-Yem" firstAttribute="top" secondItem="dHG-jA-mW5" secondAttribute="topMargin" id="7M6-0H-1F5"/>
-                    <constraint firstItem="PKh-Is-Yem" firstAttribute="firstBaseline" secondItem="ir5-UK-YJq" secondAttribute="firstBaseline" id="Dry-dm-7GX"/>
-                    <constraint firstItem="PKh-Is-Yem" firstAttribute="leading" secondItem="dHG-jA-mW5" secondAttribute="leadingMargin" id="F9z-T7-afq"/>
-                    <constraint firstItem="ir5-UK-YJq" firstAttribute="trailing" secondItem="dHG-jA-mW5" secondAttribute="trailingMargin" id="GE9-is-kze"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="PKh-Is-Yem" secondAttribute="bottom" constant="-0.5" id="MGO-1Z-dcP"/>
-                    <constraint firstItem="ir5-UK-YJq" firstAttribute="baseline" secondItem="PKh-Is-Yem" secondAttribute="baseline" id="Yi7-db-uFY"/>
-                    <constraint firstItem="ir5-UK-YJq" firstAttribute="leading" secondItem="PKh-Is-Yem" secondAttribute="trailing" constant="8" symbolic="YES" id="xCv-7g-NET"/>
+                    <constraint firstItem="PKh-Is-Yem" firstAttribute="leading" secondItem="dHG-jA-mW5" secondAttribute="leadingMargin" id="5nZ-iK-cdf"/>
+                    <constraint firstItem="ir5-UK-YJq" firstAttribute="baseline" secondItem="PKh-Is-Yem" secondAttribute="baseline" id="DZL-1s-gTQ"/>
+                    <constraint firstItem="ir5-UK-YJq" firstAttribute="trailing" secondItem="dHG-jA-mW5" secondAttribute="trailingMargin" id="Mz8-Vi-b9r"/>
+                    <constraint firstItem="ir5-UK-YJq" firstAttribute="leading" secondItem="PKh-Is-Yem" secondAttribute="trailing" constant="8" symbolic="YES" id="Uqa-rq-Jkh"/>
+                    <constraint firstItem="PKh-Is-Yem" firstAttribute="top" secondItem="dHG-jA-mW5" secondAttribute="topMargin" id="Vka-AK-TTs"/>
+                    <constraint firstItem="ir5-UK-YJq" firstAttribute="firstBaseline" secondItem="PKh-Is-Yem" secondAttribute="firstBaseline" id="dzm-6e-Ftj"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="PKh-Is-Yem" secondAttribute="bottom" constant="-1" id="fMS-HS-Ep1"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

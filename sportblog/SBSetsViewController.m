@@ -12,7 +12,7 @@
 #import "SBSet.h"
 #import "SBSmallTopBottomCell.h"
 #import "UIColor+SBColor.h"
-#import "UIViewController+Tutorial.h"
+#import "SBHelperView.h"
 
 @interface SBSetsViewController ()
 @property (nonatomic, strong) NSMutableArray *sets;
@@ -153,12 +153,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // add new set
     if (indexPath.row == 0) {
+        SBHelperView *helperView = [[SBHelperView alloc] initWithMessage:NSLocalizedString(@"Touch to change values", nil)
+                                                                 onPoint:CGPointMake(20, 170)
+                                                          andHintOnPoint:CGPointMake(20, 110)
+                                                         andRenderOnView:self.parentViewController.view];
         
-        [self startTapTutorialWithInfo:NSLocalizedString(@"Touch to change values", nil)
-                               atPoint:CGPointMake(160, self.view.frame.size.height / 2 + 50)
-                  withFingerprintPoint:CGPointMake(50, 140)
-                  shouldHideBackground:NO];
-        
+        helperView.frame = self.view.frame;
         
         SBSet *set = [SBSet new];
         if ([self.sets count] > 0) {
