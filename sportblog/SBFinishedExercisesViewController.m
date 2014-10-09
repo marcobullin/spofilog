@@ -8,8 +8,8 @@
 
 #import "SBFinishedExercisesViewController.h"
 #import "SBExerciseSet.h"
-#import "SBExerciseTableViewCell.h"
 #import "SBStatisticViewController.h"
+#import "SBStandardCell.h"
 
 @interface SBFinishedExercisesViewController ()
 
@@ -95,14 +95,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"exerciseCell";
     
-    SBExerciseTableViewCell *exerciseCell = (SBExerciseTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    SBStandardCell *exerciseCell = (SBStandardCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (exerciseCell == nil) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBExerciseTableViewCell" owner:self options:nil];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBStandardCell" owner:self options:nil];
         exerciseCell = [nib objectAtIndex:0];
     }
     
-    exerciseCell.exerciseLabel.text = [self.exercises objectAtIndex:indexPath.row];
+    exerciseCell.label.text = [self.exercises objectAtIndex:indexPath.row];
     
     return exerciseCell;
 }
