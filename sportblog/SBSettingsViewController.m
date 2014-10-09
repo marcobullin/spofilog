@@ -8,6 +8,7 @@
 
 #import "SBSettingsViewController.h"
 #import "UIColor+SBColor.h"
+#import "SBImprintViewController.h"
 
 @interface SBSettingsViewController ()
 
@@ -98,7 +99,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    if (indexPath.row == 2) {
+        SBImprintViewController *imprint = [[SBImprintViewController alloc] init];
+        
+        [self.navigationController pushViewController:imprint animated:YES];
+    }
 }
 
 @end

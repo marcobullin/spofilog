@@ -19,6 +19,7 @@
 		803978A819E063E4000DEED5 /* SBWorkoutsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 803978A619E063E4000DEED5 /* SBWorkoutsInteractor.m */; };
 		803978AC19E4735D000DEED5 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 803978AB19E4735D000DEED5 /* Settings.bundle */; };
 		803978B519E68708000DEED5 /* SBHelperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 803978B419E68708000DEED5 /* SBHelperView.m */; };
+		803978B919E6AAF7000DEED5 /* SBImprintViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 803978B819E6AAF7000DEED5 /* SBImprintViewController.m */; };
 		805DE22C19BF8E6500472322 /* SBWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE22B19BF8E6500472322 /* SBWorkoutViewController.m */; };
 		805DE22F19BF909300472322 /* SBExercisesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE22E19BF909300472322 /* SBExercisesViewController.m */; };
 		805DE23319BF937F00472322 /* SBBigTopBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE23119BF937F00472322 /* SBBigTopBottomCell.m */; };
@@ -114,6 +115,8 @@
 		803978AB19E4735D000DEED5 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		803978B319E68708000DEED5 /* SBHelperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBHelperView.h; sourceTree = "<group>"; };
 		803978B419E68708000DEED5 /* SBHelperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBHelperView.m; sourceTree = "<group>"; };
+		803978B719E6AAF7000DEED5 /* SBImprintViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBImprintViewController.h; sourceTree = "<group>"; };
+		803978B819E6AAF7000DEED5 /* SBImprintViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBImprintViewController.m; sourceTree = "<group>"; };
 		805DE22A19BF8E6500472322 /* SBWorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutViewController.h; sourceTree = "<group>"; };
 		805DE22B19BF8E6500472322 /* SBWorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutViewController.m; sourceTree = "<group>"; };
 		805DE22D19BF909300472322 /* SBExercisesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExercisesViewController.h; sourceTree = "<group>"; };
@@ -294,6 +297,15 @@
 			name = Common;
 			sourceTree = "<group>";
 		};
+		803978B619E6AAD7000DEED5 /* Imprint */ = {
+			isa = PBXGroup;
+			children = (
+				803978B719E6AAF7000DEED5 /* SBImprintViewController.h */,
+				803978B819E6AAF7000DEED5 /* SBImprintViewController.m */,
+			);
+			name = Imprint;
+			sourceTree = "<group>";
+		};
 		805DE24219BF9C4A00472322 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,6 +371,7 @@
 				B3AED25019E2BD500006A4A9 /* StatExercises */,
 				B3AED25119E2BD7B0006A4A9 /* Statistic */,
 				B3AED26419E2E2480006A4A9 /* Settings */,
+				803978B619E6AAD7000DEED5 /* Imprint */,
 				B3752F1D19DAA4EA0091E207 /* Models */,
 				B3752F1C19DA95B40091E207 /* ViewModels */,
 				8039788419D85252000DEED5 /* DataSource */,
@@ -750,6 +763,7 @@
 				B3AED26819E2E26C0006A4A9 /* SBSettingsViewController.m in Sources */,
 				8086D44219BCBF16004ADBB6 /* SBWorkoutsViewController.m in Sources */,
 				B3AC2EDF19CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.m in Sources */,
+				803978B919E6AAF7000DEED5 /* SBImprintViewController.m in Sources */,
 				B3752F0A19D18DCD0091E207 /* UIColor+SBColor.m in Sources */,
 				805DE24019BF93DC00472322 /* SBExerciseTableViewCell.m in Sources */,
 				805DE23319BF937F00472322 /* SBBigTopBottomCell.m in Sources */,
