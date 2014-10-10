@@ -27,10 +27,13 @@
         
         self.opaque = NO;
     
-        UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(messagePosition.x, messagePosition.y, 320, 44)];
+        UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(messagePosition.x, messagePosition.y, view.frame.size.width - 20 , 132)];
+        
         messageLabel.text = message;
         messageLabel.textColor = [UIColor whiteColor];
         messageLabel.font = [messageLabel.font fontWithSize:25];
+        messageLabel.numberOfLines = 0;
+        messageLabel.lineBreakMode = NSLineBreakByWordWrapping;
     
         [self addSubview:messageLabel];
         
