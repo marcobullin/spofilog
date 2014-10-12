@@ -20,7 +20,7 @@
 "Add new set" = "Deinen ersten Satz hinzufügen";
 "Add another set" = "Nächsten Satz hinzufügen";
 "Set - %d" = "%d. Satz";
-"%.01fkg | %dreps" = "%.01fkg | %dWdh";
+"%.01fkg | %dreps" = "%.01f kg | %d Wdh.";
 "Touch to change values" = "Auswählen um Satz zu bearbeiten";
 
 // SBSetViewController

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -14,12 +15,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zange.png" translatesAutoresizingMaskIntoConstraints="NO" id="6Xp-Hn-y8z">
-                        <rect key="frame" x="279" y="17" width="33" height="35"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="33" id="oWh-PK-G9e"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hua-0J-I0L">
                         <rect key="frame" x="8" y="8" width="263" height="32"/>
                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -30,19 +25,25 @@
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit.png" translatesAutoresizingMaskIntoConstraints="NO" id="6Xp-Hn-y8z">
+                        <rect key="frame" x="279" y="18" width="33" height="33"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="33" id="sO0-06-kTX"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="hua-0J-I0L" secondAttribute="bottom" constant="21" id="5z5-p7-0eT"/>
-                    <constraint firstItem="6Xp-Hn-y8z" firstAttribute="leading" secondItem="hua-0J-I0L" secondAttribute="trailing" constant="8" symbolic="YES" id="70C-L1-Nqe"/>
-                    <constraint firstItem="hua-0J-I0L" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Dyl-bt-EKz"/>
-                    <constraint firstItem="6Xp-Hn-y8z" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="JHo-GX-Vky"/>
-                    <constraint firstItem="6Xp-Hn-y8z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="9" id="Q4u-kN-bVF"/>
-                    <constraint firstItem="hua-0J-I0L" firstAttribute="leading" secondItem="kpF-ju-21l" secondAttribute="leading" id="Rag-NY-ALt"/>
-                    <constraint firstItem="hua-0J-I0L" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="aYz-PS-Zgo"/>
-                    <constraint firstItem="kpF-ju-21l" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="28" id="dR4-E9-ZvI"/>
-                    <constraint firstItem="6Xp-Hn-y8z" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="hUd-ui-4Vp"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="kpF-ju-21l" secondAttribute="bottom" constant="-1" id="lhs-qh-H7f"/>
-                    <constraint firstItem="6Xp-Hn-y8z" firstAttribute="leading" secondItem="kpF-ju-21l" secondAttribute="trailing" constant="8" symbolic="YES" id="zjs-Qc-FwP"/>
+                    <constraint firstItem="6Xp-Hn-y8z" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="CBE-qj-Rst"/>
+                    <constraint firstItem="6Xp-Hn-y8z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="MTI-xA-6fy"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="hua-0J-I0L" secondAttribute="bottom" constant="21" id="Qok-TQ-JwY"/>
+                    <constraint firstItem="hua-0J-I0L" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="TzI-pM-ilJ"/>
+                    <constraint firstItem="kpF-ju-21l" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="28" id="YcW-CW-9ex"/>
+                    <constraint firstItem="hua-0J-I0L" firstAttribute="leading" secondItem="kpF-ju-21l" secondAttribute="leading" id="atC-Rb-vQR"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="kpF-ju-21l" secondAttribute="bottom" constant="-1" id="ekG-BH-fYo"/>
+                    <constraint firstItem="6Xp-Hn-y8z" firstAttribute="leading" secondItem="hua-0J-I0L" secondAttribute="trailing" constant="8" symbolic="YES" id="gAH-Ff-BM3"/>
+                    <constraint firstItem="6Xp-Hn-y8z" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="huC-sg-YAu"/>
+                    <constraint firstItem="6Xp-Hn-y8z" firstAttribute="leading" secondItem="kpF-ju-21l" secondAttribute="trailing" constant="8" symbolic="YES" id="kHk-aP-6QE"/>
+                    <constraint firstItem="hua-0J-I0L" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="oLO-sw-TD8"/>
                 </constraints>
             </tableViewCellContentView>
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -54,7 +55,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="zange.png" width="92" height="91"/>
+        <image name="edit.png" width="120" height="120"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

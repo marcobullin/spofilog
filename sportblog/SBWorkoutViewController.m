@@ -34,17 +34,6 @@ UITextField *textfield;
     
     if (self) {
         self.title = NSLocalizedString(@"Workout", nil);
-        
-        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                                                                                   target:self
-                                                                                   action:@selector(onWorkoutCompleted:)];
-
-        UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
-                                                                                    target:self
-                                                                                    action:@selector(onCancelWorkout:)];
-        
-        self.navigationItem.rightBarButtonItem = doneButton;
-        self.navigationItem.leftBarButtonItem = cancelButton;
     }
     
     return self;
@@ -66,8 +55,6 @@ UITextField *textfield;
     self.tableView.delegate = self;
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     self.tableView.backgroundColor = [UIColor tableViewColor];
-    
-    self.navigationItem.hidesBackButton = YES;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardDidShow:)
@@ -233,14 +220,6 @@ UITextField *textfield;
     UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
 
     return cell.frame.size.height;
-}
-
-- (IBAction)onWorkoutCompleted:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (IBAction)onCancelWorkout:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)addExercisesViewController:(SBExercisesViewController *)controller didSelectExercise:(SBExercise *) exercise {

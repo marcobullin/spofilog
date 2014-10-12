@@ -15,26 +15,10 @@
 #import "SBHelperView.h"
 
 @interface SBSetsViewController ()
-@property (nonatomic, strong) NSMutableArray *sets;
+@property (nonatomic, strong) RLMArray *sets;
 @end
 
 @implementation SBSetsViewController
-
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    
-    if (self) {
-        self.navigationItem.hidesBackButton = YES;
-        
-        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onDoneSets:)];
-        self.navigationItem.rightBarButtonItem = doneButton;
-        
-        UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(onCancelSets:)];
-        self.navigationItem.leftBarButtonItem = cancelButton;
-    }
-    
-    return self;
-}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -54,10 +38,7 @@
     self.tableView.backgroundColor = [UIColor tableViewColor];
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     
-    self.sets = [[NSMutableArray alloc] init];
-    for (SBSet *set in self.exercise.sets) {
-        [self.sets addObject:set];
-    }
+    self.sets = self.exercise.sets;
     
     [self.view addSubview:self.tableView];
 }
@@ -172,7 +153,9 @@
             set.repetitions = 10;
         }
         
-        [self.sets addObject:set];
+        [self.exercise.realm beginWriteTransaction];
+        [self.exercise.sets addObject:set];
+        [self.exercise.realm commitWriteTransaction];
 
         NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[self.sets count] inSection:0];
         [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
@@ -194,20 +177,9 @@
 }
 
 - (void)addSetViewController:(SBSetViewController *)controller didCreatedNewSet:(SBSet *)set {
-    [self.sets addObject:set];
-}
-
-- (void)onCancelSets:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)onDoneSets:(id)sender {
     [self.exercise.realm beginWriteTransaction];
-    [self.exercise.sets removeAllObjects];
-    [self.exercise.sets addObjectsFromArray:self.sets];
+    [self.exercise.sets addObject:set];
     [self.exercise.realm commitWriteTransaction];
-    
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -222,7 +194,9 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         int index = (int)indexPath.row - 1;
         
-        [self.sets removeObjectAtIndex:index];
+        [self.exercise.realm beginWriteTransaction];
+        [self.exercise.sets removeObjectAtIndex:index];
+        [self.exercise.realm commitWriteTransaction];
         
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
         

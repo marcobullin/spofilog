@@ -20,7 +20,7 @@
 "Add new set" = "Add Your First Set";
 "Add another set" = "Add Another Set";
 "Set - %d" = "Set - %d";
-"%.01fkg | %dreps" = "%.01fkg | %dreps";
+"%.01fkg | %dreps" = "%.01f kg | %d reps";
 "Touch to change values" = "Touch to change values";
 
 // SBSetViewController

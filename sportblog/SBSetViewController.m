@@ -23,23 +23,6 @@ UIPickerView *picker;
 UIView *changeView;
 UIView *overlayView;
 
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    
-    if (self) {
-        self.navigationItem.hidesBackButton = YES;
-        
-        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onDone:)];
-        
-        self.navigationItem.rightBarButtonItem = doneButton;
-        
-        UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(onCancelSet:)];
-        self.navigationItem.leftBarButtonItem = cancelButton;
-    }
-    
-    return self;
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.screenName = @"Set Screen";
@@ -62,6 +45,19 @@ UIView *overlayView;
     self.tableView.tableFooterView = [UIView new];
     
     [self.view addSubview:self.tableView];
+    
+    if (!self.currentSet) {
+        SBSet *set = [[SBSet alloc] init];
+        set.number = self.number;
+        set.weight = self.weight;
+        set.repetitions = self.repetitions;
+        
+        [RLMRealm.defaultRealm beginWriteTransaction];
+        [RLMRealm.defaultRealm addObject:set];
+        [RLMRealm.defaultRealm beginWriteTransaction];
+        
+        self.currentSet = set;
+    }
 }
 
 -(void)viewDidLayoutSubviews
@@ -114,7 +110,7 @@ UIView *overlayView;
     // set cell
     if (indexPath.row == 0) {
         cell.leftLabel.text = NSLocalizedString(@"Set", nil);
-        cell.rightLabel.text = [NSString stringWithFormat:@"%d", self.number];
+        cell.rightLabel.text = [NSString stringWithFormat:@"%d", self.currentSet.number];
         
         return cell;
     }
@@ -122,13 +118,13 @@ UIView *overlayView;
     // weight cell
     if (indexPath.row == 1) {
         cell.leftLabel.text = NSLocalizedString(@"Weight", nil);
-        cell.rightLabel.text = [NSString stringWithFormat:@"%.01fkg", self.weight];
+        cell.rightLabel.text = [NSString stringWithFormat:@"%.01f kg", self.currentSet.weight];
         return cell;
     }
 
     // repetition cell
     cell.leftLabel.text = NSLocalizedString(@"Repetitions", nil);
-    cell.rightLabel.text = [NSString stringWithFormat:@"%d", self.repetitions];
+    cell.rightLabel.text = [NSString stringWithFormat:@"%d", self.currentSet.repetitions];
     
     return cell;
 }
@@ -294,17 +290,20 @@ UIView *overlayView;
 
 - (void)done:(id)sender {
     
+    [RLMRealm.defaultRealm beginWriteTransaction];
     if (self.isEditSet) {
-        self.number = (int)[picker selectedRowInComponent:0] + 1;
+        self.currentSet.number = (int)[picker selectedRowInComponent:0] + 1;
     }
     
     if (self.isEditWeight) {
-        self.weight = [[NSString stringWithFormat:@"%d.%d", (int)[picker selectedRowInComponent:0], (int)[picker selectedRowInComponent:2]] floatValue];
+        self.currentSet.weight = [[NSString stringWithFormat:@"%d.%d", (int)[picker selectedRowInComponent:0], (int)[picker selectedRowInComponent:2]] floatValue];
     }
     
     if (self.isEditRepetitions) {
-        self.repetitions = (int)[picker selectedRowInComponent:0];
+        self.currentSet.repetitions = (int)[picker selectedRowInComponent:0];
     }
+    
+    [RLMRealm.defaultRealm commitWriteTransaction];
     
     [self.tableView reloadData];
     
@@ -325,30 +324,6 @@ UIView *overlayView;
         [changeView removeFromSuperview];
     }];
 }
-
-- (void)onDone:(id)sender {
-    if (!self.currentSet) {
-        SBSet *set = [[SBSet alloc] init];
-        set.number = self.number;
-        set.weight = self.weight;
-        set.repetitions = self.repetitions;
-        
-        [self.delegate addSetViewController:self didCreatedNewSet:set];
-    } else {
-        [self.currentSet.realm beginWriteTransaction];
-        self.currentSet.number = self.number;
-        self.currentSet.weight = self.weight;
-        self.currentSet.repetitions = self.repetitions;
-        [self.currentSet.realm commitWriteTransaction];
-    }
-
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)onCancelSet:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
     return cell.frame.size.height;
