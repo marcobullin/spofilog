@@ -142,7 +142,7 @@
     setCell.backgroundColor = [UIColor clearColor];
     setCell.topLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Set - %d", nil), set.number];
     setCell.bottomLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%.01fkg | %dreps", nil), set.weight, set.repetitions];
-    setCell.topLabel.textColor = [UIColor textColor];
+    setCell.topLabel.textColor = [UIColor importantCellColor];
     setCell.bottomLabel.textColor = [UIColor textColor];
     //setCell.layoutMargins = UIEdgeInsetsZero;
     setCell.selectionStyle = UITableViewCellSelectionStyleNone;

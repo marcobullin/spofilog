@@ -10,6 +10,7 @@
 #import "SBExerciseSet.h"
 #import "SBStatisticViewController.h"
 #import "SBStandardCell.h"
+#import "UIColor+SBColor.h"
 
 @interface SBFinishedExercisesViewController ()
 
@@ -103,6 +104,7 @@
     }
     
     exerciseCell.label.text = [self.exercises objectAtIndex:indexPath.row];
+    exerciseCell.label.textColor = [UIColor importantCellColor];
     
     return exerciseCell;
 }

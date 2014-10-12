@@ -10,7 +10,7 @@
 #import "SBWorkoutsInteractor.h"
 #import "GAITrackedViewController.h"
 
-@interface SBWorkoutsViewController : GAITrackedViewController
+@interface SBWorkoutsViewController : GAITrackedViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) SBWorkoutsInteractor *indicator;

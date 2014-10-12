@@ -158,8 +158,8 @@ int statisticRepetitions;
     }
     
     cell.headlineLabel.backgroundColor = [UIColor clearColor];
-    cell.headlineLabel.textColor = [UIColor whiteColor];
-    cell.valueLabel.textColor = [UIColor whiteColor];
+    cell.headlineLabel.textColor = [UIColor importantCellColor];
+    cell.valueLabel.textColor = [UIColor textColor];
     
     //cell.layoutMargins = UIEdgeInsetsZero;
     cell.separatorInset = UIEdgeInsetsMake(0.f, 0.f, 0.f, cell.bounds.size.width);
@@ -169,34 +169,27 @@ int statisticRepetitions;
     if (indexPath.row == 0) {
         cell.headlineLabel.text = NSLocalizedString(@"Total amount of sets", nil);
         cell.valueLabel.text = [NSString stringWithFormat:@"%d", statisticCountOfSets];
-        cell.backgroundColor = [UIColor colorWithRed:40.0/255.0f green:160.0/255.0f blue:240.0/255.0f alpha:1];
     }
     
     if (indexPath.row == 1) {
         cell.headlineLabel.text = NSLocalizedString(@"Your minimum weight", nil);
         cell.valueLabel.text = [NSString stringWithFormat:@"%.01fkg", statisticMinWeight];
-        cell.backgroundColor = [UIColor colorWithRed:50.0/255.0f green:170.0/255.0f blue:240.0/255.0f alpha:1];
     }
     
     if (indexPath.row == 2) {
         cell.headlineLabel.text = NSLocalizedString(@"Your maximum weight", nil);
         cell.valueLabel.text = [NSString stringWithFormat:@"%.01fkg", statisticMaxWeight];
-        cell.backgroundColor = [UIColor colorWithRed:60.0/255.0f green:180.0/255.0f blue:240.0/255.0f alpha:1];
     }
     
     if (indexPath.row == 3) {
         cell.headlineLabel.text = NSLocalizedString(@"Your Weight-Progress", nil);
         cell.valueLabel.text = [NSString stringWithFormat:@"%.01f%%", 100 - ((statisticMinWeight / statisticMaxWeight) * 100)];
-        cell.backgroundColor = [UIColor colorWithRed:70.0/255.0f green:190.0/255.0f blue:240.0/255.0f alpha:1];
     }
     
     if (indexPath.row == 4) {
         cell.headlineLabel.text = NSLocalizedString(@"Total amount of repetitions", nil);
         cell.valueLabel.text = [NSString stringWithFormat:@"%d", statisticRepetitions];
-        cell.backgroundColor = [UIColor colorWithRed:80.0/255.0f green:200.0/255.0f blue:240.0/255.0f alpha:1];
     }
-    
-
 
     return cell;
 }

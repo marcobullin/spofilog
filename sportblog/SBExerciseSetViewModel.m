@@ -15,7 +15,7 @@
     
     if (self) {
         _nameText = exercise.name;
-        _nameTextColor = [UIColor textColor];
+        _nameTextColor = [UIColor importantCellColor];
         
         _setsText = [NSString stringWithFormat:NSLocalizedString(@"%d Sets", nil), [exercise.sets count]];
         _setsTextColor = [UIColor textColor];

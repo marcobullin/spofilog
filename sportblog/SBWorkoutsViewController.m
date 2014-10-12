@@ -13,23 +13,23 @@
 #import "SBStatisticViewController.h"
 #import "SBFinishedExercisesViewController.h"
 #import "UIColor+SBColor.h"
-#import "SBArrayDataSource.h"
 #import "SBWorkoutViewModel.h"
 #import "SBAppDelegate.h"
-#import "SBDataManager.h"
 #import "MMPopLabel.h"
 #import "SBHelperView.h"
+#import "SBAddEntryViewModel.h"
+#import "SBAddEntryTableViewCell.h"
 
 #define iPhone6Plus ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone && [UIScreen mainScreen].bounds.size.height == 736)
 
-@interface SBWorkoutsViewController () <UITableViewDelegate>
+@interface SBWorkoutsViewController ()
 
 @property (nonatomic, strong) RLMArray *workouts;
-@property (nonatomic, strong) SBArrayDataSource *arrayDataSource;
 
 @end
 
 static NSString * const WorkoutCellIdentifier = @"WorkoutCell";
+static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
 
 @implementation SBWorkoutsViewController
 
@@ -40,11 +40,6 @@ static NSString * const WorkoutCellIdentifier = @"WorkoutCell";
         self.title = NSLocalizedString(@"Workouts", nil);
         self.tabBarItem.title = NSLocalizedString(@"Workouts", nil);
         self.tabBarItem.image = [UIImage imageNamed:@"hantel"];
-        
-        UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                                                                   target:self
-                                                                                   action:@selector(onAddWorkout:)];
-        self.navigationItem.rightBarButtonItem = addButton;
     }
     
     return self;
@@ -60,27 +55,12 @@ static NSString * const WorkoutCellIdentifier = @"WorkoutCell";
     [super viewDidLoad];
     self.workouts = [self.indicator findWorkouts];
     
-    SBCellBlock cellBlock = ^(SBSmallTopBottomCell *workoutCell, SBWorkout *workout) {
-        SBWorkoutViewModel *vm = [[SBWorkoutViewModel alloc] initWithWorkout:workout];
-        [workoutCell render:vm];
-    };
-    
-    
-    SBOnDeleteBlock deleteBlock = ^(SBWorkout *workout) {
-        [self.indicator deleteWorkout:workout];
-    };
-    
-    self.arrayDataSource = [[SBArrayDataSource alloc] initWithItems:self.workouts
-                                                     cellIdentifier:WorkoutCellIdentifier
-                                                 configureCellBlock:cellBlock
-                                                      onDeleteBlock:deleteBlock];
-    
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     self.tableView.backgroundColor = [UIColor tableViewColor];
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
-    self.tableView.dataSource = self.arrayDataSource;
+    self.tableView.dataSource = self;
     self.tableView.delegate = self;
 
     [self.tableView registerNib:[SBSmallTopBottomCell nib] forCellReuseIdentifier:WorkoutCellIdentifier];
@@ -131,11 +111,20 @@ static NSString * const WorkoutCellIdentifier = @"WorkoutCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60;
+    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    
+    return cell.frame.size.height;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    SBWorkout *workout = [self.workouts objectAtIndex:indexPath.row];
+    if (indexPath.row == 0) {
+        [self onAddWorkout];
+        return;
+    }
+    
+    int index = (int)indexPath.row - 1;
+    
+    SBWorkout *workout = [self.workouts objectAtIndex:index];
     
     SBWorkoutViewController* workoutViewController = [[SBWorkoutViewController alloc] initWithNibName:@"SBWorkoutViewController" bundle:nil];
 
@@ -144,7 +133,7 @@ static NSString * const WorkoutCellIdentifier = @"WorkoutCell";
     [self.navigationController pushViewController:workoutViewController animated:YES];
 }
 
-- (void)onAddWorkout:(id)sender {
+- (void)onAddWorkout {
     SBWorkoutViewController* workoutViewController = [[SBWorkoutViewController alloc] initWithNibName:@"SBWorkoutViewController" bundle:nil];
     
     SBWorkout *workout = [self.indicator createWorkoutWithName:NSLocalizedString(@"Workout", nil)
@@ -157,6 +146,68 @@ static NSString * const WorkoutCellIdentifier = @"WorkoutCell";
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.tableView setEditing:NO];
+}
+
+#pragma mark UITableViewDataSource
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        SBAddEntryTableViewCell *addWorkoutCell = (SBAddEntryTableViewCell *)[tableView dequeueReusableCellWithIdentifier:AddWorkoutCEllIdentifier];
+        
+        if (addWorkoutCell == nil) {
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBAddEntryTableViewCell" owner:self options:nil];
+            addWorkoutCell = [nib objectAtIndex:0];
+        }
+        
+        SBAddEntryViewModel *addEntryViewModel = [[SBAddEntryViewModel alloc] initWithWorkouts:self.workouts];
+        
+        [addWorkoutCell render:addEntryViewModel];
+        
+        return addWorkoutCell;
+    }
+    
+    int index = (int)indexPath.row - 1;
+    
+    SBSmallTopBottomCell *cell = (SBSmallTopBottomCell *)[tableView dequeueReusableCellWithIdentifier:WorkoutCellIdentifier];
+    
+    if (cell == nil) {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBSmallTopBottomCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+    
+    SBWorkout *workout = [self.workouts objectAtIndex:index];
+    
+    SBWorkoutViewModel *vm = [[SBWorkoutViewModel alloc] initWithWorkout:workout];
+    [cell render:vm];
+    
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.workouts count] + 1;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        int index = (int)indexPath.row - 1;
+        SBWorkout *workout = [self.workouts objectAtIndex:index];
+        
+        [self.indicator deleteWorkout:workout];
+        
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
+        
+        if ([self.workouts count] == 0) {
+            [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+        }
+    }
 }
 
 @end

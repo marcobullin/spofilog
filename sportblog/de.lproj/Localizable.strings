@@ -1,6 +1,8 @@
 // SBWorkoutsViewController
 "Workouts" = "Workouts";
 "Add a new workout" = "Hier kannst du deinen ersten Workout anlegen";
+"Create A New Workout" = "Erstelle einen neuen Workout";
+"Create Your First Workout" = "Erstelle deinen ersten Workout";
 
 // SBWorkoutViewController
 "Workout" = "Workout";

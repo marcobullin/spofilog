@@ -26,4 +26,20 @@
     return self;
 }
 
+- (instancetype)initWithWorkouts:(RLMArray *)workouts {
+    self = [super init];
+    
+    if (self) {
+        if ([workouts count] > 0) {
+            _text = NSLocalizedString(@"Create A New Workout", nil);
+        } else {
+            _text = NSLocalizedString(@"Create Your First Workout", nil);
+        }
+        
+        _backgroundColor = [UIColor actionCellColor];
+    }
+    
+    return self;
+}
+
 @end

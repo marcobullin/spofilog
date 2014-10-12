@@ -59,6 +59,7 @@ UIView *overlayView;
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor tableViewColor];
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
+    self.tableView.tableFooterView = [UIView new];
     
     [self.view addSubview:self.tableView];
 }
