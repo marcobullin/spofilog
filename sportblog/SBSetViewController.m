@@ -32,9 +32,7 @@ UIView *overlayView;
 {
     [super viewDidLoad];
     
-    self.number = self.currentSet.number;
-    self.weight = self.currentSet.weight;
-    self.repetitions = self.currentSet.repetitions;
+    self.title = NSLocalizedString(@"Edit Set", nil);
     
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
@@ -45,19 +43,6 @@ UIView *overlayView;
     self.tableView.tableFooterView = [UIView new];
     
     [self.view addSubview:self.tableView];
-    
-    if (!self.currentSet) {
-        SBSet *set = [[SBSet alloc] init];
-        set.number = self.number;
-        set.weight = self.weight;
-        set.repetitions = self.repetitions;
-        
-        [RLMRealm.defaultRealm beginWriteTransaction];
-        [RLMRealm.defaultRealm addObject:set];
-        [RLMRealm.defaultRealm beginWriteTransaction];
-        
-        self.currentSet = set;
-    }
 }
 
 -(void)viewDidLayoutSubviews
@@ -152,7 +137,7 @@ UIView *overlayView;
         self.isEditSet = YES;
         self.isEditWeight = NO;
         self.isEditRepetitions = NO;
-        [picker selectRow:self.number-1 inComponent:0 animated:NO];
+        [picker selectRow:self.currentSet.number-1 inComponent:0 animated:NO];
         [changeView addSubview:[self createToolbar:NSLocalizedString(@"Set", nil)]];
     }
     
@@ -161,7 +146,7 @@ UIView *overlayView;
         self.isEditWeight = YES;
         self.isEditRepetitions = NO;
         
-        NSString *str= [NSString stringWithFormat:@"%.01f", self.weight];
+        NSString *str= [NSString stringWithFormat:@"%.01f", self.currentSet.weight];
         NSArray *arr = [str componentsSeparatedByString:@"."];
         int first=[[arr firstObject] intValue];
         int last=[[arr lastObject] intValue];
@@ -176,7 +161,7 @@ UIView *overlayView;
         self.isEditSet = NO;
         self.isEditWeight = NO;
         self.isEditRepetitions = YES;
-        [picker selectRow:self.repetitions inComponent:0 animated:NO];
+        [picker selectRow:self.currentSet.repetitions inComponent:0 animated:NO];
         [changeView addSubview:[self createToolbar:NSLocalizedString(@"Repetitions", nil)]];
     }
     

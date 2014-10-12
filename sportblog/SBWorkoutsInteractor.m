@@ -48,6 +48,14 @@
 
 - (void)removeExerciseAtRow:(int)row fromWorkout:(SBWorkout *)workout {
     [workout.realm beginWriteTransaction];
+    
+    SBExerciseSet *exercise = [workout.exercises objectAtIndex:row];
+    
+    // delete sets
+    for (SBSet *set in exercise.sets) {
+        [RLMRealm.defaultRealm deleteObject:set];
+    }
+  
     [workout.exercises removeObjectAtIndex:row];
     [workout.realm commitWriteTransaction];
 }

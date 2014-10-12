@@ -24,6 +24,7 @@
 "Touch to change values" = "Auswählen um Satz zu bearbeiten";
 
 // SBSetViewController
+"Edit Set" = "Satz bearbeiten";
 "Set" = "Satz";
 "Weight" = "Gewicht";
 "Repetitions" = "Wiederholungen";
