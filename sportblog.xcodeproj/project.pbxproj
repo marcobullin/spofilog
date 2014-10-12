@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		29269F6C20B540AA99C7A12B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3902127B8514FFFA9109974 /* libPods.a */; };
 		801A841919EA7A4C002CFCBC /* SBWorkoutsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 801A841819EA7A4C002CFCBC /* SBWorkoutsViewController.m */; };
+		801A841D19EAE33D002CFCBC /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 801A841A19EAE33D002CFCBC /* plus.png */; };
+		801A841E19EAE33D002CFCBC /* plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 801A841B19EAE33D002CFCBC /* plus@2x.png */; };
+		801A841F19EAE33D002CFCBC /* plus@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 801A841C19EAE33D002CFCBC /* plus@3x.png */; };
 		8039788719D85286000DEED5 /* SBArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8039788619D85286000DEED5 /* SBArrayDataSource.m */; };
 		8039788919DEBAEF000DEED5 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8039788819DEBAEF000DEED5 /* Launch Screen.xib */; };
 		8039788E19DEE2F1000DEED5 /* SBExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2EB519C1E6E000FFD8FD /* SBExercise.m */; };
@@ -110,6 +113,9 @@
 /* Begin PBXFileReference section */
 		67FA2B5A03981E5FBD9D748B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		801A841819EA7A4C002CFCBC /* SBWorkoutsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutsViewController.m; sourceTree = "<group>"; };
+		801A841A19EAE33D002CFCBC /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
+		801A841B19EAE33D002CFCBC /* plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus@2x.png"; sourceTree = "<group>"; };
+		801A841C19EAE33D002CFCBC /* plus@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus@3x.png"; sourceTree = "<group>"; };
 		8039788519D85269000DEED5 /* SBArrayDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBArrayDataSource.h; sourceTree = "<group>"; };
 		8039788619D85286000DEED5 /* SBArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBArrayDataSource.m; sourceTree = "<group>"; };
 		8039788819DEBAEF000DEED5 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
@@ -402,6 +408,9 @@
 		8086D42F19BCBF16004ADBB6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				801A841A19EAE33D002CFCBC /* plus.png */,
+				801A841B19EAE33D002CFCBC /* plus@2x.png */,
+				801A841C19EAE33D002CFCBC /* plus@3x.png */,
 				803978BC19E6DA50000DEED5 /* launcherImage.png */,
 				803978BD19E6DA50000DEED5 /* launcherImageIP5@2x.png */,
 				803978BE19E6DA50000DEED5 /* launcherImage@2x.png */,
@@ -662,6 +671,7 @@
 				805DE24119BF93DC00472322 /* SBExerciseTableViewCell.xib in Resources */,
 				B3752F2919DAC9CF0091E207 /* SBSetViewController.xib in Resources */,
 				B3AED26D19E2E3520006A4A9 /* settings.png in Resources */,
+				801A841E19EAE33D002CFCBC /* plus@2x.png in Resources */,
 				B3AED24619DD76C90006A4A9 /* stats@3x.png in Resources */,
 				B3752F2119DAA8580091E207 /* SBFinishedExercisesViewController.xib in Resources */,
 				B3AED26919E2E26C0006A4A9 /* SBSettingsViewController.xib in Resources */,
@@ -675,6 +685,7 @@
 				805DE23419BF937F00472322 /* SBBigTopBottomCell.xib in Resources */,
 				803978C019E6DA50000DEED5 /* launcherImageIP5@2x.png in Resources */,
 				B3AED24319DD76C90006A4A9 /* hantel@3x.png in Resources */,
+				801A841D19EAE33D002CFCBC /* plus.png in Resources */,
 				803978C619E6EF66000DEED5 /* SBStandardCell.xib in Resources */,
 				B3AED25E19E2CDFE0006A4A9 /* hintArrow@2x.png in Resources */,
 				B3AED24419DD76C90006A4A9 /* stats.png in Resources */,
@@ -684,6 +695,7 @@
 				803978C119E6DA50000DEED5 /* launcherImage@2x.png in Resources */,
 				B3AED24119DD76C90006A4A9 /* hantel.png in Resources */,
 				B3752EFF19D185970091E207 /* SBSmallTopBottomCell.xib in Resources */,
+				801A841F19EAE33D002CFCBC /* plus@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

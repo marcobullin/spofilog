@@ -15,35 +15,35 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.png" translatesAutoresizingMaskIntoConstraints="NO" id="oXI-Cs-p1b">
+                        <rect key="frame" x="13" y="13" width="17" height="17"/>
+                    </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czZ-DP-e32">
-                        <rect key="frame" x="24" y="11" width="259" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XoO-gP-EPf">
-                        <rect key="frame" x="8" y="10" width="20" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="20" id="sip-TL-3kT"/>
-                        </constraints>
+                        <rect key="frame" x="38" y="11" width="245" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="XoO-gP-EPf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Kmf-7v-ags"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="czZ-DP-e32" secondAttribute="trailing" constant="29" id="Ky5-SU-ynn"/>
-                    <constraint firstItem="czZ-DP-e32" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="iG8-zB-7gJ"/>
-                    <constraint firstItem="czZ-DP-e32" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="ick-VZ-fAx"/>
-                    <constraint firstItem="XoO-gP-EPf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="kuZ-J5-e2e"/>
+                    <constraint firstItem="oXI-Cs-p1b" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="0il-vC-etM"/>
+                    <constraint firstItem="czZ-DP-e32" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="DkB-EZ-VaW"/>
+                    <constraint firstItem="czZ-DP-e32" firstAttribute="centerY" secondItem="oXI-Cs-p1b" secondAttribute="centerY" id="Iok-sJ-ups"/>
+                    <constraint firstItem="czZ-DP-e32" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Sjp-ax-Bo8"/>
+                    <constraint firstItem="oXI-Cs-p1b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="VcU-TK-0Mb"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="czZ-DP-e32" secondAttribute="trailing" constant="29" id="aor-lO-2Kx"/>
+                    <constraint firstItem="czZ-DP-e32" firstAttribute="leading" secondItem="oXI-Cs-p1b" secondAttribute="trailing" constant="8" symbolic="YES" id="tmE-Hr-32j"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="addEntryLabel" destination="czZ-DP-e32" id="M8F-4L-yS1"/>
             </connections>
+            <point key="canvasLocation" x="139" y="147"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="plus.png" width="120" height="120"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
