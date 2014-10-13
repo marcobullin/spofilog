@@ -100,6 +100,9 @@
 		B3AED27319E3E31E0006A4A9 /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED27019E3E31E0006A4A9 /* appIcon.png */; };
 		B3AED27419E3E31E0006A4A9 /* appIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED27119E3E31E0006A4A9 /* appIcon@2x.png */; };
 		B3AED27519E3E31E0006A4A9 /* appIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED27219E3E31E0006A4A9 /* appIcon@3x.png */; };
+		B3E5307019EBEE5600C2A17F /* addButton.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E5306D19EBEE5600C2A17F /* addButton.png */; };
+		B3E5307119EBEE5600C2A17F /* addButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E5306E19EBEE5600C2A17F /* addButton@2x.png */; };
+		B3E5307219EBEE5600C2A17F /* addButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E5306F19EBEE5600C2A17F /* addButton@3x.png */; };
 		BC4C89146E544EFE9221C7EE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3902127B8514FFFA9109974 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -238,6 +241,9 @@
 		B3AED27019E3E31E0006A4A9 /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
 		B3AED27119E3E31E0006A4A9 /* appIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appIcon@2x.png"; sourceTree = "<group>"; };
 		B3AED27219E3E31E0006A4A9 /* appIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appIcon@3x.png"; sourceTree = "<group>"; };
+		B3E5306D19EBEE5600C2A17F /* addButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addButton.png; sourceTree = "<group>"; };
+		B3E5306E19EBEE5600C2A17F /* addButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addButton@2x.png"; sourceTree = "<group>"; };
+		B3E5306F19EBEE5600C2A17F /* addButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addButton@3x.png"; sourceTree = "<group>"; };
 		BB33F68BD5D666709DD74DC6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D3902127B8514FFFA9109974 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -340,9 +346,6 @@
 				B3752F0D19D2B8280091E207 /* SBLeftRightCell.m */,
 				B3752F0F19D2B8410091E207 /* SBLeftRightCell.h */,
 				B3752F1019D2B85B0091E207 /* SBLeftRightCell.xib */,
-				B35A21DB19DBF00A00BCECAB /* SBStatisticCell.m */,
-				B35A21DD19DBF01B00BCECAB /* SBStatisticCell.h */,
-				B35A21D919DBEFF600BCECAB /* SBStatisticCell.xib */,
 				803978C219E6EF66000DEED5 /* SBStandardCell.h */,
 				803978C319E6EF66000DEED5 /* SBStandardCell.m */,
 				803978C419E6EF66000DEED5 /* SBStandardCell.xib */,
@@ -414,6 +417,9 @@
 		8086D42F19BCBF16004ADBB6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B3E5306D19EBEE5600C2A17F /* addButton.png */,
+				B3E5306E19EBEE5600C2A17F /* addButton@2x.png */,
+				B3E5306F19EBEE5600C2A17F /* addButton@3x.png */,
 				801A842019EAE571002CFCBC /* edit.png */,
 				801A842119EAE571002CFCBC /* edit@2x.png */,
 				801A842219EAE571002CFCBC /* edit@3x.png */,
@@ -536,6 +542,7 @@
 		B3AED25119E2BD7B0006A4A9 /* Statistic */ = {
 			isa = PBXGroup;
 			children = (
+				B3E5306C19EBD2B900C2A17F /* Cells */,
 				805DE24E19C85E4C00472322 /* SBStatisticViewController.h */,
 				805DE24F19C85E4C00472322 /* SBStatisticViewController.m */,
 				B3752F2A19DAEB440091E207 /* SBStatisticViewController.xib */,
@@ -564,6 +571,16 @@
 				B3AED26719E2E26C0006A4A9 /* SBSettingsViewController.xib */,
 			);
 			name = Settings;
+			sourceTree = "<group>";
+		};
+		B3E5306C19EBD2B900C2A17F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B35A21DB19DBF00A00BCECAB /* SBStatisticCell.m */,
+				B35A21DD19DBF01B00BCECAB /* SBStatisticCell.h */,
+				B35A21D919DBEFF600BCECAB /* SBStatisticCell.xib */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		E8C9A8528F9B2A77735261C6 /* Pods */ = {
@@ -663,6 +680,8 @@
 				803978AC19E4735D000DEED5 /* Settings.bundle in Resources */,
 				B3AED25D19E2CDFE0006A4A9 /* hintArrow.png in Resources */,
 				B3752F2B19DAEB440091E207 /* SBStatisticViewController.xib in Resources */,
+				B3E5307019EBEE5600C2A17F /* addButton.png in Resources */,
+				B3E5307119EBEE5600C2A17F /* addButton@2x.png in Resources */,
 				803978BF19E6DA50000DEED5 /* launcherImage.png in Resources */,
 				B3AED26F19E2E3520006A4A9 /* settings@3x.png in Resources */,
 				B3AB6A0C19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib in Resources */,
@@ -697,6 +716,7 @@
 				805DE23419BF937F00472322 /* SBBigTopBottomCell.xib in Resources */,
 				803978C019E6DA50000DEED5 /* launcherImageIP5@2x.png in Resources */,
 				B3AED24319DD76C90006A4A9 /* hantel@3x.png in Resources */,
+				B3E5307219EBEE5600C2A17F /* addButton@3x.png in Resources */,
 				801A841D19EAE33D002CFCBC /* plus.png in Resources */,
 				803978C619E6EF66000DEED5 /* SBStandardCell.xib in Resources */,
 				B3AED25E19E2CDFE0006A4A9 /* hintArrow@2x.png in Resources */,

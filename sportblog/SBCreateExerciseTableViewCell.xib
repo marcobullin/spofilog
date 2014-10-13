@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
@@ -16,26 +16,41 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pUA-cI-xYI">
-                        <rect key="frame" x="8" y="17" width="304" height="30"/>
+                        <rect key="frame" x="8" y="17" width="268" height="30"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IQL-o4-Ooy">
+                        <rect key="frame" x="284" y="19" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="X01-tc-jUo"/>
+                        </constraints>
+                        <state key="normal" title="add" image="plus.png"/>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="pUA-cI-xYI" secondAttribute="bottom" constant="8" id="SNn-OS-3Bx"/>
-                    <constraint firstItem="pUA-cI-xYI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="9" id="gMY-qY-tin"/>
-                    <constraint firstItem="pUA-cI-xYI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="pCN-Kq-PAM"/>
-                    <constraint firstItem="pUA-cI-xYI" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="tgT-dg-aO7"/>
+                    <constraint firstItem="pUA-cI-xYI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="9" id="1h7-mw-dAk"/>
+                    <constraint firstItem="IQL-o4-Ooy" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="21o-kU-Mim"/>
+                    <constraint firstItem="pUA-cI-xYI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="6v7-FX-tia"/>
+                    <constraint firstItem="IQL-o4-Ooy" firstAttribute="leading" secondItem="pUA-cI-xYI" secondAttribute="trailing" constant="8" symbolic="YES" id="QXl-XN-cKy"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="IQL-o4-Ooy" secondAttribute="trailing" constant="3" id="dMZ-G1-hiP"/>
+                    <constraint firstItem="IQL-o4-Ooy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="11" id="lFB-Wk-7Pd"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="pUA-cI-xYI" secondAttribute="bottom" constant="8.5" id="q9p-FQ-ock"/>
                 </constraints>
             </tableViewCellContentView>
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
+                <outlet property="addButton" destination="IQL-o4-Ooy" id="hZd-h1-hnL"/>
                 <outlet property="exerciseField" destination="pUA-cI-xYI" id="hpV-TX-ghu"/>
             </connections>
             <point key="canvasLocation" x="140" y="169"/>
         </tableViewCell>
+        <barButtonItem style="plain" systemItem="flexibleSpace" id="8x7-lj-W1h"/>
     </objects>
+    <resources>
+        <image name="plus.png" width="120" height="120"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

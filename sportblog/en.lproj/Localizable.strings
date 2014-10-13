@@ -6,6 +6,7 @@
 
 // SBWorkoutViewController
 "Workout" = "Workout";
+"New Workout Name" = "New Workout Name";
 "Touch to edit workout" = "Touch to edit workout";
 "Add exercise" = "Add Your First Exercise";
 "Add another exercise" = "Add Another Exercise";
@@ -15,6 +16,7 @@
 // SBExercisesViewController
 "Exercises" = "Exercises";
 "New exercise" = "Create New Exercise";
+"Create Exercise" = "Add";
 
 // SBSetsViewController
 "Add new set" = "Add Your First Set";
@@ -40,7 +42,7 @@
 "Total amount of repetitions" = "Total Number Of Repetitions";
 
 // SBSettingsViewController
-"Settings" = "Settings";
+"Settings" = "About";
 
 // REVIEW
 "REVIEW_TITLE" = "Rate Spofilog App";

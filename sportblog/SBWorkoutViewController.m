@@ -269,8 +269,8 @@ UITextField *textfield;
     
     textfield = [UITextField new];
     textfield.frame = CGRectMake(8, 17, self.view.frame.size.width - 16, 30);
-    textfield.text = self.workout.name;
-    textfield.placeholder = NSLocalizedString(@"Workout", nil);
+    textfield.text = [self.workout.name isEqualToString:@"Workout"] ? @"" : self.workout.name;
+    textfield.placeholder = NSLocalizedString(@"New Workout Name", nil);
     textfield.textColor = [UIColor textColor];
     textfield.tintColor = [UIColor textColor];
     textfield.backgroundColor = [UIColor whiteColor];

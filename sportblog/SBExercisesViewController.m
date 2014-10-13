@@ -24,7 +24,7 @@
     if (self) {
         self.title = NSLocalizedString(@"Exercises", nil);
     }
-    
+
     return self;
 }
 
@@ -145,10 +145,16 @@
 
         createExerciseCell.exerciseField.placeholder = NSLocalizedString(@"New exercise", nil);
         createExerciseCell.exerciseField.delegate = self;
+        createExerciseCell.exerciseField.returnKeyType = UIReturnKeyDone;
         createExerciseCell.exerciseField.textColor = [UIColor textColor];
         createExerciseCell.exerciseField.tintColor = [UIColor textColor];
         createExerciseCell.exerciseField.backgroundColor = [UIColor whiteColor];
         createExerciseCell.backgroundColor = [UIColor actionCellColor];
+        createExerciseCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        [createExerciseCell.addButton addTarget:self
+                                         action:@selector(textFieldShouldReturn:)
+                               forControlEvents:UIControlEventTouchUpInside];
         
         UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, createExerciseCell.exerciseField.frame.size.height)];
         leftView.backgroundColor = [UIColor clearColor];
@@ -186,7 +192,7 @@
                               [NSCharacterSet whitespaceCharacterSet]];
     
     if ([exerciseName isEqualToString:@""]) {
-        [textField resignFirstResponder];
+        [cell.exerciseField resignFirstResponder];
         return YES;
     }
     
@@ -200,7 +206,7 @@
     self.exercises = [SBExercise allObjects];
     [self.tableView reloadData];
     
-    [textField resignFirstResponder];
+    [cell.exerciseField resignFirstResponder];
     
     return YES;
 }

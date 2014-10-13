@@ -10,5 +10,6 @@
 
 @interface SBCreateExerciseTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UITextField *exerciseField;
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
 
 @end

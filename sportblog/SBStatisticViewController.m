@@ -25,6 +25,7 @@ int statisticCountOfSets;
 float statisticMinWeight;
 float statisticMaxWeight;
 int statisticRepetitions;
+float statisticProgress;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -56,7 +57,9 @@ int statisticRepetitions;
     statisticMinWeight = 0;
     statisticMaxWeight = 0;
     statisticRepetitions = 0;
+    statisticProgress = 0;
     
+    int prevWeight = 0;
     for (int i = 0; i < [exercises count]; i++) {
         SBExerciseSet *exercise = [exercises objectAtIndex:i];
         
@@ -73,6 +76,12 @@ int statisticRepetitions;
             if (set.weight > statisticMaxWeight) {
                 statisticMaxWeight = set.weight;
             }
+            
+            
+            if (prevWeight != 0) {
+                statisticProgress += (100 - ((prevWeight / set.weight) * 100));
+            }
+            prevWeight = set.weight;
             
             statisticRepetitions += set.repetitions;
             
@@ -158,8 +167,8 @@ int statisticRepetitions;
     }
     
     cell.headlineLabel.backgroundColor = [UIColor clearColor];
-    cell.headlineLabel.textColor = [UIColor importantCellColor];
-    cell.valueLabel.textColor = [UIColor textColor];
+    cell.headlineLabel.textColor = [UIColor textColor];
+    cell.valueLabel.textColor = [UIColor importantCellColor];
     
     //cell.layoutMargins = UIEdgeInsetsZero;
     cell.separatorInset = UIEdgeInsetsMake(0.f, 0.f, 0.f, cell.bounds.size.width);
@@ -173,17 +182,17 @@ int statisticRepetitions;
     
     if (indexPath.row == 1) {
         cell.headlineLabel.text = NSLocalizedString(@"Your minimum weight", nil);
-        cell.valueLabel.text = [NSString stringWithFormat:@"%.01fkg", statisticMinWeight];
+        cell.valueLabel.text = [NSString stringWithFormat:@"%.01f kg", statisticMinWeight];
     }
     
     if (indexPath.row == 2) {
         cell.headlineLabel.text = NSLocalizedString(@"Your maximum weight", nil);
-        cell.valueLabel.text = [NSString stringWithFormat:@"%.01fkg", statisticMaxWeight];
+        cell.valueLabel.text = [NSString stringWithFormat:@"%.01f kg", statisticMaxWeight];
     }
     
     if (indexPath.row == 3) {
         cell.headlineLabel.text = NSLocalizedString(@"Your Weight-Progress", nil);
-        cell.valueLabel.text = [NSString stringWithFormat:@"%.01f%%", 100 - ((statisticMinWeight / statisticMaxWeight) * 100)];
+        cell.valueLabel.text = [NSString stringWithFormat:@"%.01f%%", statisticProgress];
     }
     
     if (indexPath.row == 4) {
@@ -205,7 +214,7 @@ int statisticRepetitions;
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [self.lineChartView removeFromSuperview];// = nil;
+    [self.lineChartView removeFromSuperview];
     self.tableView.delegate = nil;
     self.tableView.dataSource = nil;
 }
