@@ -49,3 +49,13 @@
 "REVIEW_MESSAGE" = "If you enjoy using Spofilog App, would you mind taking a moment to rate it? Thanks for your support!";
 "REVIEW_RATE_BUTTON" = "Rate Spofilog App";
 
+// EXERCISES
+"bench press" = "Bench Press";
+"deadlift" = "Deadlift";
+"biceps curls" = "Biceps Curl";
+"shoulder press" = "Shoulder Press";
+"hammer curl" = "Hammer Curl";
+"tricep press" = "Tricep Press";
+"barbell shrug" = "Barbell Shrug";
+"full squat" = "Full Squat";
+"bench pull" = "Bench Pull";
