@@ -33,6 +33,8 @@
 
 // SBFinishedExercisesViewController
 "Statistics" = "Statistics";
+"No Finished Exercises" = "No finished exercises found. You have to create a workout with exercises and sets first.";
+"Finished Exercises Description" = "Select on of your exercises to see all statistical informations.";
 
 // SBStatisticViewController
 "Total amount of sets" = "Total Number Of Sets";

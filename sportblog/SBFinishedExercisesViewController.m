@@ -10,6 +10,7 @@
 #import "SBExerciseSet.h"
 #import "SBStatisticViewController.h"
 #import "SBStandardCell.h"
+#import "SBDescriptionCell.h"
 #import "UIColor+SBColor.h"
 
 @interface SBFinishedExercisesViewController ()
@@ -17,6 +18,9 @@
 @property (nonatomic, strong) NSMutableArray *exercises;
 
 @end
+
+static NSString * const ExerciseCellIdentifier = @"ExerciseCell";
+static NSString * const DescriptionCellIdentifier = @"DescriptionCell";
 
 @implementation SBFinishedExercisesViewController
 
@@ -90,29 +94,60 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.exercises count];
+    return [self.exercises count] + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"exerciseCell";
+
+    if (indexPath.row == 0) {
+        SBDescriptionCell *descCell = (SBDescriptionCell *)[tableView dequeueReusableCellWithIdentifier:DescriptionCellIdentifier];
+        
+        if (descCell == nil) {
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBDescriptionCell" owner:self options:nil];
+            descCell = [nib objectAtIndex:0];
+        }
+        
+        descCell.descriptionLabel.numberOfLines = 0;
+        descCell.selectionStyle = UITableViewCellSelectionStyleNone;
+
+        if ([self.exercises count] == 0) {
+            descCell.descriptionLabel.text = NSLocalizedString(@"No Finished Exercises", nil);
+            descCell.descriptionLabel.textColor = [UIColor lightGrayColor];
+
+            self.tableView.tableFooterView = [UIView new];
+        } else {
+            descCell.descriptionLabel.text = NSLocalizedString(@"Finished Exercises Description", nil);
+            descCell.descriptionLabel.textColor = [UIColor grayColor];
+        }
+        
+        return descCell;
+    }
     
-    SBStandardCell *exerciseCell = (SBStandardCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    SBStandardCell *exerciseCell = (SBStandardCell *)[tableView dequeueReusableCellWithIdentifier:ExerciseCellIdentifier];
     
     if (exerciseCell == nil) {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBStandardCell" owner:self options:nil];
         exerciseCell = [nib objectAtIndex:0];
     }
+    int index = (int)indexPath.row - 1;
     
-    exerciseCell.label.text = [self.exercises objectAtIndex:indexPath.row];
+    exerciseCell.label.text = [self.exercises objectAtIndex:index];
     exerciseCell.label.textColor = [UIColor importantCellColor];
     
     return exerciseCell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        return;
+    }
+    
     SBStatisticViewController *stats = [[SBStatisticViewController alloc] initWithNibName:@"SBStatisticViewController" bundle:nil];
     
-    stats.exerciseName = [self.exercises objectAtIndex:indexPath.row];
+    int index = (int)indexPath.row - 1;
+    
+    stats.exerciseName = [self.exercises objectAtIndex:index];
     
     [self.navigationController pushViewController:stats animated:YES];
 }
@@ -122,6 +157,14 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0 && [self.exercises count] == 0) {
+        return 120;
+    }
+    
+    if (indexPath.row == 0 && [self.exercises count] > 0) {
+        return 80;
+    }
+    
     return 60;
 }
 

@@ -56,6 +56,8 @@
 		8086D45519BCBF16004ADBB6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8086D45319BCBF16004ADBB6 /* InfoPlist.strings */; };
 		8086D45719BCBF16004ADBB6 /* sportblogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8086D45619BCBF16004ADBB6 /* sportblogTests.m */; };
 		80B6016A19C9B8D800CC455A /* SBFinishedExercisesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B6016919C9B8D800CC455A /* SBFinishedExercisesViewController.m */; };
+		B31609A419ED6FAD00D1637C /* SBDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B31609A219ED6FAD00D1637C /* SBDescriptionCell.m */; };
+		B31609A519ED6FAD00D1637C /* SBDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B31609A319ED6FAD00D1637C /* SBDescriptionCell.xib */; };
 		B35A21DA19DBEFF600BCECAB /* SBStatisticCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B35A21D919DBEFF600BCECAB /* SBStatisticCell.xib */; };
 		B35A21DC19DBF00A00BCECAB /* SBStatisticCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B35A21DB19DBF00A00BCECAB /* SBStatisticCell.m */; };
 		B3752EFF19D185970091E207 /* SBSmallTopBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3752EFE19D185970091E207 /* SBSmallTopBottomCell.xib */; };
@@ -180,6 +182,9 @@
 		8086D45619BCBF16004ADBB6 /* sportblogTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sportblogTests.m; sourceTree = "<group>"; };
 		80B6016819C9B8D800CC455A /* SBFinishedExercisesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBFinishedExercisesViewController.h; sourceTree = "<group>"; };
 		80B6016919C9B8D800CC455A /* SBFinishedExercisesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBFinishedExercisesViewController.m; sourceTree = "<group>"; };
+		B31609A119ED6FAD00D1637C /* SBDescriptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBDescriptionCell.h; sourceTree = "<group>"; };
+		B31609A219ED6FAD00D1637C /* SBDescriptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBDescriptionCell.m; sourceTree = "<group>"; };
+		B31609A319ED6FAD00D1637C /* SBDescriptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBDescriptionCell.xib; sourceTree = "<group>"; };
 		B35A21D919DBEFF600BCECAB /* SBStatisticCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBStatisticCell.xib; sourceTree = "<group>"; };
 		B35A21DB19DBF00A00BCECAB /* SBStatisticCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBStatisticCell.m; sourceTree = "<group>"; };
 		B35A21DD19DBF01B00BCECAB /* SBStatisticCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBStatisticCell.h; sourceTree = "<group>"; };
@@ -556,6 +561,9 @@
 				805DE23819BF93CB00472322 /* SBAddEntryTableViewCell.h */,
 				805DE23919BF93CB00472322 /* SBAddEntryTableViewCell.m */,
 				805DE23A19BF93CB00472322 /* SBAddEntryTableViewCell.xib */,
+				B31609A119ED6FAD00D1637C /* SBDescriptionCell.h */,
+				B31609A219ED6FAD00D1637C /* SBDescriptionCell.m */,
+				B31609A319ED6FAD00D1637C /* SBDescriptionCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -689,6 +697,7 @@
 				801A842419EAE571002CFCBC /* edit@2x.png in Resources */,
 				B3AED25A19E2CDB50006A4A9 /* hintArrow@3x.png in Resources */,
 				B3AED27319E3E31E0006A4A9 /* appIcon.png in Resources */,
+				B31609A519ED6FAD00D1637C /* SBDescriptionCell.xib in Resources */,
 				B3AC2EE019CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.xib in Resources */,
 				801A842519EAE571002CFCBC /* edit@3x.png in Resources */,
 				805DE23C19BF93CB00472322 /* SBAddEntryTableViewCell.xib in Resources */,
@@ -812,6 +821,7 @@
 				B3AC2ED019C31F1100FFD8FD /* SBSet.m in Sources */,
 				803978A819E063E4000DEED5 /* SBWorkoutsInteractor.m in Sources */,
 				B3AC2EB619C1E6E000FFD8FD /* SBExercise.m in Sources */,
+				B31609A419ED6FAD00D1637C /* SBDescriptionCell.m in Sources */,
 				80B6016A19C9B8D800CC455A /* SBFinishedExercisesViewController.m in Sources */,
 				805DE22C19BF8E6500472322 /* SBWorkoutViewController.m in Sources */,
 				B3AED24C19E29A660006A4A9 /* SBExerciseSetViewModel.m in Sources */,

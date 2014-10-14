@@ -75,7 +75,7 @@
         [preferences setInteger:1 forKey:key];
     }
     
-    self.exercises = [SBExercise allObjects];
+    self.exercises = [[SBExercise allObjects] arraySortedByProperty:@"name" ascending:YES];
     
     [self.view addSubview:self.tableView];
 }
@@ -203,7 +203,7 @@
     [RLMRealm.defaultRealm addObject:exercise];
     [RLMRealm.defaultRealm commitWriteTransaction];
     
-    self.exercises = [SBExercise allObjects];
+    self.exercises = [[SBExercise allObjects] arraySortedByProperty:@"name" ascending:YES];
     [self.tableView reloadData];
     
     [cell.exerciseField resignFirstResponder];

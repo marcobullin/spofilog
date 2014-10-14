@@ -33,6 +33,8 @@
 
 // SBFinishedExercisesViewController
 "Statistics" = "Statistiken";
+"No Finished Exercises" = "Es wurden keine abgeschlossenen Übungen gefunden. Erstelle einen Workout und füge Übungen mit entsprechenden Sätzen hinzu.";
+"Finished Exercises Description" = "Wähle eine deiner Übungen um alle Auswertungen darüber einzusehen.";
 
 // SBStatisticViewController
 "Total amount of sets" = "Gesamtanzahl Sätze";
