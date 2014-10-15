@@ -4,129 +4,65 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-FLEX.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
 		<key>Pods-GoogleAnalytics-iOS-SDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
-		</dict>
-		<key>Pods-MMPopLabel.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>8</integer>
 		</dict>
 		<key>Pods-Realm.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
 		</dict>
 		<key>Pods-UAAppReviewManager.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>6</integer>
 		</dict>
 		<key>Pods-iOSPlot.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 		<key>UAAppReviewManager-iOS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>7</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>05B19F114A7648968AB2E8AF</key>
+		<key>03F21F63481DF6ED41B8C1B7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>17772593344E4E2B81411AAF</key>
+		<key>139F55EB281E3B87CDB297D9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>18BCAB2AD066EC9C5CCD0BF5</key>
+		<key>38D112730E646A85AD5CCF9B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>46DFEDFF4CFD0B4E7CFB79E0</key>
+		<key>965F5569DF70274A8287F03D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5A776BF379AA3F7DD8CADC7A</key>
+		<key>D20D7DCE8BF0FA91CB02E6A2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5ED75CC0C274378F022FC324</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6E5552578D90A9CE6FFCD4B4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9D39738068D2417D91C102EE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AFA71681270940B59143E70E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D9BBA960BBB14E5D85B3B712</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DA87C3D711F84A649560BF47</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EC556D7C56F94C3A9A519BDD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EF9DE0066C6003B16CC85607</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F1EB0522FD1F4BAB83F5A7DE</key>
+		<key>F0F7E4131B7F84A7D33F46D1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -795,7 +795,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3F06FC925C584A04972EE6BF /* Check Pods Manifest.lock */ = {
@@ -963,6 +963,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "$(inherited)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -995,6 +996,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "$(inherited)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1018,6 +1020,7 @@
 				GCC_PREFIX_HEADER = "sportblog/sportblog-Prefix.pch";
 				INFOPLIST_FILE = "sportblog/sportblog-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1042,6 +1045,7 @@
 				GCC_PREFIX_HEADER = "sportblog/sportblog-Prefix.pch";
 				INFOPLIST_FILE = "sportblog/sportblog-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1051,6 +1055,7 @@
 		};
 		8086D45E19BCBF16004ADBB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67FA2B5A03981E5FBD9D748B /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/sportblog.app/sportblog";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1075,6 +1080,7 @@
 		};
 		8086D45F19BCBF16004ADBB6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB33F68BD5D666709DD74DC6 /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/sportblog.app/sportblog";
 				FRAMEWORK_SEARCH_PATHS = (

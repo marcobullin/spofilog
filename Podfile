@@ -1,3 +1,4 @@
+source 'https://github.com/CocoaPods/Specs.git'
 inhibit_all_warnings!
 pod 'UAAppReviewManager'
 pod 'Realm', '~> 0.85'

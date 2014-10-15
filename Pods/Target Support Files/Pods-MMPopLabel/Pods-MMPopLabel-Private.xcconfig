@@ -1,5 +1,0 @@
-#include "Pods-MMPopLabel.xcconfig"
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/MMPopLabel" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/GoogleAnalytics-iOS-SDK" "${PODS_ROOT}/Headers/Public/MMPopLabel" "${PODS_ROOT}/Headers/Public/Realm" "${PODS_ROOT}/Headers/Public/Realm/Realm" "${PODS_ROOT}/Headers/Public/Realm/tightdb" "${PODS_ROOT}/Headers/Public/Realm/tightdb/util" "${PODS_ROOT}/Headers/Public/UAAppReviewManager" "${PODS_ROOT}/Headers/Public/core/include" "${PODS_ROOT}/Headers/Public/core/include/tightdb" "${PODS_ROOT}/Headers/Public/core/include/tightdb/impl" "${PODS_ROOT}/Headers/Public/core/include/tightdb/util" "${PODS_ROOT}/Headers/Public/iOSPlot"
-OTHER_LDFLAGS = -ObjC
-PODS_ROOT = ${SRCROOT}

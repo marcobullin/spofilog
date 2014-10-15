@@ -43,6 +43,8 @@
 "Your Averrage Weight-Progress From Set To Set" = "Deine durchschnittliche Gewichtssteigerung von Satz zu Satz";
 "Your Weight-Progress From Min- To Max-Weight" = "Deine Steigerung vom Minimalgewicht zum Maximalgewicht";
 "Total amount of repetitions" = "Gesamtanzahl Wiederholungen";
+"from %@" = "vom %@";
+"to %@" = "bis %@";
 
 // SBSettingsViewController
 "Settings" = "Info";

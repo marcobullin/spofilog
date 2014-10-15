@@ -279,8 +279,12 @@ void add_link_constraint_to_query(tightdb::Query & query,
                                  NSPredicateOperatorType operatorType,
                                  NSUInteger column,
                                  RLMObject *obj) {
-    RLMPrecondition(operatorType == NSEqualToPredicateOperatorType,
-                    @"Invalid operator type", @"Only 'Equal' operator supported for object comparison");
+    RLMPrecondition(operatorType == NSEqualToPredicateOperatorType || operatorType == NSNotEqualToPredicateOperatorType,
+                    @"Invalid operator type", @"Only 'Equal' and 'Not Equal' operators supported for object comparison");
+    if (operatorType == NSNotEqualToPredicateOperatorType) {
+        query.Not();
+    }
+
     if (obj) {
         query.links_to(column, obj->_row.get_index());
     }
@@ -429,8 +433,7 @@ RLMProperty *get_property_from_key_path(RLMSchema *schema, RLMObjectSchema *desc
 
 void validate_property_value(RLMProperty *prop, id value, NSString *err) {
     if (prop.type == RLMPropertyTypeArray) {
-        Class cls = [value class];
-        RLMPrecondition(RLMIsKindOfclass(cls, RLMObject.class) && [[cls className] isEqualToString:prop.objectClassName],
+        RLMPrecondition([RLMDynamicCast<RLMObject>(value).objectSchema.className isEqualToString:prop.objectClassName],
                         @"Invalid value", err, prop.objectClassName);
     }
     else {

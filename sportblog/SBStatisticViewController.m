@@ -26,6 +26,8 @@ float statisticMinWeight;
 float statisticMaxWeight;
 int statisticRepetitions;
 float statisticProgress;
+NSDate *firstDate;
+NSDate *lastDate;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -58,6 +60,8 @@ float statisticProgress;
     statisticMaxWeight = 0;
     statisticRepetitions = 0;
     statisticProgress = 0;
+    firstDate = nil;
+    lastDate = nil;
     
     int prevWeight = 0;
     for (int i = 0; i < [exercises count]; i++) {
@@ -68,6 +72,13 @@ float statisticProgress;
         for (int j = 0; j < [exercise.sets count]; j++) {
             SBSet *set = [exercise.sets objectAtIndex:j];
             
+            if (firstDate == nil || exercise.date < firstDate) {
+                firstDate = exercise.date;
+            }
+            
+            if (lastDate == nil || exercise.date > lastDate) {
+                lastDate = exercise.date;
+            }
          
             if (statisticMinWeight == 0 || set.weight < statisticMinWeight) {
                 statisticMinWeight = set.weight;
@@ -87,7 +98,7 @@ float statisticProgress;
             
             [reps addObject:[NSNumber numberWithInt:set.repetitions]];
             [weights addObject:[NSNumber numberWithFloat:set.weight]];
-            [labels addObject:[self.dateFormatter stringFromDate:exercise.date]];
+            [labels addObject:@""];//[self.dateFormatter stringFromDate:exercise.date]];
             count++;
         }
     }
@@ -101,15 +112,33 @@ float statisticProgress;
     [self.lineChartView setInterval:5.0];
     self.lineChartView.autoscaleYAxis = YES;
     
+    /*
     if (count <= 4) {
         self.lineChartView.numXIntervals = 1;
     } else {
-        self.lineChartView.numXIntervals = ceil(count/3) ;
+        self.lineChartView.numXIntervals = floor(count/3) ;
     }
+     */
+    
+    UILabel *firstDateLabel = [UILabel new];
+    firstDateLabel.text = [NSString stringWithFormat:NSLocalizedString(@"from %@", nil), [self.dateFormatter stringFromDate:firstDate]];
+    firstDateLabel.frame = CGRectMake(20, self.lineChartView.frame.size.height - 44, self.lineChartView.frame.size.width, 44);
+    firstDateLabel.font = [UIFont boldSystemFontOfSize:12];
+    
+    UILabel *lastDateLabel = [UILabel new];
+    lastDateLabel.text = [NSString stringWithFormat:NSLocalizedString(@"to %@", nil), [self.dateFormatter stringFromDate:lastDate]];
+    lastDateLabel.frame = CGRectMake(0, self.lineChartView.frame.size.height - 44, self.lineChartView.frame.size.width - 20, 44);
+    lastDateLabel.font = [UIFont boldSystemFontOfSize:12];
+    lastDateLabel.textAlignment = NSTextAlignmentRight;
+    lastDateLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    
+    [self.lineChartView addSubview:firstDateLabel];
+    [self.lineChartView addSubview:lastDateLabel];
     
     NSMutableArray *components = [NSMutableArray array];
 
     PCLineChartViewComponent *component = [[PCLineChartViewComponent alloc] init];
+    component.title = @"kg";
     [component setPoints:weights];
     [components addObject:component];
     
@@ -170,6 +199,7 @@ float statisticProgress;
     
     cell.headlineLabel.backgroundColor = [UIColor clearColor];
     cell.headlineLabel.textColor = [UIColor textColor];
+    cell.headlineLabel.font = [UIFont boldSystemFontOfSize:12];
     cell.valueLabel.textColor = [UIColor importantCellColor];
     
     //cell.layoutMargins = UIEdgeInsetsZero;

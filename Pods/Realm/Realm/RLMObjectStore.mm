@@ -261,13 +261,18 @@ void RLMAddObjectToRealm(RLMObject *object, RLMRealm *realm, RLMSetFlag options)
                                      userInfo:nil];
     }
     if (object.realm) {
+        if (object.realm == realm) {
+            // no-op
+            return;
+        }
+        // for differing realms users must explicitly create the object in the second realm
         @throw [NSException exceptionWithName:@"RLMException"
                                        reason:@"Object is already persisted in a Realm"
                                      userInfo:nil];
     }
 
     // set the realm and schema
-    NSString *objectClassName = [object.class className];
+    NSString *objectClassName = object.objectSchema.className;
     RLMObjectSchema *schema = realm.schema[objectClassName];
     object.objectSchema = schema;
     object.realm = realm;

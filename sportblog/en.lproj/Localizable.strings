@@ -43,6 +43,8 @@
 "Your Averrage Weight-Progress From Set To Set" = "Your Averrage Weight-Progress From Set To Set";
 "Your Weight-Progress From Min- To Max-Weight" = "Your Weight-Progress From Min- To Max-Weight";
 "Total amount of repetitions" = "Total Number Of Repetitions";
+"from %@" = "from %@";
+"to %@" = "to %@";
 
 // SBSettingsViewController
 "Settings" = "About";

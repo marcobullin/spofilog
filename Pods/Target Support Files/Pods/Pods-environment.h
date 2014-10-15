@@ -12,23 +12,17 @@
 #define COCOAPODS_VERSION_MINOR_GoogleAnalytics_iOS_SDK 0
 #define COCOAPODS_VERSION_PATCH_GoogleAnalytics_iOS_SDK 9
 
-// MMPopLabel
-#define COCOAPODS_POD_AVAILABLE_MMPopLabel
-#define COCOAPODS_VERSION_MAJOR_MMPopLabel 0
-#define COCOAPODS_VERSION_MINOR_MMPopLabel 1
-#define COCOAPODS_VERSION_PATCH_MMPopLabel 1
-
 // Realm
 #define COCOAPODS_POD_AVAILABLE_Realm
 #define COCOAPODS_VERSION_MAJOR_Realm 0
 #define COCOAPODS_VERSION_MINOR_Realm 86
-#define COCOAPODS_VERSION_PATCH_Realm 2
+#define COCOAPODS_VERSION_PATCH_Realm 3
 
 // Realm/Headers
 #define COCOAPODS_POD_AVAILABLE_Realm_Headers
 #define COCOAPODS_VERSION_MAJOR_Realm_Headers 0
 #define COCOAPODS_VERSION_MINOR_Realm_Headers 86
-#define COCOAPODS_VERSION_PATCH_Realm_Headers 2
+#define COCOAPODS_VERSION_PATCH_Realm_Headers 3
 
 // UAAppReviewManager
 #define COCOAPODS_POD_AVAILABLE_UAAppReviewManager
