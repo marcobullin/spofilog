@@ -15,6 +15,9 @@
 		801A842319EAE571002CFCBC /* edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 801A842019EAE571002CFCBC /* edit.png */; };
 		801A842419EAE571002CFCBC /* edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 801A842119EAE571002CFCBC /* edit@2x.png */; };
 		801A842519EAE571002CFCBC /* edit@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 801A842219EAE571002CFCBC /* edit@3x.png */; };
+		801A842919EDA05A002CFCBC /* hantelUnselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 801A842619EDA05A002CFCBC /* hantelUnselected.png */; };
+		801A842A19EDA05A002CFCBC /* hantelUnselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 801A842719EDA05A002CFCBC /* hantelUnselected@2x.png */; };
+		801A842B19EDA05A002CFCBC /* hantelUnselected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 801A842819EDA05A002CFCBC /* hantelUnselected@3x.png */; };
 		8039788719D85286000DEED5 /* SBArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8039788619D85286000DEED5 /* SBArrayDataSource.m */; };
 		8039788919DEBAEF000DEED5 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8039788819DEBAEF000DEED5 /* Launch Screen.xib */; };
 		8039788E19DEE2F1000DEED5 /* SBExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2EB519C1E6E000FFD8FD /* SBExercise.m */; };
@@ -126,6 +129,9 @@
 		801A842019EAE571002CFCBC /* edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit.png; sourceTree = "<group>"; };
 		801A842119EAE571002CFCBC /* edit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit@2x.png"; sourceTree = "<group>"; };
 		801A842219EAE571002CFCBC /* edit@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit@3x.png"; sourceTree = "<group>"; };
+		801A842619EDA05A002CFCBC /* hantelUnselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hantelUnselected.png; sourceTree = "<group>"; };
+		801A842719EDA05A002CFCBC /* hantelUnselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hantelUnselected@2x.png"; sourceTree = "<group>"; };
+		801A842819EDA05A002CFCBC /* hantelUnselected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hantelUnselected@3x.png"; sourceTree = "<group>"; };
 		8039788519D85269000DEED5 /* SBArrayDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBArrayDataSource.h; sourceTree = "<group>"; };
 		8039788619D85286000DEED5 /* SBArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBArrayDataSource.m; sourceTree = "<group>"; };
 		8039788819DEBAEF000DEED5 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
@@ -420,6 +426,9 @@
 		8086D42F19BCBF16004ADBB6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				801A842619EDA05A002CFCBC /* hantelUnselected.png */,
+				801A842719EDA05A002CFCBC /* hantelUnselected@2x.png */,
+				801A842819EDA05A002CFCBC /* hantelUnselected@3x.png */,
 				B3E5306D19EBEE5600C2A17F /* addButton.png */,
 				B3E5306E19EBEE5600C2A17F /* addButton@2x.png */,
 				B3E5306F19EBEE5600C2A17F /* addButton@3x.png */,
@@ -689,6 +698,7 @@
 				B3E5307119EBEE5600C2A17F /* addButton@2x.png in Resources */,
 				803978BF19E6DA50000DEED5 /* launcherImage.png in Resources */,
 				B3AED26F19E2E3520006A4A9 /* settings@3x.png in Resources */,
+				801A842919EDA05A002CFCBC /* hantelUnselected.png in Resources */,
 				B3AB6A0C19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib in Resources */,
 				8039788919DEBAEF000DEED5 /* Launch Screen.xib in Resources */,
 				B3752F2719DAC8A40091E207 /* SBSetsViewController.xib in Resources */,
@@ -704,11 +714,13 @@
 				B3AED24219DD76C90006A4A9 /* hantel@2x.png in Resources */,
 				B35A21DA19DBEFF600BCECAB /* SBStatisticCell.xib in Resources */,
 				B3752F0C19D1C5080091E207 /* arrow.png in Resources */,
+				801A842B19EDA05A002CFCBC /* hantelUnselected@3x.png in Resources */,
 				805DE24119BF93DC00472322 /* SBExerciseTableViewCell.xib in Resources */,
 				B3752F2919DAC9CF0091E207 /* SBSetViewController.xib in Resources */,
 				B3AED26D19E2E3520006A4A9 /* settings.png in Resources */,
 				801A841E19EAE33D002CFCBC /* plus@2x.png in Resources */,
 				B3AED24619DD76C90006A4A9 /* stats@3x.png in Resources */,
+				801A842A19EDA05A002CFCBC /* hantelUnselected@2x.png in Resources */,
 				B3752F2119DAA8580091E207 /* SBFinishedExercisesViewController.xib in Resources */,
 				B3AED26919E2E26C0006A4A9 /* SBSettingsViewController.xib in Resources */,
 				8086D44419BCBF16004ADBB6 /* Images.xcassets in Resources */,

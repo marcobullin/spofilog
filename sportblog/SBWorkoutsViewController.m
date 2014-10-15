@@ -39,7 +39,8 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
     if (self) {
         self.title = NSLocalizedString(@"Workouts", nil);
         self.tabBarItem.title = NSLocalizedString(@"Workouts", nil);
-        self.tabBarItem.image = [UIImage imageNamed:@"hantel"];
+        self.tabBarItem.image = [[UIImage imageNamed:@"hantelUnselected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        self.tabBarItem.selectedImage = [UIImage imageNamed:@"hantel"];
     }
     
     return self;
