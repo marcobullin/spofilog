@@ -40,7 +40,8 @@
 "Total amount of sets" = "Gesamtanzahl Sätze";
 "Your minimum weight" = "Minimalgewicht";
 "Your maximum weight" = "Maximalgewicht";
-"Your Weight-Progress" = "Fortschritt";
+"Your Averrage Weight-Progress From Set To Set" = "Deine durchschnittliche Gewichtssteigerung von Satz zu Satz";
+"Your Weight-Progress From Min- To Max-Weight" = "Deine Steigerung vom Minimalgewicht zum Maximalgewicht";
 "Total amount of repetitions" = "Gesamtanzahl Wiederholungen";
 
 // SBSettingsViewController
@@ -50,3 +51,15 @@
 "REVIEW_TITLE" = "Spofilog App bewerten";
 "REVIEW_MESSAGE" = "Gefällt dir die Spofilog App? Cool, dann wäre es super wenn du sie mit 5 Sternen bewerten könntest. Vielen Dank!";
 "REVIEW_RATE_BUTTON" = "Spofilog App bewerten";
+
+// EXERCISES
+"bench press" = "Bankdrücken";
+"deadlift" = "Kreuzheben";
+"biceps curls" = "Bizep Curls";
+"shoulder press" = "Schulterdrücken";
+"hammer curl" = "Hammer Curls";
+"tricep press" = "Trizepsdrücken";
+"barbell shrug" = "Schulternheben";
+"full squat" = "Kniebeugen";
+"bench pull" = "Bankziehen";
+"butterfly" = "Butterfly";

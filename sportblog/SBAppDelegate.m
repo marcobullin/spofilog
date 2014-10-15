@@ -91,6 +91,13 @@
     self.tabBarController.viewControllers = @[self.workoutNavigationController, self.statisticNavigationController, self.settingsNavigationController];
     self.tabBarController.tabBar.barTintColor = [UIColor navigationBarColor];
     self.tabBarController.tabBar.tintColor = [UIColor whiteColor];
+
+    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName : [UIColor colorWithRed:178/255.0f green:178/255.0f blue:178/255.0f alpha:1.0] }
+                                             forState:UIControlStateNormal];
+    
+    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }
+                                             forState:UIControlStateSelected];
+    
     
     self.tabBarController.delegate = self;
     

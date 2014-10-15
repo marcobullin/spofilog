@@ -77,6 +77,12 @@
 		B3752F2719DAC8A40091E207 /* SBSetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3752F2619DAC8A40091E207 /* SBSetsViewController.xib */; };
 		B3752F2919DAC9CF0091E207 /* SBSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3752F2819DAC9CF0091E207 /* SBSetViewController.xib */; };
 		B3752F2B19DAEB440091E207 /* SBStatisticViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3752F2A19DAEB440091E207 /* SBStatisticViewController.xib */; };
+		B38E11BA19EE9E1E0060945C /* settingsUnselected.png in Resources */ = {isa = PBXBuildFile; fileRef = B38E11B419EE9E1E0060945C /* settingsUnselected.png */; };
+		B38E11BB19EE9E1E0060945C /* settingsUnselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B38E11B519EE9E1E0060945C /* settingsUnselected@2x.png */; };
+		B38E11BC19EE9E1E0060945C /* settingsUnselected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B38E11B619EE9E1E0060945C /* settingsUnselected@3x.png */; };
+		B38E11BD19EE9E1E0060945C /* statsUnselected.png in Resources */ = {isa = PBXBuildFile; fileRef = B38E11B719EE9E1E0060945C /* statsUnselected.png */; };
+		B38E11BE19EE9E1E0060945C /* statsUnselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B38E11B819EE9E1E0060945C /* statsUnselected@2x.png */; };
+		B38E11BF19EE9E1E0060945C /* statsUnselected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B38E11B919EE9E1E0060945C /* statsUnselected@3x.png */; };
 		B3AB6A0B19C059A70002EDF9 /* SBEditWorkoutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AB6A0919C059A70002EDF9 /* SBEditWorkoutTableViewCell.m */; };
 		B3AB6A0C19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3AB6A0A19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib */; };
 		B3AC2EB319C09EFF00FFD8FD /* SBWorkout.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2EB219C09EFF00FFD8FD /* SBWorkout.m */; };
@@ -212,6 +218,12 @@
 		B3752F2619DAC8A40091E207 /* SBSetsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBSetsViewController.xib; sourceTree = "<group>"; };
 		B3752F2819DAC9CF0091E207 /* SBSetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBSetViewController.xib; sourceTree = "<group>"; };
 		B3752F2A19DAEB440091E207 /* SBStatisticViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBStatisticViewController.xib; sourceTree = "<group>"; };
+		B38E11B419EE9E1E0060945C /* settingsUnselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsUnselected.png; sourceTree = "<group>"; };
+		B38E11B519EE9E1E0060945C /* settingsUnselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsUnselected@2x.png"; sourceTree = "<group>"; };
+		B38E11B619EE9E1E0060945C /* settingsUnselected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsUnselected@3x.png"; sourceTree = "<group>"; };
+		B38E11B719EE9E1E0060945C /* statsUnselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statsUnselected.png; sourceTree = "<group>"; };
+		B38E11B819EE9E1E0060945C /* statsUnselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "statsUnselected@2x.png"; sourceTree = "<group>"; };
+		B38E11B919EE9E1E0060945C /* statsUnselected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "statsUnselected@3x.png"; sourceTree = "<group>"; };
 		B3AB6A0819C059A70002EDF9 /* SBEditWorkoutTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBEditWorkoutTableViewCell.h; sourceTree = "<group>"; };
 		B3AB6A0919C059A70002EDF9 /* SBEditWorkoutTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBEditWorkoutTableViewCell.m; sourceTree = "<group>"; };
 		B3AB6A0A19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBEditWorkoutTableViewCell.xib; sourceTree = "<group>"; };
@@ -426,6 +438,12 @@
 		8086D42F19BCBF16004ADBB6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B38E11B419EE9E1E0060945C /* settingsUnselected.png */,
+				B38E11B519EE9E1E0060945C /* settingsUnselected@2x.png */,
+				B38E11B619EE9E1E0060945C /* settingsUnselected@3x.png */,
+				B38E11B719EE9E1E0060945C /* statsUnselected.png */,
+				B38E11B819EE9E1E0060945C /* statsUnselected@2x.png */,
+				B38E11B919EE9E1E0060945C /* statsUnselected@3x.png */,
 				801A842619EDA05A002CFCBC /* hantelUnselected.png */,
 				801A842719EDA05A002CFCBC /* hantelUnselected@2x.png */,
 				801A842819EDA05A002CFCBC /* hantelUnselected@3x.png */,
@@ -694,6 +712,7 @@
 				803978AC19E4735D000DEED5 /* Settings.bundle in Resources */,
 				B3AED25D19E2CDFE0006A4A9 /* hintArrow.png in Resources */,
 				B3752F2B19DAEB440091E207 /* SBStatisticViewController.xib in Resources */,
+				B38E11BB19EE9E1E0060945C /* settingsUnselected@2x.png in Resources */,
 				B3E5307019EBEE5600C2A17F /* addButton.png in Resources */,
 				B3E5307119EBEE5600C2A17F /* addButton@2x.png in Resources */,
 				803978BF19E6DA50000DEED5 /* launcherImage.png in Resources */,
@@ -702,13 +721,17 @@
 				B3AB6A0C19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib in Resources */,
 				8039788919DEBAEF000DEED5 /* Launch Screen.xib in Resources */,
 				B3752F2719DAC8A40091E207 /* SBSetsViewController.xib in Resources */,
+				B38E11BE19EE9E1E0060945C /* statsUnselected@2x.png in Resources */,
 				801A842319EAE571002CFCBC /* edit.png in Resources */,
 				B3752F1119D2B85B0091E207 /* SBLeftRightCell.xib in Resources */,
 				801A842419EAE571002CFCBC /* edit@2x.png in Resources */,
 				B3AED25A19E2CDB50006A4A9 /* hintArrow@3x.png in Resources */,
 				B3AED27319E3E31E0006A4A9 /* appIcon.png in Resources */,
+				B38E11BA19EE9E1E0060945C /* settingsUnselected.png in Resources */,
+				B38E11BF19EE9E1E0060945C /* statsUnselected@3x.png in Resources */,
 				B31609A519ED6FAD00D1637C /* SBDescriptionCell.xib in Resources */,
 				B3AC2EE019CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.xib in Resources */,
+				B38E11BC19EE9E1E0060945C /* settingsUnselected@3x.png in Resources */,
 				801A842519EAE571002CFCBC /* edit@3x.png in Resources */,
 				805DE23C19BF93CB00472322 /* SBAddEntryTableViewCell.xib in Resources */,
 				B3AED24219DD76C90006A4A9 /* hantel@2x.png in Resources */,
@@ -731,6 +754,7 @@
 				803978BB19E6D660000DEED5 /* launcherImage@3x.png in Resources */,
 				B3752F2519DAC6140091E207 /* SBExercisesViewController.xib in Resources */,
 				805DE23419BF937F00472322 /* SBBigTopBottomCell.xib in Resources */,
+				B38E11BD19EE9E1E0060945C /* statsUnselected.png in Resources */,
 				803978C019E6DA50000DEED5 /* launcherImageIP5@2x.png in Resources */,
 				B3AED24319DD76C90006A4A9 /* hantel@3x.png in Resources */,
 				B3E5307219EBEE5600C2A17F /* addButton@3x.png in Resources */,

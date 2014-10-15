@@ -45,23 +45,38 @@
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     
     NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
-    NSString *key = @"exercisesImported";
+    NSString *key = @"exercisesAlreadyImported";
     
     if([preferences objectForKey:key] == nil) {
         SBExercise *exercise = [[SBExercise alloc] init];
-        exercise.name = NSLocalizedString(@"Kreuzheuben", nil);
+        exercise.name = NSLocalizedString(@"bench press", nil);
         
         SBExercise *exercise2 = [[SBExercise alloc] init];
-        exercise2.name = NSLocalizedString(@"Bankdrücken", nil);
+        exercise2.name = NSLocalizedString(@"deadlift", nil);
         
         SBExercise *exercise3 = [[SBExercise alloc] init];
-        exercise3.name = NSLocalizedString(@"Butterfly", nil);
+        exercise3.name = NSLocalizedString(@"biceps curls", nil);
         
         SBExercise *exercise4 = [[SBExercise alloc] init];
-        exercise4.name = NSLocalizedString(@"Bizeps", nil);
+        exercise4.name = NSLocalizedString(@"shoulder press", nil);
         
         SBExercise *exercise5 = [[SBExercise alloc] init];
-        exercise5.name = NSLocalizedString(@"Trizeps", nil);
+        exercise5.name = NSLocalizedString(@"hammer curl", nil);
+        
+        SBExercise *exercise6 = [[SBExercise alloc] init];
+        exercise6.name = NSLocalizedString(@"tricep press", nil);
+        
+        SBExercise *exercise7 = [[SBExercise alloc] init];
+        exercise7.name = NSLocalizedString(@"barbell shrug", nil);
+        
+        SBExercise *exercise8 = [[SBExercise alloc] init];
+        exercise8.name = NSLocalizedString(@"full squat", nil);
+        
+        SBExercise *exercise9 = [[SBExercise alloc] init];
+        exercise9.name = NSLocalizedString(@"bench pull", nil);
+        
+        SBExercise *exercise10 = [[SBExercise alloc] init];
+        exercise10.name = NSLocalizedString(@"butterfly", nil);
         
         RLMRealm *realm = [RLMRealm defaultRealm];
         [realm beginWriteTransaction];
@@ -70,6 +85,11 @@
         [realm addObject:exercise3];
         [realm addObject:exercise4];
         [realm addObject:exercise5];
+        [realm addObject:exercise6];
+        [realm addObject:exercise7];
+        [realm addObject:exercise8];
+        [realm addObject:exercise9];
+        [realm addObject:exercise10];
         [realm commitWriteTransaction];
         
         [preferences setInteger:1 forKey:key];

@@ -23,7 +23,8 @@
     if (self) {
         self.title = NSLocalizedString(@"Settings", nil);
         self.tabBarItem.title = NSLocalizedString(@"Settings", nil);
-        self.tabBarItem.image = [UIImage imageNamed:@"settings"];
+        self.tabBarItem.image = [[UIImage imageNamed:@"settingsUnselected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        self.tabBarItem.selectedImage = [UIImage imageNamed:@"settings"];
     }
     
     return self;

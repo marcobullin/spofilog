@@ -30,7 +30,8 @@ static NSString * const DescriptionCellIdentifier = @"DescriptionCell";
     if (self) {
         self.title = NSLocalizedString(@"Exercises", nil);
         self.tabBarItem.title = NSLocalizedString(@"Statistics", nil);
-        self.tabBarItem.image = [UIImage imageNamed:@"stats"];
+        self.tabBarItem.image = [[UIImage imageNamed:@"statsUnselected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        self.tabBarItem.selectedImage = [UIImage imageNamed:@"stats"];
     }
     
     return self;

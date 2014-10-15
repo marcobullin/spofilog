@@ -79,7 +79,7 @@ float statisticProgress;
             
             
             if (prevWeight != 0) {
-                statisticProgress += (100 - ((prevWeight / set.weight) * 100));
+                statisticProgress += (((set.weight / prevWeight) * 100) - 100);
             }
             prevWeight = set.weight;
             
@@ -91,6 +91,8 @@ float statisticProgress;
             count++;
         }
     }
+    
+    statisticProgress = statisticProgress / count;
     
     CGRect frame = CGRectMake(0, self.navigationController.navigationBar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height/2);
     
@@ -155,7 +157,7 @@ float statisticProgress;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return 6;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -191,11 +193,16 @@ float statisticProgress;
     }
     
     if (indexPath.row == 3) {
-        cell.headlineLabel.text = NSLocalizedString(@"Your Weight-Progress", nil);
+        cell.headlineLabel.text = NSLocalizedString(@"Your Averrage Weight-Progress From Set To Set", nil);
         cell.valueLabel.text = [NSString stringWithFormat:@"%.01f%%", statisticProgress];
     }
     
     if (indexPath.row == 4) {
+        cell.headlineLabel.text = NSLocalizedString(@"Your Weight-Progress From Min- To Max-Weight", nil);
+        cell.valueLabel.text = [NSString stringWithFormat:@"%.01f%%", ((statisticMaxWeight / statisticMinWeight) * 100) - 100];
+    }
+    
+    if (indexPath.row == 5) {
         cell.headlineLabel.text = NSLocalizedString(@"Total amount of repetitions", nil);
         cell.valueLabel.text = [NSString stringWithFormat:@"%d", statisticRepetitions];
     }

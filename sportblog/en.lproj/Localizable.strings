@@ -40,7 +40,8 @@
 "Total amount of sets" = "Total Number Of Sets";
 "Your minimum weight" = "Minimum Weight";
 "Your maximum weight" = "Maximum Weight";
-"Your Weight-Progress" = "Improvement";
+"Your Averrage Weight-Progress From Set To Set" = "Your Averrage Weight-Progress From Set To Set";
+"Your Weight-Progress From Min- To Max-Weight" = "Your Weight-Progress From Min- To Max-Weight";
 "Total amount of repetitions" = "Total Number Of Repetitions";
 
 // SBSettingsViewController
@@ -54,10 +55,11 @@
 // EXERCISES
 "bench press" = "Bench Press";
 "deadlift" = "Deadlift";
-"biceps curls" = "Biceps Curl";
+"biceps curls" = "Biceps Curls";
 "shoulder press" = "Shoulder Press";
-"hammer curl" = "Hammer Curl";
+"hammer curl" = "Hammer Curls";
 "tricep press" = "Tricep Press";
-"barbell shrug" = "Barbell Shrug";
-"full squat" = "Full Squat";
+"barbell shrug" = "Barbell Shrugs";
+"full squat" = "Full Squats";
 "bench pull" = "Bench Pull";
+"butterfly" = "Butterfly";
