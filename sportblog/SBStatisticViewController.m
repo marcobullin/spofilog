@@ -26,8 +26,14 @@ float statisticMinWeight;
 float statisticMaxWeight;
 int statisticRepetitions;
 float statisticProgress;
+float averageRepetitions;
 NSDate *firstDate;
 NSDate *lastDate;
+int exerciseCount;
+int minRepetitions;
+int maxRepetitions;
+
+NSArray *sectionTitles;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -37,6 +43,8 @@ NSDate *lastDate;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    sectionTitles = @[NSLocalizedString(@"Section Common", nil), NSLocalizedString(@"Section Sets", nil), NSLocalizedString(@"Section Weight", nil), NSLocalizedString(@"Section Repetitions", nil)];
     
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
@@ -62,6 +70,10 @@ NSDate *lastDate;
     statisticProgress = 0;
     firstDate = nil;
     lastDate = nil;
+    averageRepetitions = 0;
+    exerciseCount = 0;
+    minRepetitions = 0;
+    maxRepetitions = 0;
     
     int prevWeight = 0;
     for (int i = 0; i < [exercises count]; i++) {
@@ -88,6 +100,13 @@ NSDate *lastDate;
                 statisticMaxWeight = set.weight;
             }
             
+            if (minRepetitions == 0 || set.repetitions < minRepetitions) {
+                minRepetitions = set.repetitions;
+            }
+            
+            if (set.repetitions > maxRepetitions) {
+                maxRepetitions = set.repetitions;
+            }
             
             if (prevWeight != 0) {
                 statisticProgress += (((set.weight / prevWeight) * 100) - 100);
@@ -101,9 +120,12 @@ NSDate *lastDate;
             [labels addObject:@""];//[self.dateFormatter stringFromDate:exercise.date]];
             count++;
         }
+        
+        exerciseCount++;
     }
     
     statisticProgress = statisticProgress / count;
+    averageRepetitions = statisticRepetitions / count;
     
     CGRect frame = CGRectMake(0, self.navigationController.navigationBar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height/2);
     
@@ -111,14 +133,6 @@ NSDate *lastDate;
     //[self.lineChartView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
     [self.lineChartView setInterval:5.0];
     self.lineChartView.autoscaleYAxis = YES;
-    
-    /*
-    if (count <= 4) {
-        self.lineChartView.numXIntervals = 1;
-    } else {
-        self.lineChartView.numXIntervals = floor(count/3) ;
-    }
-     */
     
     UILabel *firstDateLabel = [UILabel new];
     firstDateLabel.text = [NSString stringWithFormat:NSLocalizedString(@"from %@", nil), [self.dateFormatter stringFromDate:firstDate]];
@@ -186,7 +200,27 @@ NSDate *lastDate;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 6;
+    if (section == 0) {
+        return 1;
+    }
+    
+    if (section == 1) {
+        return 1;
+    }
+    
+    if (section == 2) {
+        return 4;
+    }
+    
+    return 4;
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return [sectionTitles count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [sectionTitles objectAtIndex:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -206,42 +240,65 @@ NSDate *lastDate;
     cell.separatorInset = UIEdgeInsetsMake(0.f, 0.f, 0.f, cell.bounds.size.width);
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
-    
-    if (indexPath.row == 0) {
-        cell.headlineLabel.text = NSLocalizedString(@"Total amount of sets", nil);
-        cell.valueLabel.text = [NSString stringWithFormat:@"%d", statisticCountOfSets];
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            cell.headlineLabel.text = NSLocalizedString(@"Total times of making this exercise", nil);
+            cell.valueLabel.text = [NSString stringWithFormat:@"%d", exerciseCount];
+        }
     }
     
-    if (indexPath.row == 1) {
-        cell.headlineLabel.text = NSLocalizedString(@"Your minimum weight", nil);
-        cell.valueLabel.text = [NSString stringWithFormat:@"%.01f kg", statisticMinWeight];
+    if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            cell.headlineLabel.text = NSLocalizedString(@"Total amount of sets", nil);
+            cell.valueLabel.text = [NSString stringWithFormat:@"%d", statisticCountOfSets];
+        }
+    }
+
+    if (indexPath.section == 2) {
+        if (indexPath.row == 0) {
+            cell.headlineLabel.text = NSLocalizedString(@"Your minimum weight", nil);
+            cell.valueLabel.text = [NSString stringWithFormat:@"%.01f kg", statisticMinWeight];
+        }
+        
+        if (indexPath.row == 1) {
+            cell.headlineLabel.text = NSLocalizedString(@"Your maximum weight", nil);
+            cell.valueLabel.text = [NSString stringWithFormat:@"%.01f kg", statisticMaxWeight];
+        }
+        
+        if (indexPath.row == 2) {
+            cell.headlineLabel.text = NSLocalizedString(@"Your Weight-Progress From Min- To Max-Weight", nil);
+            cell.valueLabel.text = [NSString stringWithFormat:@"%.01f%%", ((statisticMaxWeight / statisticMinWeight) * 100) - 100];
+        }
+        
+        if (indexPath.row == 3) {
+            cell.headlineLabel.text = NSLocalizedString(@"Your Averrage Weight-Progress From Set To Set", nil);
+            cell.valueLabel.text = [NSString stringWithFormat:@"%.01f%%", statisticProgress];
+        }
     }
     
-    if (indexPath.row == 2) {
-        cell.headlineLabel.text = NSLocalizedString(@"Your maximum weight", nil);
-        cell.valueLabel.text = [NSString stringWithFormat:@"%.01f kg", statisticMaxWeight];
-    }
-    
-    if (indexPath.row == 3) {
-        cell.headlineLabel.text = NSLocalizedString(@"Your Averrage Weight-Progress From Set To Set", nil);
-        cell.valueLabel.text = [NSString stringWithFormat:@"%.01f%%", statisticProgress];
-    }
-    
-    if (indexPath.row == 4) {
-        cell.headlineLabel.text = NSLocalizedString(@"Your Weight-Progress From Min- To Max-Weight", nil);
-        cell.valueLabel.text = [NSString stringWithFormat:@"%.01f%%", ((statisticMaxWeight / statisticMinWeight) * 100) - 100];
-    }
-    
-    if (indexPath.row == 5) {
-        cell.headlineLabel.text = NSLocalizedString(@"Total amount of repetitions", nil);
-        cell.valueLabel.text = [NSString stringWithFormat:@"%d", statisticRepetitions];
+    if (indexPath.section == 3) {
+        if (indexPath.row == 0) {
+            cell.headlineLabel.text = NSLocalizedString(@"Min Repetitions", nil);
+            cell.valueLabel.text = [NSString stringWithFormat:@"%d", minRepetitions];
+        }
+        
+        if (indexPath.row == 1) {
+            cell.headlineLabel.text = NSLocalizedString(@"Max Repetitions", nil);
+            cell.valueLabel.text = [NSString stringWithFormat:@"%d", maxRepetitions];
+        }
+
+        if (indexPath.row == 2) {
+            cell.headlineLabel.text = NSLocalizedString(@"Average Repetitions", nil);
+            cell.valueLabel.text = [NSString stringWithFormat:@"%.01f", averageRepetitions];
+        }
+        
+        if (indexPath.row == 3) {
+            cell.headlineLabel.text = NSLocalizedString(@"Total amount of repetitions", nil);
+            cell.valueLabel.text = [NSString stringWithFormat:@"%d", statisticRepetitions];
+        }
     }
 
     return cell;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
