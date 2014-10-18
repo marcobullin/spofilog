@@ -195,7 +195,7 @@
     
     SBExercise *exercise = [self.exercises objectAtIndex:indexPath.row-1];
     exerciseCell.exerciseLabel.text = exercise.name;
-    exerciseCell.exerciseLabel.textColor = [UIColor textColor];
+    exerciseCell.exerciseLabel.textColor = [UIColor headlineColor];
     //exerciseCell.layoutMargins = UIEdgeInsetsZero;
     exerciseCell.selectionStyle = UITableViewCellSelectionStyleNone;
     exerciseCell.backgroundColor = [UIColor clearColor];

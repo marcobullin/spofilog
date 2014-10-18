@@ -64,6 +64,8 @@
         cell = [nib objectAtIndex:0];
     }
     
+    cell.label.textColor = [UIColor headlineColor];
+    
     if (indexPath.row == 0) {
         cell.label.text = NSLocalizedString(@"Feedback", nil);
     }

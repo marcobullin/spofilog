@@ -57,6 +57,8 @@
     }
   
     [workout.exercises removeObjectAtIndex:row];
+    [RLMRealm.defaultRealm deleteObject:exercise];
+    
     [workout.realm commitWriteTransaction];
 }
 

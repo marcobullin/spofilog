@@ -32,6 +32,8 @@ NSDate *lastDate;
 int exerciseCount;
 int minRepetitions;
 int maxRepetitions;
+float firstWeight;
+float lastWeight;
 
 NSArray *sectionTitles;
 
@@ -62,7 +64,7 @@ NSArray *sectionTitles;
     
     RLMArray *exercises = [SBExerciseSet objectsWhere:[NSString stringWithFormat:@"name = '%@'", self.exerciseName]];
     
-    count = 1;
+    count = 0;
     statisticCountOfSets = 0;
     statisticMinWeight = 0;
     statisticMaxWeight = 0;
@@ -74,6 +76,8 @@ NSArray *sectionTitles;
     exerciseCount = 0;
     minRepetitions = 0;
     maxRepetitions = 0;
+    firstWeight = 0;
+    lastWeight = 0;
     
     int prevWeight = 0;
     for (int i = 0; i < [exercises count]; i++) {
@@ -112,6 +116,12 @@ NSArray *sectionTitles;
                 statisticProgress += (((set.weight / prevWeight) * 100) - 100);
             }
             prevWeight = set.weight;
+            
+            if (firstWeight == 0) {
+                firstWeight = set.weight;
+            }
+            
+            lastWeight = set.weight;
             
             statisticRepetitions += set.repetitions;
             
@@ -153,6 +163,11 @@ NSArray *sectionTitles;
 
     PCLineChartViewComponent *component = [[PCLineChartViewComponent alloc] init];
     component.title = @"kg";
+    if ([weights count] == 1) {
+        [weights insertObject:[NSNumber numberWithFloat:0] atIndex:0];
+        [labels insertObject:@"" atIndex:0];
+    }
+    
     [component setPoints:weights];
     [components addObject:component];
     
@@ -233,11 +248,10 @@ NSArray *sectionTitles;
     
     cell.headlineLabel.backgroundColor = [UIColor clearColor];
     cell.headlineLabel.textColor = [UIColor textColor];
-    cell.headlineLabel.font = [UIFont boldSystemFontOfSize:12];
+    cell.headlineLabel.font = [UIFont systemFontOfSize:14];
+    cell.headlineLabel.numberOfLines = 0;
     cell.valueLabel.textColor = [UIColor importantCellColor];
-    
-    //cell.layoutMargins = UIEdgeInsetsZero;
-    cell.separatorInset = UIEdgeInsetsMake(0.f, 0.f, 0.f, cell.bounds.size.width);
+    cell.valueLabel.font = [UIFont boldSystemFontOfSize:22];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
     if (indexPath.section == 0) {
@@ -266,8 +280,8 @@ NSArray *sectionTitles;
         }
         
         if (indexPath.row == 2) {
-            cell.headlineLabel.text = NSLocalizedString(@"Your Weight-Progress From Min- To Max-Weight", nil);
-            cell.valueLabel.text = [NSString stringWithFormat:@"%.01f%%", ((statisticMaxWeight / statisticMinWeight) * 100) - 100];
+            cell.headlineLabel.text = NSLocalizedString(@"Your Weight-Progress From First To Last Exercise", nil);
+            cell.valueLabel.text = [NSString stringWithFormat:@"%.01f%%", ((lastWeight / firstWeight) * 100) - 100];
         }
         
         if (indexPath.row == 3) {
@@ -297,13 +311,27 @@ NSArray *sectionTitles;
             cell.valueLabel.text = [NSString stringWithFormat:@"%d", statisticRepetitions];
         }
     }
-
+    
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
     return cell.frame.size.height;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *viewHeader = [UIView.alloc initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 28)];
+    UILabel *lblTitle = [UILabel.alloc initWithFrame:CGRectMake(5, 2, tableView.frame.size.width, 24)];
+    
+    [lblTitle setFont:[UIFont boldSystemFontOfSize:20]];
+    [lblTitle setTextColor:[UIColor headlineColor]];
+    [lblTitle setTextAlignment:NSTextAlignmentLeft];
+    [lblTitle setBackgroundColor:[UIColor clearColor]];
+    [lblTitle setText:[sectionTitles objectAtIndex:section]];
+    [viewHeader addSubview:lblTitle];
+    viewHeader.backgroundColor = [UIColor colorWithRed:240.0/255.0f green:240.0/255.0f blue:240.0/255.0f alpha:1];
+    return viewHeader;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

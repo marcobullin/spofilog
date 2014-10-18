@@ -134,7 +134,7 @@ static NSString * const DescriptionCellIdentifier = @"DescriptionCell";
     int index = (int)indexPath.row - 1;
     
     exerciseCell.label.text = [self.exercises objectAtIndex:index];
-    exerciseCell.label.textColor = [UIColor importantCellColor];
+    exerciseCell.label.textColor = [UIColor headlineColor];
     
     return exerciseCell;
 }

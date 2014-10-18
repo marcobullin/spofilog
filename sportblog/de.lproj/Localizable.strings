@@ -41,7 +41,7 @@
 "Your minimum weight" = "Minimalgewicht";
 "Your maximum weight" = "Maximalgewicht";
 "Your Averrage Weight-Progress From Set To Set" = "Durchschnittliche Steigerung von Satz zu Satz";
-"Your Weight-Progress From Min- To Max-Weight" = "Steigerung vom Minimal- zum Maximalgewicht";
+"Your Weight-Progress From First To Last Exercise" = "Steigerung von der Erster zur Letzen Übung";
 "Total amount of repetitions" = "Wiederholungen insgesamt";
 "Total times of making this exercise" = "Anzahl abgeschlossener Übungen";
 "Min Repetitions" = "Minimal Anazhl an Wiederholungen";
@@ -49,10 +49,10 @@
 "Average Repetitions" = "Durchschnittliche Anzahl an Wiederholungen";
 "from %@" = "vom %@";
 "to %@" = "bis %@";
-"Section Common" = " Allgemeines";
-"Section Sets" = " Sätze";
-"Section Weight" = " Gewichtsfortschritt";
-"Section Repetitions" = " Wiederholungen";
+"Section Common" = "Allgemeines";
+"Section Sets" = "Sätze";
+"Section Weight" = "Gewichtsfortschritt";
+"Section Repetitions" = "Wiederholungen";
 
 // SBSettingsViewController
 "Settings" = "Info";

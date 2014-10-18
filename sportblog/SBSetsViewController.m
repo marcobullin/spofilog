@@ -123,7 +123,7 @@
     setCell.backgroundColor = [UIColor clearColor];
     setCell.topLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Set - %d", nil), set.number];
     setCell.bottomLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%.01fkg | %dreps", nil), set.weight, set.repetitions];
-    setCell.topLabel.textColor = [UIColor importantCellColor];
+    setCell.topLabel.textColor = [UIColor headlineColor];
     setCell.bottomLabel.textColor = [UIColor textColor];
     //setCell.layoutMargins = UIEdgeInsetsZero;
     setCell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -194,8 +194,10 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         int index = (int)indexPath.row - 1;
         
+        SBSet *set = [self.exercise.sets objectAtIndex:index];
         [self.exercise.realm beginWriteTransaction];
         [self.exercise.sets removeObjectAtIndex:index];
+        [RLMRealm.defaultRealm deleteObject:set];
         [self.exercise.realm commitWriteTransaction];
         
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];

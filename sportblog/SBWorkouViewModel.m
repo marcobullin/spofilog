@@ -17,7 +17,7 @@
 
         _dateText = [dateFormatter stringFromDate:workout.date];
         
-        _nameTextColor = [UIColor importantCellColor];
+        _nameTextColor = [UIColor headlineColor];
         _dateTextColor = [UIColor textColor];
     }
     

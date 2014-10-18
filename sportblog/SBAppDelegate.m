@@ -52,9 +52,9 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-    [UAAppReviewManager setDebug:YES];
+    //[UAAppReviewManager setDebug:YES];
     [UAAppReviewManager setAppID:@"926711710"];
-    [UAAppReviewManager setSignificantEventsUntilPrompt:2];
+    [UAAppReviewManager setSignificantEventsUntilPrompt:5];
     [UAAppReviewManager showPromptIfNecessary];
     [UAAppReviewManager setReviewTitle:NSLocalizedString(@"REVIEW_TITLE", nil)];
     [UAAppReviewManager setReviewMessage:NSLocalizedString(@"REVIEW_MESSAGE", nil)];

@@ -15,4 +15,5 @@
 + (UIColor *)actionCellColor;
 + (UIColor *)textColor;
 + (UIColor *)highlightColor;
++ (UIColor *)headlineColor;
 @end

@@ -41,7 +41,7 @@
 "Your minimum weight" = "Minimum Weight";
 "Your maximum weight" = "Maximum Weight";
 "Your Averrage Weight-Progress From Set To Set" = "Your Averrage Weight-Progress From Set To Set";
-"Your Weight-Progress From Min- To Max-Weight" = "Your Weight-Progress From Min- To Max-Weight";
+"Your Weight-Progress From First To Last Exercise" = "Your Weight-Progress From First To Last Exercise";
 "Total amount of repetitions" = "Repetitions In Total";
 "Total times of making this exercise" = "Total Count Of Completing This Exercise";
 "Min Repetitions" = "Minimum Repetitions";
@@ -49,10 +49,10 @@
 "Average Repetitions" = "Average Count Of Repetitions";
 "from %@" = "from %@";
 "to %@" = "to %@";
-"Section Common" = " Common";
-"Section Sets" = " Your Sets";
-"Section Weight" = " Your Weight Progress";
-"Section Repetitions" = " Your Repetitions";
+"Section Common" = "Common";
+"Section Sets" = "Your Sets";
+"Section Weight" = "Your Weight Progress";
+"Section Repetitions" = "Your Repetitions";
 
 
 // SBSettingsViewController

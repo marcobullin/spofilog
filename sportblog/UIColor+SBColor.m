@@ -25,4 +25,9 @@
 + (UIColor *)highlightColor {
     return [UIColor colorWithRed:76.0/255.0f green:217.0/255.0f blue:100.0/255.0f alpha:1];
 }
+
++ (UIColor *)headlineColor {
+    return [UIColor colorWithRed:150.0/255.0f green:93.0/255.0f blue:60.0/255.0f alpha:1];
+}
+
 @end
