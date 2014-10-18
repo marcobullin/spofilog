@@ -52,7 +52,7 @@
 #pragma mark - tablview methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -69,12 +69,8 @@
     if (indexPath.row == 0) {
         cell.label.text = NSLocalizedString(@"Feedback", nil);
     }
-    
-    if (indexPath.row == 1) {
-        cell.label.text = NSLocalizedString(@"Rate in App Store", nil);
-    }
 
-    if (indexPath.row == 2) {
+    if (indexPath.row == 1) {
         cell.label.text = NSLocalizedString(@"Imprint", nil);
     }
     
@@ -104,7 +100,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 2) {
+    if (indexPath.row == 1) {
         SBImprintViewController *imprint = [[SBImprintViewController alloc] init];
         
         [self.navigationController pushViewController:imprint animated:YES];

@@ -26,7 +26,7 @@ UIActivityIndicatorView *activityIndicator;
     activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     activityIndicator.frame = CGRectMake((self.view.frame.size.width / 2) - 25, (self.view.frame.size.height / 2) - 25, 50, 50);
     
-    NSString *fullURL = @"https://github.com/marcobullin/spofilog/wiki/Impressum";
+    NSString *fullURL = @"http://marcobullin.github.io/spofilog/";
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     
