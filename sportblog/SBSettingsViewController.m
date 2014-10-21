@@ -104,7 +104,29 @@
         SBImprintViewController *imprint = [[SBImprintViewController alloc] init];
         
         [self.navigationController pushViewController:imprint animated:YES];
+        return;
     }
+    
+    MFMailComposeViewController *comp = [[MFMailComposeViewController alloc] init];
+    comp.mailComposeDelegate = self;
+
+    if ([MFMailComposeViewController canSendMail]) {
+        [comp setToRecipients:[NSArray arrayWithObjects:@"professionallogging@gmail.com", nil]];
+        [comp setSubject:NSLocalizedString(@"Feedback For Prollo-App", nil)];
+        [comp setMessageBody:NSLocalizedString(@"Prollo is really cool!", nil) isHTML:NO];
+        
+        [self presentViewController:comp animated:YES completion:nil];
+    } else {
+        UIAlertView *alrt=[[UIAlertView alloc]initWithTitle:@"" message:@"" delegate:nil cancelButtonTitle:@"" otherButtonTitles:nil, nil];
+        [alrt show];
+    }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    
+    // Close the Mail Interface
+    [self dismissViewControllerAnimated:YES completion:NULL];
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

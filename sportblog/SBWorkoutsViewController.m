@@ -95,16 +95,9 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    CGPoint hintPoint;
-    if (iPhone6Plus) {
-        hintPoint = CGPointMake(self.view.frame.size.width - 54, 15);
-    } else {
-        hintPoint = CGPointMake(self.view.frame.size.width - 50, 15);
-    }
-    
     SBHelperView *helperView =[[SBHelperView alloc] initWithMessage:NSLocalizedString(@"Add a new workout", nil)
                                                             onPoint:CGPointMake(20, 100)
-                                                     andHintOnPoint:hintPoint
+                                                     andHintOnPoint:CGRectMake(0, 64, self.view.frame.size.width, 44)
                                                     andRenderOnView:self.parentViewController.view];
     
     helperView.frame = self.view.frame;

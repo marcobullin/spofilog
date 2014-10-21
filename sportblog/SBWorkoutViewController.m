@@ -226,7 +226,7 @@ UITextField *textfield;
     
     SBHelperView *helperView = [[SBHelperView alloc] initWithMessage:NSLocalizedString(@"Touch to add or edit sets", nil)
                                                              onPoint:CGPointMake(20, 240)
-                                                      andHintOnPoint:CGPointMake(20, 180)
+                                                      andHintOnPoint:CGRectMake(0, 178, self.view.frame.size.width, 60)
                                                      andRenderOnView:self.parentViewController.view];
     
     helperView.frame = self.view.frame;

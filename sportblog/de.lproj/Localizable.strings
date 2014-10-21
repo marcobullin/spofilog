@@ -56,6 +56,8 @@
 
 // SBSettingsViewController
 "Settings" = "Info";
+"Feedback For Prollo-App" = "Feedback zur Prollo-App";
+"Prollo is really cool!" = "Prollo ist eine coole App!";
 
 // REVIEW
 "REVIEW_TITLE" = "Spofilog App bewerten";

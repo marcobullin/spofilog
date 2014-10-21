@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 #import "GAITrackedViewController.h"
 
-@interface SBSettingsViewController : GAITrackedViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SBSettingsViewController : GAITrackedViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 

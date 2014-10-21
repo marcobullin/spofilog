@@ -136,7 +136,7 @@
     if (indexPath.row == 0) {
         SBHelperView *helperView = [[SBHelperView alloc] initWithMessage:NSLocalizedString(@"Touch to change values", nil)
                                                                  onPoint:CGPointMake(20, 170)
-                                                          andHintOnPoint:CGPointMake(20, 110)
+                                                          andHintOnPoint:CGRectMake(0, 108, self.view.frame.size.width, 60)
                                                          andRenderOnView:self.parentViewController.view];
         
         helperView.frame = self.view.frame;

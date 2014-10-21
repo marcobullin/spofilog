@@ -9,15 +9,17 @@
 #import "SBHelperView.h"
 
 @implementation SBHelperView
+UIView *contentView;
 
-- (instancetype)initWithMessage:(NSString *)message onPoint:(CGPoint)messagePosition andHintOnPoint:(CGPoint)hintPosition andRenderOnView:(UIView *)view {
+- (instancetype)initWithMessage:(NSString *)message onPoint:(CGPoint)messagePosition andHintOnPoint:(CGRect)hintPosition andRenderOnView:(UIView *)view {
     self = [super init];
     
     if (self) {
+        contentView = view;
         
         NSString *key = message;
         
-        BOOL wasShown = [[NSUserDefaults standardUserDefaults] boolForKey:key];
+        BOOL wasShown = false; //[[NSUserDefaults standardUserDefaults] boolForKey:key];
         
         if (wasShown) {
             return self;
@@ -52,7 +54,7 @@
 }
 
 - (void)drawRect:(CGRect)rect {
-    CGRect holeRect = CGRectMake(_hintPoint.x, _hintPoint.y, 50, 50);
+    CGRect holeRect = self.hintPoint;
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     CGContextSetFillColorWithColor( context, [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7].CGColor );
@@ -63,7 +65,8 @@
     CGContextSetFillColorWithColor( context, [UIColor clearColor].CGColor );
     CGContextSetBlendMode(context, kCGBlendModeClear);
     
-    CGContextFillEllipseInRect( context, holeRect );
+    CGContextFillRect(context, holeRect);
+//    CGContextFillEllipseInRect( context, holeRect );
 }
 
 @end

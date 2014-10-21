@@ -12,8 +12,8 @@
 
 @property (nonatomic, strong) NSString* message;
 @property (nonatomic) CGPoint messagePoint;
-@property (nonatomic) CGPoint hintPoint;
+@property (nonatomic) CGRect hintPoint;
 
-- (instancetype)initWithMessage:(NSString *)message onPoint:(CGPoint)messagePosition andHintOnPoint:(CGPoint)hintPosition andRenderOnView:(UIView *)view;
+- (instancetype)initWithMessage:(NSString *)message onPoint:(CGPoint)messagePosition andHintOnPoint:(CGRect)hintPosition andRenderOnView:(UIView *)view;
 
 @end
