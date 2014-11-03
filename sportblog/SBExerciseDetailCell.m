@@ -1,12 +1,14 @@
+//
+//  SBExerciseDetailCell.m
+//  sportblog
+//
+//  Created by Marco Bullin on 02/11/14.
+//  Copyright (c) 2014 Bullin. All rights reserved.
+//
 
-#import "SBSmallTopBottomCell.h"
+#import "SBExerciseDetailCell.h"
 
-@implementation SBSmallTopBottomCell
-
-+ (UINib *)nib
-{
-    return [UINib nibWithNibName:@"SBSmallTopBottomCell" bundle:nil];
-}
+@implementation SBExerciseDetailCell
 
 - (void)render:(SBWorkoutViewModel *)viewData {
     self.topLabel.text = viewData.nameText;
@@ -15,7 +17,7 @@
     self.bottomLabel.text = viewData.dateText;
     self.bottomLabel.textColor = viewData.dateTextColor;
     
-    //self.selectionStyle = UITableViewCellSelectionStyleNone;
+//    self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.backgroundColor = [UIColor clearColor];
 }
 
@@ -25,9 +27,9 @@
     
     self.bottomLabel.text = viewData.setsText;
     self.bottomLabel.textColor = viewData.setsTextColor;
-
+    
     self.backgroundColor = [UIColor clearColor];
-    //self.selectionStyle = UITableViewCellSelectionStyleNone;
+//    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 @end

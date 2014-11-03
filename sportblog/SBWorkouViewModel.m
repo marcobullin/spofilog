@@ -10,12 +10,14 @@
         _nameText = workout.name;
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        
         [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-        
         [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
 
-        _dateText = [dateFormatter stringFromDate:workout.date];
+        NSDateFormatter *dateFormatter2 = [[NSDateFormatter alloc] init];
+        [dateFormatter2 setDateFormat:@"EEEE"];
+        
+        NSString *day = [dateFormatter2 stringFromDate:workout.date];
+        _dateText = [NSString stringWithFormat:@"%@ - %@", day, [dateFormatter stringFromDate:workout.date]];
         
         _nameTextColor = [UIColor headlineColor];
         _dateTextColor = [UIColor textColor];

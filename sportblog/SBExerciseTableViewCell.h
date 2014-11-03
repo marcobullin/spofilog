@@ -10,5 +10,7 @@
 
 @interface SBExerciseTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *exerciseLabel;
+@property (weak, nonatomic) IBOutlet UIButton *leftButton;
+@property (weak, nonatomic) IBOutlet UIButton *rightButton;
 
 @end

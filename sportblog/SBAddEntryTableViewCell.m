@@ -13,7 +13,7 @@
 - (void)render:(SBAddEntryViewModel *)viewData {
     self.addEntryLabel.text = viewData.text;
     self.backgroundColor = viewData.backgroundColor;
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
+//    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 @end

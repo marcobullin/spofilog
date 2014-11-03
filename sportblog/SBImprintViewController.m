@@ -17,6 +17,10 @@ UIActivityIndicatorView *activityIndicator;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = NSLocalizedString(@"Imprint", nil);
+    
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onDone)];
+    self.navigationItem.rightBarButtonItem = doneButton;
 
     UIWebView *webView = [UIWebView new];
     webView.frame = self.view.frame;
@@ -33,7 +37,7 @@ UIActivityIndicatorView *activityIndicator;
     [webView loadRequest:requestObj];
     
     [self.view addSubview:webView];
-        [self.view addSubview:activityIndicator];
+    [self.view addSubview:activityIndicator];
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
@@ -51,5 +55,8 @@ UIActivityIndicatorView *activityIndicator;
     [activityIndicator stopAnimating];
 }
 
+- (void)onDone {
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

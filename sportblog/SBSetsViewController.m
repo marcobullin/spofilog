@@ -101,7 +101,6 @@
             addSetCell.addEntryLabel.text = NSLocalizedString(@"Add new set", nil);
         }
         addSetCell.addEntryLabel.textColor = [UIColor whiteColor];
-        //addSetCell.layoutMargins = UIEdgeInsetsZero;
         addSetCell.separatorInset = UIEdgeInsetsMake(0.f, 0.f, 0.f, addSetCell.bounds.size.width);
         addSetCell.selectionStyle = UITableViewCellSelectionStyleNone;
         
@@ -126,7 +125,7 @@
     setCell.topLabel.textColor = [UIColor headlineColor];
     setCell.bottomLabel.textColor = [UIColor textColor];
     //setCell.layoutMargins = UIEdgeInsetsZero;
-    setCell.selectionStyle = UITableViewCellSelectionStyleNone;
+    //setCell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return setCell;
 }

@@ -14,7 +14,7 @@
 #import "SBExercisesViewController.h"
 #import "SBSetsViewController.h"
 #import "SBExerciseSet.h"
-#import "SBSmallTopBottomCell.h"
+#import "SBExerciseDetailCell.h"
 #import "SBExerciseSetViewModel.h"
 #import "SBAddEntryViewModel.h"
 #import "SBHelperView.h"
@@ -167,10 +167,10 @@ UITextField *textfield;
         return addExerciseCell;
     }
     
-    SBSmallTopBottomCell *exerciseCell = (SBSmallTopBottomCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    SBExerciseDetailCell *exerciseCell = (SBExerciseDetailCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (exerciseCell == nil) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBSmallTopBottomCell" owner:self options:nil];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBExerciseDetailCell" owner:self options:nil];
         exerciseCell = [nib objectAtIndex:0];
     }
     
@@ -182,6 +182,50 @@ UITextField *textfield;
     SBExerciseSetViewModel *exerciseSetViewModel = [[SBExerciseSetViewModel alloc] initWithExercise:exercise];
     
     [exerciseCell renderWithExerciseSetVM:exerciseSetViewModel];
+    
+    NSArray *frontImageNames;
+    NSArray *backImageNames;
+    if (exercise.frontImages != nil && ![exercise.frontImages isEqualToString:@""]) {
+        frontImageNames = [exercise.frontImages componentsSeparatedByString: @","];
+    }
+    
+    if (exercise.backImages != nil && ![exercise.backImages isEqualToString:@""]) {
+        backImageNames = [exercise.backImages componentsSeparatedByString: @","];
+    }
+    
+    if ([backImageNames count] > 0) {
+        for (NSString *imageName in backImageNames) {
+            UIImage *image = [UIImage imageNamed:imageName];
+            
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
+            [imageView setImage:image];
+            
+            [exerciseCell.rightView addSubview:imageView];
+        }
+    } else {
+        UIImage *image = [UIImage imageNamed:@"back"];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
+        [imageView setImage:image];
+        
+        [exerciseCell.rightView addSubview:imageView];
+    }
+    
+    if ([frontImageNames count] > 0) {
+        for (NSString *imageName in frontImageNames) {
+            UIImage *image = [UIImage imageNamed:imageName];
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
+            [imageView setImage:image];
+            
+            [exerciseCell.leftView addSubview:imageView];
+        }
+    } else {
+        UIImage *image = [UIImage imageNamed:@"front"];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
+        [imageView setImage:image];
+        
+        [exerciseCell.leftView addSubview:imageView];
+        
+    }
     
     return exerciseCell;
 }
@@ -199,7 +243,14 @@ UITextField *textfield;
         SBExercisesViewController *exercisesViewController = [[SBExercisesViewController alloc] initWithNibName:@"SBExercisesViewController" bundle:nil];
         
         exercisesViewController.delegate = self;
-        [self.navigationController pushViewController:exercisesViewController animated:YES];
+        
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:exercisesViewController];
+        navController.navigationBar.shadowImage = [UIImage new];
+        navController.navigationBar.barTintColor = [UIColor navigationBarColor];
+        navController.navigationBar.tintColor = [UIColor whiteColor];
+        [navController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+        
+        [self presentViewController:navController animated:YES completion:nil];
         
         return;
     }
@@ -235,12 +286,14 @@ UITextField *textfield;
     exerciseSet.name = exercise.name;
     exerciseSet.date = self.workout.date;
     exerciseSet.created = [[NSDate date] timeIntervalSince1970];
+    exerciseSet.frontImages = exercise.frontImages;
+    exerciseSet.backImages = exercise.backImages;
     
     [self.workout.realm beginWriteTransaction];
     [self.workout.exercises addObject:exerciseSet];
     [self.workout.realm commitWriteTransaction];
     
-    [self.navigationController popViewControllerAnimated:YES];
+    //[self.navigationController popViewControllerAnimated:YES];
         
     NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[self.workout.exercises count]+1 inSection:0];
     [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationLeft];

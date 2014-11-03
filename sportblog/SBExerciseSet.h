@@ -5,6 +5,8 @@
 @property NSDate *date;
 @property RLMArray<SBSet> *sets;
 @property int created;
+@property NSString *frontImages;
+@property NSString *backImages;
 @end
 
 // This protocol enables typed collections. i.e.:

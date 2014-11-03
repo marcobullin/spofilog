@@ -19,7 +19,7 @@ UIView *contentView;
         
         NSString *key = message;
         
-        BOOL wasShown = false; //[[NSUserDefaults standardUserDefaults] boolForKey:key];
+        BOOL wasShown = [[NSUserDefaults standardUserDefaults] boolForKey:key];
         
         if (wasShown) {
             return self;
@@ -29,7 +29,7 @@ UIView *contentView;
         
         self.opaque = NO;
     
-        UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(messagePosition.x, messagePosition.y, view.frame.size.width - 20 , 132)];
+        UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(messagePosition.x, messagePosition.y, view.frame.size.width - 30 , 132)];
         
         messageLabel.text = message;
         messageLabel.textColor = [UIColor whiteColor];

@@ -1,29 +1,66 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="SBExerciseTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="77" id="KGk-i7-Jjw" customClass="SBExerciseTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="77"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ww5-XU-iTQ">
-                        <rect key="frame" x="8" y="11" width="304" height="21"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VdX-QV-b4y">
+                        <rect key="frame" x="0.0" y="9" width="40" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="yJx-aB-wtD"/>
+                        </constraints>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xvY-nM-Erz">
+                        <rect key="frame" x="40" y="9" width="40" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="NYI-vH-ZvU"/>
+                        </constraints>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ww5-XU-iTQ">
+                        <rect key="frame" x="93" y="28" width="184" height="21"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="ww5-XU-iTQ" secondAttribute="trailing" constant="35" id="3IU-Rl-CAV"/>
+                    <constraint firstItem="VdX-QV-b4y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="5gK-EY-T7h"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="VdX-QV-b4y" secondAttribute="bottom" constant="-1" id="GbQ-kM-1Sd"/>
+                    <constraint firstItem="ww5-XU-iTQ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Kf6-TZ-7XP"/>
+                    <constraint firstItem="VdX-QV-b4y" firstAttribute="top" secondItem="xvY-nM-Erz" secondAttribute="top" id="ODW-Am-6A4"/>
+                    <constraint firstItem="xvY-nM-Erz" firstAttribute="firstBaseline" secondItem="VdX-QV-b4y" secondAttribute="firstBaseline" id="Sog-HY-bne"/>
+                    <constraint firstItem="xvY-nM-Erz" firstAttribute="leading" secondItem="VdX-QV-b4y" secondAttribute="trailing" id="XJc-vS-lfW"/>
+                    <constraint firstItem="VdX-QV-b4y" firstAttribute="bottom" secondItem="xvY-nM-Erz" secondAttribute="bottom" id="ahi-Nm-0o7"/>
+                    <constraint firstItem="xvY-nM-Erz" firstAttribute="baseline" secondItem="VdX-QV-b4y" secondAttribute="baseline" id="j5I-bb-dMd"/>
+                    <constraint firstItem="VdX-QV-b4y" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="qJa-tg-wgP"/>
+                    <constraint firstItem="ww5-XU-iTQ" firstAttribute="leading" secondItem="xvY-nM-Erz" secondAttribute="trailing" constant="13" id="uE3-DP-dhR"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="exerciseLabel" destination="ww5-XU-iTQ" id="X1I-r9-BcF"/>
+                <outlet property="leftButton" destination="VdX-QV-b4y" id="68B-VM-Gan"/>
+                <outlet property="rightButton" destination="xvY-nM-Erz" id="zPy-il-KLX"/>
             </connections>
+            <point key="canvasLocation" x="280" y="237.5"/>
         </tableViewCell>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

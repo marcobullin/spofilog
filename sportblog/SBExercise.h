@@ -1,6 +1,8 @@
 
 @interface SBExercise : RLMObject
 @property NSString *name;
+@property NSString *frontImages;
+@property NSString *backImages;
 @end
 
 // This protocol enables typed collections. i.e.:

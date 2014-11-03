@@ -7,14 +7,14 @@
 // SBWorkoutViewController
 "Workout" = "Workout";
 "New Workout Name" = "New Workout Name";
-"Touch to edit workout" = "Touch to edit workout";
+"Touch to edit workout" = "Touch To Edit Workout";
 "Add exercise" = "Add Your First Exercise";
 "Add another exercise" = "Add Another Exercise";
 "%d Sets" = "%d Sets";
-"Touch to add or edit sets" = "Touch to add or edit sets";
+"Touch to add or edit sets" = "Touch To Add Or Edit Sets";
 
 // SBExercisesViewController
-"Exercises" = "Exercises";
+"Exercises" = "Select An Exercises";
 "New exercise" = "Create New Exercise";
 "Create Exercise" = "Add";
 
@@ -23,7 +23,7 @@
 "Add another set" = "Add Another Set";
 "Set - %d" = "Set - %d";
 "%.01fkg | %dreps" = "%.01f kg | %d reps";
-"Touch to change values" = "Touch to change values";
+"Touch to change values" = "Touch To Change Values";
 
 // SBSetViewController
 "Edit Set" = "Edit Set";
@@ -34,16 +34,16 @@
 // SBFinishedExercisesViewController
 "Statistics" = "Statistics";
 "No Finished Exercises" = "No finished exercises found. You have to create a workout with exercises and sets first.";
-"Finished Exercises Description" = "Select on of your exercises to see all statistical informations.";
+"Finished Exercises Description" = "Select one of your exercises to see all statistical informations.";
 
 // SBStatisticViewController
 "Total amount of sets" = "Total Number Of Sets";
 "Your minimum weight" = "Minimum Weight";
 "Your maximum weight" = "Maximum Weight";
-"Your Averrage Weight-Progress From Set To Set" = "Your Averrage Weight-Progress From Set To Set";
-"Your Weight-Progress From First To Last Exercise" = "Your Weight-Progress From First To Last Exercise";
+"Your Averrage Weight-Progress From Set To Set" = "Average Weight Progress From Set To Set";
+"Your Weight-Progress From First To Last Exercise" = "Weight Progress From First To Last Exercise";
 "Total amount of repetitions" = "Repetitions In Total";
-"Total times of making this exercise" = "Total Count Of Completing This Exercise";
+"Total times of making this exercise" = "Count Of All Finished Exercises";
 "Min Repetitions" = "Minimum Repetitions";
 "Max Repetitions" = "Maximum Repetitions";
 "Average Repetitions" = "Average Count Of Repetitions";
@@ -57,13 +57,13 @@
 
 // SBSettingsViewController
 "Settings" = "About";
-"Feedback For Prollo-App" = "Feedback For Prollo-App";
+"Feedback For Prollo-App" = "Feedback For Prollo App";
 "Prollo is really cool!" = "Prollo is really cool!";
 
 // REVIEW
-"REVIEW_TITLE" = "Rate Spofilog App";
-"REVIEW_MESSAGE" = "If you enjoy using Spofilog App, would you mind taking a moment to rate it? Thanks for your support!";
-"REVIEW_RATE_BUTTON" = "Rate Spofilog App";
+"REVIEW_TITLE" = "Rate Prollo App";
+"REVIEW_MESSAGE" = "If you enjoy using Prollo App, would you mind taking a moment to rate it? Thanks for your support!";
+"REVIEW_RATE_BUTTON" = "Rate Prollo App";
 
 // EXERCISES
 "bench press" = "Bench Press";
@@ -76,3 +76,28 @@
 "full squat" = "Full Squats";
 "bench pull" = "Bench Pull";
 "butterfly" = "Butterfly";
+
+// ICON LIST
+"Select Muscle Groups" = "Select Muscle Groups";
+
+// ICON NAMES
+"front" = "Default";
+"front_neck" = "Neck";
+"front_breast" = "Breast";
+"front_shoulder" = "Shoulders";
+"front_biceps" = "Biceps";
+"front_underarm" = "Forearm";
+"front_lat" = "Latissimus";
+"front_sides" = "Side-Abdominal";
+"front_sixpack" = "Abdominal";
+"front_legs" = "Thigh";
+"front_shin" = "Shin";
+"back" = "Default";
+"back_neck" = "Neck";
+"back_shoulder" = "Shoulders";
+"back_triceps" = "Triceps";
+"back_underarm" = "Forearm";
+"back_back" = "Back";
+"back_ass" = "Butt";
+"back_legs" = "Thigh";
+"back_calf" = "Calf";

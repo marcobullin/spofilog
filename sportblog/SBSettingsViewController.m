@@ -58,20 +58,19 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     
-    SBStandardCell *cell = (SBStandardCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SBStandardCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
+        cell = [UITableViewCell new];
     }
     
-    cell.label.textColor = [UIColor headlineColor];
+    cell.textLabel.textColor = [UIColor headlineColor];
     
     if (indexPath.row == 0) {
-        cell.label.text = NSLocalizedString(@"Feedback", nil);
+        cell.textLabel.text = NSLocalizedString(@"Feedback", nil);
     }
 
     if (indexPath.row == 1) {
-        cell.label.text = NSLocalizedString(@"Imprint", nil);
+        cell.textLabel.text = NSLocalizedString(@"Imprint", nil);
     }
     
     return cell;
@@ -103,7 +102,14 @@
     if (indexPath.row == 1) {
         SBImprintViewController *imprint = [[SBImprintViewController alloc] init];
         
-        [self.navigationController pushViewController:imprint animated:YES];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:imprint];
+        navController.navigationBar.shadowImage = [UIImage new];
+        navController.navigationBar.barTintColor = [UIColor navigationBarColor];
+        navController.navigationBar.tintColor = [UIColor whiteColor];
+        [navController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+        
+        [self presentViewController:navController animated:YES completion:nil];
+        
         return;
     }
     

@@ -15,38 +15,38 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4n3-qO-lrK">
-                        <rect key="frame" x="8" y="8" width="257" height="21"/>
+                        <rect key="frame" x="8" y="9" width="257" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="eWl-Lb-i3A"/>
+                            <constraint firstAttribute="height" constant="21" id="Uh2-V2-niY"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hX2-OY-uBR">
-                        <rect key="frame" x="8" y="32" width="257" height="21"/>
+                        <rect key="frame" x="8" y="33" width="257" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="uFo-ga-zB5">
-                        <rect key="frame" x="264" y="0.0" width="56" height="60"/>
+                        <rect key="frame" x="264" y="1" width="56" height="60"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="56" id="6fg-sH-7ko"/>
+                            <constraint firstAttribute="width" constant="56" id="xZc-Ws-TuD"/>
                         </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="hX2-OY-uBR" firstAttribute="leading" secondItem="KNP-17-HuW" secondAttribute="leadingMargin" id="4Oj-W3-tJr"/>
-                    <constraint firstItem="4n3-qO-lrK" firstAttribute="top" secondItem="KNP-17-HuW" secondAttribute="topMargin" id="Cgn-yC-zk5"/>
-                    <constraint firstItem="uFo-ga-zB5" firstAttribute="top" secondItem="KNP-17-HuW" secondAttribute="top" id="Jn3-zl-Ubu"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="4n3-qO-lrK" secondAttribute="trailing" constant="47" id="PUH-lx-rgp"/>
-                    <constraint firstItem="4n3-qO-lrK" firstAttribute="leading" secondItem="hX2-OY-uBR" secondAttribute="leading" id="RQK-v5-HAF"/>
-                    <constraint firstItem="hX2-OY-uBR" firstAttribute="trailing" secondItem="4n3-qO-lrK" secondAttribute="trailing" id="XFV-oy-vUe"/>
-                    <constraint firstItem="hX2-OY-uBR" firstAttribute="top" secondItem="4n3-qO-lrK" secondAttribute="bottom" constant="3" id="jDU-ds-4va"/>
-                    <constraint firstAttribute="trailing" secondItem="uFo-ga-zB5" secondAttribute="trailing" id="tLA-Y5-Fgf"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="uFo-ga-zB5" secondAttribute="bottom" constant="-8.5" id="wF8-ot-PIm"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="hX2-OY-uBR" secondAttribute="bottom" constant="-1.5" id="yBS-RJ-Uwl"/>
+                    <constraint firstItem="hX2-OY-uBR" firstAttribute="leading" secondItem="KNP-17-HuW" secondAttribute="leadingMargin" id="3cb-Wf-FPV"/>
+                    <constraint firstItem="hX2-OY-uBR" firstAttribute="trailing" secondItem="4n3-qO-lrK" secondAttribute="trailing" id="DI6-4C-Mwm"/>
+                    <constraint firstItem="4n3-qO-lrK" firstAttribute="top" secondItem="KNP-17-HuW" secondAttribute="topMargin" constant="1" id="F5W-52-58U"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="4n3-qO-lrK" secondAttribute="trailing" constant="47" id="MTQ-bh-VmL"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="hX2-OY-uBR" secondAttribute="bottom" constant="-3" id="NB4-gs-7nE"/>
+                    <constraint firstItem="hX2-OY-uBR" firstAttribute="top" secondItem="4n3-qO-lrK" secondAttribute="bottom" constant="3" id="Xdu-zG-tme"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="uFo-ga-zB5" secondAttribute="bottom" constant="-10" id="cmC-m6-Mik"/>
+                    <constraint firstItem="uFo-ga-zB5" firstAttribute="top" secondItem="KNP-17-HuW" secondAttribute="topMargin" constant="-7" id="iHP-bc-8zZ"/>
+                    <constraint firstItem="4n3-qO-lrK" firstAttribute="leading" secondItem="hX2-OY-uBR" secondAttribute="leading" id="poS-L2-Ypl"/>
+                    <constraint firstAttribute="trailing" secondItem="uFo-ga-zB5" secondAttribute="trailing" id="qu2-aV-NUa"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

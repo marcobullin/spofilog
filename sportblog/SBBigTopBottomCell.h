@@ -12,6 +12,8 @@
 @interface SBBigTopBottomCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *topLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bottomLabel;
+@property (weak, nonatomic) IBOutlet UIView *leftView;
+@property (weak, nonatomic) IBOutlet UIView *rightView;
 
 - (void)render:(SBWorkoutViewModel *)viewData;
 

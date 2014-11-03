@@ -89,7 +89,6 @@ UIView *overlayView;
     cell.backgroundColor = [UIColor actionCellColor];
     cell.leftLabel.textColor = [UIColor whiteColor];
     cell.rightLabel.textColor = [UIColor whiteColor];
-    //cell.layoutMargins = UIEdgeInsetsZero;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     // set cell

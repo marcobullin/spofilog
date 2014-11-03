@@ -59,6 +59,32 @@
 		8086D45519BCBF16004ADBB6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8086D45319BCBF16004ADBB6 /* InfoPlist.strings */; };
 		8086D45719BCBF16004ADBB6 /* sportblogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8086D45619BCBF16004ADBB6 /* sportblogTests.m */; };
 		80B6016A19C9B8D800CC455A /* SBFinishedExercisesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B6016919C9B8D800CC455A /* SBFinishedExercisesViewController.m */; };
+		80C2E1D21A06A3D6008E0D21 /* SBExerciseDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C2E1D01A06A3D6008E0D21 /* SBExerciseDetailCell.m */; };
+		80C2E1D31A06A3D6008E0D21 /* SBExerciseDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80C2E1D11A06A3D6008E0D21 /* SBExerciseDetailCell.xib */; };
+		80FC79581A02C038000172B0 /* front_biceps.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC794F1A02C038000172B0 /* front_biceps.png */; };
+		80FC795A1A02C038000172B0 /* front_legs.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79511A02C038000172B0 /* front_legs.png */; };
+		80FC795B1A02C038000172B0 /* front_neck.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79521A02C038000172B0 /* front_neck.png */; };
+		80FC795C1A02C038000172B0 /* front_shoulder.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79531A02C038000172B0 /* front_shoulder.png */; };
+		80FC795D1A02C038000172B0 /* front_sides.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79541A02C038000172B0 /* front_sides.png */; };
+		80FC795E1A02C038000172B0 /* front_sixpack.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79551A02C038000172B0 /* front_sixpack.png */; };
+		80FC795F1A02C038000172B0 /* front_underarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79561A02C038000172B0 /* front_underarm.png */; };
+		80FC79691A052484000172B0 /* back_ass.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79611A052484000172B0 /* back_ass.png */; };
+		80FC796A1A052484000172B0 /* back_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79621A052484000172B0 /* back_back.png */; };
+		80FC796C1A052484000172B0 /* back_neck.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79641A052484000172B0 /* back_neck.png */; };
+		80FC796D1A052484000172B0 /* back_shoulder.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79651A052484000172B0 /* back_shoulder.png */; };
+		80FC796E1A052484000172B0 /* back_triceps.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79661A052484000172B0 /* back_triceps.png */; };
+		80FC796F1A052484000172B0 /* back_underarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79671A052484000172B0 /* back_underarm.png */; };
+		80FC79731A0524B6000172B0 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79711A0524B6000172B0 /* back.png */; };
+		80FC79741A0524B6000172B0 /* front.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79721A0524B6000172B0 /* front.png */; };
+		80FC79791A0532CE000172B0 /* SBIconListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80FC79771A0532CE000172B0 /* SBIconListViewController.m */; };
+		80FC797A1A0532CE000172B0 /* SBIconListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79781A0532CE000172B0 /* SBIconListViewController.xib */; };
+		80FC797E1A0534F9000172B0 /* SBIconCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80FC797C1A0534F9000172B0 /* SBIconCell.m */; };
+		80FC797F1A0534F9000172B0 /* SBIconCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80FC797D1A0534F9000172B0 /* SBIconCell.xib */; };
+		80FC798F1A054EC1000172B0 /* front_breast.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC798C1A054EC1000172B0 /* front_breast.png */; };
+		80FC79901A054EC1000172B0 /* front_lat.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC798D1A054EC1000172B0 /* front_lat.png */; };
+		80FC79911A054EC1000172B0 /* front_shin.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC798E1A054EC1000172B0 /* front_shin.png */; };
+		80FC79941A055145000172B0 /* back_calf.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79921A055145000172B0 /* back_calf.png */; };
+		80FC79951A055145000172B0 /* back_legs.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79931A055145000172B0 /* back_legs.png */; };
 		B31609A419ED6FAD00D1637C /* SBDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B31609A219ED6FAD00D1637C /* SBDescriptionCell.m */; };
 		B31609A519ED6FAD00D1637C /* SBDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B31609A319ED6FAD00D1637C /* SBDescriptionCell.xib */; };
 		B35A21DA19DBEFF600BCECAB /* SBStatisticCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B35A21D919DBEFF600BCECAB /* SBStatisticCell.xib */; };
@@ -194,6 +220,35 @@
 		8086D45619BCBF16004ADBB6 /* sportblogTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sportblogTests.m; sourceTree = "<group>"; };
 		80B6016819C9B8D800CC455A /* SBFinishedExercisesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBFinishedExercisesViewController.h; sourceTree = "<group>"; };
 		80B6016919C9B8D800CC455A /* SBFinishedExercisesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBFinishedExercisesViewController.m; sourceTree = "<group>"; };
+		80C2E1CF1A06A3D6008E0D21 /* SBExerciseDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExerciseDetailCell.h; sourceTree = "<group>"; };
+		80C2E1D01A06A3D6008E0D21 /* SBExerciseDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBExerciseDetailCell.m; sourceTree = "<group>"; };
+		80C2E1D11A06A3D6008E0D21 /* SBExerciseDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBExerciseDetailCell.xib; sourceTree = "<group>"; };
+		80FC794F1A02C038000172B0 /* front_biceps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_biceps.png; sourceTree = "<group>"; };
+		80FC79511A02C038000172B0 /* front_legs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_legs.png; sourceTree = "<group>"; };
+		80FC79521A02C038000172B0 /* front_neck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_neck.png; sourceTree = "<group>"; };
+		80FC79531A02C038000172B0 /* front_shoulder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_shoulder.png; sourceTree = "<group>"; };
+		80FC79541A02C038000172B0 /* front_sides.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_sides.png; sourceTree = "<group>"; };
+		80FC79551A02C038000172B0 /* front_sixpack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_sixpack.png; sourceTree = "<group>"; };
+		80FC79561A02C038000172B0 /* front_underarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_underarm.png; sourceTree = "<group>"; };
+		80FC79611A052484000172B0 /* back_ass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_ass.png; sourceTree = "<group>"; };
+		80FC79621A052484000172B0 /* back_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_back.png; sourceTree = "<group>"; };
+		80FC79641A052484000172B0 /* back_neck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_neck.png; sourceTree = "<group>"; };
+		80FC79651A052484000172B0 /* back_shoulder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_shoulder.png; sourceTree = "<group>"; };
+		80FC79661A052484000172B0 /* back_triceps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_triceps.png; sourceTree = "<group>"; };
+		80FC79671A052484000172B0 /* back_underarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_underarm.png; sourceTree = "<group>"; };
+		80FC79711A0524B6000172B0 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		80FC79721A0524B6000172B0 /* front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front.png; sourceTree = "<group>"; };
+		80FC79761A0532CE000172B0 /* SBIconListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBIconListViewController.h; sourceTree = "<group>"; };
+		80FC79771A0532CE000172B0 /* SBIconListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBIconListViewController.m; sourceTree = "<group>"; };
+		80FC79781A0532CE000172B0 /* SBIconListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBIconListViewController.xib; sourceTree = "<group>"; };
+		80FC797B1A0534F9000172B0 /* SBIconCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBIconCell.h; sourceTree = "<group>"; };
+		80FC797C1A0534F9000172B0 /* SBIconCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBIconCell.m; sourceTree = "<group>"; };
+		80FC797D1A0534F9000172B0 /* SBIconCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBIconCell.xib; sourceTree = "<group>"; };
+		80FC798C1A054EC1000172B0 /* front_breast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_breast.png; sourceTree = "<group>"; };
+		80FC798D1A054EC1000172B0 /* front_lat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_lat.png; sourceTree = "<group>"; };
+		80FC798E1A054EC1000172B0 /* front_shin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_shin.png; sourceTree = "<group>"; };
+		80FC79921A055145000172B0 /* back_calf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_calf.png; sourceTree = "<group>"; };
+		80FC79931A055145000172B0 /* back_legs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_legs.png; sourceTree = "<group>"; };
 		B31609A119ED6FAD00D1637C /* SBDescriptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBDescriptionCell.h; sourceTree = "<group>"; };
 		B31609A219ED6FAD00D1637C /* SBDescriptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBDescriptionCell.m; sourceTree = "<group>"; };
 		B31609A319ED6FAD00D1637C /* SBDescriptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBDescriptionCell.xib; sourceTree = "<group>"; };
@@ -324,6 +379,9 @@
 				805DE23019BF937F00472322 /* SBBigTopBottomCell.h */,
 				805DE23119BF937F00472322 /* SBBigTopBottomCell.m */,
 				805DE23219BF937F00472322 /* SBBigTopBottomCell.xib */,
+				80C2E1CF1A06A3D6008E0D21 /* SBExerciseDetailCell.h */,
+				80C2E1D01A06A3D6008E0D21 /* SBExerciseDetailCell.m */,
+				80C2E1D11A06A3D6008E0D21 /* SBExerciseDetailCell.xib */,
 			);
 			name = EditWorkout;
 			sourceTree = "<group>";
@@ -411,6 +469,7 @@
 		8086D42E19BCBF16004ADBB6 /* sportblog */ = {
 			isa = PBXGroup;
 			children = (
+				80FC79751A0532AA000172B0 /* IconList */,
 				803978AA19E19A04000DEED5 /* Common */,
 				8039789F19E05B6B000DEED5 /* Workouts */,
 				803978A919E13D9C000DEED5 /* EditWorkout */,
@@ -438,6 +497,26 @@
 		8086D42F19BCBF16004ADBB6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				80FC79921A055145000172B0 /* back_calf.png */,
+				80FC79931A055145000172B0 /* back_legs.png */,
+				80FC798C1A054EC1000172B0 /* front_breast.png */,
+				80FC798D1A054EC1000172B0 /* front_lat.png */,
+				80FC798E1A054EC1000172B0 /* front_shin.png */,
+				80FC79711A0524B6000172B0 /* back.png */,
+				80FC79721A0524B6000172B0 /* front.png */,
+				80FC79611A052484000172B0 /* back_ass.png */,
+				80FC79621A052484000172B0 /* back_back.png */,
+				80FC79641A052484000172B0 /* back_neck.png */,
+				80FC79651A052484000172B0 /* back_shoulder.png */,
+				80FC79661A052484000172B0 /* back_triceps.png */,
+				80FC79671A052484000172B0 /* back_underarm.png */,
+				80FC794F1A02C038000172B0 /* front_biceps.png */,
+				80FC79511A02C038000172B0 /* front_legs.png */,
+				80FC79521A02C038000172B0 /* front_neck.png */,
+				80FC79531A02C038000172B0 /* front_shoulder.png */,
+				80FC79541A02C038000172B0 /* front_sides.png */,
+				80FC79551A02C038000172B0 /* front_sixpack.png */,
+				80FC79561A02C038000172B0 /* front_underarm.png */,
 				B38E11B419EE9E1E0060945C /* settingsUnselected.png */,
 				B38E11B519EE9E1E0060945C /* settingsUnselected@2x.png */,
 				B38E11B619EE9E1E0060945C /* settingsUnselected@3x.png */,
@@ -501,6 +580,19 @@
 				8086D45319BCBF16004ADBB6 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		80FC79751A0532AA000172B0 /* IconList */ = {
+			isa = PBXGroup;
+			children = (
+				80FC79761A0532CE000172B0 /* SBIconListViewController.h */,
+				80FC79771A0532CE000172B0 /* SBIconListViewController.m */,
+				80FC79781A0532CE000172B0 /* SBIconListViewController.xib */,
+				80FC797B1A0534F9000172B0 /* SBIconCell.h */,
+				80FC797C1A0534F9000172B0 /* SBIconCell.m */,
+				80FC797D1A0534F9000172B0 /* SBIconCell.xib */,
+			);
+			name = IconList;
 			sourceTree = "<group>";
 		};
 		B3752F1C19DA95B40091E207 /* ViewModels */ = {
@@ -710,9 +802,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				803978AC19E4735D000DEED5 /* Settings.bundle in Resources */,
+				80FC79581A02C038000172B0 /* front_biceps.png in Resources */,
+				80FC798F1A054EC1000172B0 /* front_breast.png in Resources */,
 				B3AED25D19E2CDFE0006A4A9 /* hintArrow.png in Resources */,
+				80FC797F1A0534F9000172B0 /* SBIconCell.xib in Resources */,
 				B3752F2B19DAEB440091E207 /* SBStatisticViewController.xib in Resources */,
 				B38E11BB19EE9E1E0060945C /* settingsUnselected@2x.png in Resources */,
+				80FC79741A0524B6000172B0 /* front.png in Resources */,
 				B3E5307019EBEE5600C2A17F /* addButton.png in Resources */,
 				B3E5307119EBEE5600C2A17F /* addButton@2x.png in Resources */,
 				803978BF19E6DA50000DEED5 /* launcherImage.png in Resources */,
@@ -720,31 +816,41 @@
 				801A842919EDA05A002CFCBC /* hantelUnselected.png in Resources */,
 				B3AB6A0C19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib in Resources */,
 				8039788919DEBAEF000DEED5 /* Launch Screen.xib in Resources */,
+				80FC797A1A0532CE000172B0 /* SBIconListViewController.xib in Resources */,
 				B3752F2719DAC8A40091E207 /* SBSetsViewController.xib in Resources */,
 				B38E11BE19EE9E1E0060945C /* statsUnselected@2x.png in Resources */,
+				80FC79911A054EC1000172B0 /* front_shin.png in Resources */,
+				80FC796F1A052484000172B0 /* back_underarm.png in Resources */,
 				801A842319EAE571002CFCBC /* edit.png in Resources */,
 				B3752F1119D2B85B0091E207 /* SBLeftRightCell.xib in Resources */,
+				80FC795B1A02C038000172B0 /* front_neck.png in Resources */,
 				801A842419EAE571002CFCBC /* edit@2x.png in Resources */,
 				B3AED25A19E2CDB50006A4A9 /* hintArrow@3x.png in Resources */,
 				B3AED27319E3E31E0006A4A9 /* appIcon.png in Resources */,
 				B38E11BA19EE9E1E0060945C /* settingsUnselected.png in Resources */,
 				B38E11BF19EE9E1E0060945C /* statsUnselected@3x.png in Resources */,
+				80FC795E1A02C038000172B0 /* front_sixpack.png in Resources */,
 				B31609A519ED6FAD00D1637C /* SBDescriptionCell.xib in Resources */,
 				B3AC2EE019CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.xib in Resources */,
+				80C2E1D31A06A3D6008E0D21 /* SBExerciseDetailCell.xib in Resources */,
 				B38E11BC19EE9E1E0060945C /* settingsUnselected@3x.png in Resources */,
 				801A842519EAE571002CFCBC /* edit@3x.png in Resources */,
 				805DE23C19BF93CB00472322 /* SBAddEntryTableViewCell.xib in Resources */,
 				B3AED24219DD76C90006A4A9 /* hantel@2x.png in Resources */,
 				B35A21DA19DBEFF600BCECAB /* SBStatisticCell.xib in Resources */,
 				B3752F0C19D1C5080091E207 /* arrow.png in Resources */,
+				80FC795F1A02C038000172B0 /* front_underarm.png in Resources */,
 				801A842B19EDA05A002CFCBC /* hantelUnselected@3x.png in Resources */,
 				805DE24119BF93DC00472322 /* SBExerciseTableViewCell.xib in Resources */,
 				B3752F2919DAC9CF0091E207 /* SBSetViewController.xib in Resources */,
 				B3AED26D19E2E3520006A4A9 /* settings.png in Resources */,
+				80FC795C1A02C038000172B0 /* front_shoulder.png in Resources */,
 				801A841E19EAE33D002CFCBC /* plus@2x.png in Resources */,
 				B3AED24619DD76C90006A4A9 /* stats@3x.png in Resources */,
 				801A842A19EDA05A002CFCBC /* hantelUnselected@2x.png in Resources */,
 				B3752F2119DAA8580091E207 /* SBFinishedExercisesViewController.xib in Resources */,
+				80FC795D1A02C038000172B0 /* front_sides.png in Resources */,
+				80FC796D1A052484000172B0 /* back_shoulder.png in Resources */,
 				B3AED26919E2E26C0006A4A9 /* SBSettingsViewController.xib in Resources */,
 				8086D44419BCBF16004ADBB6 /* Images.xcassets in Resources */,
 				B3752F1F19DAA6720091E207 /* SBWorkoutsViewController.xib in Resources */,
@@ -753,21 +859,30 @@
 				B3AED24519DD76C90006A4A9 /* stats@2x.png in Resources */,
 				803978BB19E6D660000DEED5 /* launcherImage@3x.png in Resources */,
 				B3752F2519DAC6140091E207 /* SBExercisesViewController.xib in Resources */,
+				80FC79731A0524B6000172B0 /* back.png in Resources */,
 				805DE23419BF937F00472322 /* SBBigTopBottomCell.xib in Resources */,
 				B38E11BD19EE9E1E0060945C /* statsUnselected.png in Resources */,
 				803978C019E6DA50000DEED5 /* launcherImageIP5@2x.png in Resources */,
+				80FC795A1A02C038000172B0 /* front_legs.png in Resources */,
 				B3AED24319DD76C90006A4A9 /* hantel@3x.png in Resources */,
+				80FC79941A055145000172B0 /* back_calf.png in Resources */,
 				B3E5307219EBEE5600C2A17F /* addButton@3x.png in Resources */,
+				80FC796A1A052484000172B0 /* back_back.png in Resources */,
 				801A841D19EAE33D002CFCBC /* plus.png in Resources */,
 				803978C619E6EF66000DEED5 /* SBStandardCell.xib in Resources */,
 				B3AED25E19E2CDFE0006A4A9 /* hintArrow@2x.png in Resources */,
+				80FC79901A054EC1000172B0 /* front_lat.png in Resources */,
 				B3AED24419DD76C90006A4A9 /* stats.png in Resources */,
 				8086D43319BCBF16004ADBB6 /* Localizable.strings in Resources */,
+				80FC796E1A052484000172B0 /* back_triceps.png in Resources */,
 				B3752F2319DAC1170091E207 /* SBWorkoutViewController.xib in Resources */,
 				B3AED27419E3E31E0006A4A9 /* appIcon@2x.png in Resources */,
 				803978C119E6DA50000DEED5 /* launcherImage@2x.png in Resources */,
 				B3AED24119DD76C90006A4A9 /* hantel.png in Resources */,
 				B3752EFF19D185970091E207 /* SBSmallTopBottomCell.xib in Resources */,
+				80FC796C1A052484000172B0 /* back_neck.png in Resources */,
+				80FC79691A052484000172B0 /* back_ass.png in Resources */,
+				80FC79951A055145000172B0 /* back_legs.png in Resources */,
 				801A841F19EAE33D002CFCBC /* plus@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -873,6 +988,9 @@
 				805DE24019BF93DC00472322 /* SBExerciseTableViewCell.m in Sources */,
 				805DE23319BF937F00472322 /* SBBigTopBottomCell.m in Sources */,
 				801A841919EA7A4C002CFCBC /* SBWorkoutsViewController.m in Sources */,
+				80FC797E1A0534F9000172B0 /* SBIconCell.m in Sources */,
+				80FC79791A0532CE000172B0 /* SBIconListViewController.m in Sources */,
+				80C2E1D21A06A3D6008E0D21 /* SBExerciseDetailCell.m in Sources */,
 				B3AED24919E297310006A4A9 /* SBAddEntryViewModel.m in Sources */,
 				805DE23B19BF93CB00472322 /* SBAddEntryTableViewCell.m in Sources */,
 				803978B519E68708000DEED5 /* SBHelperView.m in Sources */,
@@ -961,7 +1079,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "$(inherited)";
 				SDKROOT = iphoneos;
@@ -995,7 +1113,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "$(inherited)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

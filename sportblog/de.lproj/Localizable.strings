@@ -1,8 +1,8 @@
 // SBWorkoutsViewController
 "Workouts" = "Workouts";
-"Add a new workout" = "Hier kannst du deinen ersten Workout anlegen";
-"Create A New Workout" = "Erstelle einen neuen Workout";
-"Create Your First Workout" = "Erstelle deinen ersten Workout";
+"Add a new workout" = "Hier kannst du Workouts anlegen";
+"Create A New Workout" = "Neuen Workout erstellen";
+"Create Your First Workout" = "Ersten Workout erstellen";
 
 // SBWorkoutViewController
 "Workout" = "Workout";
@@ -14,16 +14,16 @@
 "Touch to add or edit sets" = "Hier kannst du Sätze hinzufügen oder bearbeiten";
 
 // SBExercisesViewController
-"Exercises" = "Übungen";
+"Exercises" = "Übung auswählen";
 "New exercise" = "Neue Übung erstellen";
 "Create Exercise" = "Hinzufügen";
 
 // SBSetsViewController
-"Add new set" = "Deinen ersten Satz hinzufügen";
+"Add new set" = "Ersten Satz hinzufügen";
 "Add another set" = "Nächsten Satz hinzufügen";
 "Set - %d" = "%d. Satz";
 "%.01fkg | %dreps" = "%.01f kg | %d Wdh.";
-"Touch to change values" = "Auswählen um Satz zu bearbeiten";
+"Touch to change values" = "Auswählen um den Satz zu bearbeiten";
 
 // SBSetViewController
 "Edit Set" = "Satz bearbeiten";
@@ -34,18 +34,18 @@
 // SBFinishedExercisesViewController
 "Statistics" = "Statistiken";
 "No Finished Exercises" = "Es wurden keine abgeschlossenen Übungen gefunden. Erstelle einen Workout und füge Übungen mit entsprechenden Sätzen hinzu.";
-"Finished Exercises Description" = "Wähle eine deiner Übungen um alle Auswertungen darüber einzusehen.";
+"Finished Exercises Description" = "Wähle eine Übung aus, um alle Auswertungen darüber einzusehen.";
 
 // SBStatisticViewController
 "Total amount of sets" = "Sätze insgesamt";
 "Your minimum weight" = "Minimalgewicht";
 "Your maximum weight" = "Maximalgewicht";
 "Your Averrage Weight-Progress From Set To Set" = "Durchschnittliche Steigerung von Satz zu Satz";
-"Your Weight-Progress From First To Last Exercise" = "Steigerung von der Erster zur Letzen Übung";
+"Your Weight-Progress From First To Last Exercise" = "Steigerung von erster zu letzter Übung";
 "Total amount of repetitions" = "Wiederholungen insgesamt";
 "Total times of making this exercise" = "Anzahl abgeschlossener Übungen";
-"Min Repetitions" = "Minimal Anazhl an Wiederholungen";
-"Max Repetitions" = "Maximal Anzahl an Wiederholungen";
+"Min Repetitions" = "Minimale Anzahl an Wiederholungen";
+"Max Repetitions" = "Maximale Anzahl an Wiederholungen";
 "Average Repetitions" = "Durchschnittliche Anzahl an Wiederholungen";
 "from %@" = "vom %@";
 "to %@" = "bis %@";
@@ -60,14 +60,14 @@
 "Prollo is really cool!" = "Prollo ist eine coole App!";
 
 // REVIEW
-"REVIEW_TITLE" = "Spofilog App bewerten";
-"REVIEW_MESSAGE" = "Gefällt dir die Spofilog App? Cool, dann wäre es super wenn du sie mit 5 Sternen bewerten könntest. Vielen Dank!";
-"REVIEW_RATE_BUTTON" = "Spofilog App bewerten";
+"REVIEW_TITLE" = "Prollo-App bewerten";
+"REVIEW_MESSAGE" = "Gefällt dir die Prollo-App? Cool, dann wäre es super, wenn du sie mit 5 Sternen bewerten könntest. Vielen Dank!";
+"REVIEW_RATE_BUTTON" = "Prollo-App bewerten";
 
 // EXERCISES
 "bench press" = "Bankdrücken";
 "deadlift" = "Kreuzheben";
-"biceps curls" = "Bizep Curls";
+"biceps curls" = "Bizeps Curls";
 "shoulder press" = "Schulterdrücken";
 "hammer curl" = "Hammer Curls";
 "tricep press" = "Trizepsdrücken";
@@ -75,3 +75,28 @@
 "full squat" = "Kniebeugen";
 "bench pull" = "Bankziehen";
 "butterfly" = "Butterfly";
+
+// ICON LIST
+"Select Muscle Groups" = "Muskelgruppen wählen";
+
+// ICON NAMES
+"front" = "Standard";
+"front_neck" = "Nacken";
+"front_breast" = "Brust";
+"front_shoulder" = "Schultern";
+"front_biceps" = "Bizeps";
+"front_underarm" = "Unterarme";
+"front_lat" = "Latissimus";
+"front_sides" = "Seitliche Bauchmuskeln";
+"front_sixpack" = "Bauchmuskeln";
+"front_legs" = "Oberschenkel";
+"front_shin" = "Schienbeine";
+"back" = "Standard";
+"back_neck" = "Nacken";
+"back_shoulder" = "Schultern";
+"back_triceps" = "Trizeps";
+"back_underarm" = "Unterarme";
+"back_back" = "Rücken";
+"back_ass" = "Gesäß";
+"back_legs" = "Oberschenkel";
+"back_calf" = "Waden";

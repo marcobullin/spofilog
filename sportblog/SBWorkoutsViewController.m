@@ -53,7 +53,6 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //[self tests];
     
     self.workouts = [self.indicator findWorkouts];
     
@@ -204,100 +203,4 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
         }
     }
 }
-
-- (void)tests {
-    int WORKOUT_COUNT = 10;
-    int EXERCISES_COUNT = 10;
-    int SET_COUNT = 10;
-    
-    int x = 0;
-    for (x = 0; x < WORKOUT_COUNT; x++) {
-        SBWorkout *workout = [SBWorkout new];
-        workout.name = [NSString stringWithFormat:@"workout_%d", x];
-        workout.date = [NSDate date];
-        
-        
-        
-        int y = 0;
-        for (y = 0; y < EXERCISES_COUNT; y++) {
-            SBExerciseSet *exercise = [SBExerciseSet new];
-            exercise.name =  [NSString stringWithFormat:@"exercise_%d", y];
-            exercise.date = [NSDate date];
-            
-            int z = 0;
-            for (z = 0; z < SET_COUNT; z++) {
-                SBSet *set = [SBSet new];
-                set.weight = 10.0 * z;
-                set.repetitions = 10;
-                set.number = z;
-                
-                [RLMRealm.defaultRealm beginWriteTransaction];
-                [RLMRealm.defaultRealm addObject:set];
-                [RLMRealm.defaultRealm commitWriteTransaction];
-
-                [RLMRealm.defaultRealm beginWriteTransaction];
-                [exercise.sets addObject:set];
-                [RLMRealm.defaultRealm commitWriteTransaction];
-            }
-            
-            [RLMRealm.defaultRealm beginWriteTransaction];
-            [workout.exercises addObject:exercise];
-            [RLMRealm.defaultRealm commitWriteTransaction];
-        }
-        
-        [RLMRealm.defaultRealm beginWriteTransaction];
-        [RLMRealm.defaultRealm addObject:workout];
-        [RLMRealm.defaultRealm commitWriteTransaction];
-    }
-    
-    RLMArray *workouts = [SBWorkout allObjects];
-    if ([workouts count] == WORKOUT_COUNT) {
-        NSLog(@"All Workouts successfuly added!!");
-        
-        for (SBWorkout *w in workouts) {
-            if ([w.exercises count] == EXERCISES_COUNT) {
-                NSLog(@"All exercises successfuly added!!");
-                
-                for (SBExerciseSet *e in w.exercises) {
-                    if ([e.sets count] == SET_COUNT) {
-                        NSLog(@"All sets successfuly added!!");
-                    } else {
-                        NSLog([NSString stringWithFormat:@"Sets are missing!! Expected %d but found %d", SET_COUNT, [w.exercises count]]);
-                    }
-                }
-            } else {
-                NSLog([NSString stringWithFormat:@"Exercises are missing!! Expected %d but found %d", EXERCISES_COUNT, [w.exercises count]]);
-            }
-        }
-    } else {
-        NSLog([NSString stringWithFormat:@"Workouts are missing!! Expected %d but found %d", WORKOUT_COUNT, [workouts count]]);
-    }
-
-    for (SBWorkout *w in workouts) {
-        [self.indicator deleteWorkout:w];
-    }
-    
-    if ([workouts count] == 0) {
-        NSLog(@"All Workouts successfuly deleted");
-        
-        RLMArray *exercises = [SBExerciseSet allObjects];
-        RLMArray *sets = [SBSet allObjects];
-        
-        if ([exercises count] == 0) {
-            NSLog(@"All exercises successfuly deleted");
-        } else {
-            NSLog(@"ERROR: Could not delete all exercises!");
-        }
-        
-        if ([sets count] == 0) {
-            NSLog(@"All sets successfuly deleted");
-        } else {
-            NSLog(@"ERROR: Could not delete all sets!");
-        }
-    } else {
-        NSLog(@"ERROR: Could not delete all workouts!");
-    }
-    
-}
-
 @end
