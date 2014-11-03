@@ -59,6 +59,9 @@
 "Feedback For Prollo-App" = "Feedback zur Prollo-App";
 "Prollo is really cool!" = "Prollo ist eine coole App!";
 
+// ImprintViewController
+"Imprint" = "Impressum";
+
 // REVIEW
 "REVIEW_TITLE" = "Prollo-App bewerten";
 "REVIEW_MESSAGE" = "Gefällt dir die Prollo-App? Cool, dann wäre es super, wenn du sie mit 5 Sternen bewerten könntest. Vielen Dank!";
@@ -71,7 +74,7 @@
 "shoulder press" = "Schulterdrücken";
 "hammer curl" = "Hammer Curls";
 "tricep press" = "Trizepsdrücken";
-"barbell shrug" = "Schulternheben";
+"barbell shrug" = "Nackenziehen";
 "full squat" = "Kniebeugen";
 "bench pull" = "Bankziehen";
 "butterfly" = "Butterfly";

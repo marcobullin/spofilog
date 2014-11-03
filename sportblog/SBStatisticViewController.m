@@ -79,7 +79,7 @@ NSArray *sectionTitles;
     firstWeight = 0;
     lastWeight = 0;
     
-    int prevWeight = 0;
+    float prevWeight = 0;
     for (int i = 0; i < [exercises count]; i++) {
         SBExerciseSet *exercise = [exercises objectAtIndex:i];
         

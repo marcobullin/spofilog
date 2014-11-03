@@ -29,7 +29,49 @@
     self.bottomLabel.textColor = viewData.setsTextColor;
     
     self.backgroundColor = [UIColor clearColor];
-//    self.selectionStyle = UITableViewCellSelectionStyleNone;
+
+    NSArray *frontImageNames;
+    NSArray *backImageNames;
+    if (viewData.frontImages != nil && ![viewData.frontImages isEqualToString:@""]) {
+        frontImageNames = [viewData.frontImages componentsSeparatedByString: @","];
+    }
+    
+    if (viewData.backImages != nil && ![viewData.backImages isEqualToString:@""]) {
+        backImageNames = [viewData.backImages componentsSeparatedByString: @","];
+    }
+    
+    if ([backImageNames count] > 0) {
+        for (NSString *imageName in backImageNames) {
+            UIImage *image = [UIImage imageNamed:imageName];
+            
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
+            [imageView setImage:image];
+            
+            [self.rightView addSubview:imageView];
+        }
+    } else {
+        UIImage *image = [UIImage imageNamed:@"back"];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
+        [imageView setImage:image];
+        
+        [self.rightView addSubview:imageView];
+    }
+    
+    if ([frontImageNames count] > 0) {
+        for (NSString *imageName in frontImageNames) {
+            UIImage *image = [UIImage imageNamed:imageName];
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
+            [imageView setImage:image];
+            
+            [self.leftView addSubview:imageView];
+        }
+    } else {
+        UIImage *image = [UIImage imageNamed:@"front"];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
+        [imageView setImage:image];
+        
+        [self.leftView addSubview:imageView];
+    }
 }
 
 @end

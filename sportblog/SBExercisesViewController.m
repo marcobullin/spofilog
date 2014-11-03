@@ -6,16 +6,21 @@
 #import "SBIconListViewController.h"
 
 @interface SBExercisesViewController ()
-@property (nonatomic, strong) RLMArray *exercises;
 @end
 
 @implementation SBExercisesViewController
+
 int currentSelectedExercises = -1;
+
+#pragma mark - lifecycle methods
+
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
     if (self) {
         self.title = NSLocalizedString(@"Exercises", nil);
+        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onDone)];
+        self.navigationItem.rightBarButtonItem = doneButton;
     }
 
     return self;
@@ -26,90 +31,18 @@ int currentSelectedExercises = -1;
     self.screenName = @"Exercises Screen";
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    currentSelectedExercises = -1;
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onDone)];
-    self.navigationItem.rightBarButtonItem = doneButton;
     
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
-    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+    self.exerciseInteractor = [SBExerciseInteractor new];
+    
+    currentSelectedExercises = -1;
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.backgroundColor = [UIColor tableViewColor];
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     
-    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
-    NSString *key = @"exercisesAlreadyImported";
-    
-    if([preferences objectForKey:key] == nil) {
-        SBExercise *exercise = [[SBExercise alloc] init];
-        exercise.name = NSLocalizedString(@"bench press", nil);
-        exercise.frontImages = @"front_shoulder,front_breast";
-        exercise.backImages = @"back_triceps";
-        
-        SBExercise *exercise2 = [[SBExercise alloc] init];
-        exercise2.name = NSLocalizedString(@"deadlift", nil);
-        exercise2.frontImages = @"front_neck,front_sides,front_sixpack,front_legs";
-        exercise2.backImages = @"back_neck,back_back,back_ass,back_legs";
-        
-        SBExercise *exercise3 = [[SBExercise alloc] init];
-        exercise3.name = NSLocalizedString(@"biceps curls", nil);
-        exercise3.frontImages = @"front_biceps";
-        exercise3.backImages = @"back";
-        
-        SBExercise *exercise4 = [[SBExercise alloc] init];
-        exercise4.name = NSLocalizedString(@"shoulder press", nil);
-        exercise4.frontImages = @"front_neck,front_shoulder";
-        exercise4.backImages = @"back_neck,back_shoulder";
-        
-        SBExercise *exercise5 = [[SBExercise alloc] init];
-        exercise5.name = NSLocalizedString(@"hammer curl", nil);
-        exercise5.frontImages = @"front_biceps,front_underarm";
-        exercise5.backImages = @"back_underarm";
-        
-        SBExercise *exercise6 = [[SBExercise alloc] init];
-        exercise6.name = NSLocalizedString(@"tricep press", nil);
-        exercise6.frontImages = @"front";
-        exercise6.backImages = @"back_triceps";
-        
-        SBExercise *exercise7 = [[SBExercise alloc] init];
-        exercise7.name = NSLocalizedString(@"barbell shrug", nil);
-        exercise7.frontImages = @"front_neck,front_underarm";
-        exercise7.backImages = @"back_neck,back_underarm";
-        
-        SBExercise *exercise8 = [[SBExercise alloc] init];
-        exercise8.name = NSLocalizedString(@"full squat", nil);
-        exercise8.frontImages = @"front_legs";
-        exercise8.backImages = @"back_ass,back_legs";
-        
-        SBExercise *exercise9 = [[SBExercise alloc] init];
-        exercise9.name = NSLocalizedString(@"bench pull", nil);
-        exercise9.frontImages = @"front";
-        exercise9.backImages = @"back_triceps,back_shoulder,back_back";
-        
-        SBExercise *exercise10 = [[SBExercise alloc] init];
-        exercise10.name = NSLocalizedString(@"butterfly", nil);
-        exercise10.frontImages = @"front_shoulder,front_breast";
-        exercise10.backImages = @"back";
-        
-        RLMRealm *realm = [RLMRealm defaultRealm];
-        [realm beginWriteTransaction];
-        [realm addObject:exercise];
-        [realm addObject:exercise2];
-        [realm addObject:exercise3];
-        [realm addObject:exercise4];
-        [realm addObject:exercise5];
-        [realm addObject:exercise6];
-        [realm addObject:exercise7];
-        [realm addObject:exercise8];
-        [realm addObject:exercise9];
-        [realm addObject:exercise10];
-        [realm commitWriteTransaction];
-        
-        [preferences setInteger:1 forKey:key];
-    }
+    [self createOrIgnoreDefaultExercises];
     
     self.exercises = [[SBExercise allObjects] arraySortedByProperty:@"name" ascending:YES];
     
@@ -122,27 +55,12 @@ int currentSelectedExercises = -1;
     [self.tableView reloadData];
 }
 
--(void)viewDidLayoutSubviews
-{
-    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
-        [self.tableView setSeparatorInset:UIEdgeInsetsZero];
-    }
-    
-    if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
-        [self.tableView setLayoutMargins:UIEdgeInsetsZero];
-    }
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.tableView setEditing:NO];
 }
 
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsZero];
-    }
-    
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsZero];
-    }
-}
+#pragma mark - UITableViewDataSource
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
@@ -158,19 +76,15 @@ int currentSelectedExercises = -1;
         
         SBExercise *exercise = [self.exercises objectAtIndex:index];
         
-        RLMRealm *realm = [RLMRealm defaultRealm];
-        
-        [realm beginWriteTransaction];
-        [realm deleteObject:exercise];
-        [realm commitWriteTransaction];
+        [self.exerciseInteractor deleteExercise:exercise];
         
         if (index == currentSelectedExercises) {
             currentSelectedExercises = -1;
         } else if (index < currentSelectedExercises) {
             currentSelectedExercises -= 1;
         }
-        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
         
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
     }
 }
 
@@ -224,8 +138,6 @@ int currentSelectedExercises = -1;
     SBExercise *exercise = [self.exercises objectAtIndex:indexPath.row-1];
     exerciseCell.exerciseLabel.text = exercise.name;
     exerciseCell.exerciseLabel.textColor = [UIColor headlineColor];
-    //exerciseCell.layoutMargins = UIEdgeInsetsZero;
-    //exerciseCell.selectionStyle = UITableViewCellSelectionStyleNone;
     exerciseCell.backgroundColor = [UIColor clearColor];
     exerciseCell.leftButton.tag = indexPath.row-1;
     [exerciseCell.leftButton addTarget:self action:@selector(onChangeLeftIcon:) forControlEvents:UIControlEventTouchUpInside];
@@ -285,6 +197,29 @@ int currentSelectedExercises = -1;
     return exerciseCell;
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    return cell.frame.size.height;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        return;
+    }
+    
+    currentSelectedExercises = indexPath.row-1;
+    [self.tableView reloadData];
+}
+
+
+#pragma mark - actions
+
 - (void)onChangeLeftIcon:(id)sender {
     UIButton *button = (UIButton *)sender;
     SBExercise *exercise = [self.exercises objectAtIndex:button.tag];
@@ -318,8 +253,7 @@ int currentSelectedExercises = -1;
     [self presentViewController:navController animated:YES completion:nil];
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     
     SBCreateExerciseTableViewCell *cell = (SBCreateExerciseTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
@@ -331,16 +265,12 @@ int currentSelectedExercises = -1;
         return YES;
     }
     
-    SBExercise *exercise = [[SBExercise alloc] init];
-    exercise.name = exerciseName;
-    exercise.frontImages = @"front";
-    exercise.backImages = @"back";
-    
-    [RLMRealm.defaultRealm beginWriteTransaction];
-    [RLMRealm.defaultRealm addObject:exercise];
-    [RLMRealm.defaultRealm commitWriteTransaction];
+    [self.exerciseInteractor createExerciseWithName:exerciseName frontImages:@"front" andBackImages:@"back"];
     
     self.exercises = [[SBExercise allObjects] arraySortedByProperty:@"name" ascending:YES];
+
+    currentSelectedExercises = -1;
+    
     [self.tableView reloadData];
     
     [cell.exerciseField resignFirstResponder];
@@ -354,32 +284,10 @@ int currentSelectedExercises = -1;
     }
     
     NSIndexPath *iP = [NSIndexPath indexPathForRow:position inSection:0];
+
     [self.tableView scrollToRowAtIndexPath:iP atScrollPosition:UITableViewScrollPositionTop animated:YES];
     
     return YES;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
-        return;
-    }
-    
-    currentSelectedExercises = indexPath.row-1;
-    [self.tableView reloadData];
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
-    return cell.frame.size.height;
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [self.tableView setEditing:NO];
 }
 
 - (void)onDone {
@@ -390,6 +298,16 @@ int currentSelectedExercises = -1;
     }
 
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)createOrIgnoreDefaultExercises {
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+    NSString *key = @"exercisesAlreadyImported";
+    
+    if ([preferences objectForKey:key] == nil) {
+        [self.exerciseInteractor createBulkOfExercises];
+        [preferences setInteger:1 forKey:key];
+    }
 }
 
 @end

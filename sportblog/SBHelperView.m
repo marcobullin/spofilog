@@ -19,7 +19,7 @@ UIView *contentView;
         
         NSString *key = message;
         
-        BOOL wasShown = [[NSUserDefaults standardUserDefaults] boolForKey:key];
+        BOOL wasShown = false;//[[NSUserDefaults standardUserDefaults] boolForKey:key];
         
         if (wasShown) {
             return self;

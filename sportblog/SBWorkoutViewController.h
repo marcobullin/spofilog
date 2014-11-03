@@ -2,12 +2,13 @@
 #import "SBWorkout.h"
 #import "SBExercisesViewController.h"
 #import "SBWorkoutsInteractor.h"
-#import "GAITrackedViewController.h"
+#import "SBExerciseInteractor.h"
+#import "SBAbstractViewController.h"
 
-@interface SBWorkoutViewController : GAITrackedViewController <UITableViewDataSource, UITableViewDelegate, SBExerciseViewControllerDelegate>
+@interface SBWorkoutViewController : SBAbstractViewController <UITableViewDataSource, UITableViewDelegate, SBExerciseViewControllerDelegate>
 
-@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) SBWorkout *workout;
-@property (nonatomic, strong) SBWorkoutsInteractor *interactor;
+@property (nonatomic, strong) SBWorkoutsInteractor *workoutInteractor;
+@property (nonatomic, strong) SBExerciseInteractor *exerciseInteractor;
 
 @end

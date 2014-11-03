@@ -19,6 +19,9 @@
         
         _setsText = [NSString stringWithFormat:NSLocalizedString(@"%d Sets", nil), [exercise.sets count]];
         _setsTextColor = [UIColor textColor];
+        
+        _frontImages = exercise.frontImages;
+        _backImages = exercise.backImages;
     }
     
     return self;

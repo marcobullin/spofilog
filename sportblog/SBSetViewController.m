@@ -1,11 +1,3 @@
-//
-//  SBSetViewController.m
-//  sportblog
-//
-//  Created by Marco Bullin on 13/09/14.
-//  Copyright (c) 2014 Bullin. All rights reserved.
-//
-
 #import "SBSetViewController.h"
 #import "SBLeftRightCell.h"
 #import "UIColor+SBColor.h"
@@ -23,49 +15,26 @@ UIPickerView *picker;
 UIView *changeView;
 UIView *overlayView;
 
+#pragma mark - lifecycle methods
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.screenName = @"Set Screen";
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
+    self.setInteractor = [SBSetInteractor new];
     
     self.title = NSLocalizedString(@"Edit Set", nil);
     
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
-    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.backgroundColor = [UIColor tableViewColor];
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     self.tableView.tableFooterView = [UIView new];
-    
-    [self.view addSubview:self.tableView];
 }
 
--(void)viewDidLayoutSubviews
-{
-    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
-        [self.tableView setSeparatorInset:UIEdgeInsetsZero];
-    }
-    
-    if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
-        [self.tableView setLayoutMargins:UIEdgeInsetsZero];
-    }
-}
-
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsZero];
-    }
-    
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsZero];
-    }
-}
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -112,6 +81,13 @@ UIView *overlayView;
     
     return cell;
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    return cell.frame.size.height;
+}
+
+#pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     changeView = [[UIView alloc] initWithFrame:CGRectMake(0, self.tableView.frame.size.height, self.tableView.frame.size.width, 280)];
@@ -171,7 +147,9 @@ UIView *overlayView;
     }];
 }
 
--(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+#pragma mark - UIPickerViewDataSource
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
     if (self.isEditSet || self.isEditRepetitions) {
         return 99;
     }
@@ -198,6 +176,8 @@ UIView *overlayView;
     
     return 4;
 }
+
+#pragma mark - UIPickerViewDelegate
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     
@@ -242,6 +222,8 @@ UIView *overlayView;
     return 40.0;
 }
 
+#pragma mark - actions
+
 - (UIView *)createToolbar:(NSString *)titleString {
     UIToolbar *inputAccessoryView = [[UIToolbar alloc] init];
     inputAccessoryView.translucent = NO;
@@ -255,9 +237,9 @@ UIView *overlayView;
     frame.size.height = 44.0f;
     inputAccessoryView.frame = frame;
         
-    UIBarButtonItem *doneBtn =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done:)];
+    UIBarButtonItem *doneBtn =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(saveChangesAndHideOverlay:)];
     UIBarButtonItem *flexibleSpaceLeft = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem *cancelBtn =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)];
+    UIBarButtonItem *cancelBtn =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(hideOverlay)];
         
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0 , 11.0f, 100, 21.0f)];
     [titleLabel setText:titleString];
@@ -272,45 +254,35 @@ UIView *overlayView;
     return inputAccessoryView;
 }
 
-- (void)done:(id)sender {
+- (void)saveChangesAndHideOverlay:(id)sender {
     
-    [RLMRealm.defaultRealm beginWriteTransaction];
     if (self.isEditSet) {
-        self.currentSet.number = (int)[picker selectedRowInComponent:0] + 1;
+        int number = (int)[picker selectedRowInComponent:0] + 1;
+        [self.setInteractor updateSet:self.currentSet withNumber:number];
     }
     
     if (self.isEditWeight) {
-        self.currentSet.weight = [[NSString stringWithFormat:@"%d.%d", (int)[picker selectedRowInComponent:0], (int)[picker selectedRowInComponent:2]] floatValue];
+        float weight = [[NSString stringWithFormat:@"%d.%d", (int)[picker selectedRowInComponent:0], (int)[picker selectedRowInComponent:2]] floatValue];
+        [self.setInteractor updateSet:self.currentSet withWeight:weight];
     }
     
     if (self.isEditRepetitions) {
-        self.currentSet.repetitions = (int)[picker selectedRowInComponent:0];
+        int repetitions = (int)[picker selectedRowInComponent:0];
+        [self.setInteractor updateSet:self.currentSet withRepetitions:repetitions];
     }
-    
-    [RLMRealm.defaultRealm commitWriteTransaction];
     
     [self.tableView reloadData];
     
-    [UIView animateWithDuration:.5 animations:^{
-        changeView.frame = CGRectMake(0, self.tableView.frame.size.height, self.tableView.frame.size.width, 280);
-    } completion:^(BOOL finished) {
-        [overlayView removeFromSuperview];
-        [changeView removeFromSuperview];
-    }];
+    [self hideOverlay];
 }
     
-- (void)cancel:(id)sender {
-
+- (void)hideOverlay {
     [UIView animateWithDuration:.5 animations:^{
         changeView.frame = CGRectMake(0, self.tableView.frame.size.height, self.tableView.frame.size.width, 280);
     } completion:^(BOOL finished) {
         [overlayView removeFromSuperview];
         [changeView removeFromSuperview];
     }];
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
-    return cell.frame.size.height;
 }
 
 @end

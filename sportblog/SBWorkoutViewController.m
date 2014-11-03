@@ -1,11 +1,3 @@
-//
-//  SBExercisesViewController.m
-//  sportblog
-//
-//  Created by Marco Bullin on 09/09/14.
-//  Copyright (c) 2014 Bullin. All rights reserved.
-//
-
 #import "SBWorkoutViewController.h"
 #import "SBBigTopBottomCell.h"
 #import "SBAddEntryTableViewCell.h"
@@ -20,7 +12,6 @@
 #import "SBHelperView.h"
 
 @interface SBWorkoutViewController ()
-
 @end
 
 @implementation SBWorkoutViewController
@@ -28,6 +19,8 @@ UIDatePicker *picker;
 UIView *changeView;
 UIView *overlayView;
 UITextField *textfield;
+
+#pragma mark - lifecycle methods
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -44,17 +37,14 @@ UITextField *textfield;
     self.screenName = @"Edit Workout Screen";
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    self.interactor = [SBWorkoutsInteractor new];
+    self.workoutInteractor = [SBWorkoutsInteractor new];
+    self.exerciseInteractor = [SBExerciseInteractor new];
     
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
-    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
-    self.tableView.backgroundColor = [UIColor tableViewColor];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardDidShow:)
@@ -65,38 +55,19 @@ UITextField *textfield;
                                              selector:@selector(keyboardDidHide:)
                                                  name:UIKeyboardDidHideNotification
                                                object:nil];
-    
-    
-    
-    [self.view addSubview:self.tableView];
-}
-
--(void)viewDidLayoutSubviews
-{
-    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
-        [self.tableView setSeparatorInset:UIEdgeInsetsZero];
-    }
-    
-    if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
-        [self.tableView setLayoutMargins:UIEdgeInsetsZero];
-    }
-}
-
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsZero];
-    }
-    
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsZero];
-    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.tableView reloadData];
 }
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.tableView setEditing:NO];
+}
+
+#pragma mark - UITableViewDataSource
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0 || indexPath.row == 1) {
@@ -111,7 +82,7 @@ UITextField *textfield;
         // standard -2 because of (workout and add exercise cell)
         int index = (int)indexPath.row - 2;
         
-        [self.interactor removeExerciseAtRow:index fromWorkout:self.workout];
+        [self.workoutInteractor removeExerciseAtRow:index fromWorkout:self.workout];
         
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
         
@@ -133,8 +104,9 @@ UITextField *textfield;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *cellIdentifier = @"exerciseCell";
+    static NSString *cellIdentifier;
     
+    // Workout row with name and date
     if (indexPath.row == 0) {
         cellIdentifier = @"workoutCell";
         SBBigTopBottomCell *workoutCell = (SBBigTopBottomCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -150,6 +122,7 @@ UITextField *textfield;
         return workoutCell;
     }
 
+    // Add a new exercise row
     if (indexPath.row == 1) {
         cellIdentifier = @"addExerciseCell";
         
@@ -167,6 +140,9 @@ UITextField *textfield;
         return addExerciseCell;
     }
     
+    // exercise row
+    cellIdentifier = @"exerciseCell";
+    
     SBExerciseDetailCell *exerciseCell = (SBExerciseDetailCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (exerciseCell == nil) {
@@ -183,52 +159,15 @@ UITextField *textfield;
     
     [exerciseCell renderWithExerciseSetVM:exerciseSetViewModel];
     
-    NSArray *frontImageNames;
-    NSArray *backImageNames;
-    if (exercise.frontImages != nil && ![exercise.frontImages isEqualToString:@""]) {
-        frontImageNames = [exercise.frontImages componentsSeparatedByString: @","];
-    }
-    
-    if (exercise.backImages != nil && ![exercise.backImages isEqualToString:@""]) {
-        backImageNames = [exercise.backImages componentsSeparatedByString: @","];
-    }
-    
-    if ([backImageNames count] > 0) {
-        for (NSString *imageName in backImageNames) {
-            UIImage *image = [UIImage imageNamed:imageName];
-            
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
-            [imageView setImage:image];
-            
-            [exerciseCell.rightView addSubview:imageView];
-        }
-    } else {
-        UIImage *image = [UIImage imageNamed:@"back"];
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
-        [imageView setImage:image];
-        
-        [exerciseCell.rightView addSubview:imageView];
-    }
-    
-    if ([frontImageNames count] > 0) {
-        for (NSString *imageName in frontImageNames) {
-            UIImage *image = [UIImage imageNamed:imageName];
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
-            [imageView setImage:image];
-            
-            [exerciseCell.leftView addSubview:imageView];
-        }
-    } else {
-        UIImage *image = [UIImage imageNamed:@"front"];
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
-        [imageView setImage:image];
-        
-        [exerciseCell.leftView addSubview:imageView];
-        
-    }
-    
     return exerciseCell;
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    return cell.frame.size.height;
+}
+
+#pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -267,33 +206,18 @@ UITextField *textfield;
     [self.navigationController pushViewController:setViewController animated:YES];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
-
-    return cell.frame.size.height;
-}
+#pragma mark - SBExerciseViewControllerDelegate
 
 - (void)addExercisesViewController:(SBExercisesViewController *)controller didSelectExercise:(SBExercise *) exercise {
     
     SBHelperView *helperView = [[SBHelperView alloc] initWithMessage:NSLocalizedString(@"Touch to add or edit sets", nil)
                                                              onPoint:CGPointMake(20, 240)
-                                                      andHintOnPoint:CGRectMake(0, 178, self.view.frame.size.width, 60)
+                                                      andHintOnPoint:CGRectMake(0, 178, self.view.frame.size.width, 77)
                                                      andRenderOnView:self.parentViewController.view];
     
     helperView.frame = self.view.frame;
     
-    SBExerciseSet *exerciseSet =  [[SBExerciseSet alloc] init];
-    exerciseSet.name = exercise.name;
-    exerciseSet.date = self.workout.date;
-    exerciseSet.created = [[NSDate date] timeIntervalSince1970];
-    exerciseSet.frontImages = exercise.frontImages;
-    exerciseSet.backImages = exercise.backImages;
-    
-    [self.workout.realm beginWriteTransaction];
-    [self.workout.exercises addObject:exerciseSet];
-    [self.workout.realm commitWriteTransaction];
-    
-    //[self.navigationController popViewControllerAnimated:YES];
+    [self.exerciseInteractor createExerciseSetFromWorkout:self.workout andExercise:exercise];
         
     NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[self.workout.exercises count]+1 inSection:0];
     [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
@@ -302,6 +226,8 @@ UITextField *textfield;
         [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
     }
 }
+
+#pragma mark - actions
 
 - (void)displayEditWorkoutView {
     changeView = [[UIView alloc] initWithFrame:CGRectMake(0, self.tableView.frame.size.height, self.tableView.frame.size.width, 340)];
@@ -329,14 +255,12 @@ UITextField *textfield;
     textfield.backgroundColor = [UIColor whiteColor];
     textfield.delegate = (id)self;
     
-
     UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, textfield.frame.size.height)];
     leftView.backgroundColor = [UIColor clearColor];
     textfield.leftView = leftView;
     textfield.leftViewMode = UITextFieldViewModeAlways;
     
     [v addSubview:textfield];
-    
     
     picker = [[UIDatePicker alloc] init];
     picker.frame = CGRectMake(0, 108, self.view.frame.size.width, 162);
@@ -365,9 +289,9 @@ UITextField *textfield;
     frame.size.height = 44.0f;
     inputAccessoryView.frame = frame;
     
-    UIBarButtonItem *doneBtn =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done:)];
+    UIBarButtonItem *doneBtn =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(updateWorkoutNameAndDate:)];
     UIBarButtonItem *flexibleSpaceLeft = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem *cancelBtn =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)];
+    UIBarButtonItem *cancelBtn =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(closeOverlay:)];
     
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0 , 11.0f, 100, 21.0f)];
     [titleLabel setText:titleString];
@@ -382,7 +306,7 @@ UITextField *textfield;
     return inputAccessoryView;
 }
 
-- (void)cancel:(id)sender {
+- (void)closeOverlay:(id)sender {
     [UIView animateWithDuration:.5 animations:^{
         changeView.frame = CGRectMake(0, self.tableView.frame.size.height, self.tableView.frame.size.width, 340);
     } completion:^(BOOL finished) {
@@ -391,7 +315,7 @@ UITextField *textfield;
     }];
 }
 
-- (void)done:(id)sender {
+- (void)updateWorkoutNameAndDate:(id)sender {
     NSDate *date = picker.date;
     NSString *workoutName = textfield.text;
 
@@ -399,7 +323,7 @@ UITextField *textfield;
         workoutName = NSLocalizedString(@"Workout", nil);
     }
     
-    [self.interactor updateWorkout:self.workout withName:workoutName andDate:date];
+    [self.workoutInteractor updateWorkout:self.workout withName:workoutName andDate:date];
 
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     
@@ -415,8 +339,7 @@ UITextField *textfield;
     }];
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
 }
@@ -430,11 +353,6 @@ UITextField *textfield;
 
 - (void)keyboardDidHide: (NSNotification *) notif{
     changeView.frame = CGRectMake(changeView.frame.origin.x, self.tableView.frame.size.height - 340, changeView.frame.size.width, changeView.frame.size.height);
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [self.tableView setEditing:NO];
 }
 
 @end

@@ -63,6 +63,7 @@
         cell = [UITableViewCell new];
     }
     
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:17];
     cell.textLabel.textColor = [UIColor headlineColor];
     
     if (indexPath.row == 0) {

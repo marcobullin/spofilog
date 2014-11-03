@@ -1,14 +1,7 @@
-//
-//  SBSetViewController.h
-//  sportblog
-//
-//  Created by Marco Bullin on 13/09/14.
-//  Copyright (c) 2014 Bullin. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 #import "SBSet.h"
-#import "GAITrackedViewController.h"
+#import "SBAbstractViewController.h"
+#import "SBSetInteractor.h"
 
 @class SBSetViewController;
 
@@ -16,7 +9,7 @@
 - (void)addSetViewController:(SBSetViewController *)controller didCreatedNewSet:(SBSet *)set;
 @end
 
-@interface SBSetViewController : GAITrackedViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
+@interface SBSetViewController : SBAbstractViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (nonatomic) int number;
 @property (nonatomic) float weight;
@@ -24,7 +17,6 @@
 @property (strong, nonatomic) SBSet *currentSet;
 @property (strong, nonatomic) SBSet *previousSet;
 @property (nonatomic, weak) id <SBSetViewControllerDelegate> delegate;
-
-@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) SBSetInteractor *setInteractor;
 
 @end

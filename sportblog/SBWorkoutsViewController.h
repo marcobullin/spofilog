@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "SBWorkoutsInteractor.h"
 #import "GAITrackedViewController.h"
+#import "SBAbstractViewController.h"
 
-@interface SBWorkoutsViewController : GAITrackedViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SBWorkoutsViewController : SBAbstractViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) SBWorkoutsInteractor *indicator;
+@property (nonatomic, strong) RLMArray *workouts;
 
 @end

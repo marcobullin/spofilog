@@ -19,18 +19,15 @@
 #import "SBAddEntryViewModel.h"
 #import "SBAddEntryTableViewCell.h"
 
-#define iPhone6Plus ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone && [UIScreen mainScreen].bounds.size.height == 736)
-
 @interface SBWorkoutsViewController ()
-
-@property (nonatomic, strong) RLMArray *workouts;
-
 @end
 
 static NSString * const WorkoutCellIdentifier = @"WorkoutCell";
 static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
 
 @implementation SBWorkoutsViewController
+
+#pragma mark - lifecycle methods
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -45,50 +42,20 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.screenName = @"Workouts Screen";
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     self.workouts = [self.indicator findWorkouts];
     
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
-    
-    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-    self.tableView.backgroundColor = [UIColor tableViewColor];
-    self.tableView.allowsMultipleSelectionDuringEditing = NO;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
     [self.tableView registerNib:[SBSmallTopBottomCell nib] forCellReuseIdentifier:WorkoutCellIdentifier];
-
-    [self.view addSubview:self.tableView];
 }
 
--(void)viewDidLayoutSubviews
-{
-    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
-        [self.tableView setSeparatorInset:UIEdgeInsetsZero];
-    }
-    
-    if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
-        [self.tableView setLayoutMargins:UIEdgeInsetsZero];
-    }
-}
-
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsZero];
-    }
-    
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsZero];
-    }
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.screenName = @"Workouts Screen";
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -104,43 +71,34 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
     [self.tableView reloadData];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
-    
-    return cell.frame.size.height;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
-        [self onAddWorkout];
-        return;
-    }
-    
-    int index = (int)indexPath.row - 1;
-    
-    SBWorkout *workout = [self.workouts objectAtIndex:index];
-    
-    SBWorkoutViewController* workoutViewController = [[SBWorkoutViewController alloc] initWithNibName:@"SBWorkoutViewController" bundle:nil];
-
-    workoutViewController.workout = workout;
-    
-    [self.navigationController pushViewController:workoutViewController animated:YES];
-}
-
-- (void)onAddWorkout {
-    SBWorkoutViewController* workoutViewController = [[SBWorkoutViewController alloc] initWithNibName:@"SBWorkoutViewController" bundle:nil];
-    
-    SBWorkout *workout = [self.indicator createWorkoutWithName:NSLocalizedString(@"Workout", nil)
-                                                  andDate:[NSDate date]];
-
-    workoutViewController.workout = workout;
-    [self.navigationController pushViewController:workoutViewController animated:YES];
-}
-
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.tableView setEditing:NO];
 }
+
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    return cell.frame.size.height;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    SBWorkoutViewController* workoutViewController = [[SBWorkoutViewController alloc] initWithNibName:@"SBWorkoutViewController" bundle:nil];
+    
+    SBWorkout *workout;
+    if (indexPath.row == 0) {
+        workout = [self.indicator createWorkoutWithName:NSLocalizedString(@"Workout", nil) andDate:[NSDate date]];
+    } else {
+        int index = (int)indexPath.row - 1;
+        workout = [self.workouts objectAtIndex:index];
+    }
+
+    workoutViewController.workout = workout;
+    
+    [self.navigationController pushViewController:workoutViewController animated:YES];
+}
+
 
 #pragma mark UITableViewDataSource
 
@@ -203,4 +161,5 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
         }
     }
 }
+
 @end

@@ -1,19 +1,15 @@
-//
-//  SBSetsViewController.h
-//  sportblog
-//
-//  Created by Bullin, Marco on 12.09.14.
-//  Copyright (c) 2014 Bullin. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 #import "SBExerciseSet.h"
 #import "SBSetViewController.h"
-#import "GAITrackedViewController.h"
+#import "SBAbstractViewController.h"
+#import "SBSetInteractor.h"
+#import "SBExerciseInteractor.h"
 
-@interface SBSetsViewController : GAITrackedViewController <UITableViewDataSource, UITableViewDelegate, SBSetViewControllerDelegate>
+@interface SBSetsViewController : SBAbstractViewController <UITableViewDataSource, UITableViewDelegate, SBSetViewControllerDelegate>
 
-@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) SBExerciseSet *exercise;
+@property (nonatomic, strong) RLMArray *sets;
+@property (nonatomic, strong) SBSetInteractor *setInteractor;
+@property (nonatomic, strong) SBExerciseInteractor *exerciseInteractor;
 
 @end

@@ -54,11 +54,13 @@
 "Section Weight" = "Your Weight Progress";
 "Section Repetitions" = "Your Repetitions";
 
-
 // SBSettingsViewController
 "Settings" = "About";
 "Feedback For Prollo-App" = "Feedback For Prollo App";
 "Prollo is really cool!" = "Prollo is really cool!";
+
+// ImprintViewController
+"Imprint" = "Imprint";
 
 // REVIEW
 "REVIEW_TITLE" = "Rate Prollo App";

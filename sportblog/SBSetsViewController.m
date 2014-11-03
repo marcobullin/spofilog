@@ -1,11 +1,3 @@
-//
-//  SBSetsViewController.m
-//  sportblog
-//
-//  Created by Bullin, Marco on 12.09.14.
-//  Copyright (c) 2014 Bullin. All rights reserved.
-//
-
 #import "SBSetsViewController.h"
 #import "SBSetViewController.h"
 #import "SBAddEntryTableViewCell.h"
@@ -15,60 +7,43 @@
 #import "SBHelperView.h"
 
 @interface SBSetsViewController ()
-@property (nonatomic, strong) RLMArray *sets;
 @end
 
 @implementation SBSetsViewController
+
+#pragma mark - lifecycle methods
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.screenName = @"Sets Screen";
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.setInteractor = [SBSetInteractor new];
+    self.exerciseInteractor = [SBExerciseInteractor new];
     
     self.title = self.exercise.name;
 
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
-    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.backgroundColor = [UIColor tableViewColor];
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     
     self.sets = self.exercise.sets;
-    
-    [self.view addSubview:self.tableView];
-}
-
--(void)viewDidLayoutSubviews
-{
-    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
-        [self.tableView setSeparatorInset:UIEdgeInsetsZero];
-    }
-    
-    if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
-        [self.tableView setLayoutMargins:UIEdgeInsetsZero];
-    }
-}
-
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsZero];
-    }
-    
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsZero];
-    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.tableView reloadData];
 }
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.tableView setEditing:NO];
+}
+
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -124,11 +99,41 @@
     setCell.bottomLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%.01fkg | %dreps", nil), set.weight, set.repetitions];
     setCell.topLabel.textColor = [UIColor headlineColor];
     setCell.bottomLabel.textColor = [UIColor textColor];
-    //setCell.layoutMargins = UIEdgeInsetsZero;
-    //setCell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return setCell;
 }
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        int index = (int)indexPath.row - 1;
+        
+        SBSet *set = [self.exercise.sets objectAtIndex:index];
+        
+        [self.setInteractor deleteSet:set fromExerciseSet:self.exercise AtIndex:index];
+        
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
+        
+        if ([self.sets count] == 0) {
+            [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+        }
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    return cell.frame.size.height;
+}
+
+
+#pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // add new set
@@ -140,21 +145,15 @@
         
         helperView.frame = self.view.frame;
         
-        SBSet *set = [SBSet new];
+        SBSet *set;
         if ([self.sets count] > 0) {
             SBSet *previousSet = [self.sets lastObject];
-            set.number = previousSet.number + 1;
-            set.weight = previousSet.weight;
-            set.repetitions = previousSet.repetitions;
+            set = [self.setInteractor createSetDependingOnSet:previousSet];
         } else {
-            set.number = 1;
-            set.weight = 10.0;
-            set.repetitions = 10;
+            set = [self.setInteractor createSetWithNumber:1 weight:10.0 andRepetitions: 10];
         }
         
-        [self.exercise.realm beginWriteTransaction];
-        [self.exercise.sets addObject:set];
-        [self.exercise.realm commitWriteTransaction];
+        [self.exerciseInteractor addSet:set toExerciseSet:self.exercise];
 
         NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[self.sets count] inSection:0];
         [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
@@ -175,46 +174,10 @@
     [self.navigationController pushViewController:setViewController animated:YES];
 }
 
+#pragma mark - SBSetViewControllerDelegate
+
 - (void)addSetViewController:(SBSetViewController *)controller didCreatedNewSet:(SBSet *)set {
-    [self.exercise.realm beginWriteTransaction];
-    [self.exercise.sets addObject:set];
-    [self.exercise.realm commitWriteTransaction];
-}
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
-        return NO;
-    }
-    
-    return YES;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        int index = (int)indexPath.row - 1;
-        
-        SBSet *set = [self.exercise.sets objectAtIndex:index];
-        [self.exercise.realm beginWriteTransaction];
-        [self.exercise.sets removeObjectAtIndex:index];
-        [RLMRealm.defaultRealm deleteObject:set];
-        [self.exercise.realm commitWriteTransaction];
-        
-        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
-        
-        if ([self.sets count] == 0) {
-            [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
-        }
-    }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
-    return cell.frame.size.height;
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [self.tableView setEditing:NO];
+    [self.exerciseInteractor addSet:set toExerciseSet:self.exercise];
 }
 
 @end
