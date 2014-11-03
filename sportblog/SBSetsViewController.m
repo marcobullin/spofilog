@@ -150,7 +150,11 @@
             SBSet *previousSet = [self.sets lastObject];
             set = [self.setInteractor createSetDependingOnSet:previousSet];
         } else {
-            set = [self.setInteractor createSetWithNumber:1 weight:10.0 andRepetitions: 10];
+            int number = 1;
+            float weight = 10.0;
+            int repetitions = 10;
+            
+            set = [self.setInteractor createSetWithNumber:number weight:weight andRepetitions: repetitions];
         }
         
         [self.exerciseInteractor addSet:set toExerciseSet:self.exercise];
