@@ -2,8 +2,9 @@
 
 @implementation SBWorkoutsInteractor
 
-- (RLMArray *)findWorkouts {
-    return [[SBWorkout allObjects] arraySortedByProperty:@"date" ascending:NO];
+- (RLMResults *)findWorkouts {
+    // return [[SBWorkout allObjects] arraySortedByProperty:@"date" ascending:NO];
+    return [[SBWorkout allObjects] sortedResultsUsingProperty:@"date" ascending:NO];
 }
 
 - (void)deleteWorkout:(SBWorkout *)workout {

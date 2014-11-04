@@ -14,6 +14,6 @@
 @interface SBWorkoutsViewController : SBAbstractViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) SBWorkoutsInteractor *indicator;
-@property (nonatomic, strong) RLMArray *workouts;
+@property (nonatomic, strong) RLMResults *workouts;
 
 @end

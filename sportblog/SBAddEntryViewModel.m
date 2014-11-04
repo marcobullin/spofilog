@@ -26,7 +26,7 @@
     return self;
 }
 
-- (instancetype)initWithWorkouts:(RLMArray *)workouts {
+- (instancetype)initWithWorkouts:(RLMResults *)workouts {
     self = [super init];
     
     if (self) {

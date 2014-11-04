@@ -44,7 +44,7 @@ int currentSelectedExercises = -1;
     
     [self createOrIgnoreDefaultExercises];
     
-    self.exercises = [[SBExercise allObjects] arraySortedByProperty:@"name" ascending:YES];
+    self.exercises = [[SBExercise allObjects] sortedResultsUsingProperty:@"name" ascending:YES];
     
     [self.view addSubview:self.tableView];
 }
@@ -267,7 +267,7 @@ int currentSelectedExercises = -1;
     
     [self.exerciseInteractor createExerciseWithName:exerciseName frontImages:@"front" andBackImages:@"back"];
     
-    self.exercises = [[SBExercise allObjects] arraySortedByProperty:@"name" ascending:YES];
+    self.exercises = [[SBExercise allObjects] sortedResultsUsingProperty:@"name" ascending:YES];
 
     currentSelectedExercises = -1;
     

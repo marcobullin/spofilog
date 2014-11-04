@@ -62,7 +62,7 @@ NSArray *sectionTitles;
     NSMutableArray *weights = [[NSMutableArray alloc] init];
     NSMutableArray *labels = [[NSMutableArray alloc] init];
     
-    RLMArray *exercises = [SBExerciseSet objectsWhere:[NSString stringWithFormat:@"name = '%@'", self.exerciseName]];
+    RLMResults *exercises = [SBExerciseSet objectsWhere:[NSString stringWithFormat:@"name = '%@'", self.exerciseName]];
     
     count = 0;
     statisticCountOfSets = 0;
@@ -134,8 +134,11 @@ NSArray *sectionTitles;
         exerciseCount++;
     }
     
-    statisticProgress = statisticProgress / count;
-    averageRepetitions = statisticRepetitions / count;
+    if (count != 0) {
+        statisticProgress = statisticProgress / count;
+        averageRepetitions = statisticRepetitions / count;
+    }
+
     
     CGRect frame = CGRectMake(0, self.navigationController.navigationBar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height/2);
     
@@ -144,13 +147,28 @@ NSArray *sectionTitles;
     [self.lineChartView setInterval:5.0];
     self.lineChartView.autoscaleYAxis = YES;
     
+
+    NSString *firstDateText;
+    if (firstDate == nil) {
+        firstDateText = @"";
+    } else {
+        firstDateText = [NSString stringWithFormat:NSLocalizedString(@"from %@", nil), [self.dateFormatter stringFromDate:firstDate]];
+    }
+    
     UILabel *firstDateLabel = [UILabel new];
-    firstDateLabel.text = [NSString stringWithFormat:NSLocalizedString(@"from %@", nil), [self.dateFormatter stringFromDate:firstDate]];
+    firstDateLabel.text = firstDateText;
     firstDateLabel.frame = CGRectMake(20, self.lineChartView.frame.size.height - 44, self.lineChartView.frame.size.width, 44);
     firstDateLabel.font = [UIFont boldSystemFontOfSize:12];
     
+    NSString *lastDateText;
+    if (lastDate == nil) {
+        lastDateText = @"";
+    } else {
+        lastDateText = [NSString stringWithFormat:NSLocalizedString(@"to %@", nil), [self.dateFormatter stringFromDate:lastDate]];
+    }
+    
     UILabel *lastDateLabel = [UILabel new];
-    lastDateLabel.text = [NSString stringWithFormat:NSLocalizedString(@"to %@", nil), [self.dateFormatter stringFromDate:lastDate]];
+    lastDateLabel.text = lastDateText;
     lastDateLabel.frame = CGRectMake(0, self.lineChartView.frame.size.height - 44, self.lineChartView.frame.size.width - 20, 44);
     lastDateLabel.font = [UIFont boldSystemFontOfSize:12];
     lastDateLabel.textAlignment = NSTextAlignmentRight;
@@ -281,7 +299,15 @@ NSArray *sectionTitles;
         
         if (indexPath.row == 2) {
             cell.headlineLabel.text = NSLocalizedString(@"Your Weight-Progress From First To Last Exercise", nil);
-            cell.valueLabel.text = [NSString stringWithFormat:@"%.01f%%", ((lastWeight / firstWeight) * 100) - 100];
+            NSString *text;
+            
+            if (firstWeight == 0) {
+                text = @"0";
+            } else {
+                text = [NSString stringWithFormat:@"%.01f%%", ((lastWeight / firstWeight) * 100) - 100];
+            }
+            
+            cell.valueLabel.text = text;
         }
         
         if (indexPath.row == 3) {

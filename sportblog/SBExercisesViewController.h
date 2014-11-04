@@ -12,7 +12,7 @@
 @interface SBExercisesViewController : SBAbstractViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
 @property (nonatomic, weak) id <SBExerciseViewControllerDelegate> delegate;
-@property (nonatomic, strong) RLMArray *exercises;
+@property (nonatomic, strong) RLMResults *exercises;
 @property (nonatomic, strong) SBExerciseInteractor *exerciseInteractor;
 
 @end

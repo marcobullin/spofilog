@@ -4,7 +4,7 @@
 
 @interface SBWorkoutsInteractor : NSObject
 
-- (RLMArray *)findWorkouts;
+- (RLMResults *)findWorkouts;
 - (void)deleteWorkout:(SBWorkout *)workout;
 - (void)updateWorkout:(SBWorkout *)workout withName:(NSString *)name andDate:(NSDate *)date;
 - (SBWorkout *)createWorkoutWithName:(NSString *)name andDate:(NSDate *)date;

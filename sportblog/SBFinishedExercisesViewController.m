@@ -83,7 +83,7 @@ static NSString * const DescriptionCellIdentifier = @"DescriptionCell";
     
     [self.exercises removeAllObjects];
     
-    RLMArray *exercises = [SBExerciseSet allObjects];
+    RLMResults *exercises = [SBExerciseSet allObjects];
     
     for (SBExerciseSet *exercise in exercises) {
         if (![self.exercises containsObject:exercise.name]) {
