@@ -221,6 +221,8 @@ UITextField *textfield;
         
     NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[self.workout.exercises count]+1 inSection:0];
     [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
+
+    [self.tableView scrollToRowAtIndexPath:newIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
     
     if ([self.workout.exercises count] == 1) {
         [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];

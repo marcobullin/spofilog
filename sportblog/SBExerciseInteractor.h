@@ -11,5 +11,6 @@
 - (void)deleteExercise:(SBExercise *)exercise;
 - (void)createBulkOfExercises;
 - (void)addSet:(SBSet *)set toExerciseSet:(SBExerciseSet *)exercise;
+- (BOOL)isExerciseNameAlreadyAvailable:(NSString *)name;
 
 @end

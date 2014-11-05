@@ -18,5 +18,6 @@
 - (void)updateSet:(SBSet *)set withNumber:(int)number;
 - (void)updateSet:(SBSet *)set withWeight:(float)weight;
 - (void)updateSet:(SBSet *)set withRepetitions:(int)repetitions;
+- (SBSet *)lastSetOfExerciseWithName:(NSString *)name;
 
 @end

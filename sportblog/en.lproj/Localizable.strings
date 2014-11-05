@@ -53,6 +53,8 @@
 "Section Sets" = "Your Sets";
 "Section Weight" = "Your Weight Progress";
 "Section Repetitions" = "Your Repetitions";
+"reps" = "reps";
+"kg" = "kg";
 
 // SBSettingsViewController
 "Settings" = "About";

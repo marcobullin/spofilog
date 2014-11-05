@@ -11,6 +11,7 @@
 @implementation SBExercisesViewController
 
 int currentSelectedExercises = -1;
+int position = -1;
 
 #pragma mark - lifecycle methods
 
@@ -37,10 +38,12 @@ int currentSelectedExercises = -1;
     self.exerciseInteractor = [SBExerciseInteractor new];
     
     currentSelectedExercises = -1;
+    position = -1;
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
+    self.tableView.backgroundColor = [UIColor lightBackgroundColor];
     
     [self createOrIgnoreDefaultExercises];
     
@@ -194,6 +197,14 @@ int currentSelectedExercises = -1;
         exerciseCell.accessoryType = UITableViewCellAccessoryNone;
     }
     
+    if (position != -1 && indexPath.row == (position+1)) {
+        exerciseCell.backgroundColor = [UIColor actionCellColor];
+        [UIView animateWithDuration:1.0 animations:^{
+            exerciseCell.backgroundColor = [UIColor clearColor];
+            position = -1;
+        }];
+    }
+    
     return exerciseCell;
 }
 
@@ -213,7 +224,7 @@ int currentSelectedExercises = -1;
         return;
     }
     
-    currentSelectedExercises = indexPath.row-1;
+    currentSelectedExercises = (int)indexPath.row-1;
     [self.tableView reloadData];
 }
 
@@ -265,7 +276,10 @@ int currentSelectedExercises = -1;
         return YES;
     }
     
-    [self.exerciseInteractor createExerciseWithName:exerciseName frontImages:@"front" andBackImages:@"back"];
+    // do not create exercises with the same name
+    if (![self.exerciseInteractor isExerciseNameAlreadyAvailable:exerciseName]) {
+        [self.exerciseInteractor createExerciseWithName:exerciseName frontImages:@"front" andBackImages:@"back"];
+    }
     
     self.exercises = [[SBExercise allObjects] sortedResultsUsingProperty:@"name" ascending:YES];
 
@@ -275,7 +289,7 @@ int currentSelectedExercises = -1;
     
     [cell.exerciseField resignFirstResponder];
     
-    int position = 0;
+    position = 0;
     for (SBExercise *e in self.exercises) {
         if ([e.name isEqualToString:exerciseName]) {
             break;

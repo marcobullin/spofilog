@@ -16,4 +16,5 @@
 + (UIColor *)textColor;
 + (UIColor *)highlightColor;
 + (UIColor *)headlineColor;
++ (UIColor *)lightBackgroundColor;
 @end

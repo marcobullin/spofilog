@@ -154,7 +154,12 @@
             float weight = 10.0;
             int repetitions = 10;
             
-            set = [self.setInteractor createSetWithNumber:number weight:weight andRepetitions: repetitions];
+            SBSet *lastSet = [self.setInteractor lastSetOfExerciseWithName:self.exercise.name];
+            if (lastSet) {
+                set = [self.setInteractor createSetWithNumber:number weight:lastSet.weight andRepetitions:lastSet.repetitions];
+            } else {
+                set = [self.setInteractor createSetWithNumber:number weight:weight andRepetitions:repetitions];
+            }
         }
         
         [self.exerciseInteractor addSet:set toExerciseSet:self.exercise];

@@ -8,6 +8,7 @@
 
 #import "SBIconListViewController.h"
 #import "SBIconCell.h"
+#import "SBExerciseSet.h"
 
 static NSString * const IconCellIdentifier = @"IconCell";
 
@@ -19,6 +20,13 @@ static NSString * const IconCellIdentifier = @"IconCell";
 
 NSArray *allImageNames;
 NSArray *currentSelectedImages;
+
+#pragma mark - lifecycle methods
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.screenName = @"Icon List Screen";
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -56,33 +64,9 @@ NSArray *currentSelectedImages;
                   ];
     }
 
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-    [self.view addSubview:self.tableView];
-}
-
--(void)viewDidLayoutSubviews
-{
-    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
-        [self.tableView setSeparatorInset:UIEdgeInsetsZero];
-    }
-    
-    if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
-        [self.tableView setLayoutMargins:UIEdgeInsetsZero];
-    }
-}
-
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsZero];
-    }
-    
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsZero];
-    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -117,6 +101,7 @@ NSArray *currentSelectedImages;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSMutableArray *names = [NSMutableArray new];
+    
     if (self.isFrontBody) {
         if ([self.exercise.frontImages isEqual:@""]) {
             names = [NSMutableArray new];
@@ -131,21 +116,36 @@ NSArray *currentSelectedImages;
         }
     }
     
-    if ([names containsObject:allImageNames[indexPath.row]]) {
+    NSString *currentName = allImageNames[indexPath.row];
+    
+    if ([names containsObject:currentName]) {
         // delete
-        [names removeObject:allImageNames[indexPath.row]];
+        [names removeObject:currentName];
     } else {
-        NSString *name = allImageNames[indexPath.row];
         //add
-        [names addObject:name];
+        [names addObject:currentName];
     }
+    
+    NSString *joinedNames = [names componentsJoinedByString:@","];
+    
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"name = %@", self.exercise.name];
+    RLMResults *exerciseSets = [SBExerciseSet objectsWithPredicate:pred];
     
     [RLMRealm.defaultRealm beginWriteTransaction];
     if (self.isFrontBody) {
-        self.exercise.frontImages = [names componentsJoinedByString:@","];
+        self.exercise.frontImages = joinedNames;
     } else {
-        self.exercise.backImages = [names componentsJoinedByString:@","];
+        self.exercise.backImages = joinedNames;
     }
+    
+    for (SBExerciseSet *exerciseSet in exerciseSets) {
+        if (self.isFrontBody) {
+            exerciseSet.frontImages = joinedNames;
+        } else {
+            exerciseSet.backImages = joinedNames;
+        }
+    }
+    
     [RLMRealm.defaultRealm commitWriteTransaction];
     
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];

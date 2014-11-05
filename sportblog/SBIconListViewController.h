@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "SBExercise.h"
+#import "SBAbstractViewController.h"
 
-@interface SBIconListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-@property (strong, nonatomic) UITableView *tableView;
+@interface SBIconListViewController : SBAbstractViewController <UITableViewDataSource, UITableViewDelegate>
+
 @property (nonatomic, strong) SBExercise *exercise;
 @property (nonatomic) BOOL isFrontBody;
 

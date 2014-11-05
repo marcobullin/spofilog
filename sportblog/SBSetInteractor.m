@@ -1,4 +1,5 @@
 #import "SBSetInteractor.h"
+#import "SBWorkout.h"
 
 @implementation SBSetInteractor
 
@@ -43,6 +44,25 @@
     [RLMRealm.defaultRealm beginWriteTransaction];
     set.repetitions = repetitions;
     [RLMRealm.defaultRealm commitWriteTransaction];
+}
+
+- (SBSet *)lastSetOfExerciseWithName:(NSString *)name {
+    RLMResults *allExercises = [[SBExerciseSet allObjects] sortedResultsUsingProperty:@"date" ascending:NO];
+    
+    SBExerciseSet *lastExercise;
+    for (SBExerciseSet *exercise in allExercises) {
+        if ([exercise.name isEqualToString:name] && [exercise.sets count] != 0) {
+            lastExercise = exercise;
+            break;
+        }
+    }
+    
+    if (lastExercise) {
+        RLMArray *sets = lastExercise.sets;
+        return [sets lastObject];
+    }
+    
+    return nil;
 }
 
 @end

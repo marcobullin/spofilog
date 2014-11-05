@@ -17,7 +17,6 @@
     self.bottomLabel.text = viewData.dateText;
     self.bottomLabel.textColor = viewData.dateTextColor;
     
-//    self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.backgroundColor = [UIColor clearColor];
 }
 
@@ -30,6 +29,67 @@
     
     self.backgroundColor = [UIColor clearColor];
 
+    /*
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+       dispatch_async(dispatch_get_main_queue(), ^{
+           NSArray *frontImageNames;
+           NSArray *backImageNames;
+           if (viewData.frontImages != nil && ![viewData.frontImages isEqualToString:@""]) {
+               frontImageNames = [viewData.frontImages componentsSeparatedByString: @","];
+           }
+           
+           if (viewData.backImages != nil && ![viewData.backImages isEqualToString:@""]) {
+               backImageNames = [viewData.backImages componentsSeparatedByString: @","];
+           }
+           
+           if ([backImageNames count] > 0) {
+               for (NSString *imageName in backImageNames) {
+                   UIImage *image = [UIImage imageNamed:imageName];
+                   
+                   UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
+                   [imageView setImage:image];
+                   
+                   dispatch_async(dispatch_get_main_queue(), ^{
+                       [self.rightView addSubview:imageView];
+                     //  [self setNeedsLayout];
+                   });
+               }
+           } else {
+               UIImage *image = [UIImage imageNamed:@"back"];
+               UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
+               [imageView setImage:image];
+               
+               dispatch_async(dispatch_get_main_queue(), ^{
+                   [self.rightView addSubview:imageView];
+                   //[self setNeedsLayout];
+               });
+           }
+           
+           if ([frontImageNames count] > 0) {
+               for (NSString *imageName in frontImageNames) {
+                   UIImage *image = [UIImage imageNamed:imageName];
+                   UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
+                   [imageView setImage:image];
+                   
+                   dispatch_async(dispatch_get_main_queue(), ^{
+                       [self.leftView addSubview:imageView];
+                       //[self setNeedsLayout];
+                   });
+               }
+           } else {
+               UIImage *image = [UIImage imageNamed:@"front"];
+               UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
+               [imageView setImage:image];
+
+               dispatch_async(dispatch_get_main_queue(), ^{
+                   [self.leftView addSubview:imageView];
+                   //[self setNeedsLayout];
+               });
+           }
+       });
+    });
+    */
+    
     NSArray *frontImageNames;
     NSArray *backImageNames;
     if (viewData.frontImages != nil && ![viewData.frontImages isEqualToString:@""]) {

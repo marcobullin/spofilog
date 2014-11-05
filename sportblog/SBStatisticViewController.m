@@ -143,10 +143,11 @@ NSArray *sectionTitles;
     CGRect frame = CGRectMake(0, self.navigationController.navigationBar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height/2);
     
     self.lineChartView = [[PCLineChartView alloc] initWithFrame:frame];
-    //[self.lineChartView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
-    [self.lineChartView setInterval:5.0];
     self.lineChartView.autoscaleYAxis = YES;
+    float max = (statisticMaxWeight > maxRepetitions) ? statisticMaxWeight : maxRepetitions;
     
+    self.lineChartView.maxValue = max == 0 ? 100 : max;
+
 
     NSString *firstDateText;
     if (firstDate == nil) {
@@ -180,7 +181,7 @@ NSArray *sectionTitles;
     NSMutableArray *components = [NSMutableArray array];
 
     PCLineChartViewComponent *component = [[PCLineChartViewComponent alloc] init];
-    component.title = @"kg";
+    component.title = NSLocalizedString(@"kg", nil);
     if ([weights count] == 1) {
         [weights insertObject:[NSNumber numberWithFloat:0] atIndex:0];
         [labels insertObject:@"" atIndex:0];
@@ -188,6 +189,16 @@ NSArray *sectionTitles;
     
     [component setPoints:weights];
     [components addObject:component];
+    
+    PCLineChartViewComponent *repetitionComponent = [[PCLineChartViewComponent alloc] init];
+    repetitionComponent.title = NSLocalizedString(@"reps", nil);
+    repetitionComponent.colour = PCColorOrange;
+    if ([reps count] == 1) {
+        [reps insertObject:[NSNumber numberWithInt:0] atIndex:0];
+    }
+    
+    [repetitionComponent setPoints:reps];
+    [components addObject:repetitionComponent];
     
     [self.lineChartView setComponents:components];
     [self.lineChartView setXLabels:labels];

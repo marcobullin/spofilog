@@ -40,6 +40,14 @@
     [exercise.realm commitWriteTransaction];
 }
 
+- (BOOL)isExerciseNameAlreadyAvailable:(NSString *)name {
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"name = %@", name];
+    
+    RLMResults *exercises = [SBExercise objectsWithPredicate:pred];
+    
+    return [exercises count] > 0;
+}
+
 - (void)createBulkOfExercises {
     SBExercise *exercise = [[SBExercise alloc] init];
     exercise.name = NSLocalizedString(@"bench press", nil);

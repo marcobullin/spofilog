@@ -3,7 +3,6 @@
 @implementation SBWorkoutsInteractor
 
 - (RLMResults *)findWorkouts {
-    // return [[SBWorkout allObjects] arraySortedByProperty:@"date" ascending:NO];
     return [[SBWorkout allObjects] sortedResultsUsingProperty:@"date" ascending:NO];
 }
 
