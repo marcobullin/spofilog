@@ -62,7 +62,7 @@ NSArray *sectionTitles;
     NSMutableArray *weights = [[NSMutableArray alloc] init];
     NSMutableArray *labels = [[NSMutableArray alloc] init];
     
-    RLMResults *exercises = [SBExerciseSet objectsWhere:[NSString stringWithFormat:@"name = '%@'", self.exerciseName]];
+    RLMResults *exercises = [[SBExerciseSet objectsWhere:[NSString stringWithFormat:@"name = '%@'", self.exerciseName]]  sortedResultsUsingProperty:@"date" ascending:YES];
     
     count = 0;
     statisticCountOfSets = 0;
@@ -88,11 +88,11 @@ NSArray *sectionTitles;
         for (int j = 0; j < [exercise.sets count]; j++) {
             SBSet *set = [exercise.sets objectAtIndex:j];
             
-            if (firstDate == nil || exercise.date < firstDate) {
+            if (firstDate == nil || [exercise.date compare:firstDate] == NSOrderedAscending) {
                 firstDate = exercise.date;
             }
             
-            if (lastDate == nil || exercise.date > lastDate) {
+            if (lastDate == nil || [exercise.date compare:lastDate] == NSOrderedDescending) {
                 lastDate = exercise.date;
             }
          

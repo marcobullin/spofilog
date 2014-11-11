@@ -271,7 +271,7 @@ int position = -1;
     NSString *exerciseName = [cell.exerciseField.text stringByTrimmingCharactersInSet:
                               [NSCharacterSet whitespaceCharacterSet]];
     
-    if ([exerciseName isEqualToString:@""]) {
+    if (!exerciseName || [exerciseName isEqualToString:@""]) {
         [cell.exerciseField resignFirstResponder];
         return YES;
     }
