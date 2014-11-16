@@ -1,19 +1,11 @@
-//
-//  SBViewController.h
-//  sportblog
-//
-//  Created by Marco Bullin on 07/09/14.
-//  Copyright (c) 2014 Bullin. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
-#import "SBWorkoutsInteractor.h"
-#import "GAITrackedViewController.h"
 #import "SBAbstractViewController.h"
+#import "SBWorkoutPresenter.h"
+#import "SBWorkoutsView.h"
 
-@interface SBWorkoutsViewController : SBAbstractViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SBWorkoutsViewController : SBAbstractViewController <UITableViewDataSource, UITableViewDelegate, SBWorkoutsView>
 
-@property (nonatomic, strong) SBWorkoutsInteractor *indicator;
-@property (nonatomic, strong) RLMResults *workouts;
+@property (nonatomic, strong) SBWorkoutPresenter *workoutPresenter;
+@property (nonatomic, strong) NSArray *workouts;
 
 @end

@@ -1,11 +1,3 @@
-//
-//  SBViewController.m
-//  sportblog
-//
-//  Created by Marco Bullin on 07/09/14.
-//  Copyright (c) 2014 Bullin. All rights reserved.
-//
-
 #import "SBWorkoutsViewController.h"
 #import "SBWorkout.h"
 #import "SBSmallTopBottomCell.h"
@@ -44,13 +36,11 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.workouts = [self.indicator findWorkouts];
+    [self.workoutPresenter findWorkouts];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
-    [self.tableView registerNib:[SBSmallTopBottomCell nib] forCellReuseIdentifier:WorkoutCellIdentifier];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -76,6 +66,26 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
     [self.tableView setEditing:NO];
 }
 
+#pragma mark - actions
+
+- (void)displayWorkouts:(NSArray *)workouts {
+    self.workouts = workouts;
+}
+
+- (void)displayWorkoutDetails:(NSDictionary *)workout {
+    SBWorkoutViewController* workoutViewController = [[SBWorkoutViewController alloc] initWithNibName:@"SBWorkoutViewController" bundle:nil];
+    workoutViewController.workout = workout;
+    [self.navigationController pushViewController:workoutViewController animated:YES];
+}
+
+- (void)removeWorkoutAtIndexPath:(NSIndexPath *)indexPath {
+    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
+    
+    if ([self.workouts count] == 0) {
+        [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    }
+}
+
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -84,19 +94,15 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    SBWorkoutViewController* workoutViewController = [[SBWorkoutViewController alloc] initWithNibName:@"SBWorkoutViewController" bundle:nil];
-    
-    SBWorkout *workout;
     if (indexPath.row == 0) {
-        workout = [self.indicator createWorkoutWithName:NSLocalizedString(@"Workout", nil) andDate:[NSDate date]];
-    } else {
-        int index = (int)indexPath.row - 1;
-        workout = [self.workouts objectAtIndex:index];
+        [self.workoutPresenter createWorkout];
+        return;
     }
-
-    workoutViewController.workout = workout;
     
-    [self.navigationController pushViewController:workoutViewController animated:YES];
+    int index = (int)indexPath.row - 1;
+    NSDictionary *workout = [self.workouts objectAtIndex:index];
+    
+    [self displayWorkoutDetails:workout];
 }
 
 
@@ -148,17 +154,11 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         int index = (int)indexPath.row - 1;
-        SBWorkout *workout = [self.workouts objectAtIndex:index];
-        
-        [self.indicator deleteWorkout:workout];
-        
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
-        
-        if ([self.workouts count] == 0) {
-            [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
-        }
+        NSDictionary *workout = [self.workouts objectAtIndex:index];
+        [self.workoutPresenter removeWorkout:workout atIndexPath:indexPath];
     }
 }
 

@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "PCLineChartView.h"
-#import "GAITrackedViewController.h"
+#import "SBAbstractViewController.h"
 
-@interface SBStatisticViewController : GAITrackedViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SBStatisticViewController : SBAbstractViewController <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) NSString *exerciseName;
 @property (nonatomic, strong) PCLineChartView *lineChartView;
-@property (nonatomic, strong) UITableView *tableView;
 @end

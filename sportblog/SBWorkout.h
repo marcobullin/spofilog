@@ -9,6 +9,7 @@
 #import "SBExerciseSet.h"
 
 @interface SBWorkout : RLMObject
+@property int workoutId;
 @property NSString *name;
 @property NSDate *date;
 @property RLMArray<SBExerciseSet> *exercises;

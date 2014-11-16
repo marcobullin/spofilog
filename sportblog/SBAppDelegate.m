@@ -11,16 +11,17 @@
 #import "SBWorkoutsViewController.h"
 #import "SBSettingsViewController.h"
 #import "UIColor+SBColor.h"
-#import "SBWorkoutsInteractor.h"
+#import "SBWorkoutInteractor.h"
 #import "GAI.h"
+#import "SBWorkoutInteractor.h"
 
 @implementation SBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [RLMRealm setSchemaVersion:9 withMigrationBlock:^(RLMMigration *migration, NSUInteger oldSchemaVersion) {
+    [RLMRealm setSchemaVersion:10 withMigrationBlock:^(RLMMigration *migration, NSUInteger oldSchemaVersion) {
         // We haven’t migrated anything yet, so oldSchemaVersion == 0
-        if (oldSchemaVersion < 9) {
+        if (oldSchemaVersion < 10) {
             // Nothing to do!
             // Realm will automatically detect new properties and removed properties
             // And will update the schema on disk automatically
@@ -50,11 +51,18 @@
     [UAAppReviewManager setReviewMessage:NSLocalizedString(@"REVIEW_MESSAGE", nil)];
     [UAAppReviewManager setRateButtonTitle:NSLocalizedString(@"REVIEW_RATE_BUTTON", nil)];
     
-    SBWorkoutsInteractor *workoutsInteractor = [SBWorkoutsInteractor new];
+    
     
     SBWorkoutsViewController *workoutsViewController = [[SBWorkoutsViewController alloc] initWithNibName:@"SBWorkoutsViewController" bundle:nil];
+    SBWorkoutInteractor *workoutInteractor = [SBWorkoutInteractor new];
+    SBWorkoutPresenter *workoutPresenter = [SBWorkoutPresenter new];
+
+    workoutsViewController.workoutPresenter = workoutPresenter;
+    workoutPresenter.view = workoutsViewController;
+    workoutPresenter.workoutInteractor = workoutInteractor;
+    workoutInteractor.output = workoutPresenter;
     
-    workoutsViewController.indicator = workoutsInteractor;
+    workoutsViewController.workoutPresenter = workoutPresenter;
 
     self.workoutNavigationController = [[UINavigationController alloc] initWithRootViewController:workoutsViewController];
     self.workoutNavigationController.navigationBar.shadowImage = [UIImage new];

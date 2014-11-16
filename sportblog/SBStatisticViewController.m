@@ -48,7 +48,6 @@ NSArray *sectionTitles;
     
     sectionTitles = @[NSLocalizedString(@"Section Common", nil), NSLocalizedString(@"Section Sets", nil), NSLocalizedString(@"Section Weight", nil), NSLocalizedString(@"Section Repetitions", nil)];
     
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -204,30 +203,6 @@ NSArray *sectionTitles;
     [self.lineChartView setXLabels:labels];
     
     self.tableView.tableHeaderView = self.lineChartView;
-    
-    [self.view addSubview:self.tableView];
-}
-
--(void)viewDidLayoutSubviews
-{
-    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
-        [self.tableView setSeparatorInset:UIEdgeInsetsZero];
-    }
-    
-    if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
-        [self.tableView setLayoutMargins:UIEdgeInsetsZero];
-    }
-}
-
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsZero];
-    }
-    
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsZero];
-    }
 }
 
 - (void)createDateFormatter {

@@ -38,15 +38,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
-        
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     self.tableView.backgroundColor = [UIColor tableViewColor];
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-        
-    [self.view addSubview:self.tableView];
 }
 
 #pragma mark - tablview methods
