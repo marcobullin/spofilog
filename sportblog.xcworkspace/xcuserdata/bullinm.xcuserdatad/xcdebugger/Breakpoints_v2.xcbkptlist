@@ -146,11 +146,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sportblog/SBWorkoutsViewController.m"
-            timestampString = "436709757.393827"
+            timestampString = "437655593.763513"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183">
+            startingLineNumber = "185"
+            endingLineNumber = "185">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -160,11 +160,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sportblog/SBWorkoutsViewController.m"
-            timestampString = "436709757.393827"
+            timestampString = "437655593.763513"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -176,11 +176,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sportblog/SBWorkoutsViewController.m"
-            timestampString = "436709757.393827"
+            timestampString = "437655593.763513"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -192,11 +192,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sportblog/SBWorkoutsViewController.m"
-            timestampString = "436709757.393827"
+            timestampString = "437655593.763513"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "318"
-            endingLineNumber = "318">
+            startingLineNumber = "320"
+            endingLineNumber = "320">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -211,7 +211,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "70"
             endingLineNumber = "70"
-            landmarkName = "-viewDidAppear:"
+            landmarkName = "-displayWorkouts:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -307,7 +307,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "126"
             endingLineNumber = "126"
-            landmarkName = "-applicationWillTerminate:"
+            landmarkName = "-applicationDidBecomeActive:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -339,7 +339,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "66"
             endingLineNumber = "66"
-            landmarkName = "-viewDidAppear:"
+            landmarkName = "-viewWillDisappear:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -355,7 +355,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "71"
             endingLineNumber = "71"
-            landmarkName = "-viewDidAppear:"
+            landmarkName = "-displayWorkouts:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -430,11 +430,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sportblog/SBWorkoutsViewController.m"
-            timestampString = "436709757.393827"
+            timestampString = "437655593.763513"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "264"
-            endingLineNumber = "264">
+            startingLineNumber = "266"
+            endingLineNumber = "266">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -460,11 +460,55 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sportblog/SBWorkoutsViewController.m"
-            timestampString = "436709757.393827"
+            timestampString = "437655593.763513"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "@implementation SBWorkoutsViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "sportblog/SBWorkoutsViewController.m"
+            timestampString = "437655593.763513"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "178"
+            endingLineNumber = "178">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "sportblog/SBWorkoutsViewController.m"
+            timestampString = "437655593.763513"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "190"
+            endingLineNumber = "190">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "sportblog/SBWorkoutsViewController.m"
+            timestampString = "437655593.763513"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
             landmarkName = "-tableView:commitEditingStyle:forRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -476,55 +520,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sportblog/SBWorkoutsViewController.m"
-            timestampString = "436709757.393827"
+            timestampString = "437655593.763513"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "sportblog/SBWorkoutsViewController.m"
-            timestampString = "436709757.393827"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "sportblog/SBWorkoutsViewController.m"
-            timestampString = "436709757.393827"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
-            landmarkName = "-tableView:commitEditingStyle:forRowAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "sportblog/SBWorkoutsViewController.m"
-            timestampString = "436709757.393827"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206">
+            startingLineNumber = "208"
+            endingLineNumber = "208">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -876,6 +876,22 @@
             startingLineNumber = "47"
             endingLineNumber = "47"
             landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "sportblog/SBWorkoutViewController.m"
+            timestampString = "437932907.194479"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "-tableView:commitEditingStyle:forRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

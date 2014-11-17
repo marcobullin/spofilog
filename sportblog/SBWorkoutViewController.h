@@ -1,14 +1,12 @@
 #import <UIKit/UIKit.h>
-#import "SBWorkout.h"
 #import "SBExercisesViewController.h"
-#import "SBWorkoutsInteractor.h"
-#import "SBExerciseInteractor.h"
 #import "SBAbstractViewController.h"
+#import "SBWorkoutPresenter.h"
+#import "SBWorkoutView.h"
 
-@interface SBWorkoutViewController : SBAbstractViewController <UITableViewDataSource, UITableViewDelegate, SBExerciseViewControllerDelegate>
+@interface SBWorkoutViewController : SBAbstractViewController <UITableViewDataSource, UITableViewDelegate, SBExerciseViewControllerDelegate, SBWorkoutView>
 
-@property (nonatomic, strong) SBWorkout *workout;
-@property (nonatomic, strong) SBWorkoutsInteractor *workoutInteractor;
-@property (nonatomic, strong) SBExerciseInteractor *exerciseInteractor;
+@property (nonatomic, strong) NSDictionary *workout;
+@property (nonatomic, strong) SBWorkoutPresenter *workoutPresenter;
 
 @end

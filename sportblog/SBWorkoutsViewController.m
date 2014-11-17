@@ -10,6 +10,7 @@
 #import "SBHelperView.h"
 #import "SBAddEntryViewModel.h"
 #import "SBAddEntryTableViewCell.h"
+#import "SBWorkoutInteractor.h"
 
 @interface SBWorkoutsViewController ()
 @end
@@ -74,7 +75,17 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
 
 - (void)displayWorkoutDetails:(NSDictionary *)workout {
     SBWorkoutViewController* workoutViewController = [[SBWorkoutViewController alloc] initWithNibName:@"SBWorkoutViewController" bundle:nil];
+    
+    SBWorkoutPresenter *workoutPresenter = [SBWorkoutPresenter new];
+    SBWorkoutInteractor *workoutInteractor = [SBWorkoutInteractor new];
+    
+    workoutViewController.workoutPresenter = workoutPresenter;
+    workoutPresenter.view = workoutViewController;
+    workoutPresenter.workoutInteractor = workoutInteractor;
+    workoutInteractor.output = workoutPresenter;
+    
     workoutViewController.workout = workout;
+    
     [self.navigationController pushViewController:workoutViewController animated:YES];
 }
 

@@ -55,15 +55,13 @@
     
     SBWorkoutsViewController *workoutsViewController = [[SBWorkoutsViewController alloc] initWithNibName:@"SBWorkoutsViewController" bundle:nil];
     SBWorkoutInteractor *workoutInteractor = [SBWorkoutInteractor new];
-    SBWorkoutPresenter *workoutPresenter = [SBWorkoutPresenter new];
+    SBWorkoutListPresenter *workoutPresenter = [SBWorkoutListPresenter new];
 
     workoutsViewController.workoutPresenter = workoutPresenter;
     workoutPresenter.view = workoutsViewController;
     workoutPresenter.workoutInteractor = workoutInteractor;
     workoutInteractor.output = workoutPresenter;
     
-    workoutsViewController.workoutPresenter = workoutPresenter;
-
     self.workoutNavigationController = [[UINavigationController alloc] initWithRootViewController:workoutsViewController];
     self.workoutNavigationController.navigationBar.shadowImage = [UIImage new];
     self.workoutNavigationController.navigationBar.barTintColor = [UIColor navigationBarColor];
