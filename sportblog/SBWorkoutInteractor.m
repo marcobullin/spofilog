@@ -1,39 +1,48 @@
 #import "SBWorkoutInteractor.h"
 #import "SBWorkoutDataSource.h"
-#import "SBWorkout.h"
 
 @implementation SBWorkoutInteractor
 
-- (void)findAllWorkoutsOrderedByDate {
-    RLMResults *workouts = [[SBWorkoutDataSource new] allWorkoutsOrderedByDate];
+- (void)findExercisesFromWorkout:(NSDictionary *)workout {
+    SBWorkoutDataSource *dataSource = [SBWorkoutDataSource new];
+    RLMArray *exercises = [dataSource allExercisesForWorkoutId:workout[@"workoutId"]];
     
-    NSMutableArray *workoutsArray = [NSMutableArray new];
-    for (SBWorkout *workout in workouts) {
+    NSMutableArray *exercisesArray = [NSMutableArray new];
+    for (SBExerciseSet *exercise in exercises) {
         NSMutableDictionary *dict = [NSMutableDictionary new];
-        [dict setObject:[NSString stringWithFormat:@"%d", workout.workoutId] forKey:@"workoutId"];
-        [dict setObject:workout.name forKey:@"name"];
-        [dict setObject:workout.date forKey:@"date"];
+        [dict setObject:exercise.exerciseId forKey:@"exerciseId"];
+        [dict setObject:exercise.name forKey:@"name"];
+        [dict setObject:exercise.sets forKey:@"sets"];
+        [dict setObject:exercise.frontImages forKey:@"frontImages"];
+        [dict setObject:exercise.backImages forKey:@"backImages"];
         
-        [workoutsArray addObject:dict];
+        [exercisesArray addObject:dict];
     }
     
-    [self.output foundWorkouts:workoutsArray];
+    [self.output foundExercises:exercisesArray];
 }
 
-- (void)createWorkout {
+- (void)removeExercise:(NSDictionary *)exercise fromWorkout:(NSDictionary *)workout atIndex:(int)index {
     SBWorkoutDataSource *dataSource = [SBWorkoutDataSource new];
-    SBWorkout *createdWorkout = [dataSource createWorkoutWithName:NSLocalizedString(@"Workout", nil) andDate:[NSDate date]];
+    [dataSource removeExerciseSetWithId:exercise[@"exerciseId"] fromWorkoutWithId:workout[@"workoutId"]];
     
-    NSDictionary *dict = [NSDictionary dictionaryWithObjects:@[createdWorkout.name, createdWorkout.date, createdWorkout.exercises] forKeys:@[@"name", @"date", @"exercises"]];
-    
-    [self.output workoutCreated:dict];
+    [self.output exerciseDeletedAtIndex:index];
 }
 
-- (void)removeWorkoutWithId:(NSString *)workoutId atIndexPath:(NSIndexPath *)indexPath {
+- (void)updateWorkout:(NSDictionary *)workout withName:(NSString *)workoutName andDate:(NSDate *)workoutDate {
     SBWorkoutDataSource *dataSource = [SBWorkoutDataSource new];
-    [dataSource deleteWorkoutWithId:[workoutId intValue]];
+    [dataSource updateWorkoutWithId:workout[@"workoutId"] withName:workoutName andDate:workoutDate];
     
-    [self.output workoutDeletedAtIndexPath:indexPath];
+    [self.output updatedWorkoutWithName:workoutName andDate:workoutDate];
 }
+
+- (void)addExercise:(NSDictionary *)exercise toWorkoutWithId:(NSString *)workoutId {
+    SBWorkoutDataSource *dataSource = [SBWorkoutDataSource new];
+    [dataSource addExercise:exercise toWorkoutWithId:workoutId];
+    
+    [self.output addedExercise:exercise];
+}
+
+
 
 @end

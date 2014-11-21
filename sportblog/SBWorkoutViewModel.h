@@ -3,7 +3,7 @@
 
 @interface SBWorkoutViewModel : NSObject
 
-- (instancetype)initWithWorkout:(SBWorkout *)workout;
+- (instancetype)initWithWorkout:(NSDictionary *)workout;
 
 @property (nonatomic, readonly) NSString *nameText;
 @property (nonatomic, readonly) NSString *dateText;

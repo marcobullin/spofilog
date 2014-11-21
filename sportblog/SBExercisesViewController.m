@@ -308,7 +308,14 @@ int position = -1;
     if (currentSelectedExercises != -1) {
         SBExercise *exercise = [self.exercises objectAtIndex:currentSelectedExercises];
     
-        [self.delegate addExercisesViewController:self didSelectExercise:exercise];
+        // REMOVE ME LATER
+        NSMutableDictionary *tmp = [NSMutableDictionary new];
+        [tmp setValue:[NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]*1000] forKey:@"exerciseId"];
+        [tmp setValue:exercise.name forKey:@"name"];
+        [tmp setValue:exercise.frontImages forKey:@"frontImages"];
+        [tmp setValue:exercise.backImages forKey:@"backImages"];
+        
+        [self.delegate addExercisesViewController:self didSelectExercise:tmp];
     }
 
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];

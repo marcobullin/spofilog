@@ -10,18 +10,18 @@
 
 @implementation SBExerciseSetViewModel
 
-- (instancetype)initWithExercise:(SBExerciseSet *)exercise {
+- (instancetype)initWithExercise:(NSDictionary *)exercise {
     self = [super init];
     
     if (self) {
-        _nameText = exercise.name;
+        _nameText = exercise[@"name"];
         _nameTextColor = [UIColor headlineColor];
         
-        _setsText = [NSString stringWithFormat:NSLocalizedString(@"%d Sets", nil), [exercise.sets count]];
+        _setsText = [NSString stringWithFormat:NSLocalizedString(@"%d Sets", nil), [exercise[@"sets"] count]];
         _setsTextColor = [UIColor textColor];
         
-        _frontImages = exercise.frontImages;
-        _backImages = exercise.backImages;
+        _frontImages = exercise[@"frontImages"];
+        _backImages = exercise[@"backImages"];
     }
     
     return self;

@@ -62,7 +62,7 @@
 		80C2E1D21A06A3D6008E0D21 /* SBExerciseDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C2E1D01A06A3D6008E0D21 /* SBExerciseDetailCell.m */; };
 		80C2E1D31A06A3D6008E0D21 /* SBExerciseDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80C2E1D11A06A3D6008E0D21 /* SBExerciseDetailCell.xib */; };
 		80C6AE7A1A18ADB600FF2A2F /* SBWorkoutDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C6AE791A18ADB600FF2A2F /* SBWorkoutDataSource.m */; };
-		80C6AE7E1A18AEB100FF2A2F /* SBWorkoutInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C6AE7D1A18AEB100FF2A2F /* SBWorkoutInteractor.m */; };
+		80C6AE7E1A18AEB100FF2A2F /* SBWorkoutListInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C6AE7D1A18AEB100FF2A2F /* SBWorkoutListInteractor.m */; };
 		80C6AE821A18AFBE00FF2A2F /* SBWorkoutListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C6AE811A18AFBE00FF2A2F /* SBWorkoutListPresenter.m */; };
 		80FC79581A02C038000172B0 /* front_biceps.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC794F1A02C038000172B0 /* front_biceps.png */; };
 		80FC795A1A02C038000172B0 /* front_legs.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79511A02C038000172B0 /* front_legs.png */; };
@@ -143,6 +143,7 @@
 		B3AED27419E3E31E0006A4A9 /* appIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED27119E3E31E0006A4A9 /* appIcon@2x.png */; };
 		B3AED27519E3E31E0006A4A9 /* appIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED27219E3E31E0006A4A9 /* appIcon@3x.png */; };
 		B3C2D90D1A1A4FB7007358B3 /* SBWorkoutPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C2D90C1A1A4FB7007358B3 /* SBWorkoutPresenter.m */; };
+		B3C2D9121A1B90A7007358B3 /* SBWorkoutInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C2D9111A1B90A7007358B3 /* SBWorkoutInteractor.m */; };
 		B3E5307019EBEE5600C2A17F /* addButton.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E5306D19EBEE5600C2A17F /* addButton.png */; };
 		B3E5307119EBEE5600C2A17F /* addButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E5306E19EBEE5600C2A17F /* addButton@2x.png */; };
 		B3E5307219EBEE5600C2A17F /* addButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E5306F19EBEE5600C2A17F /* addButton@3x.png */; };
@@ -232,11 +233,11 @@
 		80C2E1D11A06A3D6008E0D21 /* SBExerciseDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBExerciseDetailCell.xib; sourceTree = "<group>"; };
 		80C6AE781A18ADB600FF2A2F /* SBWorkoutDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutDataSource.h; sourceTree = "<group>"; };
 		80C6AE791A18ADB600FF2A2F /* SBWorkoutDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutDataSource.m; sourceTree = "<group>"; };
-		80C6AE7C1A18AEB100FF2A2F /* SBWorkoutInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutInteractor.h; sourceTree = "<group>"; };
-		80C6AE7D1A18AEB100FF2A2F /* SBWorkoutInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutInteractor.m; sourceTree = "<group>"; };
+		80C6AE7C1A18AEB100FF2A2F /* SBWorkoutListInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutListInteractor.h; sourceTree = "<group>"; };
+		80C6AE7D1A18AEB100FF2A2F /* SBWorkoutListInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutListInteractor.m; sourceTree = "<group>"; };
 		80C6AE801A18AFBE00FF2A2F /* SBWorkoutListPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutListPresenter.h; sourceTree = "<group>"; };
 		80C6AE811A18AFBE00FF2A2F /* SBWorkoutListPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutListPresenter.m; sourceTree = "<group>"; };
-		80C6AE831A1908B300FF2A2F /* SBWorkoutInteractorIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutInteractorIO.h; sourceTree = "<group>"; };
+		80C6AE831A1908B300FF2A2F /* SBWorkoutListInteractorIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutListInteractorIO.h; sourceTree = "<group>"; };
 		80C6AE861A190C1000FF2A2F /* SBWorkoutsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutsView.h; sourceTree = "<group>"; };
 		80FC794F1A02C038000172B0 /* front_biceps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_biceps.png; sourceTree = "<group>"; };
 		80FC79511A02C038000172B0 /* front_legs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_legs.png; sourceTree = "<group>"; };
@@ -276,6 +277,7 @@
 		B35A21D919DBEFF600BCECAB /* SBStatisticCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBStatisticCell.xib; sourceTree = "<group>"; };
 		B35A21DB19DBF00A00BCECAB /* SBStatisticCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBStatisticCell.m; sourceTree = "<group>"; };
 		B35A21DD19DBF01B00BCECAB /* SBStatisticCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBStatisticCell.h; sourceTree = "<group>"; };
+		B36B6CD81A1F300700D88B7F /* SBWorkoutInteractorIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutInteractorIO.h; sourceTree = "<group>"; };
 		B3752EFE19D185970091E207 /* SBSmallTopBottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBSmallTopBottomCell.xib; sourceTree = "<group>"; };
 		B3752F0019D1863E0091E207 /* SBSmallTopBottomCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBSmallTopBottomCell.h; sourceTree = "<group>"; };
 		B3752F0519D187C70091E207 /* SBSmallTopBottomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSmallTopBottomCell.m; sourceTree = "<group>"; };
@@ -341,6 +343,8 @@
 		B3C2D90B1A1A4FB7007358B3 /* SBWorkoutPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutPresenter.h; sourceTree = "<group>"; };
 		B3C2D90C1A1A4FB7007358B3 /* SBWorkoutPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutPresenter.m; sourceTree = "<group>"; };
 		B3C2D90E1A1A519E007358B3 /* SBWorkoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutView.h; sourceTree = "<group>"; };
+		B3C2D9101A1B90A7007358B3 /* SBWorkoutInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutInteractor.h; sourceTree = "<group>"; };
+		B3C2D9111A1B90A7007358B3 /* SBWorkoutInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutInteractor.m; sourceTree = "<group>"; };
 		B3E5306D19EBEE5600C2A17F /* addButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addButton.png; sourceTree = "<group>"; };
 		B3E5306E19EBEE5600C2A17F /* addButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addButton@2x.png"; sourceTree = "<group>"; };
 		B3E5306F19EBEE5600C2A17F /* addButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addButton@3x.png"; sourceTree = "<group>"; };
@@ -391,8 +395,8 @@
 				80C6AE7B1A18AE8800FF2A2F /* Interactors */,
 				80C6AE771A18ACD300FF2A2F /* DataStores */,
 				801A841819EA7A4C002CFCBC /* SBWorkoutsViewController.m */,
-				8086D44019BCBF16004ADBB6 /* SBWorkoutsViewController.h */,
 				B3752F1E19DAA6720091E207 /* SBWorkoutsViewController.xib */,
+				8086D44019BCBF16004ADBB6 /* SBWorkoutsViewController.h */,
 				80C6AE861A190C1000FF2A2F /* SBWorkoutsView.h */,
 			);
 			name = WorkoutList;
@@ -402,6 +406,7 @@
 			isa = PBXGroup;
 			children = (
 				B3C2D90A1A1A4F9D007358B3 /* Presenters */,
+				B3C2D90F1A1B9084007358B3 /* Interactors */,
 				B33E28C31A07AF9300089916 /* Cells */,
 				805DE22B19BF8E6500472322 /* SBWorkoutViewController.m */,
 				805DE22A19BF8E6500472322 /* SBWorkoutViewController.h */,
@@ -620,9 +625,9 @@
 		80C6AE7B1A18AE8800FF2A2F /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
-				80C6AE7C1A18AEB100FF2A2F /* SBWorkoutInteractor.h */,
-				80C6AE7D1A18AEB100FF2A2F /* SBWorkoutInteractor.m */,
-				80C6AE831A1908B300FF2A2F /* SBWorkoutInteractorIO.h */,
+				80C6AE7C1A18AEB100FF2A2F /* SBWorkoutListInteractor.h */,
+				80C6AE7D1A18AEB100FF2A2F /* SBWorkoutListInteractor.m */,
+				80C6AE831A1908B300FF2A2F /* SBWorkoutListInteractorIO.h */,
 			);
 			name = Interactors;
 			sourceTree = "<group>";
@@ -800,6 +805,16 @@
 				B3C2D90C1A1A4FB7007358B3 /* SBWorkoutPresenter.m */,
 			);
 			name = Presenters;
+			sourceTree = "<group>";
+		};
+		B3C2D90F1A1B9084007358B3 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				B3C2D9101A1B90A7007358B3 /* SBWorkoutInteractor.h */,
+				B3C2D9111A1B90A7007358B3 /* SBWorkoutInteractor.m */,
+				B36B6CD81A1F300700D88B7F /* SBWorkoutInteractorIO.h */,
+			);
+			name = Interactors;
 			sourceTree = "<group>";
 		};
 		B3E5306C19EBD2B900C2A17F /* Cells */ = {
@@ -1097,9 +1112,10 @@
 				805DE24019BF93DC00472322 /* SBExerciseTableViewCell.m in Sources */,
 				805DE23319BF937F00472322 /* SBBigTopBottomCell.m in Sources */,
 				801A841919EA7A4C002CFCBC /* SBWorkoutsViewController.m in Sources */,
-				80C6AE7E1A18AEB100FF2A2F /* SBWorkoutInteractor.m in Sources */,
+				80C6AE7E1A18AEB100FF2A2F /* SBWorkoutListInteractor.m in Sources */,
 				80FC797E1A0534F9000172B0 /* SBIconCell.m in Sources */,
 				80FC79791A0532CE000172B0 /* SBIconListViewController.m in Sources */,
+				B3C2D9121A1B90A7007358B3 /* SBWorkoutInteractor.m in Sources */,
 				80C2E1D21A06A3D6008E0D21 /* SBExerciseDetailCell.m in Sources */,
 				80C6AE821A18AFBE00FF2A2F /* SBWorkoutListPresenter.m in Sources */,
 				B3AED24919E297310006A4A9 /* SBAddEntryViewModel.m in Sources */,

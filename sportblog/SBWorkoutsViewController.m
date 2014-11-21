@@ -10,6 +10,7 @@
 #import "SBHelperView.h"
 #import "SBAddEntryViewModel.h"
 #import "SBAddEntryTableViewCell.h"
+#import "SBWorkoutListInteractor.h"
 #import "SBWorkoutInteractor.h"
 
 @interface SBWorkoutsViewController ()
@@ -58,7 +59,7 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
                                                     andRenderOnView:self.parentViewController.view];
     
     helperView.frame = self.view.frame;
-    
+
     [self.tableView reloadData];
 }
 
@@ -70,7 +71,12 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
 #pragma mark - actions
 
 - (void)displayWorkouts:(NSArray *)workouts {
-    self.workouts = workouts;
+    self.workouts = [NSMutableArray arrayWithArray:workouts];
+}
+
+- (void)displayCreatedWorkout:(NSDictionary *)workout {
+    [self.workouts addObject:workout];
+    [self displayWorkoutDetails:workout];
 }
 
 - (void)displayWorkoutDetails:(NSDictionary *)workout {
@@ -89,7 +95,11 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
     [self.navigationController pushViewController:workoutViewController animated:YES];
 }
 
-- (void)removeWorkoutAtIndexPath:(NSIndexPath *)indexPath {
+- (void)removeWorkoutAtIndex:(int)index {
+    [self.workouts removeObjectAtIndex:index];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index+1 inSection:0];
+    
     [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
     
     if ([self.workouts count] == 0) {
@@ -111,9 +121,7 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
     }
     
     int index = (int)indexPath.row - 1;
-    NSDictionary *workout = [self.workouts objectAtIndex:index];
-    
-    [self displayWorkoutDetails:workout];
+    [self displayWorkoutDetails:[self.workouts objectAtIndex:index]];
 }
 
 
@@ -144,9 +152,7 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
         cell = [nib objectAtIndex:0];
     }
     
-    SBWorkout *workout = [self.workouts objectAtIndex:index];
-    
-    SBWorkoutViewModel *vm = [[SBWorkoutViewModel alloc] initWithWorkout:workout];
+    SBWorkoutViewModel *vm = [[SBWorkoutViewModel alloc] initWithWorkout:[self.workouts objectAtIndex:index]];
     [cell render:vm];
     
     return cell;
@@ -165,11 +171,9 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         int index = (int)indexPath.row - 1;
-        NSDictionary *workout = [self.workouts objectAtIndex:index];
-        [self.workoutPresenter removeWorkout:workout atIndexPath:indexPath];
+        [self.workoutPresenter deleteWorkout:[self.workouts objectAtIndex:index] atIndex:index];
     }
 }
 

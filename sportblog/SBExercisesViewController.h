@@ -6,7 +6,7 @@
 @class SBExercisesViewController;
 
 @protocol SBExerciseViewControllerDelegate <NSObject>
-- (void)addExercisesViewController:(SBExercisesViewController *)controller didSelectExercise:(SBExercise *) exercise;
+- (void)addExercisesViewController:(SBExercisesViewController *)controller didSelectExercise:(NSDictionary *) exercise;
 @end
 
 @interface SBExercisesViewController : SBAbstractViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>

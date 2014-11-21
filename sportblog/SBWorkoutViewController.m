@@ -39,6 +39,7 @@ UITextField *textfield;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.workoutPresenter findExercisesFromWorkout:self.workout];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -65,6 +66,56 @@ UITextField *textfield;
     [self.tableView setEditing:NO];
 }
 
+#pragma mark - actions
+
+- (void)displayExercises:(NSArray *)exercises {
+    self.exercises = [NSMutableArray arrayWithArray:exercises];
+}
+
+- (void)displayAddedExercise:(NSDictionary *)exercise {
+    [self.exercises addObject:exercise];
+    
+    NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[self.exercises count]+1 inSection:0];
+    
+    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
+    
+    [self.tableView scrollToRowAtIndexPath:newIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    
+    if ([self.exercises count] == 1) {
+        [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    }
+}
+
+- (void)deleteExerciseAtIndex:(int)index {
+    [self.exercises removeObjectAtIndex:index];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index+2 inSection:0];
+    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
+    
+    if ([self.exercises count] == 0) {
+        [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    }
+}
+
+- (void)displayWorkoutWithName:(NSString *)name andDate:(NSDate *)date {
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    
+    SBBigTopBottomCell *workoutCell = (SBBigTopBottomCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    
+    self.workout[@"name"] = name;
+    self.workout[@"date"] = date;
+    
+    SBWorkoutViewModel *workoutViewModel = [[SBWorkoutViewModel alloc] initWithWorkout:self.workout];
+    [workoutCell render:workoutViewModel];
+    
+    [UIView animateWithDuration:.5 animations:^{
+        changeView.frame = CGRectMake(0, self.tableView.frame.size.height, self.tableView.frame.size.width, 340);
+    } completion:^(BOOL finished) {
+        [overlayView removeFromSuperview];
+        [changeView removeFromSuperview];
+    }];
+}
+
 #pragma mark - UITableViewDataSource
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -80,17 +131,8 @@ UITextField *textfield;
         // standard -2 because of (workout and add exercise cell)
         int index = (int)indexPath.row - 2;
         
-        NSArray *exercises = self.workout[@"exercises"];
-        NSDictionary *exercise = [exercises objectAtIndex:index];
-        
-        [self.workoutPresenter removeExerciseWithId:exercise[@"exerciseId"]];
-//        [self.workoutInteractor removeExerciseAtRow:index fromWorkout:self.workout];
-        
-        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
-        
-        if ([self.workout[@"exercises"] count] == 0) {
-            [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
-        }
+        NSDictionary *exercise = [self.exercises objectAtIndex:index];
+        [self.workoutPresenter removeExercise:exercise fromWorkout:self.workout atIndex:index];
     }
 }
 
@@ -99,8 +141,7 @@ UITextField *textfield;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    int count = (int)[self.workout[@"exercises"] count] + 2;
-    
+    int count = (int)[self.exercises count] + 2;
     return count;
 }
 
@@ -135,7 +176,7 @@ UITextField *textfield;
             addExerciseCell = [nib objectAtIndex:0];
         }
         
-        SBAddEntryViewModel *addEntryViewModel = [[SBAddEntryViewModel alloc] initWithExercises:self.workout[@"exercises"]];
+        SBAddEntryViewModel *addEntryViewModel = [[SBAddEntryViewModel alloc] initWithExercises:self.exercises];
         
         [addExerciseCell render:addEntryViewModel];
         
@@ -155,9 +196,7 @@ UITextField *textfield;
     // standard -2 because of (workout and add exercise cell)
     int index = (int)indexPath.row - 2;
     
-    SBExerciseSet *exercise = [self.workout[@"exercises"] objectAtIndex:index];
-    
-    SBExerciseSetViewModel *exerciseSetViewModel = [[SBExerciseSetViewModel alloc] initWithExercise:exercise];
+    SBExerciseSetViewModel *exerciseSetViewModel = [[SBExerciseSetViewModel alloc] initWithExercise:[self.exercises objectAtIndex:index]];
     
     [exerciseCell renderWithExerciseSetVM:exerciseSetViewModel];
     
@@ -202,7 +241,7 @@ UITextField *textfield;
     // standard -2 because of (workout and add exercise cell)
     int index = (int)indexPath.row - 2;
     
-    SBExerciseSet *exercise = [self.workout[@"exercises"] objectAtIndex:index];
+    SBExerciseSet *exercise = [self.exercises objectAtIndex:index];
     setViewController.exercise = exercise;
     
     [self.navigationController pushViewController:setViewController animated:YES];
@@ -210,7 +249,7 @@ UITextField *textfield;
 
 #pragma mark - SBExerciseViewControllerDelegate
 
-- (void)addExercisesViewController:(SBExercisesViewController *)controller didSelectExercise:(SBExercise *) exercise {
+- (void)addExercisesViewController:(SBExercisesViewController *)controller didSelectExercise:(NSDictionary *) exercise {
     
     SBHelperView *helperView = [[SBHelperView alloc] initWithMessage:NSLocalizedString(@"Touch to add or edit sets", nil)
                                                              onPoint:CGPointMake(20, 240)
@@ -219,17 +258,7 @@ UITextField *textfield;
     
     helperView.frame = self.view.frame;
     
-    [self.workoutPresenter addExercise:exercise toWorkoutWithId:self.workout[@"workoutId"]];
-//    [self.exerciseInteractor createExerciseSetFromWorkout:self.workout andExercise:exercise];
-        
-    NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[self.workout[@"exercises"] count]+1 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
-
-    [self.tableView scrollToRowAtIndexPath:newIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
-    
-    if ([self.workout[@"exercises"] count] == 1) {
-        [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
-    }
+    [self.workoutPresenter addExercise:exercise toWorkout:self.workout];
 }
 
 #pragma mark - actions
@@ -321,28 +350,7 @@ UITextField *textfield;
 }
 
 - (void)updateWorkoutNameAndDate:(id)sender {
-    NSDate *date = picker.date;
-    NSString *workoutName = textfield.text;
-
-    if ([workoutName isEqualToString:@""]) {
-        workoutName = NSLocalizedString(@"Workout", nil);
-    }
-    
-    [self.workoutPresenter updateWorkoutWithId:self.workout[@"workoutId"] withName:workoutName andDate:date];
-//    [self.workoutInteractor updateWorkout:self.workout withName:workoutName andDate:date];
-
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    
-    SBBigTopBottomCell *workoutCell = (SBBigTopBottomCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-    SBWorkoutViewModel *workoutViewModel = [[SBWorkoutViewModel alloc] initWithWorkout:self.workout];
-    [workoutCell render:workoutViewModel];
-    
-    [UIView animateWithDuration:.5 animations:^{
-        changeView.frame = CGRectMake(0, self.tableView.frame.size.height, self.tableView.frame.size.width, 340);
-    } completion:^(BOOL finished) {
-        [overlayView removeFromSuperview];
-        [changeView removeFromSuperview];
-    }];
+    [self.workoutPresenter updateWorkout:self.workout withName:textfield.text andDate:picker.date];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

@@ -1,6 +1,7 @@
 #import "SBSet.h"
 
 @interface SBExerciseSet : RLMObject
+@property NSString *exerciseId;
 @property NSString *name;
 @property NSDate *date;
 @property RLMArray<SBSet> *sets;

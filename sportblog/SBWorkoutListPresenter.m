@@ -3,7 +3,7 @@
 @implementation SBWorkoutListPresenter
 
 - (void)findWorkouts {
-    [self.workoutInteractor findAllWorkoutsOrderedByDate];
+    [self.workoutListInteractor findAllWorkoutsOrderedByDate];
 }
 
 - (void)foundWorkouts:(NSArray *)workouts {
@@ -14,7 +14,7 @@
     NSDateFormatter *dateFormatter2 = [[NSDateFormatter alloc] init];
     [dateFormatter2 setDateFormat:@"EEEE"];
     
-    NSMutableArray *displayData = [NSMutableArray new];
+    NSMutableArray *allWorkouts = [NSMutableArray new];
     for (NSDictionary *workout in workouts) {
         NSDate *date = [workout objectForKey:@"date"];
         NSString *day = [dateFormatter2 stringFromDate:date];
@@ -23,29 +23,47 @@
         NSString *displayName = [workout objectForKey:@"name"];
         
         NSMutableDictionary *dict = [NSMutableDictionary new];
+        [dict setObject:workout[@"workoutId"] forKey:@"workoutId"];
         [dict setObject:displayName forKey:@"name"];
         [dict setObject:displayDate forKey:@"date"];
         
-        [displayData addObject:dict];
+        [allWorkouts addObject:dict];
     }
     
-    [self.view displayWorkouts:displayData];
+    [self.view displayWorkouts:allWorkouts];
 }
 
 - (void)createWorkout {
-    [self.workoutInteractor createWorkout];
+    [self.workoutListInteractor createWorkout];
 }
 
 - (void)workoutCreated:(NSDictionary *)workout {
-    [self.view displayWorkoutDetails:workout];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    
+    NSDateFormatter *dateFormatter2 = [[NSDateFormatter alloc] init];
+    [dateFormatter2 setDateFormat:@"EEEE"];
+    
+    NSDate *date = [workout objectForKey:@"date"];
+    NSString *day = [dateFormatter2 stringFromDate:date];
+    
+    NSString *displayDate = [NSString stringWithFormat:@"%@ - %@", day, [dateFormatter stringFromDate:date]];
+
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setObject:workout[@"workoutId"] forKey:@"workoutId"];
+    [dict setObject:workout[@"name"] forKey:@"name"];
+    [dict setObject:displayDate forKey:@"date"];
+    
+    [self.view displayCreatedWorkout:dict];
 }
 
-- (void)removeWorkout:(NSDictionary *)workout atIndexPath:(NSIndexPath *)indexPath {
-    [self.workoutInteractor removeWorkoutWithId:[workout objectForKey:@"workoutId"] atIndexPath:indexPath];
+- (void)deleteWorkout:(NSDictionary *)workout atIndex:(int)index {
+    [self.workoutListInteractor deleteWorkout:workout atIndex:index];
 }
 
-- (void)workoutDeletedAtIndexPath:(NSIndexPath *)indexPath {
-    [self.view removeWorkoutAtIndexPath:indexPath];
+- (void)workoutDeletedAtIndex:(int)index {
+    [self.view removeWorkoutAtIndex:index];
 }
 
 @end

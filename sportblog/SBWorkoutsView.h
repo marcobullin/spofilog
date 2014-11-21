@@ -2,8 +2,9 @@
 
 @protocol SBWorkoutsView <NSObject>
 
+- (void)displayCreatedWorkout:(NSDictionary *)workout;
 - (void)displayWorkouts:(NSArray *)workouts;
 - (void)displayWorkoutDetails:(NSDictionary *)workout;
-- (void)removeWorkoutAtIndexPath:(NSIndexPath *)indexPath;
+- (void)removeWorkoutAtIndex:(int)index;
 
 @end

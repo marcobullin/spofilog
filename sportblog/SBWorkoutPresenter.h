@@ -7,8 +7,9 @@
 @property(nonatomic, strong) id<SBWorkoutInteractorInput> workoutInteractor;
 @property(nonatomic, strong) id<SBWorkoutView> view;
 
-- (void)removeExerciseWithId:(NSString *)exerciseId;
-- (void)addExercise:(NSDictionary *)exercise toWorkoutWithId:(NSString *)workoutId;
-- (void)updateWorkoutWithId:(NSString *)workoutId withName:(NSString *)workoutName andDate:(NSDate *)workoutDate;
+- (void)findExercisesFromWorkout:(NSDictionary *)workout;
+- (void)addExercise:(NSDictionary *)exercise toWorkout:(NSDictionary *)workout;
+- (void)removeExercise:(NSDictionary *)exercise fromWorkout:(NSDictionary *)workout atIndex:(int)index;
+- (void)updateWorkout:(NSDictionary *)workout withName:(NSString *)name andDate:(NSDate *)date;
 
 @end

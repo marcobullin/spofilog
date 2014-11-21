@@ -11,7 +11,7 @@
 
 @interface SBAddEntryViewModel : NSObject
 
-- (instancetype)initWithExercises:(RLMArray *)exercises;
+- (instancetype)initWithExercises:(NSArray *)exercises;
 - (instancetype)initWithWorkouts:(NSArray *)workouts;
 
 @property (nonatomic, readonly) NSString *text;

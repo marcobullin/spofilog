@@ -11,17 +11,17 @@
 #import "SBWorkoutsViewController.h"
 #import "SBSettingsViewController.h"
 #import "UIColor+SBColor.h"
-#import "SBWorkoutInteractor.h"
+#import "SBWorkoutListInteractor.h"
 #import "GAI.h"
-#import "SBWorkoutInteractor.h"
+#import "SBWorkoutListInteractor.h"
 
 @implementation SBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [RLMRealm setSchemaVersion:10 withMigrationBlock:^(RLMMigration *migration, NSUInteger oldSchemaVersion) {
+    [RLMRealm setSchemaVersion:13 withMigrationBlock:^(RLMMigration *migration, NSUInteger oldSchemaVersion) {
         // We haven’t migrated anything yet, so oldSchemaVersion == 0
-        if (oldSchemaVersion < 10) {
+        if (oldSchemaVersion < 13) {
             // Nothing to do!
             // Realm will automatically detect new properties and removed properties
             // And will update the schema on disk automatically
@@ -54,12 +54,12 @@
     
     
     SBWorkoutsViewController *workoutsViewController = [[SBWorkoutsViewController alloc] initWithNibName:@"SBWorkoutsViewController" bundle:nil];
-    SBWorkoutInteractor *workoutInteractor = [SBWorkoutInteractor new];
+    SBWorkoutListInteractor *workoutInteractor = [SBWorkoutListInteractor new];
     SBWorkoutListPresenter *workoutPresenter = [SBWorkoutListPresenter new];
 
     workoutsViewController.workoutPresenter = workoutPresenter;
     workoutPresenter.view = workoutsViewController;
-    workoutPresenter.workoutInteractor = workoutInteractor;
+    workoutPresenter.workoutListInteractor = workoutInteractor;
     workoutInteractor.output = workoutPresenter;
     
     self.workoutNavigationController = [[UINavigationController alloc] initWithRootViewController:workoutsViewController];

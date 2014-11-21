@@ -10,7 +10,7 @@
 
 @implementation SBAddEntryViewModel
 
-- (instancetype)initWithExercises:(RLMArray *)exercises {
+- (instancetype)initWithExercises:(NSArray *)exercises {
     self = [super init];
     
     if (self) {
