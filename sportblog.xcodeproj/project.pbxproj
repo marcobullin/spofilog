@@ -95,6 +95,8 @@
 		B33E28C81A07D0B700089916 /* SBSetInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B33E28C71A07D0B600089916 /* SBSetInteractor.m */; };
 		B35A21DA19DBEFF600BCECAB /* SBStatisticCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B35A21D919DBEFF600BCECAB /* SBStatisticCell.xib */; };
 		B35A21DC19DBF00A00BCECAB /* SBStatisticCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B35A21DB19DBF00A00BCECAB /* SBStatisticCell.m */; };
+		B36B6CDD1A23327B00D88B7F /* SBExercisesPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B36B6CDC1A23327B00D88B7F /* SBExercisesPresenter.m */; };
+		B36B6CE01A23341400D88B7F /* SBExercisesInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B36B6CDF1A23341400D88B7F /* SBExercisesInteractor.m */; };
 		B3752EFF19D185970091E207 /* SBSmallTopBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3752EFE19D185970091E207 /* SBSmallTopBottomCell.xib */; };
 		B3752F0619D187C70091E207 /* SBSmallTopBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3752F0519D187C70091E207 /* SBSmallTopBottomCell.m */; };
 		B3752F0A19D18DCD0091E207 /* UIColor+SBColor.m in Sources */ = {isa = PBXBuildFile; fileRef = B3752F0919D18DCD0091E207 /* UIColor+SBColor.m */; };
@@ -278,6 +280,12 @@
 		B35A21DB19DBF00A00BCECAB /* SBStatisticCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBStatisticCell.m; sourceTree = "<group>"; };
 		B35A21DD19DBF01B00BCECAB /* SBStatisticCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBStatisticCell.h; sourceTree = "<group>"; };
 		B36B6CD81A1F300700D88B7F /* SBWorkoutInteractorIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutInteractorIO.h; sourceTree = "<group>"; };
+		B36B6CDB1A23327B00D88B7F /* SBExercisesPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExercisesPresenter.h; sourceTree = "<group>"; };
+		B36B6CDC1A23327B00D88B7F /* SBExercisesPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBExercisesPresenter.m; sourceTree = "<group>"; };
+		B36B6CDE1A23341400D88B7F /* SBExercisesInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExercisesInteractor.h; sourceTree = "<group>"; };
+		B36B6CDF1A23341400D88B7F /* SBExercisesInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBExercisesInteractor.m; sourceTree = "<group>"; };
+		B36B6CE11A23343100D88B7F /* SBExercisesInteractorIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExercisesInteractorIO.h; sourceTree = "<group>"; };
+		B36B6CE21A23352A00D88B7F /* SBExercisesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExercisesView.h; sourceTree = "<group>"; };
 		B3752EFE19D185970091E207 /* SBSmallTopBottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBSmallTopBottomCell.xib; sourceTree = "<group>"; };
 		B3752F0019D1863E0091E207 /* SBSmallTopBottomCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBSmallTopBottomCell.h; sourceTree = "<group>"; };
 		B3752F0519D187C70091E207 /* SBSmallTopBottomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSmallTopBottomCell.m; sourceTree = "<group>"; };
@@ -698,6 +706,25 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		B36B6CD91A23323900D88B7F /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				B36B6CDB1A23327B00D88B7F /* SBExercisesPresenter.h */,
+				B36B6CDC1A23327B00D88B7F /* SBExercisesPresenter.m */,
+			);
+			name = Presenters;
+			sourceTree = "<group>";
+		};
+		B36B6CDA1A23324200D88B7F /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				B36B6CDE1A23341400D88B7F /* SBExercisesInteractor.h */,
+				B36B6CDF1A23341400D88B7F /* SBExercisesInteractor.m */,
+				B36B6CE11A23343100D88B7F /* SBExercisesInteractorIO.h */,
+			);
+			name = Interactors;
+			sourceTree = "<group>";
+		};
 		B3752F1C19DA95B40091E207 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -723,10 +750,13 @@
 		B3AED24D19E2BD140006A4A9 /* Exercises */ = {
 			isa = PBXGroup;
 			children = (
+				B36B6CD91A23323900D88B7F /* Presenters */,
+				B36B6CDA1A23324200D88B7F /* Interactors */,
 				B33E28C51A07AFDA00089916 /* Cells */,
 				805DE22D19BF909300472322 /* SBExercisesViewController.h */,
 				805DE22E19BF909300472322 /* SBExercisesViewController.m */,
 				B3752F2419DAC6130091E207 /* SBExercisesViewController.xib */,
+				B36B6CE21A23352A00D88B7F /* SBExercisesView.h */,
 			);
 			name = Exercises;
 			sourceTree = "<group>";
@@ -1106,6 +1136,7 @@
 				805DE24519C4BE1900472322 /* SBExerciseSet.m in Sources */,
 				B3AED26819E2E26C0006A4A9 /* SBSettingsViewController.m in Sources */,
 				803978C519E6EF66000DEED5 /* SBStandardCell.m in Sources */,
+				B36B6CDD1A23327B00D88B7F /* SBExercisesPresenter.m in Sources */,
 				B3AC2EDF19CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.m in Sources */,
 				803978B919E6AAF7000DEED5 /* SBImprintViewController.m in Sources */,
 				B3752F0A19D18DCD0091E207 /* UIColor+SBColor.m in Sources */,
@@ -1121,6 +1152,7 @@
 				B3AED24919E297310006A4A9 /* SBAddEntryViewModel.m in Sources */,
 				805DE23B19BF93CB00472322 /* SBAddEntryTableViewCell.m in Sources */,
 				803978B519E68708000DEED5 /* SBHelperView.m in Sources */,
+				B36B6CE01A23341400D88B7F /* SBExercisesInteractor.m in Sources */,
 				B3C2D90D1A1A4FB7007358B3 /* SBWorkoutPresenter.m in Sources */,
 				B3752F1B19DA95920091E207 /* SBWorkouViewModel.m in Sources */,
 				B35A21DC19DBF00A00BCECAB /* SBStatisticCell.m in Sources */,

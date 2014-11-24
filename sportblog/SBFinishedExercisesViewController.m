@@ -52,6 +52,7 @@ static NSString * const DescriptionCellIdentifier = @"DescriptionCell";
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     if (!self.exercises) {
         self.exercises = [[NSMutableArray alloc] init];
     }

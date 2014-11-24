@@ -10,6 +10,7 @@
 #import "SBExerciseSetViewModel.h"
 #import "SBAddEntryViewModel.h"
 #import "SBHelperView.h"
+#import "SBExercisesInteractor.h"
 
 @interface SBWorkoutViewController ()
 @end
@@ -86,7 +87,7 @@ UITextField *textfield;
     }
 }
 
-- (void)deleteExerciseAtIndex:(int)index {
+- (void)deletedExerciseAtIndex:(int)index {
     [self.exercises removeObjectAtIndex:index];
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index+2 inSection:0];
@@ -222,6 +223,15 @@ UITextField *textfield;
     if (indexPath.row == 1) {
         SBExercisesViewController *exercisesViewController = [[SBExercisesViewController alloc] initWithNibName:@"SBExercisesViewController" bundle:nil];
         
+        
+        SBExercisesPresenter *exercisesPresenter = [SBExercisesPresenter new];
+        SBExercisesInteractor *exercisesInteractor = [SBExercisesInteractor new];
+        
+        exercisesViewController.presenter = exercisesPresenter;
+        exercisesPresenter.view = exercisesViewController;
+        exercisesPresenter.interactor = exercisesInteractor;
+        exercisesInteractor.output = exercisesPresenter;
+
         exercisesViewController.delegate = self;
         
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:exercisesViewController];

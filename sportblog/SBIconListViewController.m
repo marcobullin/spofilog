@@ -103,15 +103,11 @@ NSArray *currentSelectedImages;
     NSMutableArray *names = [NSMutableArray new];
     
     if (self.isFrontBody) {
-        if ([self.exercise.frontImages isEqual:@""]) {
-            names = [NSMutableArray new];
-        } else {
+        if (![self.exercise.frontImages isEqual:@""]) {
             names = [[NSMutableArray alloc] initWithArray:[self.exercise.frontImages componentsSeparatedByString:@","]];
         }
     } else {
-        if ([self.exercise.backImages isEqual:@""]) {
-            names = [NSMutableArray new];
-        } else {
+        if (![self.exercise.backImages isEqual:@""]) {
             names = [[NSMutableArray alloc] initWithArray:[self.exercise.backImages componentsSeparatedByString:@","]];
         }
     }

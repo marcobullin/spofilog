@@ -18,7 +18,7 @@
 @property (nonatomic, readonly) NSString *setsText;
 @property (nonatomic, readonly) UIColor *nameTextColor;
 @property (nonatomic, readonly) UIColor *setsTextColor;
-@property (nonatomic, readonly) NSString *frontImages;
-@property (nonatomic, readonly) NSString *backImages;
+@property (nonatomic, readonly) NSArray *frontImages;
+@property (nonatomic, readonly) NSArray *backImages;
 
 @end

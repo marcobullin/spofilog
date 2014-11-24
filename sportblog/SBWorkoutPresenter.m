@@ -23,7 +23,7 @@
 }
 
 - (void)exerciseDeletedAtIndex:(int)index {
-    [self.view deleteExerciseAtIndex:index];
+    [self.view deletedExerciseAtIndex:index];
 }
 
 - (void)updateWorkout:(NSDictionary *)workout withName:(NSString *)name andDate:(NSDate *)date {

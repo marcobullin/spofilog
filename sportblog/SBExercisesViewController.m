@@ -35,32 +35,65 @@ int position = -1;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.exerciseInteractor = [SBExerciseInteractor new];
-    
     currentSelectedExercises = -1;
     position = -1;
+
+    [self createOrIgnoreDefaultExercises];
+    [self.presenter findExercises];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     self.tableView.backgroundColor = [UIColor lightBackgroundColor];
     
-    [self createOrIgnoreDefaultExercises];
-    
-    self.exercises = [[SBExercise allObjects] sortedResultsUsingProperty:@"name" ascending:YES];
-    
     [self.view addSubview:self.tableView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
     [self.tableView reloadData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.tableView setEditing:NO];
+}
+
+#pragma mark - Actions
+
+- (void)displayExercises:(NSArray *)exercises {
+    self.exercises = [NSMutableArray arrayWithArray:exercises];
+}
+
+- (void)deletedExerciseAtIndex:(int)index {
+    [self.exercises removeObjectAtIndex:index];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index+1 inSection:0];
+    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
+}
+
+- (void)createdExercise:(NSDictionary *)exercise {
+    [self.presenter findExercises];
+    
+    currentSelectedExercises = -1;
+    
+    [self.tableView reloadData];
+    
+    [self scrollToExerciseWithName:exercise[@"name"]];
+}
+
+- (void)scrollToExerciseWithName:(NSString *)name {
+    position = 0;
+    for (NSDictionary *e in self.exercises) {
+        if ([e[@"name"] isEqualToString:name]) {
+            break;
+        }
+        position += 1;
+    }
+    
+    NSIndexPath *iP = [NSIndexPath indexPathForRow:position inSection:0];
+    
+    [self.tableView scrollToRowAtIndexPath:iP atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 #pragma mark - UITableViewDataSource
@@ -76,23 +109,19 @@ int position = -1;
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         int index = (int)indexPath.row - 1;
-        
-        SBExercise *exercise = [self.exercises objectAtIndex:index];
-        
-        [self.exerciseInteractor deleteExercise:exercise];
-        
+
         if (index == currentSelectedExercises) {
             currentSelectedExercises = -1;
         } else if (index < currentSelectedExercises) {
             currentSelectedExercises -= 1;
         }
-        
-        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
+
+        [self.presenter deletedExerciseAtIndex:index];
     }
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.exercises count]+1;
+    return [self.exercises count] + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -138,8 +167,8 @@ int position = -1;
         exerciseCell = [nib objectAtIndex:0];
     }
     
-    SBExercise *exercise = [self.exercises objectAtIndex:indexPath.row-1];
-    exerciseCell.exerciseLabel.text = exercise.name;
+    NSDictionary *exercise = [self.exercises objectAtIndex:indexPath.row-1];
+    exerciseCell.exerciseLabel.text = exercise[@"name"];
     exerciseCell.exerciseLabel.textColor = [UIColor headlineColor];
     exerciseCell.backgroundColor = [UIColor clearColor];
     exerciseCell.leftButton.tag = indexPath.row-1;
@@ -147,18 +176,8 @@ int position = -1;
     exerciseCell.rightButton.tag = indexPath.row-1;
     [exerciseCell.rightButton addTarget:self action:@selector(onChangeRightIcon:) forControlEvents:UIControlEventTouchUpInside];
     
-    NSArray *frontImageNames;
-    NSArray *backImageNames;
-    if (exercise.frontImages != nil && ![exercise.frontImages isEqualToString:@""]) {
-        frontImageNames = [exercise.frontImages componentsSeparatedByString: @","];
-    }
-    
-    if (exercise.backImages != nil && ![exercise.backImages isEqualToString:@""]) {
-        backImageNames = [exercise.backImages componentsSeparatedByString: @","];
-    }
-
-    if ([backImageNames count] > 0) {
-        for (NSString *imageName in backImageNames) {
+    if ([exercise[@"backImages"] count] > 0) {
+        for (NSString *imageName in exercise[@"backImages"]) {
             UIImage *image = [UIImage imageNamed:imageName];
             
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
@@ -174,8 +193,8 @@ int position = -1;
         [exerciseCell.rightButton addSubview:imageView];
     }
     
-    if ([frontImageNames count] > 0) {
-        for (NSString *imageName in frontImageNames) {
+    if ([exercise[@"frontImages"] count] > 0) {
+        for (NSString *imageName in exercise[@"frontImages"]) {
             UIImage *image = [UIImage imageNamed:imageName];
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
             [imageView setImage:image];
@@ -188,7 +207,6 @@ int position = -1;
         [imageView setImage:image];
         
         [exerciseCell.leftButton addSubview:imageView];
-        
     }
     
     if (currentSelectedExercises == (indexPath.row-1)) {
@@ -233,7 +251,7 @@ int position = -1;
 
 - (void)onChangeLeftIcon:(id)sender {
     UIButton *button = (UIButton *)sender;
-    SBExercise *exercise = [self.exercises objectAtIndex:button.tag];
+    NSDictionary *exercise = [self.exercises objectAtIndex:button.tag];
     
     SBIconListViewController *controller = [[SBIconListViewController alloc] initWithNibName:@"SBIconListViewController" bundle:nil];
     controller.exercise = exercise;
@@ -250,7 +268,7 @@ int position = -1;
 
 - (void)onChangeRightIcon:(id)sender {
     UIButton *button = (UIButton *)sender;
-    SBExercise *exercise = [self.exercises objectAtIndex:button.tag];
+    NSDictionary *exercise = [self.exercises objectAtIndex:button.tag];
     
     SBIconListViewController *controller = [[SBIconListViewController alloc] initWithNibName:@"SBIconListViewController" bundle:nil];
     controller.exercise = exercise;
@@ -270,52 +288,22 @@ int position = -1;
     SBCreateExerciseTableViewCell *cell = (SBCreateExerciseTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
     NSString *exerciseName = [cell.exerciseField.text stringByTrimmingCharactersInSet:
                               [NSCharacterSet whitespaceCharacterSet]];
+
+    [cell.exerciseField resignFirstResponder];
     
     if (!exerciseName || [exerciseName isEqualToString:@""]) {
-        [cell.exerciseField resignFirstResponder];
         return YES;
     }
     
-    // do not create exercises with the same name
-    if (![self.exerciseInteractor isExerciseNameAlreadyAvailable:exerciseName]) {
-        [self.exerciseInteractor createExerciseWithName:exerciseName frontImages:@"front" andBackImages:@"back"];
-    }
-    
-    self.exercises = [[SBExercise allObjects] sortedResultsUsingProperty:@"name" ascending:YES];
-
-    currentSelectedExercises = -1;
-    
-    [self.tableView reloadData];
-    
-    [cell.exerciseField resignFirstResponder];
-    
-    position = 0;
-    for (SBExercise *e in self.exercises) {
-        if ([e.name isEqualToString:exerciseName]) {
-            break;
-        }
-        position += 1;
-    }
-    
-    NSIndexPath *iP = [NSIndexPath indexPathForRow:position inSection:0];
-
-    [self.tableView scrollToRowAtIndexPath:iP atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    [self.presenter createExerciseWithName:exerciseName];
     
     return YES;
 }
 
 - (void)onDone {
     if (currentSelectedExercises != -1) {
-        SBExercise *exercise = [self.exercises objectAtIndex:currentSelectedExercises];
-    
-        // REMOVE ME LATER
-        NSMutableDictionary *tmp = [NSMutableDictionary new];
-        [tmp setValue:[NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]*1000] forKey:@"exerciseId"];
-        [tmp setValue:exercise.name forKey:@"name"];
-        [tmp setValue:exercise.frontImages forKey:@"frontImages"];
-        [tmp setValue:exercise.backImages forKey:@"backImages"];
-        
-        [self.delegate addExercisesViewController:self didSelectExercise:tmp];
+        NSDictionary *exercise = [self.exercises objectAtIndex:currentSelectedExercises];
+        [self.delegate addExercisesViewController:self didSelectExercise:exercise];
     }
 
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
@@ -326,7 +314,7 @@ int position = -1;
     NSString *key = @"exercisesAlreadyImported";
     
     if ([preferences objectForKey:key] == nil) {
-        [self.exerciseInteractor createBulkOfExercises];
+        [self.presenter createBulkOfExercises];
         [preferences setInteger:1 forKey:key];
     }
 }

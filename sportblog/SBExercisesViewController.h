@@ -1,7 +1,8 @@
 #import <UIKit/UIKit.h>
 #import "SBExercise.h"
 #import "SBAbstractViewController.h"
-#import "SBExerciseInteractor.h"
+#import "SBExercisesView.h"
+#import "SBExercisesPresenter.h"
 
 @class SBExercisesViewController;
 
@@ -9,10 +10,10 @@
 - (void)addExercisesViewController:(SBExercisesViewController *)controller didSelectExercise:(NSDictionary *) exercise;
 @end
 
-@interface SBExercisesViewController : SBAbstractViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+@interface SBExercisesViewController : SBAbstractViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, SBExercisesView>
 
 @property (nonatomic, weak) id <SBExerciseViewControllerDelegate> delegate;
-@property (nonatomic, strong) RLMResults *exercises;
-@property (nonatomic, strong) SBExerciseInteractor *exerciseInteractor;
+@property (nonatomic, strong) NSMutableArray *exercises;
+@property (nonatomic, strong) SBExercisesPresenter *presenter;
 
 @end

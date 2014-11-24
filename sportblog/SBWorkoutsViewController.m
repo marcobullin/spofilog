@@ -90,7 +90,7 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
     workoutPresenter.workoutInteractor = workoutInteractor;
     workoutInteractor.output = workoutPresenter;
     
-    workoutViewController.workout = workout;
+    workoutViewController.workout = [NSMutableDictionary dictionaryWithDictionary:workout];
     
     [self.navigationController pushViewController:workoutViewController animated:YES];
 }

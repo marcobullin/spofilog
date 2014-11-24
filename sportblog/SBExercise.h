@@ -1,6 +1,6 @@
 
 @interface SBExercise : RLMObject
-@property int exerciseId;
+@property NSString *exerciseId;
 @property NSString *name;
 @property NSString *frontImages;
 @property NSString *backImages;
