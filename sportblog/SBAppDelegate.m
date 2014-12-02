@@ -19,9 +19,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [RLMRealm setSchemaVersion:14 withMigrationBlock:^(RLMMigration *migration, NSUInteger oldSchemaVersion) {
+    [RLMRealm setSchemaVersion:15 withMigrationBlock:^(RLMMigration *migration, NSUInteger oldSchemaVersion) {
         // We haven’t migrated anything yet, so oldSchemaVersion == 0
-        if (oldSchemaVersion < 14) {
+        if (oldSchemaVersion < 15) {
             // Nothing to do!
             // Realm will automatically detect new properties and removed properties
             // And will update the schema on disk automatically

@@ -26,6 +26,7 @@
         [dict setObject:workout[@"workoutId"] forKey:@"workoutId"];
         [dict setObject:displayName forKey:@"name"];
         [dict setObject:displayDate forKey:@"date"];
+        [dict setObject:date forKey:@"dateObject"];
         
         [allWorkouts addObject:dict];
     }
@@ -54,6 +55,7 @@
     [dict setObject:workout[@"workoutId"] forKey:@"workoutId"];
     [dict setObject:workout[@"name"] forKey:@"name"];
     [dict setObject:displayDate forKey:@"date"];
+    [dict setObject:date forKey:@"dateObject"];
     
     [self.view displayCreatedWorkout:dict];
 }

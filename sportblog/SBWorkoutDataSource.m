@@ -59,6 +59,17 @@
     return [workouts firstObject];
 }
 
+- (SBSet *)distinctSetWithId:(NSString *)setId {
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"setId = %@", setId];
+    RLMResults *sets = [SBSet objectsWithPredicate:pred];
+    
+    if ([sets count] != 1) {
+        return nil;
+    }
+    
+    return [sets firstObject];
+}
+
 - (SBExerciseSet *)distinctExerciseSetWithId:(NSString *)exerciseSetId {
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"exerciseId = %@", exerciseSetId];
     RLMResults *exercises = [SBExerciseSet objectsWithPredicate:pred];
@@ -128,15 +139,15 @@
     [workout.realm commitWriteTransaction];
 }
 
--(void)addExercise:(NSDictionary *)exercise toWorkoutWithId:(NSString *)workoutId {
+- (SBExerciseSet *)addExercise:(NSDictionary *)exercise toWorkoutWithId:(NSString *)workoutId {
     SBWorkout *workout = [self distinctWorkoutWithId:workoutId];
     
     if (workout == nil) {
-        return;
+        return nil;
     }
     
     SBExerciseSet *exerciseSet =  [[SBExerciseSet alloc] init];
-    exerciseSet.exerciseId = exercise[@"exerciseId"];
+    exerciseSet.exerciseId = [NSString stringWithFormat:@"exerciseSet_%f", [[NSDate date] timeIntervalSince1970] * 1000];
     exerciseSet.name = exercise[@"name"];
     exerciseSet.date = workout.date;
     exerciseSet.created = [[NSDate date] timeIntervalSince1970];
@@ -147,6 +158,8 @@
     [workout.realm beginWriteTransaction];
     [workout.exercises addObject:exerciseSet];
     [workout.realm commitWriteTransaction];
+    
+    return exerciseSet;
 }
 
 - (RLMArray *)allExercisesForWorkoutId:(NSString *)workoutId {
@@ -197,6 +210,74 @@
     
     return exercise;
 }
+
+- (void)deleteSetWithId:(NSString *)setId fromExerciseWithId:(NSString *)exerciseId {
+    SBExerciseSet *exercise = [self distinctExerciseSetWithId:exerciseId];
+    SBSet *set = [self distinctSetWithId:setId];
+    
+    if (exercise == nil) {
+        return;
+    }
+    
+    if (set == nil) {
+        return;
+    }
+
+    [exercise.realm beginWriteTransaction];
+    int index = 0;
+    for (SBSet *s in exercise.sets) {
+        if ([s.setId isEqualToString:set.setId]) {
+            [exercise.sets removeObjectAtIndex:index];
+            break;
+        }
+        index += 1;
+    }
+    [RLMRealm.defaultRealm deleteObject:set];
+    [exercise.realm commitWriteTransaction];
+}
+
+- (SBSet *)createSetWithNumber:(int)number weight:(float)weight andRepetitions:(int)repetitions {
+    
+    SBSet *newSet = [SBSet new];
+    newSet.setId = [NSString stringWithFormat:@"set_%f", [[NSDate date] timeIntervalSince1970] * 1000];
+    newSet.number = number;
+    newSet.weight = weight;
+    newSet.repetitions = repetitions;
+    
+    return newSet;
+}
+
+- (void)addSet:(SBSet *)set toExerciseWithId:(NSString *)exerciseId {
+    SBExerciseSet *exercise = [self distinctExerciseSetWithId:exerciseId];
+    
+    if (exercise == nil) {
+        return;
+    }
+    
+    [exercise.realm beginWriteTransaction];
+    [exercise.sets addObject:set];
+    [exercise.realm commitWriteTransaction];
+}
+
+- (SBSet *)lastSetOfExerciseWithName:(NSString *)name {
+    RLMResults *allExercises = [[SBExerciseSet allObjects] sortedResultsUsingProperty:@"date" ascending:NO];
+    
+    SBExerciseSet *lastExercise;
+    for (SBExerciseSet *exercise in allExercises) {
+        if ([exercise.name isEqualToString:name] && [exercise.sets count] != 0) {
+            lastExercise = exercise;
+            break;
+        }
+    }
+    
+    if (lastExercise) {
+        RLMArray *sets = lastExercise.sets;
+        return [sets lastObject];
+    }
+    
+    return nil;
+}
+
 
 - (void)createBulkOfExercises {
     SBExercise *exercise = [[SBExercise alloc] init];

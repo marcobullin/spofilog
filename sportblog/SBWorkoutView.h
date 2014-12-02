@@ -5,7 +5,7 @@
 - (void)displayExercises:(NSArray *)exercises;
 - (void)deletedExerciseAtIndex:(int)index;
 - (void)displayAddedExercise:(NSDictionary *)exercise;
-- (void)displayWorkoutWithName:(NSString *)name andDate:(NSDate *)date;
+- (void)displayWorkout:(NSDictionary *)workout;
 
 @end
 

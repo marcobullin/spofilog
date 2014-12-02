@@ -12,9 +12,26 @@
         NSMutableDictionary *dict = [NSMutableDictionary new];
         [dict setObject:exercise.exerciseId forKey:@"exerciseId"];
         [dict setObject:exercise.name forKey:@"name"];
-        [dict setObject:exercise.sets forKey:@"sets"];
         [dict setObject:exercise.frontImages forKey:@"frontImages"];
         [dict setObject:exercise.backImages forKey:@"backImages"];
+        
+        
+        NSMutableArray *sets = [NSMutableArray new];
+        for (SBSet *set in exercise.sets) {
+            NSDictionary *dictSet = [NSDictionary dictionaryWithObjects:@[
+                                                                       set.setId,
+                                                                       [NSString stringWithFormat:@"%d", set.number],
+                                                                       [NSString stringWithFormat:@"%f", set.weight],
+                                                                       [NSString stringWithFormat:@"%d", set.repetitions]
+                                                                       ]
+                                                             forKeys:@[
+                                                                       @"setId",
+                                                                       @"number",
+                                                                       @"weight",
+                                                                       @"repetitions"]];
+            [sets addObject:dictSet];
+        }
+        [dict setObject:sets forKey:@"sets"];
         
         [exercisesArray addObject:dict];
     }
@@ -38,9 +55,16 @@
 
 - (void)addExercise:(NSDictionary *)exercise toWorkoutWithId:(NSString *)workoutId {
     SBWorkoutDataSource *dataSource = [SBWorkoutDataSource new];
-    [dataSource addExercise:exercise toWorkoutWithId:workoutId];
+    SBExerciseSet *exerciseSet = [dataSource addExercise:exercise toWorkoutWithId:workoutId];
     
-    [self.output addedExercise:exercise];
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setObject:exerciseSet[@"exerciseId"] forKey:@"exerciseId"];
+    [dict setObject:exerciseSet[@"name"] forKey:@"name"];
+    [dict setObject:exerciseSet[@"frontImages"] forKey:@"frontImages"];
+    [dict setObject:exerciseSet[@"backImages"] forKey:@"backImages"];
+    [dict setObject:[NSMutableArray new] forKey:@"sets"];
+    
+    [self.output addedExercise:dict];
 }
 
 

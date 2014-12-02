@@ -38,7 +38,6 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.workoutPresenter findWorkouts];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -60,6 +59,7 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
     
     helperView.frame = self.view.frame;
 
+    [self.workoutPresenter findWorkouts];
     [self.tableView reloadData];
 }
 

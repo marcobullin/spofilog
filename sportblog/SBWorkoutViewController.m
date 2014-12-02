@@ -11,6 +11,7 @@
 #import "SBAddEntryViewModel.h"
 #import "SBHelperView.h"
 #import "SBExercisesInteractor.h"
+#import "SBSetListInteractor.h"
 
 @interface SBWorkoutViewController ()
 @end
@@ -98,13 +99,14 @@ UITextField *textfield;
     }
 }
 
-- (void)displayWorkoutWithName:(NSString *)name andDate:(NSDate *)date {
+- (void)displayWorkout:(NSDictionary *)workout {
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     
     SBBigTopBottomCell *workoutCell = (SBBigTopBottomCell *)[self.tableView cellForRowAtIndexPath:indexPath];
     
-    self.workout[@"name"] = name;
-    self.workout[@"date"] = date;
+    self.workout[@"name"] = workout[@"name"];
+    self.workout[@"date"] = workout[@"date"];
+    self.workout[@"dateObject"] = workout[@"dateObject"];
     
     SBWorkoutViewModel *workoutViewModel = [[SBWorkoutViewModel alloc] initWithWorkout:self.workout];
     [workoutCell render:workoutViewModel];
@@ -248,10 +250,18 @@ UITextField *textfield;
     // user touched on an exercise
     SBSetsViewController *setViewController = [[SBSetsViewController alloc] initWithNibName:@"SBSetsViewController" bundle:nil];
     
+    SBSetListPresenter *presenter = [SBSetListPresenter new];
+    SBSetListInteractor *interactor = [SBSetListInteractor new];
+    
+    setViewController.presenter = presenter;
+    presenter.view = setViewController;
+    presenter.interactor = interactor;
+    interactor.output = presenter;
+    
     // standard -2 because of (workout and add exercise cell)
     int index = (int)indexPath.row - 2;
     
-    SBExerciseSet *exercise = [self.exercises objectAtIndex:index];
+    NSDictionary *exercise = [self.exercises objectAtIndex:index];
     setViewController.exercise = exercise;
     
     [self.navigationController pushViewController:setViewController animated:YES];
@@ -308,7 +318,7 @@ UITextField *textfield;
     
     picker = [[UIDatePicker alloc] init];
     picker.frame = CGRectMake(0, 108, self.view.frame.size.width, 162);
-    picker.date = self.workout[@"date"];
+    picker.date = self.workout[@"dateObject"];
     picker.datePickerMode = UIDatePickerModeDate;
     
     [changeView addSubview:[self createToolbar:NSLocalizedString(@"Workout", nil)]];

@@ -3,6 +3,6 @@
 
 @interface SBWorkoutInteractor : NSObject <SBWorkoutInteractorInput>
 
-@property(nonatomic, weak) id<SBWorkoutInteractorOutput> output;
+@property(nonatomic, strong) id<SBWorkoutInteractorOutput> output;
 
 @end

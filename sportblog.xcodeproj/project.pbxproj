@@ -93,6 +93,8 @@
 		B33E28BF1A07A5AF00089916 /* SBAbstractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B33E28BE1A07A5AF00089916 /* SBAbstractViewController.m */; };
 		B33E28C21A07AD2A00089916 /* SBExerciseInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B33E28C11A07AD2A00089916 /* SBExerciseInteractor.m */; };
 		B33E28C81A07D0B700089916 /* SBSetInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B33E28C71A07D0B600089916 /* SBSetInteractor.m */; };
+		B342734C1A28876900A282CB /* SBSetListInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B342734B1A28876900A282CB /* SBSetListInteractor.m */; };
+		B342734F1A28878200A282CB /* SBSetListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B342734E1A28878200A282CB /* SBSetListPresenter.m */; };
 		B35A21DA19DBEFF600BCECAB /* SBStatisticCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B35A21D919DBEFF600BCECAB /* SBStatisticCell.xib */; };
 		B35A21DC19DBF00A00BCECAB /* SBStatisticCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B35A21DB19DBF00A00BCECAB /* SBStatisticCell.m */; };
 		B36B6CDD1A23327B00D88B7F /* SBExercisesPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B36B6CDC1A23327B00D88B7F /* SBExercisesPresenter.m */; };
@@ -276,6 +278,12 @@
 		B33E28C11A07AD2A00089916 /* SBExerciseInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBExerciseInteractor.m; sourceTree = "<group>"; };
 		B33E28C61A07D0B600089916 /* SBSetInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetInteractor.h; sourceTree = "<group>"; };
 		B33E28C71A07D0B600089916 /* SBSetInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSetInteractor.m; sourceTree = "<group>"; };
+		B34273491A28875100A282CB /* SBSetListInteractorIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetListInteractorIO.h; sourceTree = "<group>"; };
+		B342734A1A28876900A282CB /* SBSetListInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetListInteractor.h; sourceTree = "<group>"; };
+		B342734B1A28876900A282CB /* SBSetListInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSetListInteractor.m; sourceTree = "<group>"; };
+		B342734D1A28878200A282CB /* SBSetListPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetListPresenter.h; sourceTree = "<group>"; };
+		B342734E1A28878200A282CB /* SBSetListPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSetListPresenter.m; sourceTree = "<group>"; };
+		B34273501A2887FE00A282CB /* SBSetListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetListView.h; sourceTree = "<group>"; };
 		B35A21D919DBEFF600BCECAB /* SBStatisticCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBStatisticCell.xib; sourceTree = "<group>"; };
 		B35A21DB19DBF00A00BCECAB /* SBStatisticCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBStatisticCell.m; sourceTree = "<group>"; };
 		B35A21DD19DBF01B00BCECAB /* SBStatisticCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBStatisticCell.h; sourceTree = "<group>"; };
@@ -706,6 +714,25 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		B34273471A28870F00A282CB /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				B342734D1A28878200A282CB /* SBSetListPresenter.h */,
+				B342734E1A28878200A282CB /* SBSetListPresenter.m */,
+			);
+			name = Presenters;
+			sourceTree = "<group>";
+		};
+		B34273481A28871900A282CB /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				B34273491A28875100A282CB /* SBSetListInteractorIO.h */,
+				B342734A1A28876900A282CB /* SBSetListInteractor.h */,
+				B342734B1A28876900A282CB /* SBSetListInteractor.m */,
+			);
+			name = Interactors;
+			sourceTree = "<group>";
+		};
 		B36B6CD91A23323900D88B7F /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
@@ -764,9 +791,12 @@
 		B3AED24E19E2BD2C0006A4A9 /* Sets */ = {
 			isa = PBXGroup;
 			children = (
+				B34273471A28870F00A282CB /* Presenters */,
+				B34273481A28871900A282CB /* Interactors */,
 				B3AC2ED119C322A200FFD8FD /* SBSetsViewController.h */,
 				B3AC2ED219C322A300FFD8FD /* SBSetsViewController.m */,
 				B3752F2619DAC8A40091E207 /* SBSetsViewController.xib */,
+				B34273501A2887FE00A282CB /* SBSetListView.h */,
 			);
 			name = Sets;
 			sourceTree = "<group>";
@@ -1120,6 +1150,7 @@
 				805DE25019C85E4C00472322 /* SBStatisticViewController.m in Sources */,
 				B3AC2EB319C09EFF00FFD8FD /* SBWorkout.m in Sources */,
 				B33E28C21A07AD2A00089916 /* SBExerciseInteractor.m in Sources */,
+				B342734F1A28878200A282CB /* SBSetListPresenter.m in Sources */,
 				B3AC2ED019C31F1100FFD8FD /* SBSet.m in Sources */,
 				803978A819E063E4000DEED5 /* SBWorkoutsInteractor.m in Sources */,
 				B3AC2EB619C1E6E000FFD8FD /* SBExercise.m in Sources */,
@@ -1129,6 +1160,7 @@
 				B33E28BF1A07A5AF00089916 /* SBAbstractViewController.m in Sources */,
 				805DE22C19BF8E6500472322 /* SBWorkoutViewController.m in Sources */,
 				B33E28C81A07D0B700089916 /* SBSetInteractor.m in Sources */,
+				B342734C1A28876900A282CB /* SBSetListInteractor.m in Sources */,
 				B3AED24C19E29A660006A4A9 /* SBExerciseSetViewModel.m in Sources */,
 				B3752F0619D187C70091E207 /* SBSmallTopBottomCell.m in Sources */,
 				805DE24819C4C19000472322 /* SBSetViewController.m in Sources */,

@@ -2,14 +2,13 @@
 #import "SBExerciseSet.h"
 #import "SBSetViewController.h"
 #import "SBAbstractViewController.h"
-#import "SBSetInteractor.h"
-#import "SBExerciseInteractor.h"
+#import "SBSetListView.h"
+#import "SBSetListPresenter.h"
 
-@interface SBSetsViewController : SBAbstractViewController <UITableViewDataSource, UITableViewDelegate, SBSetViewControllerDelegate>
+@interface SBSetsViewController : SBAbstractViewController <UITableViewDataSource, UITableViewDelegate, SBSetListView>
 
-@property (nonatomic, strong) SBExerciseSet *exercise;
-@property (nonatomic, strong) RLMArray *sets;
-@property (nonatomic, strong) SBSetInteractor *setInteractor;
-@property (nonatomic, strong) SBExerciseInteractor *exerciseInteractor;
+@property (nonatomic, strong) NSDictionary *exercise;
+@property (nonatomic, strong) NSMutableArray *sets;
+@property (nonatomic, strong) SBSetListPresenter *presenter;
 
 @end

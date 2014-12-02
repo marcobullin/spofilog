@@ -1,6 +1,7 @@
 
 
 @interface SBSet : RLMObject
+@property NSString *setId;
 @property int number;
 @property float weight;
 @property int repetitions;
