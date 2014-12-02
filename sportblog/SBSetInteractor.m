@@ -1,68 +1,75 @@
 #import "SBSetInteractor.h"
-#import "SBWorkout.h"
+#import "SBWorkoutDataSource.h"
 
 @implementation SBSetInteractor
 
-- (void)deleteSet:(SBSet *)set fromExerciseSet:(SBExerciseSet *)exercise AtIndex:(int)index {
-    [exercise.realm beginWriteTransaction];
-    [exercise.sets removeObjectAtIndex:index];
-    [RLMRealm.defaultRealm deleteObject:set];
-    [exercise.realm commitWriteTransaction];
-}
-
-- (SBSet *)createSetDependingOnSet:(SBSet *)set {
-    SBSet *newSet = [SBSet new];
-    newSet.number = set.number + 1;
-    newSet.weight = set.weight;
-    newSet.repetitions = set.repetitions;
+- (void)updateSet:(NSDictionary *)set withNumber:(int)number {
+    SBWorkoutDataSource *datasource =[SBWorkoutDataSource new];
+    SBSet *updatedSet = [datasource updateSetWithId:set[@"setId"] withNumber:number];
     
-    return newSet;
-}
-
-- (SBSet *)createSetWithNumber:(int)number weight:(float)weight andRepetitions:(int)repetitions {
-    SBSet *set = [SBSet new];
-    set.number = number;
-    set.weight = weight;
-    set.repetitions = repetitions;
-    
-    return set;
-}
-
-- (void)updateSet:(SBSet *)set withNumber:(int)number {
-    [RLMRealm.defaultRealm beginWriteTransaction];
-    set.number = number;
-    [RLMRealm.defaultRealm commitWriteTransaction];
-}
-
-- (void)updateSet:(SBSet *)set withWeight:(float)weight {
-    [RLMRealm.defaultRealm beginWriteTransaction];
-    set.weight = weight;
-    [RLMRealm.defaultRealm commitWriteTransaction];
-}
-
-- (void)updateSet:(SBSet *)set withRepetitions:(int)repetitions {
-    [RLMRealm.defaultRealm beginWriteTransaction];
-    set.repetitions = repetitions;
-    [RLMRealm.defaultRealm commitWriteTransaction];
-}
-
-- (SBSet *)lastSetOfExerciseWithName:(NSString *)name {
-    RLMResults *allExercises = [[SBExerciseSet allObjects] sortedResultsUsingProperty:@"date" ascending:NO];
-    
-    SBExerciseSet *lastExercise;
-    for (SBExerciseSet *exercise in allExercises) {
-        if ([exercise.name isEqualToString:name] && [exercise.sets count] != 0) {
-            lastExercise = exercise;
-            break;
-        }
+    if (updatedSet == nil) {
+        return;
     }
     
-    if (lastExercise) {
-        RLMArray *sets = lastExercise.sets;
-        return [sets lastObject];
+    NSDictionary *dict = [NSDictionary dictionaryWithObjects:@[
+                                                               updatedSet.setId,
+                                                               [NSString stringWithFormat:@"%d", updatedSet.number],
+                                                               [NSString stringWithFormat:@"%f", updatedSet.weight],
+                                                               [NSString stringWithFormat:@"%d", updatedSet.repetitions]
+                                                               ]
+                                                     forKeys:@[
+                                                               @"setId",
+                                                               @"number",
+                                                               @"weight",
+                                                               @"repetitions"]];
+    
+    [self.output updatedSet:dict];
+}
+
+- (void)updateSet:(NSDictionary *)set withWeight:(float)weight {
+    SBWorkoutDataSource *datasource =[SBWorkoutDataSource new];
+    SBSet *updatedSet = [datasource updateSetWithId:set[@"setId"] withWeight:weight];
+
+    if (updatedSet == nil) {
+        return;
     }
     
-    return nil;
+    NSDictionary *dict = [NSDictionary dictionaryWithObjects:@[
+                                                               updatedSet.setId,
+                                                               [NSString stringWithFormat:@"%d", updatedSet.number],
+                                                               [NSString stringWithFormat:@"%f", updatedSet.weight],
+                                                               [NSString stringWithFormat:@"%d", updatedSet.repetitions]
+                                                               ]
+                                                     forKeys:@[
+                                                               @"setId",
+                                                               @"number",
+                                                               @"weight",
+                                                               @"repetitions"]];
+    
+    [self.output updatedSet:dict];
+}
+
+- (void)updateSet:(NSDictionary *)set withRepetitions:(int)repetitions {
+    SBWorkoutDataSource *datasource =[SBWorkoutDataSource new];
+    SBSet *updatedSet = [datasource updateSetWithId:set[@"setId"] withRepetitions:repetitions];
+    
+    if (updatedSet == nil) {
+        return;
+    }
+    
+    NSDictionary *dict = [NSDictionary dictionaryWithObjects:@[
+                                                               updatedSet.setId,
+                                                               [NSString stringWithFormat:@"%d", updatedSet.number],
+                                                               [NSString stringWithFormat:@"%f", updatedSet.weight],
+                                                               [NSString stringWithFormat:@"%d", updatedSet.repetitions]
+                                                               ]
+                                                     forKeys:@[
+                                                               @"setId",
+                                                               @"number",
+                                                               @"weight",
+                                                               @"repetitions"]];
+    
+    [self.output updatedSet:dict];
 }
 
 @end

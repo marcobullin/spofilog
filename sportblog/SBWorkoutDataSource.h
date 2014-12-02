@@ -18,6 +18,9 @@
 - (SBSet *)createSetWithNumber:(int)number weight:(float)weight andRepetitions:(int)repetitions;
 - (void)addSet:(SBSet *)set toExerciseWithId:(NSString *)exerciseId;
 - (SBSet *)lastSetOfExerciseWithName:(NSString *)name;
+- (SBSet *)updateSetWithId:(NSString *)setId withNumber:(int)number;
+- (SBSet *)updateSetWithId:(NSString *)setId withWeight:(float)weight;
+- (SBSet *)updateSetWithId:(NSString *)setId withRepetitions:(int)repetitions;
 
 
 - (void)createBulkOfExercises;

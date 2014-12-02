@@ -92,7 +92,7 @@
 		B31609A519ED6FAD00D1637C /* SBDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B31609A319ED6FAD00D1637C /* SBDescriptionCell.xib */; };
 		B33E28BF1A07A5AF00089916 /* SBAbstractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B33E28BE1A07A5AF00089916 /* SBAbstractViewController.m */; };
 		B33E28C21A07AD2A00089916 /* SBExerciseInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B33E28C11A07AD2A00089916 /* SBExerciseInteractor.m */; };
-		B33E28C81A07D0B700089916 /* SBSetInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B33E28C71A07D0B600089916 /* SBSetInteractor.m */; };
+		B33E28C81A07D0B700089916 /* SBSetInteractorOLD.m in Sources */ = {isa = PBXBuildFile; fileRef = B33E28C71A07D0B600089916 /* SBSetInteractorOLD.m */; };
 		B342734C1A28876900A282CB /* SBSetListInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B342734B1A28876900A282CB /* SBSetListInteractor.m */; };
 		B342734F1A28878200A282CB /* SBSetListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B342734E1A28878200A282CB /* SBSetListPresenter.m */; };
 		B35A21DA19DBEFF600BCECAB /* SBStatisticCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B35A21D919DBEFF600BCECAB /* SBStatisticCell.xib */; };
@@ -148,6 +148,8 @@
 		B3AED27519E3E31E0006A4A9 /* appIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED27219E3E31E0006A4A9 /* appIcon@3x.png */; };
 		B3C2D90D1A1A4FB7007358B3 /* SBWorkoutPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C2D90C1A1A4FB7007358B3 /* SBWorkoutPresenter.m */; };
 		B3C2D9121A1B90A7007358B3 /* SBWorkoutInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C2D9111A1B90A7007358B3 /* SBWorkoutInteractor.m */; };
+		B3E426181A2DCEB8007E2675 /* SBSetInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426171A2DCEB8007E2675 /* SBSetInteractor.m */; };
+		B3E4261D1A2DCEFC007E2675 /* SBSetPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E4261C1A2DCEFC007E2675 /* SBSetPresenter.m */; };
 		B3E5307019EBEE5600C2A17F /* addButton.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E5306D19EBEE5600C2A17F /* addButton.png */; };
 		B3E5307119EBEE5600C2A17F /* addButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E5306E19EBEE5600C2A17F /* addButton@2x.png */; };
 		B3E5307219EBEE5600C2A17F /* addButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E5306F19EBEE5600C2A17F /* addButton@3x.png */; };
@@ -276,8 +278,8 @@
 		B33E28BE1A07A5AF00089916 /* SBAbstractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAbstractViewController.m; sourceTree = "<group>"; };
 		B33E28C01A07AD2A00089916 /* SBExerciseInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExerciseInteractor.h; sourceTree = "<group>"; };
 		B33E28C11A07AD2A00089916 /* SBExerciseInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBExerciseInteractor.m; sourceTree = "<group>"; };
-		B33E28C61A07D0B600089916 /* SBSetInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetInteractor.h; sourceTree = "<group>"; };
-		B33E28C71A07D0B600089916 /* SBSetInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSetInteractor.m; sourceTree = "<group>"; };
+		B33E28C61A07D0B600089916 /* SBSetInteractorOLD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetInteractorOLD.h; sourceTree = "<group>"; };
+		B33E28C71A07D0B600089916 /* SBSetInteractorOLD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSetInteractorOLD.m; sourceTree = "<group>"; };
 		B34273491A28875100A282CB /* SBSetListInteractorIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetListInteractorIO.h; sourceTree = "<group>"; };
 		B342734A1A28876900A282CB /* SBSetListInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetListInteractor.h; sourceTree = "<group>"; };
 		B342734B1A28876900A282CB /* SBSetListInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSetListInteractor.m; sourceTree = "<group>"; };
@@ -361,6 +363,12 @@
 		B3C2D90E1A1A519E007358B3 /* SBWorkoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutView.h; sourceTree = "<group>"; };
 		B3C2D9101A1B90A7007358B3 /* SBWorkoutInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutInteractor.h; sourceTree = "<group>"; };
 		B3C2D9111A1B90A7007358B3 /* SBWorkoutInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutInteractor.m; sourceTree = "<group>"; };
+		B3E426151A2DCE51007E2675 /* SBSetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetView.h; sourceTree = "<group>"; };
+		B3E426161A2DCEB8007E2675 /* SBSetInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetInteractor.h; sourceTree = "<group>"; };
+		B3E426171A2DCEB8007E2675 /* SBSetInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSetInteractor.m; sourceTree = "<group>"; };
+		B3E4261A1A2DCEE6007E2675 /* SBSetInteractorIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetInteractorIO.h; sourceTree = "<group>"; };
+		B3E4261B1A2DCEFC007E2675 /* SBSetPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetPresenter.h; sourceTree = "<group>"; };
+		B3E4261C1A2DCEFC007E2675 /* SBSetPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSetPresenter.m; sourceTree = "<group>"; };
 		B3E5306D19EBEE5600C2A17F /* addButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addButton.png; sourceTree = "<group>"; };
 		B3E5306E19EBEE5600C2A17F /* addButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addButton@2x.png"; sourceTree = "<group>"; };
 		B3E5306F19EBEE5600C2A17F /* addButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addButton@3x.png"; sourceTree = "<group>"; };
@@ -688,8 +696,8 @@
 				803978A719E063E4000DEED5 /* SBWorkoutsInteractor.h */,
 				B33E28C01A07AD2A00089916 /* SBExerciseInteractor.h */,
 				B33E28C11A07AD2A00089916 /* SBExerciseInteractor.m */,
-				B33E28C61A07D0B600089916 /* SBSetInteractor.h */,
-				B33E28C71A07D0B600089916 /* SBSetInteractor.m */,
+				B33E28C61A07D0B600089916 /* SBSetInteractorOLD.h */,
+				B33E28C71A07D0B600089916 /* SBSetInteractorOLD.m */,
 			);
 			name = Interactors;
 			sourceTree = "<group>";
@@ -804,9 +812,12 @@
 		B3AED24F19E2BD3E0006A4A9 /* Set */ = {
 			isa = PBXGroup;
 			children = (
+				B3E426131A2DCE05007E2675 /* Presenters */,
+				B3E426141A2DCE10007E2675 /* Interactors */,
 				805DE24619C4C19000472322 /* SBSetViewController.h */,
 				805DE24719C4C19000472322 /* SBSetViewController.m */,
 				B3752F2819DAC9CF0091E207 /* SBSetViewController.xib */,
+				B3E426151A2DCE51007E2675 /* SBSetView.h */,
 			);
 			name = Set;
 			sourceTree = "<group>";
@@ -873,6 +884,25 @@
 				B3C2D9101A1B90A7007358B3 /* SBWorkoutInteractor.h */,
 				B3C2D9111A1B90A7007358B3 /* SBWorkoutInteractor.m */,
 				B36B6CD81A1F300700D88B7F /* SBWorkoutInteractorIO.h */,
+			);
+			name = Interactors;
+			sourceTree = "<group>";
+		};
+		B3E426131A2DCE05007E2675 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				B3E4261B1A2DCEFC007E2675 /* SBSetPresenter.h */,
+				B3E4261C1A2DCEFC007E2675 /* SBSetPresenter.m */,
+			);
+			name = Presenters;
+			sourceTree = "<group>";
+		};
+		B3E426141A2DCE10007E2675 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				B3E426161A2DCEB8007E2675 /* SBSetInteractor.h */,
+				B3E426171A2DCEB8007E2675 /* SBSetInteractor.m */,
+				B3E4261A1A2DCEE6007E2675 /* SBSetInteractorIO.h */,
 			);
 			name = Interactors;
 			sourceTree = "<group>";
@@ -1159,7 +1189,7 @@
 				80B6016A19C9B8D800CC455A /* SBFinishedExercisesViewController.m in Sources */,
 				B33E28BF1A07A5AF00089916 /* SBAbstractViewController.m in Sources */,
 				805DE22C19BF8E6500472322 /* SBWorkoutViewController.m in Sources */,
-				B33E28C81A07D0B700089916 /* SBSetInteractor.m in Sources */,
+				B33E28C81A07D0B700089916 /* SBSetInteractorOLD.m in Sources */,
 				B342734C1A28876900A282CB /* SBSetListInteractor.m in Sources */,
 				B3AED24C19E29A660006A4A9 /* SBExerciseSetViewModel.m in Sources */,
 				B3752F0619D187C70091E207 /* SBSmallTopBottomCell.m in Sources */,
@@ -1175,6 +1205,7 @@
 				805DE24019BF93DC00472322 /* SBExerciseTableViewCell.m in Sources */,
 				805DE23319BF937F00472322 /* SBBigTopBottomCell.m in Sources */,
 				801A841919EA7A4C002CFCBC /* SBWorkoutsViewController.m in Sources */,
+				B3E4261D1A2DCEFC007E2675 /* SBSetPresenter.m in Sources */,
 				80C6AE7E1A18AEB100FF2A2F /* SBWorkoutListInteractor.m in Sources */,
 				80FC797E1A0534F9000172B0 /* SBIconCell.m in Sources */,
 				80FC79791A0532CE000172B0 /* SBIconListViewController.m in Sources */,
@@ -1185,6 +1216,7 @@
 				805DE23B19BF93CB00472322 /* SBAddEntryTableViewCell.m in Sources */,
 				803978B519E68708000DEED5 /* SBHelperView.m in Sources */,
 				B36B6CE01A23341400D88B7F /* SBExercisesInteractor.m in Sources */,
+				B3E426181A2DCEB8007E2675 /* SBSetInteractor.m in Sources */,
 				B3C2D90D1A1A4FB7007358B3 /* SBWorkoutPresenter.m in Sources */,
 				B3752F1B19DA95920091E207 /* SBWorkouViewModel.m in Sources */,
 				B35A21DC19DBF00A00BCECAB /* SBStatisticCell.m in Sources */,

@@ -278,6 +278,48 @@
     return nil;
 }
 
+- (SBSet *)updateSetWithId:(NSString *)setId withNumber:(int)number {
+    SBSet *set = [self distinctSetWithId:setId];
+    
+    if (set == nil) {
+        return nil;
+    }
+    
+    [RLMRealm.defaultRealm beginWriteTransaction];
+    set.number = number;
+    [RLMRealm.defaultRealm commitWriteTransaction];
+    
+    return set;
+}
+
+- (SBSet *)updateSetWithId:(NSString *)setId withWeight:(float)weight {
+    SBSet *set = [self distinctSetWithId:setId];
+    
+    if (set == nil) {
+        return nil;
+    }
+    
+    [RLMRealm.defaultRealm beginWriteTransaction];
+    set.weight = weight;
+    [RLMRealm.defaultRealm commitWriteTransaction];
+    
+    return set;
+}
+
+- (SBSet *)updateSetWithId:(NSString *)setId withRepetitions:(int)repetitions {
+    SBSet *set = [self distinctSetWithId:setId];
+    
+    if (set == nil) {
+        return nil;
+    }
+    
+    [RLMRealm.defaultRealm beginWriteTransaction];
+    set.repetitions = repetitions;
+    [RLMRealm.defaultRealm commitWriteTransaction];
+    
+    return set;
+}
+
 
 - (void)createBulkOfExercises {
     SBExercise *exercise = [[SBExercise alloc] init];

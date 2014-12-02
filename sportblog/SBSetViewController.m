@@ -24,7 +24,6 @@ UIView *overlayView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.setInteractor = [SBSetInteractor new];
     
     self.title = NSLocalizedString(@"Edit Set", nil);
     
@@ -32,6 +31,14 @@ UIView *overlayView;
     self.tableView.dataSource = self;
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     self.tableView.tableFooterView = [UIView new];
+}
+
+#pragma mark - Actions
+- (void)displayUpdateSet:(NSDictionary *)set {
+    self.currentSet = set;
+    
+    [self.tableView reloadData];
+    [self hideOverlay];
 }
 
 #pragma mark - UITableViewDataSource
@@ -63,7 +70,7 @@ UIView *overlayView;
     // set cell
     if (indexPath.row == 0) {
         cell.leftLabel.text = NSLocalizedString(@"Set", nil);
-        cell.rightLabel.text = [NSString stringWithFormat:@"%d", self.currentSet.number];
+        cell.rightLabel.text = [NSString stringWithFormat:@"%d", [self.currentSet[@"number"] intValue]];
         
         return cell;
     }
@@ -71,13 +78,13 @@ UIView *overlayView;
     // weight cell
     if (indexPath.row == 1) {
         cell.leftLabel.text = NSLocalizedString(@"Weight", nil);
-        cell.rightLabel.text = [NSString stringWithFormat:@"%.01f kg", self.currentSet.weight];
+        cell.rightLabel.text = [NSString stringWithFormat:@"%.01f kg", [self.currentSet[@"weight"] floatValue]];
         return cell;
     }
 
     // repetition cell
     cell.leftLabel.text = NSLocalizedString(@"Repetitions", nil);
-    cell.rightLabel.text = [NSString stringWithFormat:@"%d", self.currentSet.repetitions];
+    cell.rightLabel.text = [NSString stringWithFormat:@"%d", [self.currentSet[@"repetitions"] intValue]];
     
     return cell;
 }
@@ -112,7 +119,7 @@ UIView *overlayView;
         self.isEditSet = YES;
         self.isEditWeight = NO;
         self.isEditRepetitions = NO;
-        [picker selectRow:self.currentSet.number-1 inComponent:0 animated:NO];
+        [picker selectRow:[self.currentSet[@"number"] intValue]-1 inComponent:0 animated:NO];
         [changeView addSubview:[self createToolbar:NSLocalizedString(@"Set", nil)]];
     }
     
@@ -121,7 +128,7 @@ UIView *overlayView;
         self.isEditWeight = YES;
         self.isEditRepetitions = NO;
         
-        NSString *str= [NSString stringWithFormat:@"%.01f", self.currentSet.weight];
+        NSString *str= [NSString stringWithFormat:@"%.01f", [self.currentSet[@"weight"] floatValue]];
         NSArray *arr = [str componentsSeparatedByString:@"."];
         int first=[[arr firstObject] intValue];
         int last=[[arr lastObject] intValue];
@@ -136,7 +143,7 @@ UIView *overlayView;
         self.isEditSet = NO;
         self.isEditWeight = NO;
         self.isEditRepetitions = YES;
-        [picker selectRow:self.currentSet.repetitions inComponent:0 animated:NO];
+        [picker selectRow:[self.currentSet[@"repetitions"] intValue] inComponent:0 animated:NO];
         [changeView addSubview:[self createToolbar:NSLocalizedString(@"Repetitions", nil)]];
     }
     
@@ -258,22 +265,18 @@ UIView *overlayView;
     
     if (self.isEditSet) {
         int number = (int)[picker selectedRowInComponent:0] + 1;
-        [self.setInteractor updateSet:self.currentSet withNumber:number];
+        [self.presenter updateSet:self.currentSet withNumber:number];
     }
     
     if (self.isEditWeight) {
         float weight = [[NSString stringWithFormat:@"%d.%d", (int)[picker selectedRowInComponent:0], (int)[picker selectedRowInComponent:2]] floatValue];
-        [self.setInteractor updateSet:self.currentSet withWeight:weight];
+        [self.presenter updateSet:self.currentSet withWeight:weight];
     }
     
     if (self.isEditRepetitions) {
         int repetitions = (int)[picker selectedRowInComponent:0];
-        [self.setInteractor updateSet:self.currentSet withRepetitions:repetitions];
+        [self.presenter updateSet:self.currentSet withRepetitions:repetitions];
     }
-    
-    [self.tableView reloadData];
-    
-    [self hideOverlay];
 }
     
 - (void)hideOverlay {

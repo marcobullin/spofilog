@@ -5,6 +5,7 @@
 #import "SBSmallTopBottomCell.h"
 #import "UIColor+SBColor.h"
 #import "SBHelperView.h"
+#import "SBSetInteractor.h"
 
 @interface SBSetsViewController ()
 @end
@@ -179,6 +180,14 @@
     }
     
     SBSetViewController *setViewController = [[SBSetViewController alloc] initWithNibName:@"SBSetViewController" bundle:nil];
+    
+    SBSetPresenter *presenter = [SBSetPresenter new];
+    SBSetInteractor *interactor = [SBSetInteractor new];
+    
+    setViewController.presenter = presenter;
+    presenter.view = setViewController;
+    presenter.interactor = interactor;
+    interactor.output = presenter;
     
     setViewController.currentSet = [self.sets objectAtIndex:(indexPath.row-1)];
     
