@@ -320,6 +320,15 @@
     return set;
 }
 
+- (RLMArray *)allSetsFromExerciseWithId:(NSString *)exerciseId {
+    SBExerciseSet *exerciseSet = [self distinctExerciseSetWithId:exerciseId];
+    
+    if (exerciseSet == nil) {
+        return nil;
+    }
+    
+    return exerciseSet.sets;
+}
 
 - (void)createBulkOfExercises {
     SBExercise *exercise = [[SBExercise alloc] init];

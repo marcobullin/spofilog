@@ -17,18 +17,13 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.screenName = @"Sets Screen";
+    [self.presenter findSetsFromExercise:self.exercise];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.title = self.exercise[@"name"];
-    
-    if (self.exercise[@"sets"] == nil) {
-        self.sets = [NSMutableArray new];
-    } else {
-        self.sets = self.exercise[@"sets"];
-    }
 
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -37,7 +32,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.tableView reloadData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -46,6 +40,11 @@
 }
 
 #pragma mark - Actions
+
+- (void)displaySets:(NSArray *)sets {
+    self.sets = [NSMutableArray arrayWithArray:sets];
+    [self.tableView reloadData];
+}
 
 - (void)deleteSetAtIndex:(int)index {
     [self.sets removeObjectAtIndex:index];

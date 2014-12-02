@@ -47,6 +47,7 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.screenName = @"Workouts Screen";
+    [self.workoutPresenter findWorkouts];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -58,9 +59,6 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
                                                     andRenderOnView:self.parentViewController.view];
     
     helperView.frame = self.view.frame;
-
-    [self.workoutPresenter findWorkouts];
-    [self.tableView reloadData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -72,6 +70,7 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
 
 - (void)displayWorkouts:(NSArray *)workouts {
     self.workouts = [NSMutableArray arrayWithArray:workouts];
+    [self.tableView reloadData];
 }
 
 - (void)displayCreatedWorkout:(NSDictionary *)workout {

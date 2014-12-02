@@ -37,11 +37,11 @@ UITextField *textfield;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.screenName = @"Edit Workout Screen";
+    [self.workoutPresenter findExercisesFromWorkout:self.workout];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.workoutPresenter findExercisesFromWorkout:self.workout];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -60,7 +60,6 @@ UITextField *textfield;
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.tableView reloadData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -72,6 +71,7 @@ UITextField *textfield;
 
 - (void)displayExercises:(NSArray *)exercises {
     self.exercises = [NSMutableArray arrayWithArray:exercises];
+    [self.tableView reloadData];
 }
 
 - (void)displayAddedExercise:(NSDictionary *)exercise {

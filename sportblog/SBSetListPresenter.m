@@ -2,6 +2,14 @@
 
 @implementation SBSetListPresenter
 
+- (void)findSetsFromExercise:(NSDictionary *)exercise {
+    [self.interactor findSetsFromExercise:exercise];
+}
+
+- (void)foundSets:(NSArray *)sets {
+    [self.view displaySets:sets];
+}
+
 - (void)deleteSet:(NSDictionary *)set fromExercise:(NSDictionary *)exercise atIndex:(int)index {
     [self.interactor deleteSet:set fromExercise:exercise atIndex:index];
 }

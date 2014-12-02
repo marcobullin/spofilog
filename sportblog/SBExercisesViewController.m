@@ -30,6 +30,9 @@ int position = -1;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.screenName = @"Exercises Screen";
+    
+    [self createOrIgnoreDefaultExercises];
+    [self.presenter findExercises];
 }
 
 - (void)viewDidLoad {
@@ -38,9 +41,6 @@ int position = -1;
     currentSelectedExercises = -1;
     position = -1;
 
-    [self createOrIgnoreDefaultExercises];
-    [self.presenter findExercises];
-    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
@@ -51,7 +51,6 @@ int position = -1;
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.tableView reloadData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -63,6 +62,7 @@ int position = -1;
 
 - (void)displayExercises:(NSArray *)exercises {
     self.exercises = [NSMutableArray arrayWithArray:exercises];
+    [self.tableView reloadData];
 }
 
 - (void)deletedExerciseAtIndex:(int)index {

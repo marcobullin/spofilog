@@ -21,6 +21,7 @@
 - (SBSet *)updateSetWithId:(NSString *)setId withNumber:(int)number;
 - (SBSet *)updateSetWithId:(NSString *)setId withWeight:(float)weight;
 - (SBSet *)updateSetWithId:(NSString *)setId withRepetitions:(int)repetitions;
+- (RLMArray *)allSetsFromExerciseWithId:(NSString *)exerciseId;
 
 
 - (void)createBulkOfExercises;

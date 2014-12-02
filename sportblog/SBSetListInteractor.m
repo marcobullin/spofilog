@@ -3,6 +3,37 @@
 
 @implementation SBSetListInteractor
 
+- (void)findSetsFromExercise:(NSDictionary *)exercise {
+    SBWorkoutDataSource *dataSource = [SBWorkoutDataSource new];
+    
+    RLMArray *sets = [dataSource allSetsFromExerciseWithId:exercise[@"exerciseId"]];
+    
+    if (sets == nil) {
+        return;
+    }
+    
+    NSMutableArray *array = [NSMutableArray new];
+    
+    for (SBSet *set in sets) {
+        
+        NSDictionary *dict = [NSDictionary dictionaryWithObjects:@[
+                                                                   set.setId,
+                                                                   [NSString stringWithFormat:@"%d", set.number],
+                                                                   [NSString stringWithFormat:@"%f", set.weight],
+                                                                   [NSString stringWithFormat:@"%d", set.repetitions]
+                                                                   ]
+                                                         forKeys:@[
+                                                                   @"setId",
+                                                                   @"number",
+                                                                   @"weight",
+                                                                   @"repetitions"]];
+        
+        [array addObject:dict];
+    }
+    
+    [self.output foundSets:array];
+}
+
 - (void)deleteSet:(NSDictionary *)set fromExercise:(NSDictionary *)exercise atIndex:(int)index {
     SBWorkoutDataSource *dataSource = [SBWorkoutDataSource new];
     [dataSource deleteSetWithId:set[@"setId"] fromExerciseWithId:exercise[@"exerciseId"]];
@@ -41,7 +72,7 @@
     if (lastSet == nil) {
         createdSet = [dataSource createSetWithNumber:number weight:weight andRepetitions:repetitions];
     } else {
-        createdSet = [dataSource createSetWithNumber:number weight:createdSet.weight andRepetitions:createdSet.repetitions];
+        createdSet = [dataSource createSetWithNumber:number weight:lastSet.weight andRepetitions:lastSet.repetitions];
     }
 
     [dataSource addSet:createdSet toExerciseWithId:exercise[@"exerciseId"]];
