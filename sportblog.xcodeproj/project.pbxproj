@@ -8,44 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		29269F6C20B540AA99C7A12B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3902127B8514FFFA9109974 /* libPods.a */; };
-		801A841919EA7A4C002CFCBC /* SBWorkoutsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 801A841819EA7A4C002CFCBC /* SBWorkoutsViewController.m */; };
-		801A841D19EAE33D002CFCBC /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 801A841A19EAE33D002CFCBC /* plus.png */; };
-		801A841E19EAE33D002CFCBC /* plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 801A841B19EAE33D002CFCBC /* plus@2x.png */; };
-		801A841F19EAE33D002CFCBC /* plus@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 801A841C19EAE33D002CFCBC /* plus@3x.png */; };
-		801A842319EAE571002CFCBC /* edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 801A842019EAE571002CFCBC /* edit.png */; };
-		801A842419EAE571002CFCBC /* edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 801A842119EAE571002CFCBC /* edit@2x.png */; };
-		801A842519EAE571002CFCBC /* edit@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 801A842219EAE571002CFCBC /* edit@3x.png */; };
-		801A842919EDA05A002CFCBC /* hantelUnselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 801A842619EDA05A002CFCBC /* hantelUnselected.png */; };
-		801A842A19EDA05A002CFCBC /* hantelUnselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 801A842719EDA05A002CFCBC /* hantelUnselected@2x.png */; };
-		801A842B19EDA05A002CFCBC /* hantelUnselected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 801A842819EDA05A002CFCBC /* hantelUnselected@3x.png */; };
-		8039788719D85286000DEED5 /* SBArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8039788619D85286000DEED5 /* SBArrayDataSource.m */; };
 		8039788919DEBAEF000DEED5 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8039788819DEBAEF000DEED5 /* Launch Screen.xib */; };
-		8039788E19DEE2F1000DEED5 /* SBExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2EB519C1E6E000FFD8FD /* SBExercise.m */; };
-		8039788F19DEE2F4000DEED5 /* SBSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2ECF19C31F1100FFD8FD /* SBSet.m */; };
-		8039789019DEE2F8000DEED5 /* SBExerciseSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE24419C4BE1900472322 /* SBExerciseSet.m */; };
-		8039789119DEE68F000DEED5 /* SBWorkout.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2EB219C09EFF00FFD8FD /* SBWorkout.m */; };
 		8039789E19DFEF7A000DEED5 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8039789C19DFEF36000DEED5 /* libc++.dylib */; };
-		803978A819E063E4000DEED5 /* SBWorkoutsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 803978A619E063E4000DEED5 /* SBWorkoutsInteractor.m */; };
 		803978AC19E4735D000DEED5 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 803978AB19E4735D000DEED5 /* Settings.bundle */; };
-		803978B519E68708000DEED5 /* SBHelperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 803978B419E68708000DEED5 /* SBHelperView.m */; };
-		803978B919E6AAF7000DEED5 /* SBImprintViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 803978B819E6AAF7000DEED5 /* SBImprintViewController.m */; };
-		803978BB19E6D660000DEED5 /* launcherImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 803978BA19E6D660000DEED5 /* launcherImage@3x.png */; };
-		803978BF19E6DA50000DEED5 /* launcherImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 803978BC19E6DA50000DEED5 /* launcherImage.png */; };
-		803978C019E6DA50000DEED5 /* launcherImageIP5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 803978BD19E6DA50000DEED5 /* launcherImageIP5@2x.png */; };
-		803978C119E6DA50000DEED5 /* launcherImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 803978BE19E6DA50000DEED5 /* launcherImage@2x.png */; };
-		803978C519E6EF66000DEED5 /* SBStandardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 803978C319E6EF66000DEED5 /* SBStandardCell.m */; };
-		803978C619E6EF66000DEED5 /* SBStandardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 803978C419E6EF66000DEED5 /* SBStandardCell.xib */; };
-		805DE22C19BF8E6500472322 /* SBWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE22B19BF8E6500472322 /* SBWorkoutViewController.m */; };
-		805DE22F19BF909300472322 /* SBExercisesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE22E19BF909300472322 /* SBExercisesViewController.m */; };
-		805DE23319BF937F00472322 /* SBBigTopBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE23119BF937F00472322 /* SBBigTopBottomCell.m */; };
-		805DE23419BF937F00472322 /* SBBigTopBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 805DE23219BF937F00472322 /* SBBigTopBottomCell.xib */; };
-		805DE23B19BF93CB00472322 /* SBAddEntryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE23919BF93CB00472322 /* SBAddEntryTableViewCell.m */; };
-		805DE23C19BF93CB00472322 /* SBAddEntryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 805DE23A19BF93CB00472322 /* SBAddEntryTableViewCell.xib */; };
-		805DE24019BF93DC00472322 /* SBExerciseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE23E19BF93DC00472322 /* SBExerciseTableViewCell.m */; };
-		805DE24119BF93DC00472322 /* SBExerciseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 805DE23F19BF93DC00472322 /* SBExerciseTableViewCell.xib */; };
-		805DE24519C4BE1900472322 /* SBExerciseSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE24419C4BE1900472322 /* SBExerciseSet.m */; };
-		805DE24819C4C19000472322 /* SBSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE24719C4C19000472322 /* SBSetViewController.m */; };
-		805DE25019C85E4C00472322 /* SBStatisticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805DE24F19C85E4C00472322 /* SBStatisticViewController.m */; };
 		8086D42919BCBF16004ADBB6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8086D42819BCBF16004ADBB6 /* Foundation.framework */; };
 		8086D42B19BCBF16004ADBB6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8086D42A19BCBF16004ADBB6 /* CoreGraphics.framework */; };
 		8086D42D19BCBF16004ADBB6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8086D42C19BCBF16004ADBB6 /* UIKit.framework */; };
@@ -58,101 +23,128 @@
 		8086D44D19BCBF16004ADBB6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8086D42C19BCBF16004ADBB6 /* UIKit.framework */; };
 		8086D45519BCBF16004ADBB6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8086D45319BCBF16004ADBB6 /* InfoPlist.strings */; };
 		8086D45719BCBF16004ADBB6 /* sportblogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8086D45619BCBF16004ADBB6 /* sportblogTests.m */; };
-		80B6016A19C9B8D800CC455A /* SBFinishedExercisesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B6016919C9B8D800CC455A /* SBFinishedExercisesViewController.m */; };
-		80C2E1D21A06A3D6008E0D21 /* SBExerciseDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C2E1D01A06A3D6008E0D21 /* SBExerciseDetailCell.m */; };
-		80C2E1D31A06A3D6008E0D21 /* SBExerciseDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80C2E1D11A06A3D6008E0D21 /* SBExerciseDetailCell.xib */; };
-		80C6AE7A1A18ADB600FF2A2F /* SBWorkoutDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C6AE791A18ADB600FF2A2F /* SBWorkoutDataSource.m */; };
-		80C6AE7E1A18AEB100FF2A2F /* SBWorkoutListInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C6AE7D1A18AEB100FF2A2F /* SBWorkoutListInteractor.m */; };
-		80C6AE821A18AFBE00FF2A2F /* SBWorkoutListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C6AE811A18AFBE00FF2A2F /* SBWorkoutListPresenter.m */; };
-		80FC79581A02C038000172B0 /* front_biceps.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC794F1A02C038000172B0 /* front_biceps.png */; };
-		80FC795A1A02C038000172B0 /* front_legs.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79511A02C038000172B0 /* front_legs.png */; };
-		80FC795B1A02C038000172B0 /* front_neck.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79521A02C038000172B0 /* front_neck.png */; };
-		80FC795C1A02C038000172B0 /* front_shoulder.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79531A02C038000172B0 /* front_shoulder.png */; };
-		80FC795D1A02C038000172B0 /* front_sides.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79541A02C038000172B0 /* front_sides.png */; };
-		80FC795E1A02C038000172B0 /* front_sixpack.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79551A02C038000172B0 /* front_sixpack.png */; };
-		80FC795F1A02C038000172B0 /* front_underarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79561A02C038000172B0 /* front_underarm.png */; };
-		80FC79691A052484000172B0 /* back_ass.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79611A052484000172B0 /* back_ass.png */; };
-		80FC796A1A052484000172B0 /* back_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79621A052484000172B0 /* back_back.png */; };
-		80FC796C1A052484000172B0 /* back_neck.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79641A052484000172B0 /* back_neck.png */; };
-		80FC796D1A052484000172B0 /* back_shoulder.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79651A052484000172B0 /* back_shoulder.png */; };
-		80FC796E1A052484000172B0 /* back_triceps.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79661A052484000172B0 /* back_triceps.png */; };
-		80FC796F1A052484000172B0 /* back_underarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79671A052484000172B0 /* back_underarm.png */; };
-		80FC79731A0524B6000172B0 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79711A0524B6000172B0 /* back.png */; };
-		80FC79741A0524B6000172B0 /* front.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79721A0524B6000172B0 /* front.png */; };
-		80FC79791A0532CE000172B0 /* SBIconListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80FC79771A0532CE000172B0 /* SBIconListViewController.m */; };
-		80FC797A1A0532CE000172B0 /* SBIconListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79781A0532CE000172B0 /* SBIconListViewController.xib */; };
-		80FC797E1A0534F9000172B0 /* SBIconCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80FC797C1A0534F9000172B0 /* SBIconCell.m */; };
-		80FC797F1A0534F9000172B0 /* SBIconCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80FC797D1A0534F9000172B0 /* SBIconCell.xib */; };
-		80FC798F1A054EC1000172B0 /* front_breast.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC798C1A054EC1000172B0 /* front_breast.png */; };
-		80FC79901A054EC1000172B0 /* front_lat.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC798D1A054EC1000172B0 /* front_lat.png */; };
-		80FC79911A054EC1000172B0 /* front_shin.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC798E1A054EC1000172B0 /* front_shin.png */; };
-		80FC79941A055145000172B0 /* back_calf.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79921A055145000172B0 /* back_calf.png */; };
-		80FC79951A055145000172B0 /* back_legs.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FC79931A055145000172B0 /* back_legs.png */; };
-		B31609A419ED6FAD00D1637C /* SBDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B31609A219ED6FAD00D1637C /* SBDescriptionCell.m */; };
-		B31609A519ED6FAD00D1637C /* SBDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B31609A319ED6FAD00D1637C /* SBDescriptionCell.xib */; };
-		B33E28BF1A07A5AF00089916 /* SBAbstractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B33E28BE1A07A5AF00089916 /* SBAbstractViewController.m */; };
-		B33E28C21A07AD2A00089916 /* SBExerciseInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B33E28C11A07AD2A00089916 /* SBExerciseInteractor.m */; };
-		B33E28C81A07D0B700089916 /* SBSetInteractorOLD.m in Sources */ = {isa = PBXBuildFile; fileRef = B33E28C71A07D0B600089916 /* SBSetInteractorOLD.m */; };
-		B342734C1A28876900A282CB /* SBSetListInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B342734B1A28876900A282CB /* SBSetListInteractor.m */; };
-		B342734F1A28878200A282CB /* SBSetListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B342734E1A28878200A282CB /* SBSetListPresenter.m */; };
-		B35A21DA19DBEFF600BCECAB /* SBStatisticCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B35A21D919DBEFF600BCECAB /* SBStatisticCell.xib */; };
-		B35A21DC19DBF00A00BCECAB /* SBStatisticCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B35A21DB19DBF00A00BCECAB /* SBStatisticCell.m */; };
-		B36B6CDD1A23327B00D88B7F /* SBExercisesPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B36B6CDC1A23327B00D88B7F /* SBExercisesPresenter.m */; };
-		B36B6CE01A23341400D88B7F /* SBExercisesInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B36B6CDF1A23341400D88B7F /* SBExercisesInteractor.m */; };
-		B3752EFF19D185970091E207 /* SBSmallTopBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3752EFE19D185970091E207 /* SBSmallTopBottomCell.xib */; };
-		B3752F0619D187C70091E207 /* SBSmallTopBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3752F0519D187C70091E207 /* SBSmallTopBottomCell.m */; };
-		B3752F0A19D18DCD0091E207 /* UIColor+SBColor.m in Sources */ = {isa = PBXBuildFile; fileRef = B3752F0919D18DCD0091E207 /* UIColor+SBColor.m */; };
-		B3752F0C19D1C5080091E207 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B3752F0B19D1C5080091E207 /* arrow.png */; };
-		B3752F0E19D2B8280091E207 /* SBLeftRightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3752F0D19D2B8280091E207 /* SBLeftRightCell.m */; };
-		B3752F1119D2B85B0091E207 /* SBLeftRightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3752F1019D2B85B0091E207 /* SBLeftRightCell.xib */; };
-		B3752F1B19DA95920091E207 /* SBWorkouViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3752F1A19DA95920091E207 /* SBWorkouViewModel.m */; };
-		B3752F1F19DAA6720091E207 /* SBWorkoutsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3752F1E19DAA6720091E207 /* SBWorkoutsViewController.xib */; };
-		B3752F2119DAA8580091E207 /* SBFinishedExercisesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3752F2019DAA8580091E207 /* SBFinishedExercisesViewController.xib */; };
-		B3752F2319DAC1170091E207 /* SBWorkoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3752F2219DAC1170091E207 /* SBWorkoutViewController.xib */; };
-		B3752F2519DAC6140091E207 /* SBExercisesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3752F2419DAC6130091E207 /* SBExercisesViewController.xib */; };
-		B3752F2719DAC8A40091E207 /* SBSetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3752F2619DAC8A40091E207 /* SBSetsViewController.xib */; };
-		B3752F2919DAC9CF0091E207 /* SBSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3752F2819DAC9CF0091E207 /* SBSetViewController.xib */; };
-		B3752F2B19DAEB440091E207 /* SBStatisticViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3752F2A19DAEB440091E207 /* SBStatisticViewController.xib */; };
-		B38E11BA19EE9E1E0060945C /* settingsUnselected.png in Resources */ = {isa = PBXBuildFile; fileRef = B38E11B419EE9E1E0060945C /* settingsUnselected.png */; };
-		B38E11BB19EE9E1E0060945C /* settingsUnselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B38E11B519EE9E1E0060945C /* settingsUnselected@2x.png */; };
-		B38E11BC19EE9E1E0060945C /* settingsUnselected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B38E11B619EE9E1E0060945C /* settingsUnselected@3x.png */; };
-		B38E11BD19EE9E1E0060945C /* statsUnselected.png in Resources */ = {isa = PBXBuildFile; fileRef = B38E11B719EE9E1E0060945C /* statsUnselected.png */; };
-		B38E11BE19EE9E1E0060945C /* statsUnselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B38E11B819EE9E1E0060945C /* statsUnselected@2x.png */; };
-		B38E11BF19EE9E1E0060945C /* statsUnselected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B38E11B919EE9E1E0060945C /* statsUnselected@3x.png */; };
-		B3AB6A0B19C059A70002EDF9 /* SBEditWorkoutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AB6A0919C059A70002EDF9 /* SBEditWorkoutTableViewCell.m */; };
-		B3AB6A0C19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3AB6A0A19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib */; };
-		B3AC2EB319C09EFF00FFD8FD /* SBWorkout.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2EB219C09EFF00FFD8FD /* SBWorkout.m */; };
-		B3AC2EB619C1E6E000FFD8FD /* SBExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2EB519C1E6E000FFD8FD /* SBExercise.m */; };
-		B3AC2ED019C31F1100FFD8FD /* SBSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2ECF19C31F1100FFD8FD /* SBSet.m */; };
-		B3AC2ED319C322A300FFD8FD /* SBSetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2ED219C322A300FFD8FD /* SBSetsViewController.m */; };
-		B3AC2EDF19CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC2EDD19CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.m */; };
-		B3AC2EE019CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3AC2EDE19CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.xib */; };
-		B3AED24119DD76C90006A4A9 /* hantel.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED23B19DD76C90006A4A9 /* hantel.png */; };
-		B3AED24219DD76C90006A4A9 /* hantel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED23C19DD76C90006A4A9 /* hantel@2x.png */; };
-		B3AED24319DD76C90006A4A9 /* hantel@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED23D19DD76C90006A4A9 /* hantel@3x.png */; };
-		B3AED24419DD76C90006A4A9 /* stats.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED23E19DD76C90006A4A9 /* stats.png */; };
-		B3AED24519DD76C90006A4A9 /* stats@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED23F19DD76C90006A4A9 /* stats@2x.png */; };
-		B3AED24619DD76C90006A4A9 /* stats@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED24019DD76C90006A4A9 /* stats@3x.png */; };
-		B3AED24919E297310006A4A9 /* SBAddEntryViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AED24819E297310006A4A9 /* SBAddEntryViewModel.m */; };
-		B3AED24C19E29A660006A4A9 /* SBExerciseSetViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AED24B19E29A660006A4A9 /* SBExerciseSetViewModel.m */; };
-		B3AED25A19E2CDB50006A4A9 /* hintArrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED25919E2CDB50006A4A9 /* hintArrow@3x.png */; };
-		B3AED25D19E2CDFE0006A4A9 /* hintArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED25B19E2CDFE0006A4A9 /* hintArrow.png */; };
-		B3AED25E19E2CDFE0006A4A9 /* hintArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED25C19E2CDFE0006A4A9 /* hintArrow@2x.png */; };
-		B3AED26819E2E26C0006A4A9 /* SBSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AED26619E2E26C0006A4A9 /* SBSettingsViewController.m */; };
-		B3AED26919E2E26C0006A4A9 /* SBSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3AED26719E2E26C0006A4A9 /* SBSettingsViewController.xib */; };
-		B3AED26D19E2E3520006A4A9 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED26A19E2E3520006A4A9 /* settings.png */; };
-		B3AED26E19E2E3520006A4A9 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED26B19E2E3520006A4A9 /* settings@2x.png */; };
-		B3AED26F19E2E3520006A4A9 /* settings@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED26C19E2E3520006A4A9 /* settings@3x.png */; };
-		B3AED27319E3E31E0006A4A9 /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED27019E3E31E0006A4A9 /* appIcon.png */; };
-		B3AED27419E3E31E0006A4A9 /* appIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED27119E3E31E0006A4A9 /* appIcon@2x.png */; };
-		B3AED27519E3E31E0006A4A9 /* appIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3AED27219E3E31E0006A4A9 /* appIcon@3x.png */; };
-		B3C2D90D1A1A4FB7007358B3 /* SBWorkoutPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C2D90C1A1A4FB7007358B3 /* SBWorkoutPresenter.m */; };
-		B3C2D9121A1B90A7007358B3 /* SBWorkoutInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C2D9111A1B90A7007358B3 /* SBWorkoutInteractor.m */; };
-		B3E426181A2DCEB8007E2675 /* SBSetInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426171A2DCEB8007E2675 /* SBSetInteractor.m */; };
-		B3E4261D1A2DCEFC007E2675 /* SBSetPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E4261C1A2DCEFC007E2675 /* SBSetPresenter.m */; };
-		B3E5307019EBEE5600C2A17F /* addButton.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E5306D19EBEE5600C2A17F /* addButton.png */; };
-		B3E5307119EBEE5600C2A17F /* addButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E5306E19EBEE5600C2A17F /* addButton@2x.png */; };
-		B3E5307219EBEE5600C2A17F /* addButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E5306F19EBEE5600C2A17F /* addButton@3x.png */; };
+		B3E4262A1A2DFC77007E2675 /* SBWorkoutListInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426211A2DFC77007E2675 /* SBWorkoutListInteractor.m */; };
+		B3E4262B1A2DFC77007E2675 /* SBWorkoutListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426251A2DFC77007E2675 /* SBWorkoutListPresenter.m */; };
+		B3E4262C1A2DFC77007E2675 /* SBWorkoutsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426281A2DFC77007E2675 /* SBWorkoutsViewController.m */; };
+		B3E4262D1A2DFC77007E2675 /* SBWorkoutsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E426291A2DFC77007E2675 /* SBWorkoutsViewController.xib */; };
+		B3E426411A2DFD41007E2675 /* SBBigTopBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426311A2DFD41007E2675 /* SBBigTopBottomCell.m */; };
+		B3E426421A2DFD41007E2675 /* SBBigTopBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E426321A2DFD41007E2675 /* SBBigTopBottomCell.xib */; };
+		B3E426431A2DFD41007E2675 /* SBExerciseDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426341A2DFD41007E2675 /* SBExerciseDetailCell.m */; };
+		B3E426441A2DFD41007E2675 /* SBExerciseDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E426351A2DFD41007E2675 /* SBExerciseDetailCell.xib */; };
+		B3E426451A2DFD41007E2675 /* SBWorkoutInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426381A2DFD41007E2675 /* SBWorkoutInteractor.m */; };
+		B3E426461A2DFD41007E2675 /* SBWorkoutPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E4263C1A2DFD41007E2675 /* SBWorkoutPresenter.m */; };
+		B3E426471A2DFD41007E2675 /* SBWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E4263F1A2DFD41007E2675 /* SBWorkoutViewController.m */; };
+		B3E426481A2DFD41007E2675 /* SBWorkoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E426401A2DFD41007E2675 /* SBWorkoutViewController.xib */; };
+		B3E426591A2DFE23007E2675 /* SBCreateExerciseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E4264C1A2DFE23007E2675 /* SBCreateExerciseTableViewCell.m */; };
+		B3E4265A1A2DFE23007E2675 /* SBCreateExerciseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E4264D1A2DFE23007E2675 /* SBCreateExerciseTableViewCell.xib */; };
+		B3E4265B1A2DFE23007E2675 /* SBExercisesInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426501A2DFE23007E2675 /* SBExercisesInteractor.m */; };
+		B3E4265C1A2DFE23007E2675 /* SBExercisesPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426541A2DFE23007E2675 /* SBExercisesPresenter.m */; };
+		B3E4265D1A2DFE23007E2675 /* SBExercisesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426571A2DFE23007E2675 /* SBExercisesViewController.m */; };
+		B3E4265E1A2DFE23007E2675 /* SBExercisesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E426581A2DFE23007E2675 /* SBExercisesViewController.xib */; };
+		B3E4266B1A2DFEE8007E2675 /* SBSetListInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426621A2DFEE8007E2675 /* SBSetListInteractor.m */; };
+		B3E4266C1A2DFEE8007E2675 /* SBSetListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426661A2DFEE8007E2675 /* SBSetListPresenter.m */; };
+		B3E4266D1A2DFEE8007E2675 /* SBSetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426691A2DFEE8007E2675 /* SBSetsViewController.m */; };
+		B3E4266E1A2DFEE8007E2675 /* SBSetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E4266A1A2DFEE8007E2675 /* SBSetsViewController.xib */; };
+		B3E4267B1A2DFF4A007E2675 /* SBSetInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426721A2DFF4A007E2675 /* SBSetInteractor.m */; };
+		B3E4267C1A2DFF4A007E2675 /* SBSetPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426761A2DFF4A007E2675 /* SBSetPresenter.m */; };
+		B3E4267D1A2DFF4A007E2675 /* SBSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426791A2DFF4A007E2675 /* SBSetViewController.m */; };
+		B3E4267E1A2DFF4A007E2675 /* SBSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E4267A1A2DFF4A007E2675 /* SBSetViewController.xib */; };
+		B3E426891A2DFFBB007E2675 /* SBIconCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426821A2DFFBB007E2675 /* SBIconCell.m */; };
+		B3E4268A1A2DFFBB007E2675 /* SBIconCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E426831A2DFFBB007E2675 /* SBIconCell.xib */; };
+		B3E4268B1A2DFFBB007E2675 /* SBIconListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426871A2DFFBB007E2675 /* SBIconListViewController.m */; };
+		B3E4268C1A2DFFBB007E2675 /* SBIconListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E426881A2DFFBB007E2675 /* SBIconListViewController.xib */; };
+		B3E426931A2E002E007E2675 /* SBFinishedExercisesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426911A2E002E007E2675 /* SBFinishedExercisesViewController.m */; };
+		B3E426941A2E002E007E2675 /* SBFinishedExercisesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E426921A2E002E007E2675 /* SBFinishedExercisesViewController.xib */; };
+		B3E4269F1A2E008E007E2675 /* SBStatisticCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426981A2E008E007E2675 /* SBStatisticCell.m */; };
+		B3E426A01A2E008E007E2675 /* SBStatisticCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E426991A2E008E007E2675 /* SBStatisticCell.xib */; };
+		B3E426A11A2E008E007E2675 /* SBStatisticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E4269D1A2E008E007E2675 /* SBStatisticViewController.m */; };
+		B3E426A21A2E008E007E2675 /* SBStatisticViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E4269E1A2E008E007E2675 /* SBStatisticViewController.xib */; };
+		B3E426A71A2E00CF007E2675 /* SBSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426A51A2E00CF007E2675 /* SBSettingsViewController.m */; };
+		B3E426A81A2E00CF007E2675 /* SBSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E426A61A2E00CF007E2675 /* SBSettingsViewController.xib */; };
+		B3E426AC1A2E0106007E2675 /* SBImprintViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426AB1A2E0106007E2675 /* SBImprintViewController.m */; };
+		B3E426DD1A2E03A4007E2675 /* SBAddEntryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426B01A2E03A4007E2675 /* SBAddEntryTableViewCell.m */; };
+		B3E426DE1A2E03A4007E2675 /* SBAddEntryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E426B11A2E03A4007E2675 /* SBAddEntryTableViewCell.xib */; };
+		B3E426DF1A2E03A4007E2675 /* SBDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426B31A2E03A4007E2675 /* SBDescriptionCell.m */; };
+		B3E426E01A2E03A4007E2675 /* SBDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E426B41A2E03A4007E2675 /* SBDescriptionCell.xib */; };
+		B3E426E11A2E03A4007E2675 /* SBEditWorkoutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426B61A2E03A4007E2675 /* SBEditWorkoutTableViewCell.m */; };
+		B3E426E21A2E03A4007E2675 /* SBEditWorkoutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E426B71A2E03A4007E2675 /* SBEditWorkoutTableViewCell.xib */; };
+		B3E426E31A2E03A4007E2675 /* SBExerciseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426B91A2E03A4007E2675 /* SBExerciseTableViewCell.m */; };
+		B3E426E41A2E03A4007E2675 /* SBExerciseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E426BA1A2E03A4007E2675 /* SBExerciseTableViewCell.xib */; };
+		B3E426E51A2E03A4007E2675 /* SBLeftRightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426BC1A2E03A4007E2675 /* SBLeftRightCell.m */; };
+		B3E426E61A2E03A4007E2675 /* SBLeftRightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E426BD1A2E03A4007E2675 /* SBLeftRightCell.xib */; };
+		B3E426E71A2E03A4007E2675 /* SBSmallTopBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426BF1A2E03A4007E2675 /* SBSmallTopBottomCell.m */; };
+		B3E426E81A2E03A4007E2675 /* SBSmallTopBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E426C01A2E03A4007E2675 /* SBSmallTopBottomCell.xib */; };
+		B3E426E91A2E03A4007E2675 /* SBStandardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426C21A2E03A4007E2675 /* SBStandardCell.m */; };
+		B3E426EA1A2E03A4007E2675 /* SBStandardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E426C31A2E03A4007E2675 /* SBStandardCell.xib */; };
+		B3E426EB1A2E03A4007E2675 /* SBWorkoutDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426C61A2E03A4007E2675 /* SBWorkoutDataSource.m */; };
+		B3E426EC1A2E03A4007E2675 /* SBExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426C91A2E03A4007E2675 /* SBExercise.m */; };
+		B3E426ED1A2E03A4007E2675 /* SBExerciseSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426CB1A2E03A4007E2675 /* SBExerciseSet.m */; };
+		B3E426EE1A2E03A4007E2675 /* SBSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426CD1A2E03A4007E2675 /* SBSet.m */; };
+		B3E426EF1A2E03A4007E2675 /* SBWorkout.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426CF1A2E03A4007E2675 /* SBWorkout.m */; };
+		B3E426F01A2E03A4007E2675 /* SBAbstractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426D21A2E03A4007E2675 /* SBAbstractViewController.m */; };
+		B3E426F11A2E03A4007E2675 /* SBHelperView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426D51A2E03A4007E2675 /* SBHelperView.m */; };
+		B3E426F21A2E03A4007E2675 /* SBAddEntryViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426D81A2E03A4007E2675 /* SBAddEntryViewModel.m */; };
+		B3E426F31A2E03A4007E2675 /* SBExerciseSetViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426DA1A2E03A4007E2675 /* SBExerciseSetViewModel.m */; };
+		B3E426F41A2E03A4007E2675 /* SBWorkouViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426DC1A2E03A4007E2675 /* SBWorkouViewModel.m */; };
+		B3E426F81A2E03FD007E2675 /* UIColor+SBColor.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426F71A2E03FD007E2675 /* UIColor+SBColor.m */; };
+		B3E427341A2E0489007E2675 /* addButton.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E426FA1A2E0489007E2675 /* addButton.png */; };
+		B3E427351A2E0489007E2675 /* addButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E426FB1A2E0489007E2675 /* addButton@2x.png */; };
+		B3E427361A2E0489007E2675 /* addButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E426FC1A2E0489007E2675 /* addButton@3x.png */; };
+		B3E427371A2E0489007E2675 /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E426FD1A2E0489007E2675 /* appIcon.png */; };
+		B3E427381A2E0489007E2675 /* appIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E426FE1A2E0489007E2675 /* appIcon@2x.png */; };
+		B3E427391A2E0489007E2675 /* appIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E426FF1A2E0489007E2675 /* appIcon@3x.png */; };
+		B3E4273A1A2E0489007E2675 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427001A2E0489007E2675 /* arrow.png */; };
+		B3E4273B1A2E0489007E2675 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427011A2E0489007E2675 /* back.png */; };
+		B3E4273C1A2E0489007E2675 /* back_ass.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427021A2E0489007E2675 /* back_ass.png */; };
+		B3E4273D1A2E0489007E2675 /* back_back.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427031A2E0489007E2675 /* back_back.png */; };
+		B3E4273E1A2E0489007E2675 /* back_calf.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427041A2E0489007E2675 /* back_calf.png */; };
+		B3E4273F1A2E0489007E2675 /* back_legs.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427051A2E0489007E2675 /* back_legs.png */; };
+		B3E427401A2E0489007E2675 /* back_neck.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427061A2E0489007E2675 /* back_neck.png */; };
+		B3E427411A2E0489007E2675 /* back_shoulder.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427071A2E0489007E2675 /* back_shoulder.png */; };
+		B3E427421A2E0489007E2675 /* back_triceps.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427081A2E0489007E2675 /* back_triceps.png */; };
+		B3E427431A2E0489007E2675 /* back_underarm.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427091A2E0489007E2675 /* back_underarm.png */; };
+		B3E427441A2E0489007E2675 /* edit.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E4270A1A2E0489007E2675 /* edit.png */; };
+		B3E427451A2E0489007E2675 /* edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E4270B1A2E0489007E2675 /* edit@2x.png */; };
+		B3E427461A2E0489007E2675 /* edit@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E4270C1A2E0489007E2675 /* edit@3x.png */; };
+		B3E427471A2E0489007E2675 /* front.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E4270D1A2E0489007E2675 /* front.png */; };
+		B3E427481A2E0489007E2675 /* front_biceps.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E4270E1A2E0489007E2675 /* front_biceps.png */; };
+		B3E427491A2E0489007E2675 /* front_breast.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E4270F1A2E0489007E2675 /* front_breast.png */; };
+		B3E4274A1A2E0489007E2675 /* front_lat.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427101A2E0489007E2675 /* front_lat.png */; };
+		B3E4274B1A2E0489007E2675 /* front_legs.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427111A2E0489007E2675 /* front_legs.png */; };
+		B3E4274C1A2E0489007E2675 /* front_neck.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427121A2E0489007E2675 /* front_neck.png */; };
+		B3E4274D1A2E0489007E2675 /* front_shin.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427131A2E0489007E2675 /* front_shin.png */; };
+		B3E4274E1A2E0489007E2675 /* front_shoulder.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427141A2E0489007E2675 /* front_shoulder.png */; };
+		B3E4274F1A2E0489007E2675 /* front_sides.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427151A2E0489007E2675 /* front_sides.png */; };
+		B3E427501A2E0489007E2675 /* front_sixpack.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427161A2E0489007E2675 /* front_sixpack.png */; };
+		B3E427511A2E0489007E2675 /* front_underarm.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427171A2E0489007E2675 /* front_underarm.png */; };
+		B3E427521A2E0489007E2675 /* hantel.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427181A2E0489007E2675 /* hantel.png */; };
+		B3E427531A2E0489007E2675 /* hantel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427191A2E0489007E2675 /* hantel@2x.png */; };
+		B3E427541A2E0489007E2675 /* hantel@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E4271A1A2E0489007E2675 /* hantel@3x.png */; };
+		B3E427551A2E0489007E2675 /* hantelUnselected.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E4271B1A2E0489007E2675 /* hantelUnselected.png */; };
+		B3E427561A2E0489007E2675 /* hantelUnselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E4271C1A2E0489007E2675 /* hantelUnselected@2x.png */; };
+		B3E427571A2E0489007E2675 /* hantelUnselected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E4271D1A2E0489007E2675 /* hantelUnselected@3x.png */; };
+		B3E427581A2E0489007E2675 /* hintArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E4271E1A2E0489007E2675 /* hintArrow.png */; };
+		B3E427591A2E0489007E2675 /* hintArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E4271F1A2E0489007E2675 /* hintArrow@2x.png */; };
+		B3E4275A1A2E0489007E2675 /* hintArrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427201A2E0489007E2675 /* hintArrow@3x.png */; };
+		B3E4275B1A2E0489007E2675 /* launcherImage.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427211A2E0489007E2675 /* launcherImage.png */; };
+		B3E4275C1A2E0489007E2675 /* launcherImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427221A2E0489007E2675 /* launcherImage@2x.png */; };
+		B3E4275D1A2E0489007E2675 /* launcherImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427231A2E0489007E2675 /* launcherImage@3x.png */; };
+		B3E4275E1A2E0489007E2675 /* launcherImageIP5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427241A2E0489007E2675 /* launcherImageIP5@2x.png */; };
+		B3E4275F1A2E0489007E2675 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427251A2E0489007E2675 /* plus.png */; };
+		B3E427601A2E0489007E2675 /* plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427261A2E0489007E2675 /* plus@2x.png */; };
+		B3E427611A2E0489007E2675 /* plus@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427271A2E0489007E2675 /* plus@3x.png */; };
+		B3E427621A2E0489007E2675 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427281A2E0489007E2675 /* settings.png */; };
+		B3E427631A2E0489007E2675 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427291A2E0489007E2675 /* settings@2x.png */; };
+		B3E427641A2E0489007E2675 /* settings@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E4272A1A2E0489007E2675 /* settings@3x.png */; };
+		B3E427651A2E0489007E2675 /* settingsUnselected.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E4272B1A2E0489007E2675 /* settingsUnselected.png */; };
+		B3E427661A2E0489007E2675 /* settingsUnselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E4272C1A2E0489007E2675 /* settingsUnselected@2x.png */; };
+		B3E427671A2E0489007E2675 /* settingsUnselected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E4272D1A2E0489007E2675 /* settingsUnselected@3x.png */; };
+		B3E427681A2E0489007E2675 /* stats.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E4272E1A2E0489007E2675 /* stats.png */; };
+		B3E427691A2E0489007E2675 /* stats@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E4272F1A2E0489007E2675 /* stats@2x.png */; };
+		B3E4276A1A2E0489007E2675 /* stats@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427301A2E0489007E2675 /* stats@3x.png */; };
+		B3E4276B1A2E0489007E2675 /* statsUnselected.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427311A2E0489007E2675 /* statsUnselected.png */; };
+		B3E4276C1A2E0489007E2675 /* statsUnselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427321A2E0489007E2675 /* statsUnselected@2x.png */; };
+		B3E4276D1A2E0489007E2675 /* statsUnselected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3E427331A2E0489007E2675 /* statsUnselected@3x.png */; };
 		BC4C89146E544EFE9221C7EE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3902127B8514FFFA9109974 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -168,53 +160,9 @@
 
 /* Begin PBXFileReference section */
 		67FA2B5A03981E5FBD9D748B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		801A841819EA7A4C002CFCBC /* SBWorkoutsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutsViewController.m; sourceTree = "<group>"; };
-		801A841A19EAE33D002CFCBC /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
-		801A841B19EAE33D002CFCBC /* plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus@2x.png"; sourceTree = "<group>"; };
-		801A841C19EAE33D002CFCBC /* plus@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus@3x.png"; sourceTree = "<group>"; };
-		801A842019EAE571002CFCBC /* edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit.png; sourceTree = "<group>"; };
-		801A842119EAE571002CFCBC /* edit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit@2x.png"; sourceTree = "<group>"; };
-		801A842219EAE571002CFCBC /* edit@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit@3x.png"; sourceTree = "<group>"; };
-		801A842619EDA05A002CFCBC /* hantelUnselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hantelUnselected.png; sourceTree = "<group>"; };
-		801A842719EDA05A002CFCBC /* hantelUnselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hantelUnselected@2x.png"; sourceTree = "<group>"; };
-		801A842819EDA05A002CFCBC /* hantelUnselected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hantelUnselected@3x.png"; sourceTree = "<group>"; };
-		8039788519D85269000DEED5 /* SBArrayDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBArrayDataSource.h; sourceTree = "<group>"; };
-		8039788619D85286000DEED5 /* SBArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBArrayDataSource.m; sourceTree = "<group>"; };
 		8039788819DEBAEF000DEED5 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		8039789C19DFEF36000DEED5 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
-		803978A619E063E4000DEED5 /* SBWorkoutsInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutsInteractor.m; sourceTree = "<group>"; };
-		803978A719E063E4000DEED5 /* SBWorkoutsInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutsInteractor.h; sourceTree = "<group>"; };
 		803978AB19E4735D000DEED5 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		803978B319E68708000DEED5 /* SBHelperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBHelperView.h; sourceTree = "<group>"; };
-		803978B419E68708000DEED5 /* SBHelperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBHelperView.m; sourceTree = "<group>"; };
-		803978B719E6AAF7000DEED5 /* SBImprintViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBImprintViewController.h; sourceTree = "<group>"; };
-		803978B819E6AAF7000DEED5 /* SBImprintViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBImprintViewController.m; sourceTree = "<group>"; };
-		803978BA19E6D660000DEED5 /* launcherImage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launcherImage@3x.png"; sourceTree = "<group>"; };
-		803978BC19E6DA50000DEED5 /* launcherImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launcherImage.png; sourceTree = "<group>"; };
-		803978BD19E6DA50000DEED5 /* launcherImageIP5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launcherImageIP5@2x.png"; sourceTree = "<group>"; };
-		803978BE19E6DA50000DEED5 /* launcherImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launcherImage@2x.png"; sourceTree = "<group>"; };
-		803978C219E6EF66000DEED5 /* SBStandardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBStandardCell.h; sourceTree = "<group>"; };
-		803978C319E6EF66000DEED5 /* SBStandardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBStandardCell.m; sourceTree = "<group>"; };
-		803978C419E6EF66000DEED5 /* SBStandardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBStandardCell.xib; sourceTree = "<group>"; };
-		805DE22A19BF8E6500472322 /* SBWorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutViewController.h; sourceTree = "<group>"; };
-		805DE22B19BF8E6500472322 /* SBWorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutViewController.m; sourceTree = "<group>"; };
-		805DE22D19BF909300472322 /* SBExercisesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExercisesViewController.h; sourceTree = "<group>"; };
-		805DE22E19BF909300472322 /* SBExercisesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBExercisesViewController.m; sourceTree = "<group>"; };
-		805DE23019BF937F00472322 /* SBBigTopBottomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBBigTopBottomCell.h; sourceTree = "<group>"; };
-		805DE23119BF937F00472322 /* SBBigTopBottomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBBigTopBottomCell.m; sourceTree = "<group>"; };
-		805DE23219BF937F00472322 /* SBBigTopBottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBBigTopBottomCell.xib; sourceTree = "<group>"; };
-		805DE23819BF93CB00472322 /* SBAddEntryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAddEntryTableViewCell.h; sourceTree = "<group>"; };
-		805DE23919BF93CB00472322 /* SBAddEntryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAddEntryTableViewCell.m; sourceTree = "<group>"; };
-		805DE23A19BF93CB00472322 /* SBAddEntryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBAddEntryTableViewCell.xib; sourceTree = "<group>"; };
-		805DE23D19BF93DC00472322 /* SBExerciseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExerciseTableViewCell.h; sourceTree = "<group>"; };
-		805DE23E19BF93DC00472322 /* SBExerciseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBExerciseTableViewCell.m; sourceTree = "<group>"; };
-		805DE23F19BF93DC00472322 /* SBExerciseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBExerciseTableViewCell.xib; sourceTree = "<group>"; };
-		805DE24319C4BE1900472322 /* SBExerciseSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExerciseSet.h; sourceTree = "<group>"; };
-		805DE24419C4BE1900472322 /* SBExerciseSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBExerciseSet.m; sourceTree = "<group>"; };
-		805DE24619C4C19000472322 /* SBSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetViewController.h; sourceTree = "<group>"; };
-		805DE24719C4C19000472322 /* SBSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSetViewController.m; sourceTree = "<group>"; };
-		805DE24E19C85E4C00472322 /* SBStatisticViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBStatisticViewController.h; sourceTree = "<group>"; };
-		805DE24F19C85E4C00472322 /* SBStatisticViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBStatisticViewController.m; sourceTree = "<group>"; };
 		8086D42519BCBF16004ADBB6 /* sportblog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sportblog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8086D42819BCBF16004ADBB6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8086D42A19BCBF16004ADBB6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -225,153 +173,189 @@
 		8086D43619BCBF16004ADBB6 /* sportblog-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sportblog-Prefix.pch"; sourceTree = "<group>"; };
 		8086D43719BCBF16004ADBB6 /* SBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBAppDelegate.h; sourceTree = "<group>"; };
 		8086D43819BCBF16004ADBB6 /* SBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBAppDelegate.m; sourceTree = "<group>"; };
-		8086D44019BCBF16004ADBB6 /* SBWorkoutsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBWorkoutsViewController.h; sourceTree = "<group>"; };
 		8086D44319BCBF16004ADBB6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8086D44919BCBF16004ADBB6 /* sportblogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sportblogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8086D44A19BCBF16004ADBB6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		8086D45219BCBF16004ADBB6 /* sportblogTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sportblogTests-Info.plist"; sourceTree = "<group>"; };
 		8086D45419BCBF16004ADBB6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8086D45619BCBF16004ADBB6 /* sportblogTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sportblogTests.m; sourceTree = "<group>"; };
-		80B6016819C9B8D800CC455A /* SBFinishedExercisesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBFinishedExercisesViewController.h; sourceTree = "<group>"; };
-		80B6016919C9B8D800CC455A /* SBFinishedExercisesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBFinishedExercisesViewController.m; sourceTree = "<group>"; };
-		80C2E1CF1A06A3D6008E0D21 /* SBExerciseDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExerciseDetailCell.h; sourceTree = "<group>"; };
-		80C2E1D01A06A3D6008E0D21 /* SBExerciseDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBExerciseDetailCell.m; sourceTree = "<group>"; };
-		80C2E1D11A06A3D6008E0D21 /* SBExerciseDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBExerciseDetailCell.xib; sourceTree = "<group>"; };
-		80C6AE781A18ADB600FF2A2F /* SBWorkoutDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutDataSource.h; sourceTree = "<group>"; };
-		80C6AE791A18ADB600FF2A2F /* SBWorkoutDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutDataSource.m; sourceTree = "<group>"; };
-		80C6AE7C1A18AEB100FF2A2F /* SBWorkoutListInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutListInteractor.h; sourceTree = "<group>"; };
-		80C6AE7D1A18AEB100FF2A2F /* SBWorkoutListInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutListInteractor.m; sourceTree = "<group>"; };
-		80C6AE801A18AFBE00FF2A2F /* SBWorkoutListPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutListPresenter.h; sourceTree = "<group>"; };
-		80C6AE811A18AFBE00FF2A2F /* SBWorkoutListPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutListPresenter.m; sourceTree = "<group>"; };
-		80C6AE831A1908B300FF2A2F /* SBWorkoutListInteractorIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutListInteractorIO.h; sourceTree = "<group>"; };
-		80C6AE861A190C1000FF2A2F /* SBWorkoutsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutsView.h; sourceTree = "<group>"; };
-		80FC794F1A02C038000172B0 /* front_biceps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_biceps.png; sourceTree = "<group>"; };
-		80FC79511A02C038000172B0 /* front_legs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_legs.png; sourceTree = "<group>"; };
-		80FC79521A02C038000172B0 /* front_neck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_neck.png; sourceTree = "<group>"; };
-		80FC79531A02C038000172B0 /* front_shoulder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_shoulder.png; sourceTree = "<group>"; };
-		80FC79541A02C038000172B0 /* front_sides.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_sides.png; sourceTree = "<group>"; };
-		80FC79551A02C038000172B0 /* front_sixpack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_sixpack.png; sourceTree = "<group>"; };
-		80FC79561A02C038000172B0 /* front_underarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_underarm.png; sourceTree = "<group>"; };
-		80FC79611A052484000172B0 /* back_ass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_ass.png; sourceTree = "<group>"; };
-		80FC79621A052484000172B0 /* back_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_back.png; sourceTree = "<group>"; };
-		80FC79641A052484000172B0 /* back_neck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_neck.png; sourceTree = "<group>"; };
-		80FC79651A052484000172B0 /* back_shoulder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_shoulder.png; sourceTree = "<group>"; };
-		80FC79661A052484000172B0 /* back_triceps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_triceps.png; sourceTree = "<group>"; };
-		80FC79671A052484000172B0 /* back_underarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_underarm.png; sourceTree = "<group>"; };
-		80FC79711A0524B6000172B0 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
-		80FC79721A0524B6000172B0 /* front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front.png; sourceTree = "<group>"; };
-		80FC79761A0532CE000172B0 /* SBIconListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBIconListViewController.h; sourceTree = "<group>"; };
-		80FC79771A0532CE000172B0 /* SBIconListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBIconListViewController.m; sourceTree = "<group>"; };
-		80FC79781A0532CE000172B0 /* SBIconListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBIconListViewController.xib; sourceTree = "<group>"; };
-		80FC797B1A0534F9000172B0 /* SBIconCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBIconCell.h; sourceTree = "<group>"; };
-		80FC797C1A0534F9000172B0 /* SBIconCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBIconCell.m; sourceTree = "<group>"; };
-		80FC797D1A0534F9000172B0 /* SBIconCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBIconCell.xib; sourceTree = "<group>"; };
-		80FC798C1A054EC1000172B0 /* front_breast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_breast.png; sourceTree = "<group>"; };
-		80FC798D1A054EC1000172B0 /* front_lat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_lat.png; sourceTree = "<group>"; };
-		80FC798E1A054EC1000172B0 /* front_shin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_shin.png; sourceTree = "<group>"; };
-		80FC79921A055145000172B0 /* back_calf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_calf.png; sourceTree = "<group>"; };
-		80FC79931A055145000172B0 /* back_legs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_legs.png; sourceTree = "<group>"; };
-		B31609A119ED6FAD00D1637C /* SBDescriptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBDescriptionCell.h; sourceTree = "<group>"; };
-		B31609A219ED6FAD00D1637C /* SBDescriptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBDescriptionCell.m; sourceTree = "<group>"; };
-		B31609A319ED6FAD00D1637C /* SBDescriptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBDescriptionCell.xib; sourceTree = "<group>"; };
-		B33E28BD1A07A5AF00089916 /* SBAbstractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAbstractViewController.h; sourceTree = "<group>"; };
-		B33E28BE1A07A5AF00089916 /* SBAbstractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAbstractViewController.m; sourceTree = "<group>"; };
-		B33E28C01A07AD2A00089916 /* SBExerciseInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExerciseInteractor.h; sourceTree = "<group>"; };
-		B33E28C11A07AD2A00089916 /* SBExerciseInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBExerciseInteractor.m; sourceTree = "<group>"; };
-		B33E28C61A07D0B600089916 /* SBSetInteractorOLD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetInteractorOLD.h; sourceTree = "<group>"; };
-		B33E28C71A07D0B600089916 /* SBSetInteractorOLD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSetInteractorOLD.m; sourceTree = "<group>"; };
-		B34273491A28875100A282CB /* SBSetListInteractorIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetListInteractorIO.h; sourceTree = "<group>"; };
-		B342734A1A28876900A282CB /* SBSetListInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetListInteractor.h; sourceTree = "<group>"; };
-		B342734B1A28876900A282CB /* SBSetListInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSetListInteractor.m; sourceTree = "<group>"; };
-		B342734D1A28878200A282CB /* SBSetListPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetListPresenter.h; sourceTree = "<group>"; };
-		B342734E1A28878200A282CB /* SBSetListPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSetListPresenter.m; sourceTree = "<group>"; };
-		B34273501A2887FE00A282CB /* SBSetListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetListView.h; sourceTree = "<group>"; };
-		B35A21D919DBEFF600BCECAB /* SBStatisticCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBStatisticCell.xib; sourceTree = "<group>"; };
-		B35A21DB19DBF00A00BCECAB /* SBStatisticCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBStatisticCell.m; sourceTree = "<group>"; };
-		B35A21DD19DBF01B00BCECAB /* SBStatisticCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBStatisticCell.h; sourceTree = "<group>"; };
-		B36B6CD81A1F300700D88B7F /* SBWorkoutInteractorIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutInteractorIO.h; sourceTree = "<group>"; };
-		B36B6CDB1A23327B00D88B7F /* SBExercisesPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExercisesPresenter.h; sourceTree = "<group>"; };
-		B36B6CDC1A23327B00D88B7F /* SBExercisesPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBExercisesPresenter.m; sourceTree = "<group>"; };
-		B36B6CDE1A23341400D88B7F /* SBExercisesInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExercisesInteractor.h; sourceTree = "<group>"; };
-		B36B6CDF1A23341400D88B7F /* SBExercisesInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBExercisesInteractor.m; sourceTree = "<group>"; };
-		B36B6CE11A23343100D88B7F /* SBExercisesInteractorIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExercisesInteractorIO.h; sourceTree = "<group>"; };
-		B36B6CE21A23352A00D88B7F /* SBExercisesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExercisesView.h; sourceTree = "<group>"; };
-		B3752EFE19D185970091E207 /* SBSmallTopBottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBSmallTopBottomCell.xib; sourceTree = "<group>"; };
-		B3752F0019D1863E0091E207 /* SBSmallTopBottomCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBSmallTopBottomCell.h; sourceTree = "<group>"; };
-		B3752F0519D187C70091E207 /* SBSmallTopBottomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSmallTopBottomCell.m; sourceTree = "<group>"; };
-		B3752F0819D18DCD0091E207 /* UIColor+SBColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SBColor.h"; sourceTree = "<group>"; };
-		B3752F0919D18DCD0091E207 /* UIColor+SBColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SBColor.m"; sourceTree = "<group>"; };
-		B3752F0B19D1C5080091E207 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
-		B3752F0D19D2B8280091E207 /* SBLeftRightCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBLeftRightCell.m; sourceTree = "<group>"; };
-		B3752F0F19D2B8410091E207 /* SBLeftRightCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBLeftRightCell.h; sourceTree = "<group>"; };
-		B3752F1019D2B85B0091E207 /* SBLeftRightCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBLeftRightCell.xib; sourceTree = "<group>"; };
-		B3752F1919DA95920091E207 /* SBWorkoutViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutViewModel.h; sourceTree = "<group>"; };
-		B3752F1A19DA95920091E207 /* SBWorkouViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkouViewModel.m; sourceTree = "<group>"; };
-		B3752F1E19DAA6720091E207 /* SBWorkoutsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBWorkoutsViewController.xib; sourceTree = "<group>"; };
-		B3752F2019DAA8580091E207 /* SBFinishedExercisesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBFinishedExercisesViewController.xib; sourceTree = "<group>"; };
-		B3752F2219DAC1170091E207 /* SBWorkoutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBWorkoutViewController.xib; sourceTree = "<group>"; };
-		B3752F2419DAC6130091E207 /* SBExercisesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBExercisesViewController.xib; sourceTree = "<group>"; };
-		B3752F2619DAC8A40091E207 /* SBSetsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBSetsViewController.xib; sourceTree = "<group>"; };
-		B3752F2819DAC9CF0091E207 /* SBSetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBSetViewController.xib; sourceTree = "<group>"; };
-		B3752F2A19DAEB440091E207 /* SBStatisticViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBStatisticViewController.xib; sourceTree = "<group>"; };
-		B38E11B419EE9E1E0060945C /* settingsUnselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsUnselected.png; sourceTree = "<group>"; };
-		B38E11B519EE9E1E0060945C /* settingsUnselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsUnselected@2x.png"; sourceTree = "<group>"; };
-		B38E11B619EE9E1E0060945C /* settingsUnselected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsUnselected@3x.png"; sourceTree = "<group>"; };
-		B38E11B719EE9E1E0060945C /* statsUnselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statsUnselected.png; sourceTree = "<group>"; };
-		B38E11B819EE9E1E0060945C /* statsUnselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "statsUnselected@2x.png"; sourceTree = "<group>"; };
-		B38E11B919EE9E1E0060945C /* statsUnselected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "statsUnselected@3x.png"; sourceTree = "<group>"; };
-		B3AB6A0819C059A70002EDF9 /* SBEditWorkoutTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBEditWorkoutTableViewCell.h; sourceTree = "<group>"; };
-		B3AB6A0919C059A70002EDF9 /* SBEditWorkoutTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBEditWorkoutTableViewCell.m; sourceTree = "<group>"; };
-		B3AB6A0A19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBEditWorkoutTableViewCell.xib; sourceTree = "<group>"; };
-		B3AC2EB119C09EFF00FFD8FD /* SBWorkout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkout.h; sourceTree = "<group>"; };
-		B3AC2EB219C09EFF00FFD8FD /* SBWorkout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkout.m; sourceTree = "<group>"; };
-		B3AC2EB419C1E6E000FFD8FD /* SBExercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExercise.h; sourceTree = "<group>"; };
-		B3AC2EB519C1E6E000FFD8FD /* SBExercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBExercise.m; sourceTree = "<group>"; };
-		B3AC2ECE19C31F1100FFD8FD /* SBSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSet.h; sourceTree = "<group>"; };
-		B3AC2ECF19C31F1100FFD8FD /* SBSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSet.m; sourceTree = "<group>"; };
-		B3AC2ED119C322A200FFD8FD /* SBSetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetsViewController.h; sourceTree = "<group>"; };
-		B3AC2ED219C322A300FFD8FD /* SBSetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSetsViewController.m; sourceTree = "<group>"; };
-		B3AC2EDC19CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBCreateExerciseTableViewCell.h; sourceTree = "<group>"; };
-		B3AC2EDD19CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBCreateExerciseTableViewCell.m; sourceTree = "<group>"; };
-		B3AC2EDE19CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBCreateExerciseTableViewCell.xib; sourceTree = "<group>"; };
 		B3AC2EEE19CC46FE00FFD8FD /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B3AC2EEF19CC46FE00FFD8FD /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B3AED23B19DD76C90006A4A9 /* hantel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hantel.png; sourceTree = "<group>"; };
-		B3AED23C19DD76C90006A4A9 /* hantel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hantel@2x.png"; sourceTree = "<group>"; };
-		B3AED23D19DD76C90006A4A9 /* hantel@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hantel@3x.png"; sourceTree = "<group>"; };
-		B3AED23E19DD76C90006A4A9 /* stats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stats.png; sourceTree = "<group>"; };
-		B3AED23F19DD76C90006A4A9 /* stats@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stats@2x.png"; sourceTree = "<group>"; };
-		B3AED24019DD76C90006A4A9 /* stats@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stats@3x.png"; sourceTree = "<group>"; };
-		B3AED24719E297310006A4A9 /* SBAddEntryViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAddEntryViewModel.h; sourceTree = "<group>"; };
-		B3AED24819E297310006A4A9 /* SBAddEntryViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAddEntryViewModel.m; sourceTree = "<group>"; };
-		B3AED24A19E29A660006A4A9 /* SBExerciseSetViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExerciseSetViewModel.h; sourceTree = "<group>"; };
-		B3AED24B19E29A660006A4A9 /* SBExerciseSetViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBExerciseSetViewModel.m; sourceTree = "<group>"; };
-		B3AED25919E2CDB50006A4A9 /* hintArrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hintArrow@3x.png"; sourceTree = "<group>"; };
-		B3AED25B19E2CDFE0006A4A9 /* hintArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hintArrow.png; sourceTree = "<group>"; };
-		B3AED25C19E2CDFE0006A4A9 /* hintArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hintArrow@2x.png"; sourceTree = "<group>"; };
-		B3AED26519E2E26C0006A4A9 /* SBSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSettingsViewController.h; sourceTree = "<group>"; };
-		B3AED26619E2E26C0006A4A9 /* SBSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSettingsViewController.m; sourceTree = "<group>"; };
-		B3AED26719E2E26C0006A4A9 /* SBSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBSettingsViewController.xib; sourceTree = "<group>"; };
-		B3AED26A19E2E3520006A4A9 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
-		B3AED26B19E2E3520006A4A9 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
-		B3AED26C19E2E3520006A4A9 /* settings@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@3x.png"; sourceTree = "<group>"; };
-		B3AED27019E3E31E0006A4A9 /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
-		B3AED27119E3E31E0006A4A9 /* appIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appIcon@2x.png"; sourceTree = "<group>"; };
-		B3AED27219E3E31E0006A4A9 /* appIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appIcon@3x.png"; sourceTree = "<group>"; };
-		B3C2D90B1A1A4FB7007358B3 /* SBWorkoutPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutPresenter.h; sourceTree = "<group>"; };
-		B3C2D90C1A1A4FB7007358B3 /* SBWorkoutPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutPresenter.m; sourceTree = "<group>"; };
-		B3C2D90E1A1A519E007358B3 /* SBWorkoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutView.h; sourceTree = "<group>"; };
-		B3C2D9101A1B90A7007358B3 /* SBWorkoutInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutInteractor.h; sourceTree = "<group>"; };
-		B3C2D9111A1B90A7007358B3 /* SBWorkoutInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutInteractor.m; sourceTree = "<group>"; };
-		B3E426151A2DCE51007E2675 /* SBSetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetView.h; sourceTree = "<group>"; };
-		B3E426161A2DCEB8007E2675 /* SBSetInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetInteractor.h; sourceTree = "<group>"; };
-		B3E426171A2DCEB8007E2675 /* SBSetInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSetInteractor.m; sourceTree = "<group>"; };
-		B3E4261A1A2DCEE6007E2675 /* SBSetInteractorIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetInteractorIO.h; sourceTree = "<group>"; };
-		B3E4261B1A2DCEFC007E2675 /* SBSetPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetPresenter.h; sourceTree = "<group>"; };
-		B3E4261C1A2DCEFC007E2675 /* SBSetPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSetPresenter.m; sourceTree = "<group>"; };
-		B3E5306D19EBEE5600C2A17F /* addButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addButton.png; sourceTree = "<group>"; };
-		B3E5306E19EBEE5600C2A17F /* addButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addButton@2x.png"; sourceTree = "<group>"; };
-		B3E5306F19EBEE5600C2A17F /* addButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addButton@3x.png"; sourceTree = "<group>"; };
+		B3E426201A2DFC77007E2675 /* SBWorkoutListInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutListInteractor.h; sourceTree = "<group>"; };
+		B3E426211A2DFC77007E2675 /* SBWorkoutListInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutListInteractor.m; sourceTree = "<group>"; };
+		B3E426221A2DFC77007E2675 /* SBWorkoutListInteractorIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutListInteractorIO.h; sourceTree = "<group>"; };
+		B3E426241A2DFC77007E2675 /* SBWorkoutListPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutListPresenter.h; sourceTree = "<group>"; };
+		B3E426251A2DFC77007E2675 /* SBWorkoutListPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutListPresenter.m; sourceTree = "<group>"; };
+		B3E426261A2DFC77007E2675 /* SBWorkoutsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutsView.h; sourceTree = "<group>"; };
+		B3E426271A2DFC77007E2675 /* SBWorkoutsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutsViewController.h; sourceTree = "<group>"; };
+		B3E426281A2DFC77007E2675 /* SBWorkoutsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutsViewController.m; sourceTree = "<group>"; };
+		B3E426291A2DFC77007E2675 /* SBWorkoutsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBWorkoutsViewController.xib; sourceTree = "<group>"; };
+		B3E426301A2DFD41007E2675 /* SBBigTopBottomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBBigTopBottomCell.h; sourceTree = "<group>"; };
+		B3E426311A2DFD41007E2675 /* SBBigTopBottomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBBigTopBottomCell.m; sourceTree = "<group>"; };
+		B3E426321A2DFD41007E2675 /* SBBigTopBottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBBigTopBottomCell.xib; sourceTree = "<group>"; };
+		B3E426331A2DFD41007E2675 /* SBExerciseDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExerciseDetailCell.h; sourceTree = "<group>"; };
+		B3E426341A2DFD41007E2675 /* SBExerciseDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBExerciseDetailCell.m; sourceTree = "<group>"; };
+		B3E426351A2DFD41007E2675 /* SBExerciseDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBExerciseDetailCell.xib; sourceTree = "<group>"; };
+		B3E426371A2DFD41007E2675 /* SBWorkoutInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutInteractor.h; sourceTree = "<group>"; };
+		B3E426381A2DFD41007E2675 /* SBWorkoutInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutInteractor.m; sourceTree = "<group>"; };
+		B3E426391A2DFD41007E2675 /* SBWorkoutInteractorIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutInteractorIO.h; sourceTree = "<group>"; };
+		B3E4263B1A2DFD41007E2675 /* SBWorkoutPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutPresenter.h; sourceTree = "<group>"; };
+		B3E4263C1A2DFD41007E2675 /* SBWorkoutPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutPresenter.m; sourceTree = "<group>"; };
+		B3E4263D1A2DFD41007E2675 /* SBWorkoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutView.h; sourceTree = "<group>"; };
+		B3E4263E1A2DFD41007E2675 /* SBWorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutViewController.h; sourceTree = "<group>"; };
+		B3E4263F1A2DFD41007E2675 /* SBWorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutViewController.m; sourceTree = "<group>"; };
+		B3E426401A2DFD41007E2675 /* SBWorkoutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBWorkoutViewController.xib; sourceTree = "<group>"; };
+		B3E4264B1A2DFE23007E2675 /* SBCreateExerciseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBCreateExerciseTableViewCell.h; sourceTree = "<group>"; };
+		B3E4264C1A2DFE23007E2675 /* SBCreateExerciseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBCreateExerciseTableViewCell.m; sourceTree = "<group>"; };
+		B3E4264D1A2DFE23007E2675 /* SBCreateExerciseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBCreateExerciseTableViewCell.xib; sourceTree = "<group>"; };
+		B3E4264F1A2DFE23007E2675 /* SBExercisesInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExercisesInteractor.h; sourceTree = "<group>"; };
+		B3E426501A2DFE23007E2675 /* SBExercisesInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBExercisesInteractor.m; sourceTree = "<group>"; };
+		B3E426511A2DFE23007E2675 /* SBExercisesInteractorIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExercisesInteractorIO.h; sourceTree = "<group>"; };
+		B3E426531A2DFE23007E2675 /* SBExercisesPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExercisesPresenter.h; sourceTree = "<group>"; };
+		B3E426541A2DFE23007E2675 /* SBExercisesPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBExercisesPresenter.m; sourceTree = "<group>"; };
+		B3E426551A2DFE23007E2675 /* SBExercisesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExercisesView.h; sourceTree = "<group>"; };
+		B3E426561A2DFE23007E2675 /* SBExercisesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExercisesViewController.h; sourceTree = "<group>"; };
+		B3E426571A2DFE23007E2675 /* SBExercisesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBExercisesViewController.m; sourceTree = "<group>"; };
+		B3E426581A2DFE23007E2675 /* SBExercisesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBExercisesViewController.xib; sourceTree = "<group>"; };
+		B3E426611A2DFEE8007E2675 /* SBSetListInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetListInteractor.h; sourceTree = "<group>"; };
+		B3E426621A2DFEE8007E2675 /* SBSetListInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSetListInteractor.m; sourceTree = "<group>"; };
+		B3E426631A2DFEE8007E2675 /* SBSetListInteractorIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetListInteractorIO.h; sourceTree = "<group>"; };
+		B3E426651A2DFEE8007E2675 /* SBSetListPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetListPresenter.h; sourceTree = "<group>"; };
+		B3E426661A2DFEE8007E2675 /* SBSetListPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSetListPresenter.m; sourceTree = "<group>"; };
+		B3E426671A2DFEE8007E2675 /* SBSetListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetListView.h; sourceTree = "<group>"; };
+		B3E426681A2DFEE8007E2675 /* SBSetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetsViewController.h; sourceTree = "<group>"; };
+		B3E426691A2DFEE8007E2675 /* SBSetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSetsViewController.m; sourceTree = "<group>"; };
+		B3E4266A1A2DFEE8007E2675 /* SBSetsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBSetsViewController.xib; sourceTree = "<group>"; };
+		B3E426711A2DFF4A007E2675 /* SBSetInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetInteractor.h; sourceTree = "<group>"; };
+		B3E426721A2DFF4A007E2675 /* SBSetInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSetInteractor.m; sourceTree = "<group>"; };
+		B3E426731A2DFF4A007E2675 /* SBSetInteractorIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetInteractorIO.h; sourceTree = "<group>"; };
+		B3E426751A2DFF4A007E2675 /* SBSetPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetPresenter.h; sourceTree = "<group>"; };
+		B3E426761A2DFF4A007E2675 /* SBSetPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSetPresenter.m; sourceTree = "<group>"; };
+		B3E426771A2DFF4A007E2675 /* SBSetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetView.h; sourceTree = "<group>"; };
+		B3E426781A2DFF4A007E2675 /* SBSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSetViewController.h; sourceTree = "<group>"; };
+		B3E426791A2DFF4A007E2675 /* SBSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSetViewController.m; sourceTree = "<group>"; };
+		B3E4267A1A2DFF4A007E2675 /* SBSetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBSetViewController.xib; sourceTree = "<group>"; };
+		B3E426811A2DFFBB007E2675 /* SBIconCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBIconCell.h; sourceTree = "<group>"; };
+		B3E426821A2DFFBB007E2675 /* SBIconCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBIconCell.m; sourceTree = "<group>"; };
+		B3E426831A2DFFBB007E2675 /* SBIconCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBIconCell.xib; sourceTree = "<group>"; };
+		B3E426861A2DFFBB007E2675 /* SBIconListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBIconListViewController.h; sourceTree = "<group>"; };
+		B3E426871A2DFFBB007E2675 /* SBIconListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBIconListViewController.m; sourceTree = "<group>"; };
+		B3E426881A2DFFBB007E2675 /* SBIconListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBIconListViewController.xib; sourceTree = "<group>"; };
+		B3E426901A2E002E007E2675 /* SBFinishedExercisesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBFinishedExercisesViewController.h; sourceTree = "<group>"; };
+		B3E426911A2E002E007E2675 /* SBFinishedExercisesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBFinishedExercisesViewController.m; sourceTree = "<group>"; };
+		B3E426921A2E002E007E2675 /* SBFinishedExercisesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBFinishedExercisesViewController.xib; sourceTree = "<group>"; };
+		B3E426971A2E008E007E2675 /* SBStatisticCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBStatisticCell.h; sourceTree = "<group>"; };
+		B3E426981A2E008E007E2675 /* SBStatisticCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBStatisticCell.m; sourceTree = "<group>"; };
+		B3E426991A2E008E007E2675 /* SBStatisticCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBStatisticCell.xib; sourceTree = "<group>"; };
+		B3E4269C1A2E008E007E2675 /* SBStatisticViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBStatisticViewController.h; sourceTree = "<group>"; };
+		B3E4269D1A2E008E007E2675 /* SBStatisticViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBStatisticViewController.m; sourceTree = "<group>"; };
+		B3E4269E1A2E008E007E2675 /* SBStatisticViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBStatisticViewController.xib; sourceTree = "<group>"; };
+		B3E426A41A2E00CF007E2675 /* SBSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSettingsViewController.h; sourceTree = "<group>"; };
+		B3E426A51A2E00CF007E2675 /* SBSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSettingsViewController.m; sourceTree = "<group>"; };
+		B3E426A61A2E00CF007E2675 /* SBSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBSettingsViewController.xib; sourceTree = "<group>"; };
+		B3E426AA1A2E0106007E2675 /* SBImprintViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBImprintViewController.h; sourceTree = "<group>"; };
+		B3E426AB1A2E0106007E2675 /* SBImprintViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBImprintViewController.m; sourceTree = "<group>"; };
+		B3E426AF1A2E03A4007E2675 /* SBAddEntryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAddEntryTableViewCell.h; sourceTree = "<group>"; };
+		B3E426B01A2E03A4007E2675 /* SBAddEntryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAddEntryTableViewCell.m; sourceTree = "<group>"; };
+		B3E426B11A2E03A4007E2675 /* SBAddEntryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBAddEntryTableViewCell.xib; sourceTree = "<group>"; };
+		B3E426B21A2E03A4007E2675 /* SBDescriptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBDescriptionCell.h; sourceTree = "<group>"; };
+		B3E426B31A2E03A4007E2675 /* SBDescriptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBDescriptionCell.m; sourceTree = "<group>"; };
+		B3E426B41A2E03A4007E2675 /* SBDescriptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBDescriptionCell.xib; sourceTree = "<group>"; };
+		B3E426B51A2E03A4007E2675 /* SBEditWorkoutTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBEditWorkoutTableViewCell.h; sourceTree = "<group>"; };
+		B3E426B61A2E03A4007E2675 /* SBEditWorkoutTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBEditWorkoutTableViewCell.m; sourceTree = "<group>"; };
+		B3E426B71A2E03A4007E2675 /* SBEditWorkoutTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBEditWorkoutTableViewCell.xib; sourceTree = "<group>"; };
+		B3E426B81A2E03A4007E2675 /* SBExerciseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExerciseTableViewCell.h; sourceTree = "<group>"; };
+		B3E426B91A2E03A4007E2675 /* SBExerciseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBExerciseTableViewCell.m; sourceTree = "<group>"; };
+		B3E426BA1A2E03A4007E2675 /* SBExerciseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBExerciseTableViewCell.xib; sourceTree = "<group>"; };
+		B3E426BB1A2E03A4007E2675 /* SBLeftRightCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBLeftRightCell.h; sourceTree = "<group>"; };
+		B3E426BC1A2E03A4007E2675 /* SBLeftRightCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBLeftRightCell.m; sourceTree = "<group>"; };
+		B3E426BD1A2E03A4007E2675 /* SBLeftRightCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBLeftRightCell.xib; sourceTree = "<group>"; };
+		B3E426BE1A2E03A4007E2675 /* SBSmallTopBottomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSmallTopBottomCell.h; sourceTree = "<group>"; };
+		B3E426BF1A2E03A4007E2675 /* SBSmallTopBottomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSmallTopBottomCell.m; sourceTree = "<group>"; };
+		B3E426C01A2E03A4007E2675 /* SBSmallTopBottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBSmallTopBottomCell.xib; sourceTree = "<group>"; };
+		B3E426C11A2E03A4007E2675 /* SBStandardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBStandardCell.h; sourceTree = "<group>"; };
+		B3E426C21A2E03A4007E2675 /* SBStandardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBStandardCell.m; sourceTree = "<group>"; };
+		B3E426C31A2E03A4007E2675 /* SBStandardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBStandardCell.xib; sourceTree = "<group>"; };
+		B3E426C51A2E03A4007E2675 /* SBWorkoutDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutDataSource.h; sourceTree = "<group>"; };
+		B3E426C61A2E03A4007E2675 /* SBWorkoutDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkoutDataSource.m; sourceTree = "<group>"; };
+		B3E426C81A2E03A4007E2675 /* SBExercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExercise.h; sourceTree = "<group>"; };
+		B3E426C91A2E03A4007E2675 /* SBExercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBExercise.m; sourceTree = "<group>"; };
+		B3E426CA1A2E03A4007E2675 /* SBExerciseSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExerciseSet.h; sourceTree = "<group>"; };
+		B3E426CB1A2E03A4007E2675 /* SBExerciseSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBExerciseSet.m; sourceTree = "<group>"; };
+		B3E426CC1A2E03A4007E2675 /* SBSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSet.h; sourceTree = "<group>"; };
+		B3E426CD1A2E03A4007E2675 /* SBSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSet.m; sourceTree = "<group>"; };
+		B3E426CE1A2E03A4007E2675 /* SBWorkout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkout.h; sourceTree = "<group>"; };
+		B3E426CF1A2E03A4007E2675 /* SBWorkout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkout.m; sourceTree = "<group>"; };
+		B3E426D11A2E03A4007E2675 /* SBAbstractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAbstractViewController.h; sourceTree = "<group>"; };
+		B3E426D21A2E03A4007E2675 /* SBAbstractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAbstractViewController.m; sourceTree = "<group>"; };
+		B3E426D41A2E03A4007E2675 /* SBHelperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBHelperView.h; sourceTree = "<group>"; };
+		B3E426D51A2E03A4007E2675 /* SBHelperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBHelperView.m; sourceTree = "<group>"; };
+		B3E426D71A2E03A4007E2675 /* SBAddEntryViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAddEntryViewModel.h; sourceTree = "<group>"; };
+		B3E426D81A2E03A4007E2675 /* SBAddEntryViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAddEntryViewModel.m; sourceTree = "<group>"; };
+		B3E426D91A2E03A4007E2675 /* SBExerciseSetViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBExerciseSetViewModel.h; sourceTree = "<group>"; };
+		B3E426DA1A2E03A4007E2675 /* SBExerciseSetViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBExerciseSetViewModel.m; sourceTree = "<group>"; };
+		B3E426DB1A2E03A4007E2675 /* SBWorkoutViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutViewModel.h; sourceTree = "<group>"; };
+		B3E426DC1A2E03A4007E2675 /* SBWorkouViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBWorkouViewModel.m; sourceTree = "<group>"; };
+		B3E426F61A2E03FD007E2675 /* UIColor+SBColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SBColor.h"; sourceTree = "<group>"; };
+		B3E426F71A2E03FD007E2675 /* UIColor+SBColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SBColor.m"; sourceTree = "<group>"; };
+		B3E426FA1A2E0489007E2675 /* addButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addButton.png; sourceTree = "<group>"; };
+		B3E426FB1A2E0489007E2675 /* addButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addButton@2x.png"; sourceTree = "<group>"; };
+		B3E426FC1A2E0489007E2675 /* addButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addButton@3x.png"; sourceTree = "<group>"; };
+		B3E426FD1A2E0489007E2675 /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
+		B3E426FE1A2E0489007E2675 /* appIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appIcon@2x.png"; sourceTree = "<group>"; };
+		B3E426FF1A2E0489007E2675 /* appIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appIcon@3x.png"; sourceTree = "<group>"; };
+		B3E427001A2E0489007E2675 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		B3E427011A2E0489007E2675 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		B3E427021A2E0489007E2675 /* back_ass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_ass.png; sourceTree = "<group>"; };
+		B3E427031A2E0489007E2675 /* back_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_back.png; sourceTree = "<group>"; };
+		B3E427041A2E0489007E2675 /* back_calf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_calf.png; sourceTree = "<group>"; };
+		B3E427051A2E0489007E2675 /* back_legs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_legs.png; sourceTree = "<group>"; };
+		B3E427061A2E0489007E2675 /* back_neck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_neck.png; sourceTree = "<group>"; };
+		B3E427071A2E0489007E2675 /* back_shoulder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_shoulder.png; sourceTree = "<group>"; };
+		B3E427081A2E0489007E2675 /* back_triceps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_triceps.png; sourceTree = "<group>"; };
+		B3E427091A2E0489007E2675 /* back_underarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_underarm.png; sourceTree = "<group>"; };
+		B3E4270A1A2E0489007E2675 /* edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit.png; sourceTree = "<group>"; };
+		B3E4270B1A2E0489007E2675 /* edit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit@2x.png"; sourceTree = "<group>"; };
+		B3E4270C1A2E0489007E2675 /* edit@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit@3x.png"; sourceTree = "<group>"; };
+		B3E4270D1A2E0489007E2675 /* front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front.png; sourceTree = "<group>"; };
+		B3E4270E1A2E0489007E2675 /* front_biceps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_biceps.png; sourceTree = "<group>"; };
+		B3E4270F1A2E0489007E2675 /* front_breast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_breast.png; sourceTree = "<group>"; };
+		B3E427101A2E0489007E2675 /* front_lat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_lat.png; sourceTree = "<group>"; };
+		B3E427111A2E0489007E2675 /* front_legs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_legs.png; sourceTree = "<group>"; };
+		B3E427121A2E0489007E2675 /* front_neck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_neck.png; sourceTree = "<group>"; };
+		B3E427131A2E0489007E2675 /* front_shin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_shin.png; sourceTree = "<group>"; };
+		B3E427141A2E0489007E2675 /* front_shoulder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_shoulder.png; sourceTree = "<group>"; };
+		B3E427151A2E0489007E2675 /* front_sides.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_sides.png; sourceTree = "<group>"; };
+		B3E427161A2E0489007E2675 /* front_sixpack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_sixpack.png; sourceTree = "<group>"; };
+		B3E427171A2E0489007E2675 /* front_underarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_underarm.png; sourceTree = "<group>"; };
+		B3E427181A2E0489007E2675 /* hantel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hantel.png; sourceTree = "<group>"; };
+		B3E427191A2E0489007E2675 /* hantel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hantel@2x.png"; sourceTree = "<group>"; };
+		B3E4271A1A2E0489007E2675 /* hantel@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hantel@3x.png"; sourceTree = "<group>"; };
+		B3E4271B1A2E0489007E2675 /* hantelUnselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hantelUnselected.png; sourceTree = "<group>"; };
+		B3E4271C1A2E0489007E2675 /* hantelUnselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hantelUnselected@2x.png"; sourceTree = "<group>"; };
+		B3E4271D1A2E0489007E2675 /* hantelUnselected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hantelUnselected@3x.png"; sourceTree = "<group>"; };
+		B3E4271E1A2E0489007E2675 /* hintArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hintArrow.png; sourceTree = "<group>"; };
+		B3E4271F1A2E0489007E2675 /* hintArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hintArrow@2x.png"; sourceTree = "<group>"; };
+		B3E427201A2E0489007E2675 /* hintArrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hintArrow@3x.png"; sourceTree = "<group>"; };
+		B3E427211A2E0489007E2675 /* launcherImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launcherImage.png; sourceTree = "<group>"; };
+		B3E427221A2E0489007E2675 /* launcherImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launcherImage@2x.png"; sourceTree = "<group>"; };
+		B3E427231A2E0489007E2675 /* launcherImage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launcherImage@3x.png"; sourceTree = "<group>"; };
+		B3E427241A2E0489007E2675 /* launcherImageIP5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launcherImageIP5@2x.png"; sourceTree = "<group>"; };
+		B3E427251A2E0489007E2675 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
+		B3E427261A2E0489007E2675 /* plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus@2x.png"; sourceTree = "<group>"; };
+		B3E427271A2E0489007E2675 /* plus@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus@3x.png"; sourceTree = "<group>"; };
+		B3E427281A2E0489007E2675 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		B3E427291A2E0489007E2675 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
+		B3E4272A1A2E0489007E2675 /* settings@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@3x.png"; sourceTree = "<group>"; };
+		B3E4272B1A2E0489007E2675 /* settingsUnselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsUnselected.png; sourceTree = "<group>"; };
+		B3E4272C1A2E0489007E2675 /* settingsUnselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsUnselected@2x.png"; sourceTree = "<group>"; };
+		B3E4272D1A2E0489007E2675 /* settingsUnselected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsUnselected@3x.png"; sourceTree = "<group>"; };
+		B3E4272E1A2E0489007E2675 /* stats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stats.png; sourceTree = "<group>"; };
+		B3E4272F1A2E0489007E2675 /* stats@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stats@2x.png"; sourceTree = "<group>"; };
+		B3E427301A2E0489007E2675 /* stats@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stats@3x.png"; sourceTree = "<group>"; };
+		B3E427311A2E0489007E2675 /* statsUnselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statsUnselected.png; sourceTree = "<group>"; };
+		B3E427321A2E0489007E2675 /* statsUnselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "statsUnselected@2x.png"; sourceTree = "<group>"; };
+		B3E427331A2E0489007E2675 /* statsUnselected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "statsUnselected@3x.png"; sourceTree = "<group>"; };
 		BB33F68BD5D666709DD74DC6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D3902127B8514FFFA9109974 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -403,90 +387,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8039788419D85252000DEED5 /* DataSource */ = {
-			isa = PBXGroup;
-			children = (
-				8039788519D85269000DEED5 /* SBArrayDataSource.h */,
-				8039788619D85286000DEED5 /* SBArrayDataSource.m */,
-			);
-			name = DataSource;
-			sourceTree = "<group>";
-		};
-		8039789F19E05B6B000DEED5 /* WorkoutList */ = {
-			isa = PBXGroup;
-			children = (
-				80C6AE7F1A18AFA700FF2A2F /* Presenters */,
-				80C6AE7B1A18AE8800FF2A2F /* Interactors */,
-				80C6AE771A18ACD300FF2A2F /* DataStores */,
-				801A841819EA7A4C002CFCBC /* SBWorkoutsViewController.m */,
-				B3752F1E19DAA6720091E207 /* SBWorkoutsViewController.xib */,
-				8086D44019BCBF16004ADBB6 /* SBWorkoutsViewController.h */,
-				80C6AE861A190C1000FF2A2F /* SBWorkoutsView.h */,
-			);
-			name = WorkoutList;
-			sourceTree = "<group>";
-		};
-		803978A919E13D9C000DEED5 /* Workout */ = {
-			isa = PBXGroup;
-			children = (
-				B3C2D90A1A1A4F9D007358B3 /* Presenters */,
-				B3C2D90F1A1B9084007358B3 /* Interactors */,
-				B33E28C31A07AF9300089916 /* Cells */,
-				805DE22B19BF8E6500472322 /* SBWorkoutViewController.m */,
-				805DE22A19BF8E6500472322 /* SBWorkoutViewController.h */,
-				B3752F2219DAC1170091E207 /* SBWorkoutViewController.xib */,
-				B3C2D90E1A1A519E007358B3 /* SBWorkoutView.h */,
-			);
-			name = Workout;
-			sourceTree = "<group>";
-		};
-		803978AA19E19A04000DEED5 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				B33E28C41A07AFBE00089916 /* Interactors */,
-				B3AED25219E2BE3E0006A4A9 /* Cells */,
-				B3752F1A19DA95920091E207 /* SBWorkouViewModel.m */,
-				B3752F1919DA95920091E207 /* SBWorkoutViewModel.h */,
-				B3AED24819E297310006A4A9 /* SBAddEntryViewModel.m */,
-				B3AED24719E297310006A4A9 /* SBAddEntryViewModel.h */,
-				B3AED24A19E29A660006A4A9 /* SBExerciseSetViewModel.h */,
-				B3AED24B19E29A660006A4A9 /* SBExerciseSetViewModel.m */,
-				803978B319E68708000DEED5 /* SBHelperView.h */,
-				803978B419E68708000DEED5 /* SBHelperView.m */,
-				B33E28BD1A07A5AF00089916 /* SBAbstractViewController.h */,
-				B33E28BE1A07A5AF00089916 /* SBAbstractViewController.m */,
-			);
-			name = Common;
-			sourceTree = "<group>";
-		};
-		803978B619E6AAD7000DEED5 /* Imprint */ = {
-			isa = PBXGroup;
-			children = (
-				803978B719E6AAF7000DEED5 /* SBImprintViewController.h */,
-				803978B819E6AAF7000DEED5 /* SBImprintViewController.m */,
-			);
-			name = Imprint;
-			sourceTree = "<group>";
-		};
-		805DE24219BF9C4A00472322 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				805DE23D19BF93DC00472322 /* SBExerciseTableViewCell.h */,
-				805DE23E19BF93DC00472322 /* SBExerciseTableViewCell.m */,
-				805DE23F19BF93DC00472322 /* SBExerciseTableViewCell.xib */,
-				B3AB6A0819C059A70002EDF9 /* SBEditWorkoutTableViewCell.h */,
-				B3AB6A0919C059A70002EDF9 /* SBEditWorkoutTableViewCell.m */,
-				B3AB6A0A19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib */,
-				B3752F0D19D2B8280091E207 /* SBLeftRightCell.m */,
-				B3752F0F19D2B8410091E207 /* SBLeftRightCell.h */,
-				B3752F1019D2B85B0091E207 /* SBLeftRightCell.xib */,
-				803978C219E6EF66000DEED5 /* SBStandardCell.h */,
-				803978C319E6EF66000DEED5 /* SBStandardCell.m */,
-				803978C419E6EF66000DEED5 /* SBStandardCell.xib */,
-			);
-			name = Cells;
-			sourceTree = "<group>";
-		};
 		8086D41C19BCBF16004ADBB6 = {
 			isa = PBXGroup;
 			children = (
@@ -524,27 +424,22 @@
 		8086D42E19BCBF16004ADBB6 /* sportblog */ = {
 			isa = PBXGroup;
 			children = (
-				803978AA19E19A04000DEED5 /* Common */,
-				8039789F19E05B6B000DEED5 /* WorkoutList */,
-				803978A919E13D9C000DEED5 /* Workout */,
-				B3AED24D19E2BD140006A4A9 /* Exercises */,
-				B3AED24E19E2BD2C0006A4A9 /* Sets */,
-				B3AED24F19E2BD3E0006A4A9 /* Set */,
-				80FC79751A0532AA000172B0 /* IconList */,
-				B3AED25019E2BD500006A4A9 /* StatExercises */,
-				B3AED25119E2BD7B0006A4A9 /* Statistic */,
-				B3AED26419E2E2480006A4A9 /* Settings */,
-				803978B619E6AAD7000DEED5 /* Imprint */,
-				B3752F1D19DAA4EA0091E207 /* Models */,
-				B3752F1C19DA95B40091E207 /* ViewModels */,
-				8039788419D85252000DEED5 /* DataSource */,
-				805DE24219BF9C4A00472322 /* Cells */,
+				B3E426F91A2E0489007E2675 /* Images */,
+				B3E426AD1A2E03A4007E2675 /* Common */,
+				B3E426A91A2E0106007E2675 /* Imprint */,
+				B3E426A31A2E00CF007E2675 /* Settings */,
+				B3E426951A2E008E007E2675 /* StatisticExercise */,
+				B3E4268D1A2E002E007E2675 /* StatisticExerciseList */,
+				B3E4267F1A2DFFBB007E2675 /* IconList */,
+				B3E4266F1A2DFF4A007E2675 /* Set */,
+				B3E4265F1A2DFEE8007E2675 /* SetList */,
+				B3E426491A2DFE23007E2675 /* AvailableExercises */,
+				B3E4262E1A2DFD41007E2675 /* Workout */,
+				B3E4261E1A2DFC77007E2675 /* WorkoutList */,
 				8086D43719BCBF16004ADBB6 /* SBAppDelegate.h */,
 				8086D43819BCBF16004ADBB6 /* SBAppDelegate.m */,
 				8086D44319BCBF16004ADBB6 /* Images.xcassets */,
 				8086D42F19BCBF16004ADBB6 /* Supporting Files */,
-				B3752F0819D18DCD0091E207 /* UIColor+SBColor.h */,
-				B3752F0919D18DCD0091E207 /* UIColor+SBColor.m */,
 			);
 			path = sportblog;
 			sourceTree = "<group>";
@@ -552,64 +447,6 @@
 		8086D42F19BCBF16004ADBB6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				80FC79921A055145000172B0 /* back_calf.png */,
-				80FC79931A055145000172B0 /* back_legs.png */,
-				80FC798C1A054EC1000172B0 /* front_breast.png */,
-				80FC798D1A054EC1000172B0 /* front_lat.png */,
-				80FC798E1A054EC1000172B0 /* front_shin.png */,
-				80FC79711A0524B6000172B0 /* back.png */,
-				80FC79721A0524B6000172B0 /* front.png */,
-				80FC79611A052484000172B0 /* back_ass.png */,
-				80FC79621A052484000172B0 /* back_back.png */,
-				80FC79641A052484000172B0 /* back_neck.png */,
-				80FC79651A052484000172B0 /* back_shoulder.png */,
-				80FC79661A052484000172B0 /* back_triceps.png */,
-				80FC79671A052484000172B0 /* back_underarm.png */,
-				80FC794F1A02C038000172B0 /* front_biceps.png */,
-				80FC79511A02C038000172B0 /* front_legs.png */,
-				80FC79521A02C038000172B0 /* front_neck.png */,
-				80FC79531A02C038000172B0 /* front_shoulder.png */,
-				80FC79541A02C038000172B0 /* front_sides.png */,
-				80FC79551A02C038000172B0 /* front_sixpack.png */,
-				80FC79561A02C038000172B0 /* front_underarm.png */,
-				B38E11B419EE9E1E0060945C /* settingsUnselected.png */,
-				B38E11B519EE9E1E0060945C /* settingsUnselected@2x.png */,
-				B38E11B619EE9E1E0060945C /* settingsUnselected@3x.png */,
-				B38E11B719EE9E1E0060945C /* statsUnselected.png */,
-				B38E11B819EE9E1E0060945C /* statsUnselected@2x.png */,
-				B38E11B919EE9E1E0060945C /* statsUnselected@3x.png */,
-				801A842619EDA05A002CFCBC /* hantelUnselected.png */,
-				801A842719EDA05A002CFCBC /* hantelUnselected@2x.png */,
-				801A842819EDA05A002CFCBC /* hantelUnselected@3x.png */,
-				B3E5306D19EBEE5600C2A17F /* addButton.png */,
-				B3E5306E19EBEE5600C2A17F /* addButton@2x.png */,
-				B3E5306F19EBEE5600C2A17F /* addButton@3x.png */,
-				801A842019EAE571002CFCBC /* edit.png */,
-				801A842119EAE571002CFCBC /* edit@2x.png */,
-				801A842219EAE571002CFCBC /* edit@3x.png */,
-				801A841A19EAE33D002CFCBC /* plus.png */,
-				801A841B19EAE33D002CFCBC /* plus@2x.png */,
-				801A841C19EAE33D002CFCBC /* plus@3x.png */,
-				803978BC19E6DA50000DEED5 /* launcherImage.png */,
-				803978BD19E6DA50000DEED5 /* launcherImageIP5@2x.png */,
-				803978BE19E6DA50000DEED5 /* launcherImage@2x.png */,
-				803978BA19E6D660000DEED5 /* launcherImage@3x.png */,
-				B3AED27019E3E31E0006A4A9 /* appIcon.png */,
-				B3AED27119E3E31E0006A4A9 /* appIcon@2x.png */,
-				B3AED27219E3E31E0006A4A9 /* appIcon@3x.png */,
-				B3AED26A19E2E3520006A4A9 /* settings.png */,
-				B3AED26B19E2E3520006A4A9 /* settings@2x.png */,
-				B3AED26C19E2E3520006A4A9 /* settings@3x.png */,
-				B3AED25B19E2CDFE0006A4A9 /* hintArrow.png */,
-				B3AED25C19E2CDFE0006A4A9 /* hintArrow@2x.png */,
-				B3AED25919E2CDB50006A4A9 /* hintArrow@3x.png */,
-				B3AED23B19DD76C90006A4A9 /* hantel.png */,
-				B3AED23C19DD76C90006A4A9 /* hantel@2x.png */,
-				B3AED23D19DD76C90006A4A9 /* hantel@3x.png */,
-				B3AED23E19DD76C90006A4A9 /* stats.png */,
-				B3AED23F19DD76C90006A4A9 /* stats@2x.png */,
-				B3AED24019DD76C90006A4A9 /* stats@3x.png */,
-				B3752F0B19D1C5080091E207 /* arrow.png */,
 				8086D43019BCBF16004ADBB6 /* sportblog-Info.plist */,
 				8086D43119BCBF16004ADBB6 /* Localizable.strings */,
 				8086D43419BCBF16004ADBB6 /* main.m */,
@@ -637,284 +474,479 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		80C6AE771A18ACD300FF2A2F /* DataStores */ = {
+		B3E4261E1A2DFC77007E2675 /* WorkoutList */ = {
 			isa = PBXGroup;
 			children = (
-				80C6AE781A18ADB600FF2A2F /* SBWorkoutDataSource.h */,
-				80C6AE791A18ADB600FF2A2F /* SBWorkoutDataSource.m */,
+				B3E4261F1A2DFC77007E2675 /* Interactors */,
+				B3E426231A2DFC77007E2675 /* Presenters */,
+				B3E426261A2DFC77007E2675 /* SBWorkoutsView.h */,
+				B3E426271A2DFC77007E2675 /* SBWorkoutsViewController.h */,
+				B3E426281A2DFC77007E2675 /* SBWorkoutsViewController.m */,
+				B3E426291A2DFC77007E2675 /* SBWorkoutsViewController.xib */,
 			);
-			name = DataStores;
+			path = WorkoutList;
 			sourceTree = "<group>";
 		};
-		80C6AE7B1A18AE8800FF2A2F /* Interactors */ = {
+		B3E4261F1A2DFC77007E2675 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
-				80C6AE7C1A18AEB100FF2A2F /* SBWorkoutListInteractor.h */,
-				80C6AE7D1A18AEB100FF2A2F /* SBWorkoutListInteractor.m */,
-				80C6AE831A1908B300FF2A2F /* SBWorkoutListInteractorIO.h */,
+				B3E426201A2DFC77007E2675 /* SBWorkoutListInteractor.h */,
+				B3E426211A2DFC77007E2675 /* SBWorkoutListInteractor.m */,
+				B3E426221A2DFC77007E2675 /* SBWorkoutListInteractorIO.h */,
 			);
-			name = Interactors;
+			path = Interactors;
 			sourceTree = "<group>";
 		};
-		80C6AE7F1A18AFA700FF2A2F /* Presenters */ = {
+		B3E426231A2DFC77007E2675 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
-				80C6AE801A18AFBE00FF2A2F /* SBWorkoutListPresenter.h */,
-				80C6AE811A18AFBE00FF2A2F /* SBWorkoutListPresenter.m */,
+				B3E426241A2DFC77007E2675 /* SBWorkoutListPresenter.h */,
+				B3E426251A2DFC77007E2675 /* SBWorkoutListPresenter.m */,
 			);
-			name = Presenters;
+			path = Presenters;
 			sourceTree = "<group>";
 		};
-		80FC79751A0532AA000172B0 /* IconList */ = {
+		B3E4262E1A2DFD41007E2675 /* Workout */ = {
 			isa = PBXGroup;
 			children = (
-				B33E28C91A07DA5D00089916 /* Cells */,
-				80FC79761A0532CE000172B0 /* SBIconListViewController.h */,
-				80FC79771A0532CE000172B0 /* SBIconListViewController.m */,
-				80FC79781A0532CE000172B0 /* SBIconListViewController.xib */,
+				B3E4262F1A2DFD41007E2675 /* Cells */,
+				B3E426361A2DFD41007E2675 /* Interactors */,
+				B3E4263A1A2DFD41007E2675 /* Presenters */,
+				B3E4263D1A2DFD41007E2675 /* SBWorkoutView.h */,
+				B3E4263E1A2DFD41007E2675 /* SBWorkoutViewController.h */,
+				B3E4263F1A2DFD41007E2675 /* SBWorkoutViewController.m */,
+				B3E426401A2DFD41007E2675 /* SBWorkoutViewController.xib */,
 			);
-			name = IconList;
+			path = Workout;
 			sourceTree = "<group>";
 		};
-		B33E28C31A07AF9300089916 /* Cells */ = {
+		B3E4262F1A2DFD41007E2675 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				805DE23019BF937F00472322 /* SBBigTopBottomCell.h */,
-				805DE23119BF937F00472322 /* SBBigTopBottomCell.m */,
-				805DE23219BF937F00472322 /* SBBigTopBottomCell.xib */,
-				80C2E1CF1A06A3D6008E0D21 /* SBExerciseDetailCell.h */,
-				80C2E1D01A06A3D6008E0D21 /* SBExerciseDetailCell.m */,
-				80C2E1D11A06A3D6008E0D21 /* SBExerciseDetailCell.xib */,
+				B3E426301A2DFD41007E2675 /* SBBigTopBottomCell.h */,
+				B3E426311A2DFD41007E2675 /* SBBigTopBottomCell.m */,
+				B3E426321A2DFD41007E2675 /* SBBigTopBottomCell.xib */,
+				B3E426331A2DFD41007E2675 /* SBExerciseDetailCell.h */,
+				B3E426341A2DFD41007E2675 /* SBExerciseDetailCell.m */,
+				B3E426351A2DFD41007E2675 /* SBExerciseDetailCell.xib */,
 			);
-			name = Cells;
+			path = Cells;
 			sourceTree = "<group>";
 		};
-		B33E28C41A07AFBE00089916 /* Interactors */ = {
+		B3E426361A2DFD41007E2675 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
-				803978A619E063E4000DEED5 /* SBWorkoutsInteractor.m */,
-				803978A719E063E4000DEED5 /* SBWorkoutsInteractor.h */,
-				B33E28C01A07AD2A00089916 /* SBExerciseInteractor.h */,
-				B33E28C11A07AD2A00089916 /* SBExerciseInteractor.m */,
-				B33E28C61A07D0B600089916 /* SBSetInteractorOLD.h */,
-				B33E28C71A07D0B600089916 /* SBSetInteractorOLD.m */,
+				B3E426371A2DFD41007E2675 /* SBWorkoutInteractor.h */,
+				B3E426381A2DFD41007E2675 /* SBWorkoutInteractor.m */,
+				B3E426391A2DFD41007E2675 /* SBWorkoutInteractorIO.h */,
 			);
-			name = Interactors;
+			path = Interactors;
 			sourceTree = "<group>";
 		};
-		B33E28C51A07AFDA00089916 /* Cells */ = {
+		B3E4263A1A2DFD41007E2675 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
-				B3AC2EDC19CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.h */,
-				B3AC2EDD19CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.m */,
-				B3AC2EDE19CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.xib */,
+				B3E4263B1A2DFD41007E2675 /* SBWorkoutPresenter.h */,
+				B3E4263C1A2DFD41007E2675 /* SBWorkoutPresenter.m */,
 			);
-			name = Cells;
+			path = Presenters;
 			sourceTree = "<group>";
 		};
-		B33E28C91A07DA5D00089916 /* Cells */ = {
+		B3E426491A2DFE23007E2675 /* AvailableExercises */ = {
 			isa = PBXGroup;
 			children = (
-				80FC797B1A0534F9000172B0 /* SBIconCell.h */,
-				80FC797C1A0534F9000172B0 /* SBIconCell.m */,
-				80FC797D1A0534F9000172B0 /* SBIconCell.xib */,
+				B3E4264A1A2DFE23007E2675 /* Cells */,
+				B3E4264E1A2DFE23007E2675 /* Interactors */,
+				B3E426521A2DFE23007E2675 /* Presenters */,
+				B3E426551A2DFE23007E2675 /* SBExercisesView.h */,
+				B3E426561A2DFE23007E2675 /* SBExercisesViewController.h */,
+				B3E426571A2DFE23007E2675 /* SBExercisesViewController.m */,
+				B3E426581A2DFE23007E2675 /* SBExercisesViewController.xib */,
 			);
-			name = Cells;
+			path = AvailableExercises;
 			sourceTree = "<group>";
 		};
-		B34273471A28870F00A282CB /* Presenters */ = {
+		B3E4264A1A2DFE23007E2675 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				B342734D1A28878200A282CB /* SBSetListPresenter.h */,
-				B342734E1A28878200A282CB /* SBSetListPresenter.m */,
+				B3E4264B1A2DFE23007E2675 /* SBCreateExerciseTableViewCell.h */,
+				B3E4264C1A2DFE23007E2675 /* SBCreateExerciseTableViewCell.m */,
+				B3E4264D1A2DFE23007E2675 /* SBCreateExerciseTableViewCell.xib */,
 			);
-			name = Presenters;
+			path = Cells;
 			sourceTree = "<group>";
 		};
-		B34273481A28871900A282CB /* Interactors */ = {
+		B3E4264E1A2DFE23007E2675 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
-				B34273491A28875100A282CB /* SBSetListInteractorIO.h */,
-				B342734A1A28876900A282CB /* SBSetListInteractor.h */,
-				B342734B1A28876900A282CB /* SBSetListInteractor.m */,
+				B3E4264F1A2DFE23007E2675 /* SBExercisesInteractor.h */,
+				B3E426501A2DFE23007E2675 /* SBExercisesInteractor.m */,
+				B3E426511A2DFE23007E2675 /* SBExercisesInteractorIO.h */,
 			);
-			name = Interactors;
+			path = Interactors;
 			sourceTree = "<group>";
 		};
-		B36B6CD91A23323900D88B7F /* Presenters */ = {
+		B3E426521A2DFE23007E2675 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
-				B36B6CDB1A23327B00D88B7F /* SBExercisesPresenter.h */,
-				B36B6CDC1A23327B00D88B7F /* SBExercisesPresenter.m */,
+				B3E426531A2DFE23007E2675 /* SBExercisesPresenter.h */,
+				B3E426541A2DFE23007E2675 /* SBExercisesPresenter.m */,
 			);
-			name = Presenters;
+			path = Presenters;
 			sourceTree = "<group>";
 		};
-		B36B6CDA1A23324200D88B7F /* Interactors */ = {
+		B3E4265F1A2DFEE8007E2675 /* SetList */ = {
 			isa = PBXGroup;
 			children = (
-				B36B6CDE1A23341400D88B7F /* SBExercisesInteractor.h */,
-				B36B6CDF1A23341400D88B7F /* SBExercisesInteractor.m */,
-				B36B6CE11A23343100D88B7F /* SBExercisesInteractorIO.h */,
+				B3E426601A2DFEE8007E2675 /* Interactors */,
+				B3E426641A2DFEE8007E2675 /* Presenters */,
+				B3E426671A2DFEE8007E2675 /* SBSetListView.h */,
+				B3E426681A2DFEE8007E2675 /* SBSetsViewController.h */,
+				B3E426691A2DFEE8007E2675 /* SBSetsViewController.m */,
+				B3E4266A1A2DFEE8007E2675 /* SBSetsViewController.xib */,
 			);
-			name = Interactors;
+			path = SetList;
 			sourceTree = "<group>";
 		};
-		B3752F1C19DA95B40091E207 /* ViewModels */ = {
+		B3E426601A2DFEE8007E2675 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
+				B3E426611A2DFEE8007E2675 /* SBSetListInteractor.h */,
+				B3E426621A2DFEE8007E2675 /* SBSetListInteractor.m */,
+				B3E426631A2DFEE8007E2675 /* SBSetListInteractorIO.h */,
 			);
-			name = ViewModels;
+			path = Interactors;
 			sourceTree = "<group>";
 		};
-		B3752F1D19DAA4EA0091E207 /* Models */ = {
+		B3E426641A2DFEE8007E2675 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
-				B3AC2EB119C09EFF00FFD8FD /* SBWorkout.h */,
-				B3AC2EB219C09EFF00FFD8FD /* SBWorkout.m */,
-				B3AC2EB419C1E6E000FFD8FD /* SBExercise.h */,
-				B3AC2EB519C1E6E000FFD8FD /* SBExercise.m */,
-				B3AC2ECE19C31F1100FFD8FD /* SBSet.h */,
-				B3AC2ECF19C31F1100FFD8FD /* SBSet.m */,
-				805DE24319C4BE1900472322 /* SBExerciseSet.h */,
-				805DE24419C4BE1900472322 /* SBExerciseSet.m */,
+				B3E426651A2DFEE8007E2675 /* SBSetListPresenter.h */,
+				B3E426661A2DFEE8007E2675 /* SBSetListPresenter.m */,
 			);
-			name = Models;
+			path = Presenters;
 			sourceTree = "<group>";
 		};
-		B3AED24D19E2BD140006A4A9 /* Exercises */ = {
+		B3E4266F1A2DFF4A007E2675 /* Set */ = {
 			isa = PBXGroup;
 			children = (
-				B36B6CD91A23323900D88B7F /* Presenters */,
-				B36B6CDA1A23324200D88B7F /* Interactors */,
-				B33E28C51A07AFDA00089916 /* Cells */,
-				805DE22D19BF909300472322 /* SBExercisesViewController.h */,
-				805DE22E19BF909300472322 /* SBExercisesViewController.m */,
-				B3752F2419DAC6130091E207 /* SBExercisesViewController.xib */,
-				B36B6CE21A23352A00D88B7F /* SBExercisesView.h */,
+				B3E426701A2DFF4A007E2675 /* Interactors */,
+				B3E426741A2DFF4A007E2675 /* Presenters */,
+				B3E426771A2DFF4A007E2675 /* SBSetView.h */,
+				B3E426781A2DFF4A007E2675 /* SBSetViewController.h */,
+				B3E426791A2DFF4A007E2675 /* SBSetViewController.m */,
+				B3E4267A1A2DFF4A007E2675 /* SBSetViewController.xib */,
 			);
-			name = Exercises;
+			path = Set;
 			sourceTree = "<group>";
 		};
-		B3AED24E19E2BD2C0006A4A9 /* Sets */ = {
+		B3E426701A2DFF4A007E2675 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
-				B34273471A28870F00A282CB /* Presenters */,
-				B34273481A28871900A282CB /* Interactors */,
-				B3AC2ED119C322A200FFD8FD /* SBSetsViewController.h */,
-				B3AC2ED219C322A300FFD8FD /* SBSetsViewController.m */,
-				B3752F2619DAC8A40091E207 /* SBSetsViewController.xib */,
-				B34273501A2887FE00A282CB /* SBSetListView.h */,
+				B3E426711A2DFF4A007E2675 /* SBSetInteractor.h */,
+				B3E426721A2DFF4A007E2675 /* SBSetInteractor.m */,
+				B3E426731A2DFF4A007E2675 /* SBSetInteractorIO.h */,
 			);
-			name = Sets;
+			path = Interactors;
 			sourceTree = "<group>";
 		};
-		B3AED24F19E2BD3E0006A4A9 /* Set */ = {
+		B3E426741A2DFF4A007E2675 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
-				B3E426131A2DCE05007E2675 /* Presenters */,
-				B3E426141A2DCE10007E2675 /* Interactors */,
-				805DE24619C4C19000472322 /* SBSetViewController.h */,
-				805DE24719C4C19000472322 /* SBSetViewController.m */,
-				B3752F2819DAC9CF0091E207 /* SBSetViewController.xib */,
-				B3E426151A2DCE51007E2675 /* SBSetView.h */,
+				B3E426751A2DFF4A007E2675 /* SBSetPresenter.h */,
+				B3E426761A2DFF4A007E2675 /* SBSetPresenter.m */,
 			);
-			name = Set;
+			path = Presenters;
 			sourceTree = "<group>";
 		};
-		B3AED25019E2BD500006A4A9 /* StatExercises */ = {
+		B3E4267F1A2DFFBB007E2675 /* IconList */ = {
 			isa = PBXGroup;
 			children = (
-				80B6016819C9B8D800CC455A /* SBFinishedExercisesViewController.h */,
-				80B6016919C9B8D800CC455A /* SBFinishedExercisesViewController.m */,
-				B3752F2019DAA8580091E207 /* SBFinishedExercisesViewController.xib */,
+				B3E426801A2DFFBB007E2675 /* Cells */,
+				B3E426841A2DFFBB007E2675 /* Interactors */,
+				B3E426851A2DFFBB007E2675 /* Presenters */,
+				B3E426861A2DFFBB007E2675 /* SBIconListViewController.h */,
+				B3E426871A2DFFBB007E2675 /* SBIconListViewController.m */,
+				B3E426881A2DFFBB007E2675 /* SBIconListViewController.xib */,
 			);
-			name = StatExercises;
+			path = IconList;
 			sourceTree = "<group>";
 		};
-		B3AED25119E2BD7B0006A4A9 /* Statistic */ = {
+		B3E426801A2DFFBB007E2675 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				B3E5306C19EBD2B900C2A17F /* Cells */,
-				805DE24E19C85E4C00472322 /* SBStatisticViewController.h */,
-				805DE24F19C85E4C00472322 /* SBStatisticViewController.m */,
-				B3752F2A19DAEB440091E207 /* SBStatisticViewController.xib */,
+				B3E426811A2DFFBB007E2675 /* SBIconCell.h */,
+				B3E426821A2DFFBB007E2675 /* SBIconCell.m */,
+				B3E426831A2DFFBB007E2675 /* SBIconCell.xib */,
 			);
-			name = Statistic;
+			path = Cells;
 			sourceTree = "<group>";
 		};
-		B3AED25219E2BE3E0006A4A9 /* Cells */ = {
+		B3E426841A2DFFBB007E2675 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
-				B3752F0019D1863E0091E207 /* SBSmallTopBottomCell.h */,
-				B3752EFE19D185970091E207 /* SBSmallTopBottomCell.xib */,
-				B3752F0519D187C70091E207 /* SBSmallTopBottomCell.m */,
-				805DE23819BF93CB00472322 /* SBAddEntryTableViewCell.h */,
-				805DE23919BF93CB00472322 /* SBAddEntryTableViewCell.m */,
-				805DE23A19BF93CB00472322 /* SBAddEntryTableViewCell.xib */,
-				B31609A119ED6FAD00D1637C /* SBDescriptionCell.h */,
-				B31609A219ED6FAD00D1637C /* SBDescriptionCell.m */,
-				B31609A319ED6FAD00D1637C /* SBDescriptionCell.xib */,
 			);
-			name = Cells;
+			path = Interactors;
 			sourceTree = "<group>";
 		};
-		B3AED26419E2E2480006A4A9 /* Settings */ = {
+		B3E426851A2DFFBB007E2675 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
-				B3AED26519E2E26C0006A4A9 /* SBSettingsViewController.h */,
-				B3AED26619E2E26C0006A4A9 /* SBSettingsViewController.m */,
-				B3AED26719E2E26C0006A4A9 /* SBSettingsViewController.xib */,
 			);
-			name = Settings;
+			path = Presenters;
 			sourceTree = "<group>";
 		};
-		B3C2D90A1A1A4F9D007358B3 /* Presenters */ = {
+		B3E4268D1A2E002E007E2675 /* StatisticExerciseList */ = {
 			isa = PBXGroup;
 			children = (
-				B3C2D90B1A1A4FB7007358B3 /* SBWorkoutPresenter.h */,
-				B3C2D90C1A1A4FB7007358B3 /* SBWorkoutPresenter.m */,
+				B3E4268E1A2E002E007E2675 /* Interactors */,
+				B3E4268F1A2E002E007E2675 /* Presenters */,
+				B3E426901A2E002E007E2675 /* SBFinishedExercisesViewController.h */,
+				B3E426911A2E002E007E2675 /* SBFinishedExercisesViewController.m */,
+				B3E426921A2E002E007E2675 /* SBFinishedExercisesViewController.xib */,
 			);
-			name = Presenters;
+			path = StatisticExerciseList;
 			sourceTree = "<group>";
 		};
-		B3C2D90F1A1B9084007358B3 /* Interactors */ = {
+		B3E4268E1A2E002E007E2675 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
-				B3C2D9101A1B90A7007358B3 /* SBWorkoutInteractor.h */,
-				B3C2D9111A1B90A7007358B3 /* SBWorkoutInteractor.m */,
-				B36B6CD81A1F300700D88B7F /* SBWorkoutInteractorIO.h */,
 			);
-			name = Interactors;
+			path = Interactors;
 			sourceTree = "<group>";
 		};
-		B3E426131A2DCE05007E2675 /* Presenters */ = {
+		B3E4268F1A2E002E007E2675 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
-				B3E4261B1A2DCEFC007E2675 /* SBSetPresenter.h */,
-				B3E4261C1A2DCEFC007E2675 /* SBSetPresenter.m */,
 			);
-			name = Presenters;
+			path = Presenters;
 			sourceTree = "<group>";
 		};
-		B3E426141A2DCE10007E2675 /* Interactors */ = {
+		B3E426951A2E008E007E2675 /* StatisticExercise */ = {
 			isa = PBXGroup;
 			children = (
-				B3E426161A2DCEB8007E2675 /* SBSetInteractor.h */,
-				B3E426171A2DCEB8007E2675 /* SBSetInteractor.m */,
-				B3E4261A1A2DCEE6007E2675 /* SBSetInteractorIO.h */,
+				B3E426961A2E008E007E2675 /* Cells */,
+				B3E4269A1A2E008E007E2675 /* Interactors */,
+				B3E4269B1A2E008E007E2675 /* Presenters */,
+				B3E4269C1A2E008E007E2675 /* SBStatisticViewController.h */,
+				B3E4269D1A2E008E007E2675 /* SBStatisticViewController.m */,
+				B3E4269E1A2E008E007E2675 /* SBStatisticViewController.xib */,
 			);
-			name = Interactors;
+			path = StatisticExercise;
 			sourceTree = "<group>";
 		};
-		B3E5306C19EBD2B900C2A17F /* Cells */ = {
+		B3E426961A2E008E007E2675 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				B35A21DB19DBF00A00BCECAB /* SBStatisticCell.m */,
-				B35A21DD19DBF01B00BCECAB /* SBStatisticCell.h */,
-				B35A21D919DBEFF600BCECAB /* SBStatisticCell.xib */,
+				B3E426971A2E008E007E2675 /* SBStatisticCell.h */,
+				B3E426981A2E008E007E2675 /* SBStatisticCell.m */,
+				B3E426991A2E008E007E2675 /* SBStatisticCell.xib */,
 			);
-			name = Cells;
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B3E4269A1A2E008E007E2675 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactors;
+			sourceTree = "<group>";
+		};
+		B3E4269B1A2E008E007E2675 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		B3E426A31A2E00CF007E2675 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B3E426A41A2E00CF007E2675 /* SBSettingsViewController.h */,
+				B3E426A51A2E00CF007E2675 /* SBSettingsViewController.m */,
+				B3E426A61A2E00CF007E2675 /* SBSettingsViewController.xib */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		B3E426A91A2E0106007E2675 /* Imprint */ = {
+			isa = PBXGroup;
+			children = (
+				B3E426AA1A2E0106007E2675 /* SBImprintViewController.h */,
+				B3E426AB1A2E0106007E2675 /* SBImprintViewController.m */,
+			);
+			path = Imprint;
+			sourceTree = "<group>";
+		};
+		B3E426AD1A2E03A4007E2675 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B3E426F51A2E03FD007E2675 /* Categories */,
+				B3E426AE1A2E03A4007E2675 /* Cells */,
+				B3E426C41A2E03A4007E2675 /* DataSources */,
+				B3E426C71A2E03A4007E2675 /* RealmModels */,
+				B3E426D01A2E03A4007E2675 /* ViewControllers */,
+				B3E426D31A2E03A4007E2675 /* ViewHelper */,
+				B3E426D61A2E03A4007E2675 /* ViewModels */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		B3E426AE1A2E03A4007E2675 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B3E426AF1A2E03A4007E2675 /* SBAddEntryTableViewCell.h */,
+				B3E426B01A2E03A4007E2675 /* SBAddEntryTableViewCell.m */,
+				B3E426B11A2E03A4007E2675 /* SBAddEntryTableViewCell.xib */,
+				B3E426B21A2E03A4007E2675 /* SBDescriptionCell.h */,
+				B3E426B31A2E03A4007E2675 /* SBDescriptionCell.m */,
+				B3E426B41A2E03A4007E2675 /* SBDescriptionCell.xib */,
+				B3E426B51A2E03A4007E2675 /* SBEditWorkoutTableViewCell.h */,
+				B3E426B61A2E03A4007E2675 /* SBEditWorkoutTableViewCell.m */,
+				B3E426B71A2E03A4007E2675 /* SBEditWorkoutTableViewCell.xib */,
+				B3E426B81A2E03A4007E2675 /* SBExerciseTableViewCell.h */,
+				B3E426B91A2E03A4007E2675 /* SBExerciseTableViewCell.m */,
+				B3E426BA1A2E03A4007E2675 /* SBExerciseTableViewCell.xib */,
+				B3E426BB1A2E03A4007E2675 /* SBLeftRightCell.h */,
+				B3E426BC1A2E03A4007E2675 /* SBLeftRightCell.m */,
+				B3E426BD1A2E03A4007E2675 /* SBLeftRightCell.xib */,
+				B3E426BE1A2E03A4007E2675 /* SBSmallTopBottomCell.h */,
+				B3E426BF1A2E03A4007E2675 /* SBSmallTopBottomCell.m */,
+				B3E426C01A2E03A4007E2675 /* SBSmallTopBottomCell.xib */,
+				B3E426C11A2E03A4007E2675 /* SBStandardCell.h */,
+				B3E426C21A2E03A4007E2675 /* SBStandardCell.m */,
+				B3E426C31A2E03A4007E2675 /* SBStandardCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B3E426C41A2E03A4007E2675 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				B3E426C51A2E03A4007E2675 /* SBWorkoutDataSource.h */,
+				B3E426C61A2E03A4007E2675 /* SBWorkoutDataSource.m */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		B3E426C71A2E03A4007E2675 /* RealmModels */ = {
+			isa = PBXGroup;
+			children = (
+				B3E426C81A2E03A4007E2675 /* SBExercise.h */,
+				B3E426C91A2E03A4007E2675 /* SBExercise.m */,
+				B3E426CA1A2E03A4007E2675 /* SBExerciseSet.h */,
+				B3E426CB1A2E03A4007E2675 /* SBExerciseSet.m */,
+				B3E426CC1A2E03A4007E2675 /* SBSet.h */,
+				B3E426CD1A2E03A4007E2675 /* SBSet.m */,
+				B3E426CE1A2E03A4007E2675 /* SBWorkout.h */,
+				B3E426CF1A2E03A4007E2675 /* SBWorkout.m */,
+			);
+			path = RealmModels;
+			sourceTree = "<group>";
+		};
+		B3E426D01A2E03A4007E2675 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B3E426D11A2E03A4007E2675 /* SBAbstractViewController.h */,
+				B3E426D21A2E03A4007E2675 /* SBAbstractViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B3E426D31A2E03A4007E2675 /* ViewHelper */ = {
+			isa = PBXGroup;
+			children = (
+				B3E426D41A2E03A4007E2675 /* SBHelperView.h */,
+				B3E426D51A2E03A4007E2675 /* SBHelperView.m */,
+			);
+			path = ViewHelper;
+			sourceTree = "<group>";
+		};
+		B3E426D61A2E03A4007E2675 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B3E426D71A2E03A4007E2675 /* SBAddEntryViewModel.h */,
+				B3E426D81A2E03A4007E2675 /* SBAddEntryViewModel.m */,
+				B3E426D91A2E03A4007E2675 /* SBExerciseSetViewModel.h */,
+				B3E426DA1A2E03A4007E2675 /* SBExerciseSetViewModel.m */,
+				B3E426DB1A2E03A4007E2675 /* SBWorkoutViewModel.h */,
+				B3E426DC1A2E03A4007E2675 /* SBWorkouViewModel.m */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B3E426F51A2E03FD007E2675 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				B3E426F61A2E03FD007E2675 /* UIColor+SBColor.h */,
+				B3E426F71A2E03FD007E2675 /* UIColor+SBColor.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		B3E426F91A2E0489007E2675 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B3E426FA1A2E0489007E2675 /* addButton.png */,
+				B3E426FB1A2E0489007E2675 /* addButton@2x.png */,
+				B3E426FC1A2E0489007E2675 /* addButton@3x.png */,
+				B3E426FD1A2E0489007E2675 /* appIcon.png */,
+				B3E426FE1A2E0489007E2675 /* appIcon@2x.png */,
+				B3E426FF1A2E0489007E2675 /* appIcon@3x.png */,
+				B3E427001A2E0489007E2675 /* arrow.png */,
+				B3E427011A2E0489007E2675 /* back.png */,
+				B3E427021A2E0489007E2675 /* back_ass.png */,
+				B3E427031A2E0489007E2675 /* back_back.png */,
+				B3E427041A2E0489007E2675 /* back_calf.png */,
+				B3E427051A2E0489007E2675 /* back_legs.png */,
+				B3E427061A2E0489007E2675 /* back_neck.png */,
+				B3E427071A2E0489007E2675 /* back_shoulder.png */,
+				B3E427081A2E0489007E2675 /* back_triceps.png */,
+				B3E427091A2E0489007E2675 /* back_underarm.png */,
+				B3E4270A1A2E0489007E2675 /* edit.png */,
+				B3E4270B1A2E0489007E2675 /* edit@2x.png */,
+				B3E4270C1A2E0489007E2675 /* edit@3x.png */,
+				B3E4270D1A2E0489007E2675 /* front.png */,
+				B3E4270E1A2E0489007E2675 /* front_biceps.png */,
+				B3E4270F1A2E0489007E2675 /* front_breast.png */,
+				B3E427101A2E0489007E2675 /* front_lat.png */,
+				B3E427111A2E0489007E2675 /* front_legs.png */,
+				B3E427121A2E0489007E2675 /* front_neck.png */,
+				B3E427131A2E0489007E2675 /* front_shin.png */,
+				B3E427141A2E0489007E2675 /* front_shoulder.png */,
+				B3E427151A2E0489007E2675 /* front_sides.png */,
+				B3E427161A2E0489007E2675 /* front_sixpack.png */,
+				B3E427171A2E0489007E2675 /* front_underarm.png */,
+				B3E427181A2E0489007E2675 /* hantel.png */,
+				B3E427191A2E0489007E2675 /* hantel@2x.png */,
+				B3E4271A1A2E0489007E2675 /* hantel@3x.png */,
+				B3E4271B1A2E0489007E2675 /* hantelUnselected.png */,
+				B3E4271C1A2E0489007E2675 /* hantelUnselected@2x.png */,
+				B3E4271D1A2E0489007E2675 /* hantelUnselected@3x.png */,
+				B3E4271E1A2E0489007E2675 /* hintArrow.png */,
+				B3E4271F1A2E0489007E2675 /* hintArrow@2x.png */,
+				B3E427201A2E0489007E2675 /* hintArrow@3x.png */,
+				B3E427211A2E0489007E2675 /* launcherImage.png */,
+				B3E427221A2E0489007E2675 /* launcherImage@2x.png */,
+				B3E427231A2E0489007E2675 /* launcherImage@3x.png */,
+				B3E427241A2E0489007E2675 /* launcherImageIP5@2x.png */,
+				B3E427251A2E0489007E2675 /* plus.png */,
+				B3E427261A2E0489007E2675 /* plus@2x.png */,
+				B3E427271A2E0489007E2675 /* plus@3x.png */,
+				B3E427281A2E0489007E2675 /* settings.png */,
+				B3E427291A2E0489007E2675 /* settings@2x.png */,
+				B3E4272A1A2E0489007E2675 /* settings@3x.png */,
+				B3E4272B1A2E0489007E2675 /* settingsUnselected.png */,
+				B3E4272C1A2E0489007E2675 /* settingsUnselected@2x.png */,
+				B3E4272D1A2E0489007E2675 /* settingsUnselected@3x.png */,
+				B3E4272E1A2E0489007E2675 /* stats.png */,
+				B3E4272F1A2E0489007E2675 /* stats@2x.png */,
+				B3E427301A2E0489007E2675 /* stats@3x.png */,
+				B3E427311A2E0489007E2675 /* statsUnselected.png */,
+				B3E427321A2E0489007E2675 /* statsUnselected@2x.png */,
+				B3E427331A2E0489007E2675 /* statsUnselected@3x.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		E8C9A8528F9B2A77735261C6 /* Pods */ = {
@@ -1012,88 +1044,88 @@
 			buildActionMask = 2147483647;
 			files = (
 				803978AC19E4735D000DEED5 /* Settings.bundle in Resources */,
-				80FC79581A02C038000172B0 /* front_biceps.png in Resources */,
-				80FC798F1A054EC1000172B0 /* front_breast.png in Resources */,
-				B3AED25D19E2CDFE0006A4A9 /* hintArrow.png in Resources */,
-				80FC797F1A0534F9000172B0 /* SBIconCell.xib in Resources */,
-				B3752F2B19DAEB440091E207 /* SBStatisticViewController.xib in Resources */,
-				B38E11BB19EE9E1E0060945C /* settingsUnselected@2x.png in Resources */,
-				80FC79741A0524B6000172B0 /* front.png in Resources */,
-				B3E5307019EBEE5600C2A17F /* addButton.png in Resources */,
-				B3E5307119EBEE5600C2A17F /* addButton@2x.png in Resources */,
-				803978BF19E6DA50000DEED5 /* launcherImage.png in Resources */,
-				B3AED26F19E2E3520006A4A9 /* settings@3x.png in Resources */,
-				801A842919EDA05A002CFCBC /* hantelUnselected.png in Resources */,
-				B3AB6A0C19C059A70002EDF9 /* SBEditWorkoutTableViewCell.xib in Resources */,
+				B3E4268A1A2DFFBB007E2675 /* SBIconCell.xib in Resources */,
+				B3E4273E1A2E0489007E2675 /* back_calf.png in Resources */,
+				B3E427481A2E0489007E2675 /* front_biceps.png in Resources */,
+				B3E427511A2E0489007E2675 /* front_underarm.png in Resources */,
+				B3E4274C1A2E0489007E2675 /* front_neck.png in Resources */,
+				B3E426DE1A2E03A4007E2675 /* SBAddEntryTableViewCell.xib in Resources */,
+				B3E427391A2E0489007E2675 /* appIcon@3x.png in Resources */,
+				B3E427561A2E0489007E2675 /* hantelUnselected@2x.png in Resources */,
+				B3E4273C1A2E0489007E2675 /* back_ass.png in Resources */,
+				B3E4276C1A2E0489007E2675 /* statsUnselected@2x.png in Resources */,
+				B3E426A21A2E008E007E2675 /* SBStatisticViewController.xib in Resources */,
+				B3E4275D1A2E0489007E2675 /* launcherImage@3x.png in Resources */,
+				B3E427461A2E0489007E2675 /* edit@3x.png in Resources */,
+				B3E426481A2DFD41007E2675 /* SBWorkoutViewController.xib in Resources */,
+				B3E427431A2E0489007E2675 /* back_underarm.png in Resources */,
 				8039788919DEBAEF000DEED5 /* Launch Screen.xib in Resources */,
-				80FC797A1A0532CE000172B0 /* SBIconListViewController.xib in Resources */,
-				B3752F2719DAC8A40091E207 /* SBSetsViewController.xib in Resources */,
-				B38E11BE19EE9E1E0060945C /* statsUnselected@2x.png in Resources */,
-				80FC79911A054EC1000172B0 /* front_shin.png in Resources */,
-				80FC796F1A052484000172B0 /* back_underarm.png in Resources */,
-				801A842319EAE571002CFCBC /* edit.png in Resources */,
-				B3752F1119D2B85B0091E207 /* SBLeftRightCell.xib in Resources */,
-				80FC795B1A02C038000172B0 /* front_neck.png in Resources */,
-				801A842419EAE571002CFCBC /* edit@2x.png in Resources */,
-				B3AED25A19E2CDB50006A4A9 /* hintArrow@3x.png in Resources */,
-				B3AED27319E3E31E0006A4A9 /* appIcon.png in Resources */,
-				B38E11BA19EE9E1E0060945C /* settingsUnselected.png in Resources */,
-				B38E11BF19EE9E1E0060945C /* statsUnselected@3x.png in Resources */,
-				80FC795E1A02C038000172B0 /* front_sixpack.png in Resources */,
-				B31609A519ED6FAD00D1637C /* SBDescriptionCell.xib in Resources */,
-				B3AC2EE019CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.xib in Resources */,
-				80C2E1D31A06A3D6008E0D21 /* SBExerciseDetailCell.xib in Resources */,
-				B38E11BC19EE9E1E0060945C /* settingsUnselected@3x.png in Resources */,
-				801A842519EAE571002CFCBC /* edit@3x.png in Resources */,
-				805DE23C19BF93CB00472322 /* SBAddEntryTableViewCell.xib in Resources */,
-				B3AED24219DD76C90006A4A9 /* hantel@2x.png in Resources */,
-				B35A21DA19DBEFF600BCECAB /* SBStatisticCell.xib in Resources */,
-				B3752F0C19D1C5080091E207 /* arrow.png in Resources */,
-				80FC795F1A02C038000172B0 /* front_underarm.png in Resources */,
-				801A842B19EDA05A002CFCBC /* hantelUnselected@3x.png in Resources */,
-				805DE24119BF93DC00472322 /* SBExerciseTableViewCell.xib in Resources */,
-				B3752F2919DAC9CF0091E207 /* SBSetViewController.xib in Resources */,
-				B3AED26D19E2E3520006A4A9 /* settings.png in Resources */,
-				80FC795C1A02C038000172B0 /* front_shoulder.png in Resources */,
-				801A841E19EAE33D002CFCBC /* plus@2x.png in Resources */,
-				B3AED24619DD76C90006A4A9 /* stats@3x.png in Resources */,
-				801A842A19EDA05A002CFCBC /* hantelUnselected@2x.png in Resources */,
-				B3752F2119DAA8580091E207 /* SBFinishedExercisesViewController.xib in Resources */,
-				80FC795D1A02C038000172B0 /* front_sides.png in Resources */,
-				80FC796D1A052484000172B0 /* back_shoulder.png in Resources */,
-				B3AED26919E2E26C0006A4A9 /* SBSettingsViewController.xib in Resources */,
+				B3E427591A2E0489007E2675 /* hintArrow@2x.png in Resources */,
+				B3E4275B1A2E0489007E2675 /* launcherImage.png in Resources */,
+				B3E4273A1A2E0489007E2675 /* arrow.png in Resources */,
+				B3E427581A2E0489007E2675 /* hintArrow.png in Resources */,
+				B3E427491A2E0489007E2675 /* front_breast.png in Resources */,
+				B3E426E01A2E03A4007E2675 /* SBDescriptionCell.xib in Resources */,
+				B3E4268C1A2DFFBB007E2675 /* SBIconListViewController.xib in Resources */,
+				B3E427611A2E0489007E2675 /* plus@3x.png in Resources */,
+				B3E427621A2E0489007E2675 /* settings.png in Resources */,
+				B3E4265A1A2DFE23007E2675 /* SBCreateExerciseTableViewCell.xib in Resources */,
+				B3E427421A2E0489007E2675 /* back_triceps.png in Resources */,
+				B3E426E21A2E03A4007E2675 /* SBEditWorkoutTableViewCell.xib in Resources */,
+				B3E426421A2DFD41007E2675 /* SBBigTopBottomCell.xib in Resources */,
+				B3E4273D1A2E0489007E2675 /* back_back.png in Resources */,
+				B3E427361A2E0489007E2675 /* addButton@3x.png in Resources */,
+				B3E427651A2E0489007E2675 /* settingsUnselected.png in Resources */,
+				B3E4275C1A2E0489007E2675 /* launcherImage@2x.png in Resources */,
+				B3E427641A2E0489007E2675 /* settings@3x.png in Resources */,
+				B3E426E61A2E03A4007E2675 /* SBLeftRightCell.xib in Resources */,
+				B3E4275E1A2E0489007E2675 /* launcherImageIP5@2x.png in Resources */,
+				B3E426A01A2E008E007E2675 /* SBStatisticCell.xib in Resources */,
+				B3E427551A2E0489007E2675 /* hantelUnselected.png in Resources */,
 				8086D44419BCBF16004ADBB6 /* Images.xcassets in Resources */,
-				B3752F1F19DAA6720091E207 /* SBWorkoutsViewController.xib in Resources */,
-				B3AED27519E3E31E0006A4A9 /* appIcon@3x.png in Resources */,
-				B3AED26E19E2E3520006A4A9 /* settings@2x.png in Resources */,
-				B3AED24519DD76C90006A4A9 /* stats@2x.png in Resources */,
-				803978BB19E6D660000DEED5 /* launcherImage@3x.png in Resources */,
-				B3752F2519DAC6140091E207 /* SBExercisesViewController.xib in Resources */,
-				80FC79731A0524B6000172B0 /* back.png in Resources */,
-				805DE23419BF937F00472322 /* SBBigTopBottomCell.xib in Resources */,
-				B38E11BD19EE9E1E0060945C /* statsUnselected.png in Resources */,
-				803978C019E6DA50000DEED5 /* launcherImageIP5@2x.png in Resources */,
-				80FC795A1A02C038000172B0 /* front_legs.png in Resources */,
-				B3AED24319DD76C90006A4A9 /* hantel@3x.png in Resources */,
-				80FC79941A055145000172B0 /* back_calf.png in Resources */,
-				B3E5307219EBEE5600C2A17F /* addButton@3x.png in Resources */,
-				80FC796A1A052484000172B0 /* back_back.png in Resources */,
-				801A841D19EAE33D002CFCBC /* plus.png in Resources */,
-				803978C619E6EF66000DEED5 /* SBStandardCell.xib in Resources */,
-				B3AED25E19E2CDFE0006A4A9 /* hintArrow@2x.png in Resources */,
-				80FC79901A054EC1000172B0 /* front_lat.png in Resources */,
-				B3AED24419DD76C90006A4A9 /* stats.png in Resources */,
+				B3E427661A2E0489007E2675 /* settingsUnselected@2x.png in Resources */,
+				B3E427471A2E0489007E2675 /* front.png in Resources */,
+				B3E4276A1A2E0489007E2675 /* stats@3x.png in Resources */,
+				B3E426EA1A2E03A4007E2675 /* SBStandardCell.xib in Resources */,
+				B3E426E81A2E03A4007E2675 /* SBSmallTopBottomCell.xib in Resources */,
+				B3E426941A2E002E007E2675 /* SBFinishedExercisesViewController.xib in Resources */,
+				B3E4262D1A2DFC77007E2675 /* SBWorkoutsViewController.xib in Resources */,
+				B3E4267E1A2DFF4A007E2675 /* SBSetViewController.xib in Resources */,
+				B3E427521A2E0489007E2675 /* hantel.png in Resources */,
+				B3E426441A2DFD41007E2675 /* SBExerciseDetailCell.xib in Resources */,
+				B3E427541A2E0489007E2675 /* hantel@3x.png in Resources */,
+				B3E426A81A2E00CF007E2675 /* SBSettingsViewController.xib in Resources */,
+				B3E427671A2E0489007E2675 /* settingsUnselected@3x.png in Resources */,
+				B3E4276D1A2E0489007E2675 /* statsUnselected@3x.png in Resources */,
 				8086D43319BCBF16004ADBB6 /* Localizable.strings in Resources */,
-				80FC796E1A052484000172B0 /* back_triceps.png in Resources */,
-				B3752F2319DAC1170091E207 /* SBWorkoutViewController.xib in Resources */,
-				B3AED27419E3E31E0006A4A9 /* appIcon@2x.png in Resources */,
-				803978C119E6DA50000DEED5 /* launcherImage@2x.png in Resources */,
-				B3AED24119DD76C90006A4A9 /* hantel.png in Resources */,
-				B3752EFF19D185970091E207 /* SBSmallTopBottomCell.xib in Resources */,
-				80FC796C1A052484000172B0 /* back_neck.png in Resources */,
-				80FC79691A052484000172B0 /* back_ass.png in Resources */,
-				80FC79951A055145000172B0 /* back_legs.png in Resources */,
-				801A841F19EAE33D002CFCBC /* plus@3x.png in Resources */,
+				B3E427531A2E0489007E2675 /* hantel@2x.png in Resources */,
+				B3E427451A2E0489007E2675 /* edit@2x.png in Resources */,
+				B3E4275A1A2E0489007E2675 /* hintArrow@3x.png in Resources */,
+				B3E4265E1A2DFE23007E2675 /* SBExercisesViewController.xib in Resources */,
+				B3E427411A2E0489007E2675 /* back_shoulder.png in Resources */,
+				B3E4273F1A2E0489007E2675 /* back_legs.png in Resources */,
+				B3E427371A2E0489007E2675 /* appIcon.png in Resources */,
+				B3E4274F1A2E0489007E2675 /* front_sides.png in Resources */,
+				B3E4266E1A2DFEE8007E2675 /* SBSetsViewController.xib in Resources */,
+				B3E427441A2E0489007E2675 /* edit.png in Resources */,
+				B3E427691A2E0489007E2675 /* stats@2x.png in Resources */,
+				B3E4274A1A2E0489007E2675 /* front_lat.png in Resources */,
+				B3E4276B1A2E0489007E2675 /* statsUnselected.png in Resources */,
+				B3E427631A2E0489007E2675 /* settings@2x.png in Resources */,
+				B3E4274E1A2E0489007E2675 /* front_shoulder.png in Resources */,
+				B3E427501A2E0489007E2675 /* front_sixpack.png in Resources */,
+				B3E4275F1A2E0489007E2675 /* plus.png in Resources */,
+				B3E427681A2E0489007E2675 /* stats.png in Resources */,
+				B3E427351A2E0489007E2675 /* addButton@2x.png in Resources */,
+				B3E4273B1A2E0489007E2675 /* back.png in Resources */,
+				B3E427381A2E0489007E2675 /* appIcon@2x.png in Resources */,
+				B3E427571A2E0489007E2675 /* hantelUnselected@3x.png in Resources */,
+				B3E427401A2E0489007E2675 /* back_neck.png in Resources */,
+				B3E426E41A2E03A4007E2675 /* SBExerciseTableViewCell.xib in Resources */,
+				B3E427601A2E0489007E2675 /* plus@2x.png in Resources */,
+				B3E427341A2E0489007E2675 /* addButton.png in Resources */,
+				B3E4274B1A2E0489007E2675 /* front_legs.png in Resources */,
+				B3E4274D1A2E0489007E2675 /* front_shin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1176,53 +1208,49 @@
 			buildActionMask = 2147483647;
 			files = (
 				8086D43519BCBF16004ADBB6 /* main.m in Sources */,
-				805DE22F19BF909300472322 /* SBExercisesViewController.m in Sources */,
-				805DE25019C85E4C00472322 /* SBStatisticViewController.m in Sources */,
-				B3AC2EB319C09EFF00FFD8FD /* SBWorkout.m in Sources */,
-				B33E28C21A07AD2A00089916 /* SBExerciseInteractor.m in Sources */,
-				B342734F1A28878200A282CB /* SBSetListPresenter.m in Sources */,
-				B3AC2ED019C31F1100FFD8FD /* SBSet.m in Sources */,
-				803978A819E063E4000DEED5 /* SBWorkoutsInteractor.m in Sources */,
-				B3AC2EB619C1E6E000FFD8FD /* SBExercise.m in Sources */,
-				B31609A419ED6FAD00D1637C /* SBDescriptionCell.m in Sources */,
-				80C6AE7A1A18ADB600FF2A2F /* SBWorkoutDataSource.m in Sources */,
-				80B6016A19C9B8D800CC455A /* SBFinishedExercisesViewController.m in Sources */,
-				B33E28BF1A07A5AF00089916 /* SBAbstractViewController.m in Sources */,
-				805DE22C19BF8E6500472322 /* SBWorkoutViewController.m in Sources */,
-				B33E28C81A07D0B700089916 /* SBSetInteractorOLD.m in Sources */,
-				B342734C1A28876900A282CB /* SBSetListInteractor.m in Sources */,
-				B3AED24C19E29A660006A4A9 /* SBExerciseSetViewModel.m in Sources */,
-				B3752F0619D187C70091E207 /* SBSmallTopBottomCell.m in Sources */,
-				805DE24819C4C19000472322 /* SBSetViewController.m in Sources */,
-				B3AB6A0B19C059A70002EDF9 /* SBEditWorkoutTableViewCell.m in Sources */,
-				805DE24519C4BE1900472322 /* SBExerciseSet.m in Sources */,
-				B3AED26819E2E26C0006A4A9 /* SBSettingsViewController.m in Sources */,
-				803978C519E6EF66000DEED5 /* SBStandardCell.m in Sources */,
-				B36B6CDD1A23327B00D88B7F /* SBExercisesPresenter.m in Sources */,
-				B3AC2EDF19CAED8C00FFD8FD /* SBCreateExerciseTableViewCell.m in Sources */,
-				803978B919E6AAF7000DEED5 /* SBImprintViewController.m in Sources */,
-				B3752F0A19D18DCD0091E207 /* UIColor+SBColor.m in Sources */,
-				805DE24019BF93DC00472322 /* SBExerciseTableViewCell.m in Sources */,
-				805DE23319BF937F00472322 /* SBBigTopBottomCell.m in Sources */,
-				801A841919EA7A4C002CFCBC /* SBWorkoutsViewController.m in Sources */,
-				B3E4261D1A2DCEFC007E2675 /* SBSetPresenter.m in Sources */,
-				80C6AE7E1A18AEB100FF2A2F /* SBWorkoutListInteractor.m in Sources */,
-				80FC797E1A0534F9000172B0 /* SBIconCell.m in Sources */,
-				80FC79791A0532CE000172B0 /* SBIconListViewController.m in Sources */,
-				B3C2D9121A1B90A7007358B3 /* SBWorkoutInteractor.m in Sources */,
-				80C2E1D21A06A3D6008E0D21 /* SBExerciseDetailCell.m in Sources */,
-				80C6AE821A18AFBE00FF2A2F /* SBWorkoutListPresenter.m in Sources */,
-				B3AED24919E297310006A4A9 /* SBAddEntryViewModel.m in Sources */,
-				805DE23B19BF93CB00472322 /* SBAddEntryTableViewCell.m in Sources */,
-				803978B519E68708000DEED5 /* SBHelperView.m in Sources */,
-				B36B6CE01A23341400D88B7F /* SBExercisesInteractor.m in Sources */,
-				B3E426181A2DCEB8007E2675 /* SBSetInteractor.m in Sources */,
-				B3C2D90D1A1A4FB7007358B3 /* SBWorkoutPresenter.m in Sources */,
-				B3752F1B19DA95920091E207 /* SBWorkouViewModel.m in Sources */,
-				B35A21DC19DBF00A00BCECAB /* SBStatisticCell.m in Sources */,
-				B3AC2ED319C322A300FFD8FD /* SBSetsViewController.m in Sources */,
-				8039788719D85286000DEED5 /* SBArrayDataSource.m in Sources */,
-				B3752F0E19D2B8280091E207 /* SBLeftRightCell.m in Sources */,
+				B3E426EC1A2E03A4007E2675 /* SBExercise.m in Sources */,
+				B3E4267C1A2DFF4A007E2675 /* SBSetPresenter.m in Sources */,
+				B3E426A11A2E008E007E2675 /* SBStatisticViewController.m in Sources */,
+				B3E426DF1A2E03A4007E2675 /* SBDescriptionCell.m in Sources */,
+				B3E426F01A2E03A4007E2675 /* SBAbstractViewController.m in Sources */,
+				B3E426ED1A2E03A4007E2675 /* SBExerciseSet.m in Sources */,
+				B3E426F81A2E03FD007E2675 /* UIColor+SBColor.m in Sources */,
+				B3E426E31A2E03A4007E2675 /* SBExerciseTableViewCell.m in Sources */,
+				B3E4266C1A2DFEE8007E2675 /* SBSetListPresenter.m in Sources */,
+				B3E4267B1A2DFF4A007E2675 /* SBSetInteractor.m in Sources */,
+				B3E426431A2DFD41007E2675 /* SBExerciseDetailCell.m in Sources */,
+				B3E426DD1A2E03A4007E2675 /* SBAddEntryTableViewCell.m in Sources */,
+				B3E4265B1A2DFE23007E2675 /* SBExercisesInteractor.m in Sources */,
+				B3E426E91A2E03A4007E2675 /* SBStandardCell.m in Sources */,
+				B3E426EB1A2E03A4007E2675 /* SBWorkoutDataSource.m in Sources */,
+				B3E426F41A2E03A4007E2675 /* SBWorkouViewModel.m in Sources */,
+				B3E4265D1A2DFE23007E2675 /* SBExercisesViewController.m in Sources */,
+				B3E4262C1A2DFC77007E2675 /* SBWorkoutsViewController.m in Sources */,
+				B3E426AC1A2E0106007E2675 /* SBImprintViewController.m in Sources */,
+				B3E426891A2DFFBB007E2675 /* SBIconCell.m in Sources */,
+				B3E426451A2DFD41007E2675 /* SBWorkoutInteractor.m in Sources */,
+				B3E426A71A2E00CF007E2675 /* SBSettingsViewController.m in Sources */,
+				B3E426461A2DFD41007E2675 /* SBWorkoutPresenter.m in Sources */,
+				B3E426EE1A2E03A4007E2675 /* SBSet.m in Sources */,
+				B3E426EF1A2E03A4007E2675 /* SBWorkout.m in Sources */,
+				B3E426F31A2E03A4007E2675 /* SBExerciseSetViewModel.m in Sources */,
+				B3E426E71A2E03A4007E2675 /* SBSmallTopBottomCell.m in Sources */,
+				B3E4265C1A2DFE23007E2675 /* SBExercisesPresenter.m in Sources */,
+				B3E4262A1A2DFC77007E2675 /* SBWorkoutListInteractor.m in Sources */,
+				B3E4267D1A2DFF4A007E2675 /* SBSetViewController.m in Sources */,
+				B3E4266D1A2DFEE8007E2675 /* SBSetsViewController.m in Sources */,
+				B3E4262B1A2DFC77007E2675 /* SBWorkoutListPresenter.m in Sources */,
+				B3E426E11A2E03A4007E2675 /* SBEditWorkoutTableViewCell.m in Sources */,
+				B3E426E51A2E03A4007E2675 /* SBLeftRightCell.m in Sources */,
+				B3E426591A2DFE23007E2675 /* SBCreateExerciseTableViewCell.m in Sources */,
+				B3E4266B1A2DFEE8007E2675 /* SBSetListInteractor.m in Sources */,
+				B3E4268B1A2DFFBB007E2675 /* SBIconListViewController.m in Sources */,
+				B3E426471A2DFD41007E2675 /* SBWorkoutViewController.m in Sources */,
+				B3E426F11A2E03A4007E2675 /* SBHelperView.m in Sources */,
+				B3E4269F1A2E008E007E2675 /* SBStatisticCell.m in Sources */,
+				B3E426F21A2E03A4007E2675 /* SBAddEntryViewModel.m in Sources */,
+				B3E426411A2DFD41007E2675 /* SBBigTopBottomCell.m in Sources */,
+				B3E426931A2E002E007E2675 /* SBFinishedExercisesViewController.m in Sources */,
 				8086D43919BCBF16004ADBB6 /* SBAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1231,11 +1259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8039788E19DEE2F1000DEED5 /* SBExercise.m in Sources */,
 				8086D45719BCBF16004ADBB6 /* sportblogTests.m in Sources */,
-				8039789119DEE68F000DEED5 /* SBWorkout.m in Sources */,
-				8039788F19DEE2F4000DEED5 /* SBSet.m in Sources */,
-				8039789019DEE2F8000DEED5 /* SBExerciseSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
