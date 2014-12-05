@@ -4,8 +4,18 @@
 
 @implementation SBWorkoutListInteractor
 
+- (instancetype)init {
+    self = [super init];
+    
+    if (self) {
+        self.datasource = [SBWorkoutDataSource new];
+    }
+    
+    return self;
+}
+
 - (void)findAllWorkoutsOrderedByDate {
-    RLMResults *workouts = [[SBWorkoutDataSource new] allWorkoutsOrderedByDate];
+    RLMResults *workouts = [self.datasource allWorkoutsOrderedByDate];
     
     NSMutableArray *workoutsArray = [NSMutableArray new];
     for (SBWorkout *workout in workouts) {
@@ -21,21 +31,18 @@
 }
 
 - (void)createWorkout {
-    SBWorkoutDataSource *dataSource = [SBWorkoutDataSource new];
-    SBWorkout *createdWorkout = [dataSource createWorkoutWithName:NSLocalizedString(@"Workout", nil) andDate:[NSDate date]];
+    SBWorkout *createdWorkout = [self.datasource createWorkoutWithName:NSLocalizedString(@"Workout", nil) andDate:[NSDate date]];
     
     NSDictionary *dict = [NSDictionary dictionaryWithObjects:@[
                                                                createdWorkout.workoutId,
                                                                createdWorkout.name,
-                                                               createdWorkout.date,
-                                                               createdWorkout.exercises] forKeys:@[@"workoutId", @"name", @"date", @"exercises"]];
+                                                               createdWorkout.date] forKeys:@[@"workoutId", @"name", @"date"]];
     
     [self.output workoutCreated:dict];
 }
 
 - (void)deleteWorkout:(NSDictionary *)workout atIndex:(int)index {
-    SBWorkoutDataSource *dataSource = [SBWorkoutDataSource new];
-    [dataSource deleteWorkoutWithId:workout[@"workoutId"]];
+    [self.datasource deleteWorkoutWithId:workout[@"workoutId"]];
     
     [self.output workoutDeletedAtIndex:index];
 }

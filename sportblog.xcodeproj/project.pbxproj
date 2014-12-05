@@ -22,7 +22,8 @@
 		8086D44C19BCBF16004ADBB6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8086D42819BCBF16004ADBB6 /* Foundation.framework */; };
 		8086D44D19BCBF16004ADBB6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8086D42C19BCBF16004ADBB6 /* UIKit.framework */; };
 		8086D45519BCBF16004ADBB6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8086D45319BCBF16004ADBB6 /* InfoPlist.strings */; };
-		8086D45719BCBF16004ADBB6 /* sportblogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8086D45619BCBF16004ADBB6 /* sportblogTests.m */; };
+		8086D45719BCBF16004ADBB6 /* WorkoutListInteractorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8086D45619BCBF16004ADBB6 /* WorkoutListInteractorTest.m */; };
+		B34831491A320D3D0029AD8D /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3E427861A31EAA4007E2675 /* libOCMock.a */; };
 		B3E4262A1A2DFC77007E2675 /* SBWorkoutListInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426211A2DFC77007E2675 /* SBWorkoutListInteractor.m */; };
 		B3E4262B1A2DFC77007E2675 /* SBWorkoutListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426251A2DFC77007E2675 /* SBWorkoutListPresenter.m */; };
 		B3E4262C1A2DFC77007E2675 /* SBWorkoutsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426281A2DFC77007E2675 /* SBWorkoutsViewController.m */; };
@@ -184,7 +185,7 @@
 		8086D44A19BCBF16004ADBB6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		8086D45219BCBF16004ADBB6 /* sportblogTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sportblogTests-Info.plist"; sourceTree = "<group>"; };
 		8086D45419BCBF16004ADBB6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8086D45619BCBF16004ADBB6 /* sportblogTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sportblogTests.m; sourceTree = "<group>"; };
+		8086D45619BCBF16004ADBB6 /* WorkoutListInteractorTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkoutListInteractorTest.m; sourceTree = "<group>"; };
 		B3AC2EEE19CC46FE00FFD8FD /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B3AC2EEF19CC46FE00FFD8FD /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B3E426201A2DFC77007E2675 /* SBWorkoutListInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutListInteractor.h; sourceTree = "<group>"; };
@@ -380,6 +381,16 @@
 		B3E427821A31D51A007E2675 /* SBStatisticExercisePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBStatisticExercisePresenter.h; sourceTree = "<group>"; };
 		B3E427831A31D51A007E2675 /* SBStatisticExercisePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBStatisticExercisePresenter.m; sourceTree = "<group>"; };
 		B3E427851A31D531007E2675 /* SBStatisticExerciseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBStatisticExerciseView.h; sourceTree = "<group>"; };
+		B3E427861A31EAA4007E2675 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = "../../../../Volumes/OCMock 3.1.1/iOS/libOCMock.a"; sourceTree = "<group>"; };
+		B3E427891A31EBF2007E2675 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
+		B3E4278A1A31EBF2007E2675 /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
+		B3E4278B1A31EBF2007E2675 /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
+		B3E4278C1A31EBF2007E2675 /* OCMLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMLocation.h; sourceTree = "<group>"; };
+		B3E4278D1A31EBF2007E2675 /* OCMMacroState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMMacroState.h; sourceTree = "<group>"; };
+		B3E4278E1A31EBF2007E2675 /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
+		B3E4278F1A31EBF2007E2675 /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
+		B3E427901A31EBF2007E2675 /* OCMRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMRecorder.h; sourceTree = "<group>"; };
+		B3E427911A31EBF2007E2675 /* OCMStubRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMStubRecorder.h; sourceTree = "<group>"; };
 		BB33F68BD5D666709DD74DC6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D3902127B8514FFFA9109974 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -400,6 +411,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B34831491A320D3D0029AD8D /* libOCMock.a in Frameworks */,
 				8039789E19DFEF7A000DEED5 /* libc++.dylib in Frameworks */,
 				8086D44B19BCBF16004ADBB6 /* XCTest.framework in Frameworks */,
 				8086D44D19BCBF16004ADBB6 /* UIKit.framework in Frameworks */,
@@ -414,6 +426,7 @@
 		8086D41C19BCBF16004ADBB6 = {
 			isa = PBXGroup;
 			children = (
+				B3E427881A31EBF2007E2675 /* OCMock */,
 				803978AB19E4735D000DEED5 /* Settings.bundle */,
 				8086D42E19BCBF16004ADBB6 /* sportblog */,
 				8086D45019BCBF16004ADBB6 /* sportblogTests */,
@@ -435,6 +448,7 @@
 		8086D42719BCBF16004ADBB6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B3E427861A31EAA4007E2675 /* libOCMock.a */,
 				8039789C19DFEF36000DEED5 /* libc++.dylib */,
 				8086D42819BCBF16004ADBB6 /* Foundation.framework */,
 				8086D42A19BCBF16004ADBB6 /* CoreGraphics.framework */,
@@ -483,7 +497,7 @@
 		8086D45019BCBF16004ADBB6 /* sportblogTests */ = {
 			isa = PBXGroup;
 			children = (
-				8086D45619BCBF16004ADBB6 /* sportblogTests.m */,
+				8086D45619BCBF16004ADBB6 /* WorkoutListInteractorTest.m */,
 				8086D45119BCBF16004ADBB6 /* Supporting Files */,
 			);
 			path = sportblogTests;
@@ -991,6 +1005,22 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		B3E427881A31EBF2007E2675 /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				B3E427891A31EBF2007E2675 /* NSNotificationCenter+OCMAdditions.h */,
+				B3E4278A1A31EBF2007E2675 /* OCMArg.h */,
+				B3E4278B1A31EBF2007E2675 /* OCMConstraint.h */,
+				B3E4278C1A31EBF2007E2675 /* OCMLocation.h */,
+				B3E4278D1A31EBF2007E2675 /* OCMMacroState.h */,
+				B3E4278E1A31EBF2007E2675 /* OCMock.h */,
+				B3E4278F1A31EBF2007E2675 /* OCMockObject.h */,
+				B3E427901A31EBF2007E2675 /* OCMRecorder.h */,
+				B3E427911A31EBF2007E2675 /* OCMStubRecorder.h */,
+			);
+			path = OCMock;
+			sourceTree = "<group>";
+		};
 		E8C9A8528F9B2A77735261C6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1307,7 +1337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8086D45719BCBF16004ADBB6 /* sportblogTests.m in Sources */,
+				8086D45719BCBF16004ADBB6 /* WorkoutListInteractorTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1432,8 +1462,28 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sportblog/sportblog-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleAnalytics-iOS-SDK\"",
+					"\"${PODS_ROOT}/Headers/Public/Realm\"",
+					"\"${PODS_ROOT}/Headers/Public/Realm/Realm\"",
+					"\"${PODS_ROOT}/Headers/Public/Realm/tightdb\"",
+					"\"${PODS_ROOT}/Headers/Public/Realm/tightdb/util\"",
+					"\"${PODS_ROOT}/Headers/Public/UAAppReviewManager\"",
+					"\"${PODS_ROOT}/Headers/Public/core/include\"",
+					"\"${PODS_ROOT}/Headers/Public/core/include/tightdb\"",
+					"\"${PODS_ROOT}/Headers/Public/core/include/tightdb/impl\"",
+					"\"${PODS_ROOT}/Headers/Public/core/include/tightdb/util\"",
+					"\"${PODS_ROOT}/Headers/Public/iOSPlot\"",
+					"$(SDKROOT)/usr/include/libz",
+				);
 				INFOPLIST_FILE = "sportblog/sportblog-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Volumes/OCMock,
+					3.1.1/iOS,
+				);
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1457,8 +1507,28 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sportblog/sportblog-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleAnalytics-iOS-SDK\"",
+					"\"${PODS_ROOT}/Headers/Public/Realm\"",
+					"\"${PODS_ROOT}/Headers/Public/Realm/Realm\"",
+					"\"${PODS_ROOT}/Headers/Public/Realm/tightdb\"",
+					"\"${PODS_ROOT}/Headers/Public/Realm/tightdb/util\"",
+					"\"${PODS_ROOT}/Headers/Public/UAAppReviewManager\"",
+					"\"${PODS_ROOT}/Headers/Public/core/include\"",
+					"\"${PODS_ROOT}/Headers/Public/core/include/tightdb\"",
+					"\"${PODS_ROOT}/Headers/Public/core/include/tightdb/impl\"",
+					"\"${PODS_ROOT}/Headers/Public/core/include/tightdb/util\"",
+					"\"${PODS_ROOT}/Headers/Public/iOSPlot\"",
+					"$(SDKROOT)/usr/include/libz",
+				);
 				INFOPLIST_FILE = "sportblog/sportblog-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Volumes/OCMock,
+					3.1.1/iOS,
+				);
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1485,7 +1555,28 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleAnalytics-iOS-SDK\"",
+					"\"${PODS_ROOT}/Headers/Public/Realm\"",
+					"\"${PODS_ROOT}/Headers/Public/Realm/Realm\"",
+					"\"${PODS_ROOT}/Headers/Public/Realm/tightdb\"",
+					"\"${PODS_ROOT}/Headers/Public/Realm/tightdb/util\"",
+					"\"${PODS_ROOT}/Headers/Public/UAAppReviewManager\"",
+					"\"${PODS_ROOT}/Headers/Public/core/include\"",
+					"\"${PODS_ROOT}/Headers/Public/core/include/tightdb\"",
+					"\"${PODS_ROOT}/Headers/Public/core/include/tightdb/impl\"",
+					"\"${PODS_ROOT}/Headers/Public/core/include/tightdb/util\"",
+					"\"${PODS_ROOT}/Headers/Public/iOSPlot\"",
+					"$(SDKROOT)/usr/include/libz",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "sportblogTests/sportblogTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Volumes/OCMock,
+					3.1.1/iOS,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -1506,7 +1597,28 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sportblog/sportblog-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleAnalytics-iOS-SDK\"",
+					"\"${PODS_ROOT}/Headers/Public/Realm\"",
+					"\"${PODS_ROOT}/Headers/Public/Realm/Realm\"",
+					"\"${PODS_ROOT}/Headers/Public/Realm/tightdb\"",
+					"\"${PODS_ROOT}/Headers/Public/Realm/tightdb/util\"",
+					"\"${PODS_ROOT}/Headers/Public/UAAppReviewManager\"",
+					"\"${PODS_ROOT}/Headers/Public/core/include\"",
+					"\"${PODS_ROOT}/Headers/Public/core/include/tightdb\"",
+					"\"${PODS_ROOT}/Headers/Public/core/include/tightdb/impl\"",
+					"\"${PODS_ROOT}/Headers/Public/core/include/tightdb/util\"",
+					"\"${PODS_ROOT}/Headers/Public/iOSPlot\"",
+					"$(SDKROOT)/usr/include/libz",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "sportblogTests/sportblogTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Volumes/OCMock,
+					3.1.1/iOS,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

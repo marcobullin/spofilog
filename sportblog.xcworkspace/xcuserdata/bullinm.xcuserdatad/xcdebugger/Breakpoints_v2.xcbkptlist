@@ -334,11 +334,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sportblogTests/sportblogTests.m"
-            timestampString = "435085773.213876"
+            timestampString = "439481972.963645"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "-testExample"
             landmarkType = "5">
          </BreakpointContent>
