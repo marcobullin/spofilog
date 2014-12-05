@@ -372,6 +372,11 @@
     [RLMRealm.defaultRealm commitWriteTransaction];
 }
 
+- (RLMResults *)allExerciseSets {
+    RLMResults *exercises = [SBExerciseSet allObjects];
+    return exercises;
+}
+
 - (void)createBulkOfExercises {
     SBExercise *exercise = [[SBExercise alloc] init];
     exercise.exerciseId = [NSString stringWithFormat:@"exercise_%f", [[NSDate date] timeIntervalSince1970] * 1000];

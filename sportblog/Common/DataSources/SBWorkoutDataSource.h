@@ -24,7 +24,7 @@
 - (RLMArray *)allSetsFromExerciseWithId:(NSString *)exerciseId;
 - (void)updateExerciseWithName:(NSString *)name withFrontImages:(NSArray *)images;
 - (void)updateExerciseWithName:(NSString *)name withBackImages:(NSArray *)images;
-
+- (RLMResults *)allExerciseSets;
 
 - (void)createBulkOfExercises;
 

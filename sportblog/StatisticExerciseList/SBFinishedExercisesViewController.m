@@ -15,7 +15,7 @@
 
 @interface SBFinishedExercisesViewController ()
 
-@property (nonatomic, strong) NSMutableArray *exercises;
+@property (nonatomic, strong) NSArray *exercises;
 
 @end
 
@@ -53,20 +53,12 @@ static NSString * const DescriptionCellIdentifier = @"DescriptionCell";
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if (!self.exercises) {
-        self.exercises = [[NSMutableArray alloc] init];
-    }
-    
-    [self.exercises removeAllObjects];
-    
-    RLMResults *exercises = [SBExerciseSet allObjects];
-    
-    for (SBExerciseSet *exercise in exercises) {
-        if (![self.exercises containsObject:exercise.name]) {
-            [self.exercises addObject:exercise.name];
-        }
-    }
-    
+    [self.presenter findDistinctExerciseNames];
+}
+
+#pragma mark - Actions
+- (void)displayExerciseNames:(NSArray *)names {
+    self.exercises = names;
     [self.tableView reloadData];
 }
 

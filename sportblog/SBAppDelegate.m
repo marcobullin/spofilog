@@ -1,11 +1,3 @@
-//
-//  SBAppDelegate.m
-//  sportblog
-//
-//  Created by Marco Bullin on 07/09/14.
-//  Copyright (c) 2014 Bullin. All rights reserved.
-//
-
 #import "SBAppDelegate.h"
 #import "SBFinishedExercisesViewController.h"
 #import "SBWorkoutsViewController.h"
@@ -14,6 +6,7 @@
 #import "SBWorkoutListInteractor.h"
 #import "GAI.h"
 #import "SBWorkoutListInteractor.h"
+#import "SBStatisticExerciseListInteractor.h"
 
 @implementation SBAppDelegate
 
@@ -69,6 +62,15 @@
     [self.workoutNavigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
 
     SBFinishedExercisesViewController *finishedExercises = [[SBFinishedExercisesViewController alloc] initWithNibName:@"SBFinishedExercisesViewController" bundle:nil];
+    
+    SBStatisticExerciseListInteractor *statExerciseListInteractor = [SBStatisticExerciseListInteractor new];
+    SBStatisticExerciseListPresenter *statExerciseListPresenter = [SBStatisticExerciseListPresenter new];
+    
+    finishedExercises.presenter = statExerciseListPresenter;
+    statExerciseListPresenter.view = finishedExercises;
+    statExerciseListPresenter.interactor = statExerciseListInteractor;
+    statExerciseListInteractor.output = statExerciseListPresenter;
+    
     self.statisticNavigationController = [[UINavigationController alloc] initWithRootViewController:finishedExercises];
     self.statisticNavigationController.navigationBar.shadowImage = [UIImage new];
     self.statisticNavigationController.navigationBar.barTintColor = [UIColor navigationBarColor];
