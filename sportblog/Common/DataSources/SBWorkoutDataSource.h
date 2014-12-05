@@ -22,6 +22,8 @@
 - (SBSet *)updateSetWithId:(NSString *)setId withWeight:(float)weight;
 - (SBSet *)updateSetWithId:(NSString *)setId withRepetitions:(int)repetitions;
 - (RLMArray *)allSetsFromExerciseWithId:(NSString *)exerciseId;
+- (void)updateExerciseWithName:(NSString *)name withFrontImages:(NSArray *)images;
+- (void)updateExerciseWithName:(NSString *)name withBackImages:(NSArray *)images;
 
 
 - (void)createBulkOfExercises;

@@ -1,18 +1,14 @@
-//
-//  SBIconListViewController.h
-//  sportblog
-//
-//  Created by Marco Bullin on 01/11/14.
-//  Copyright (c) 2014 Bullin. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
-#import "SBExercise.h"
 #import "SBAbstractViewController.h"
+#import "SBIconListView.h"
+#import "SBIconListPresenter.h"
 
-@interface SBIconListViewController : SBAbstractViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SBIconListViewController : SBAbstractViewController <UITableViewDataSource, UITableViewDelegate, SBIconListView>
 
-@property (nonatomic, strong) SBExercise *exercise;
+@property (nonatomic, strong) NSDictionary *exercise;
+@property (nonatomic, strong) NSArray *frontImages;
+@property (nonatomic, strong) NSArray *backImages;
 @property (nonatomic) BOOL isFrontBody;
+@property (nonatomic, strong) SBIconListPresenter *presenter;
 
 @end

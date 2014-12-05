@@ -330,6 +330,48 @@
     return exerciseSet.sets;
 }
 
+- (void)updateExerciseWithName:(NSString *)name withFrontImages:(NSArray *)images {
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"name = %@", name];
+    RLMResults *exerciseSets = [SBExerciseSet objectsWithPredicate:pred];
+
+    NSString *joinedNames = [images componentsJoinedByString:@","];
+    
+    [RLMRealm.defaultRealm beginWriteTransaction];
+    for (SBExerciseSet *exerciseSet in exerciseSets) {
+        exerciseSet.frontImages = joinedNames;
+    }
+    [RLMRealm.defaultRealm commitWriteTransaction];
+    
+    // doing the same for exercises with this name
+    RLMResults *exercises = [SBExercise objectsWithPredicate:pred];
+    [RLMRealm.defaultRealm beginWriteTransaction];
+    for (SBExercise *exercise in exercises) {
+        exercise.frontImages = joinedNames;
+    }
+    [RLMRealm.defaultRealm commitWriteTransaction];
+}
+
+- (void)updateExerciseWithName:(NSString *)name withBackImages:(NSArray *)images {
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"name = %@", name];
+    RLMResults *exerciseSets = [SBExerciseSet objectsWithPredicate:pred];
+    
+    NSString *joinedNames = [images componentsJoinedByString:@","];
+    
+    [RLMRealm.defaultRealm beginWriteTransaction];
+    for (SBExerciseSet *exerciseSet in exerciseSets) {
+        exerciseSet.backImages = joinedNames;
+    }
+    [RLMRealm.defaultRealm commitWriteTransaction];
+    
+    // doing the same for exercises with this name
+    RLMResults *exercises = [SBExercise objectsWithPredicate:pred];
+    [RLMRealm.defaultRealm beginWriteTransaction];
+    for (SBExercise *exercise in exercises) {
+        exercise.backImages = joinedNames;
+    }
+    [RLMRealm.defaultRealm commitWriteTransaction];
+}
+
 - (void)createBulkOfExercises {
     SBExercise *exercise = [[SBExercise alloc] init];
     exercise.exerciseId = [NSString stringWithFormat:@"exercise_%f", [[NSDate date] timeIntervalSince1970] * 1000];

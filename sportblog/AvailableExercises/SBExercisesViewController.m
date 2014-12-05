@@ -4,6 +4,7 @@
 #import "SBCreateExerciseTableViewCell.h"
 #import "UIColor+SBColor.h"
 #import "SBIconListViewController.h"
+#import "SBIconListInteractor.h"
 
 @interface SBExercisesViewController ()
 @end
@@ -254,6 +255,15 @@ int position = -1;
     NSDictionary *exercise = [self.exercises objectAtIndex:button.tag];
     
     SBIconListViewController *controller = [[SBIconListViewController alloc] initWithNibName:@"SBIconListViewController" bundle:nil];
+    
+    SBIconListPresenter *presenter = [SBIconListPresenter new];
+    SBIconListInteractor *interactor = [SBIconListInteractor new];
+    
+    controller.presenter = presenter;
+    presenter.view = controller;
+    presenter.interactor = interactor;
+    interactor.output = presenter;
+    
     controller.exercise = exercise;
     controller.isFrontBody = YES;
     
@@ -271,6 +281,15 @@ int position = -1;
     NSDictionary *exercise = [self.exercises objectAtIndex:button.tag];
     
     SBIconListViewController *controller = [[SBIconListViewController alloc] initWithNibName:@"SBIconListViewController" bundle:nil];
+    
+    SBIconListPresenter *presenter = [SBIconListPresenter new];
+    SBIconListInteractor *interactor = [SBIconListInteractor new];
+    
+    controller.presenter = presenter;
+    presenter.view = controller;
+    presenter.interactor = interactor;
+    interactor.output = presenter;
+    
     controller.exercise = exercise;
     
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];

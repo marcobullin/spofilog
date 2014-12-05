@@ -1,11 +1,3 @@
-//
-//  SBIconListViewController.m
-//  sportblog
-//
-//  Created by Marco Bullin on 01/11/14.
-//  Copyright (c) 2014 Bullin. All rights reserved.
-//
-
 #import "SBIconListViewController.h"
 #import "SBIconCell.h"
 #import "SBExerciseSet.h"
@@ -63,10 +55,24 @@ NSArray *currentSelectedImages;
                   @"back_calf"
                   ];
     }
+    
+    self.frontImages = self.exercise[@"frontImages"];
+    self.backImages = self.exercise[@"backImages"];
 
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+}
+
+#pragma mark - Actions
+- (void)updatedIcons:(NSDictionary *)icons atIndexPath:(NSIndexPath *)indexPath {
+    if (icons[@"frontImages"]) {
+        self.frontImages = icons[@"frontImages"];
+    } else {
+        self.backImages = icons[@"backImages"];
+    }
+    
+    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -85,9 +91,9 @@ NSArray *currentSelectedImages;
     cell.imageName.text = NSLocalizedString(allImageNames[indexPath.row], nil);
     
     if (self.isFrontBody) {
-        currentSelectedImages = [self.exercise.frontImages componentsSeparatedByString:@","];
+        currentSelectedImages = self.frontImages;
     } else {
-        currentSelectedImages = [self.exercise.backImages componentsSeparatedByString:@","];
+        currentSelectedImages = self.backImages;
     }
     
     if ([currentSelectedImages containsObject:allImageNames[indexPath.row]]) {
@@ -103,12 +109,12 @@ NSArray *currentSelectedImages;
     NSMutableArray *names = [NSMutableArray new];
     
     if (self.isFrontBody) {
-        if (![self.exercise.frontImages isEqual:@""]) {
-            names = [[NSMutableArray alloc] initWithArray:[self.exercise.frontImages componentsSeparatedByString:@","]];
+        if ([self.frontImages count] > 0) {
+            names = [[NSMutableArray alloc] initWithArray:self.frontImages];
         }
     } else {
-        if (![self.exercise.backImages isEqual:@""]) {
-            names = [[NSMutableArray alloc] initWithArray:[self.exercise.backImages componentsSeparatedByString:@","]];
+        if ([self.backImages count] > 0) {
+            names = [[NSMutableArray alloc] initWithArray:self.backImages];
         }
     }
     
@@ -121,30 +127,12 @@ NSArray *currentSelectedImages;
         //add
         [names addObject:currentName];
     }
-    
-    NSString *joinedNames = [names componentsJoinedByString:@","];
-    
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"name = %@", self.exercise.name];
-    RLMResults *exerciseSets = [SBExerciseSet objectsWithPredicate:pred];
-    
-    [RLMRealm.defaultRealm beginWriteTransaction];
+        
     if (self.isFrontBody) {
-        self.exercise.frontImages = joinedNames;
+        [self.presenter updateExercise:self.exercise withFrontImages:names atIndexPath:indexPath];
     } else {
-        self.exercise.backImages = joinedNames;
+        [self.presenter updateExercise:self.exercise withBackImages:names atIndexPath:indexPath];
     }
-    
-    for (SBExerciseSet *exerciseSet in exerciseSets) {
-        if (self.isFrontBody) {
-            exerciseSet.frontImages = joinedNames;
-        } else {
-            exerciseSet.backImages = joinedNames;
-        }
-    }
-    
-    [RLMRealm.defaultRealm commitWriteTransaction];
-    
-    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (void)onDone {
