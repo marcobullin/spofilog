@@ -1,39 +1,17 @@
-//
-//  SBStatisticViewController.m
-//  sportblog
-//
-//  Created by Marco Bullin on 16/09/14.
-//  Copyright (c) 2014 Bullin. All rights reserved.
-//
-
 #import "SBStatisticViewController.h"
-#import "SBExerciseSet.h"
 #import "PCHalfPieChart.h"
 #import "SBStatisticCell.h"
 #import "UIColor+SBColor.h"
 
 @interface SBStatisticViewController ()
-@property (strong, nonatomic) NSDateFormatter *dateFormatter;
+
+@property (nonatomic, strong) NSDictionary *data;
+
 @end
 
 static NSString * const StatisticCellIdentifier = @"StatisticCell";
 
 @implementation SBStatisticViewController
-
-int count;
-int statisticCountOfSets;
-float statisticMinWeight;
-float statisticMaxWeight;
-int statisticRepetitions;
-float statisticProgress;
-float averageRepetitions;
-NSDate *firstDate;
-NSDate *lastDate;
-int exerciseCount;
-int minRepetitions;
-int maxRepetitions;
-float firstWeight;
-float lastWeight;
 
 NSArray *sectionTitles;
 
@@ -54,121 +32,32 @@ NSArray *sectionTitles;
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     self.tableView.backgroundColor = [UIColor tableViewColor];
     
-    [self createDateFormatter];
     self.title = self.exerciseName;
-    
-    NSMutableArray *reps = [[NSMutableArray alloc] init];
-    NSMutableArray *weights = [[NSMutableArray alloc] init];
-    NSMutableArray *labels = [[NSMutableArray alloc] init];
-    
-    RLMResults *exercises = [[SBExerciseSet objectsWhere:[NSString stringWithFormat:@"name = '%@'", self.exerciseName]]  sortedResultsUsingProperty:@"date" ascending:YES];
-    
-    count = 0;
-    statisticCountOfSets = 0;
-    statisticMinWeight = 0;
-    statisticMaxWeight = 0;
-    statisticRepetitions = 0;
-    statisticProgress = 0;
-    firstDate = nil;
-    lastDate = nil;
-    averageRepetitions = 0;
-    exerciseCount = 0;
-    minRepetitions = 0;
-    maxRepetitions = 0;
-    firstWeight = 0;
-    lastWeight = 0;
-    
-    float prevWeight = 0;
-    for (int i = 0; i < [exercises count]; i++) {
-        SBExerciseSet *exercise = [exercises objectAtIndex:i];
-        
-        statisticCountOfSets += [exercise.sets count];
-        
-        for (int j = 0; j < [exercise.sets count]; j++) {
-            SBSet *set = [exercise.sets objectAtIndex:j];
-            
-            if (firstDate == nil || [exercise.date compare:firstDate] == NSOrderedAscending) {
-                firstDate = exercise.date;
-            }
-            
-            if (lastDate == nil || [exercise.date compare:lastDate] == NSOrderedDescending) {
-                lastDate = exercise.date;
-            }
-         
-            if (statisticMinWeight == 0 || set.weight < statisticMinWeight) {
-                statisticMinWeight = set.weight;
-            }
-            
-            if (set.weight > statisticMaxWeight) {
-                statisticMaxWeight = set.weight;
-            }
-            
-            if (minRepetitions == 0 || set.repetitions < minRepetitions) {
-                minRepetitions = set.repetitions;
-            }
-            
-            if (set.repetitions > maxRepetitions) {
-                maxRepetitions = set.repetitions;
-            }
-            
-            if (prevWeight != 0) {
-                statisticProgress += (((set.weight / prevWeight) * 100) - 100);
-            }
-            prevWeight = set.weight;
-            
-            if (firstWeight == 0) {
-                firstWeight = set.weight;
-            }
-            
-            lastWeight = set.weight;
-            
-            statisticRepetitions += set.repetitions;
-            
-            [reps addObject:[NSNumber numberWithInt:set.repetitions]];
-            [weights addObject:[NSNumber numberWithFloat:set.weight]];
-            [labels addObject:@""];//[self.dateFormatter stringFromDate:exercise.date]];
-            count++;
-        }
-        
-        exerciseCount++;
-    }
-    
-    if (count != 0) {
-        statisticProgress = statisticProgress / count;
-        averageRepetitions = statisticRepetitions / count;
-    }
+    [self.presenter findStatisticsForExerciseSetsWithName:self.exerciseName];
+}
 
+#pragma mark - Actions
+
+- (void)displayStatisticsForExercises:(NSDictionary *)data {
     
-    CGRect frame = CGRectMake(0, self.navigationController.navigationBar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height/2);
+    self.data = data;
+    
+    CGRect frame = CGRectMake(0,
+                              self.navigationController.navigationBar.frame.size.height,
+                              self.view.frame.size.width,
+                              self.view.frame.size.height / 2);
     
     self.lineChartView = [[PCLineChartView alloc] initWithFrame:frame];
     self.lineChartView.autoscaleYAxis = YES;
-    float max = (statisticMaxWeight > maxRepetitions) ? statisticMaxWeight : maxRepetitions;
-    
-    self.lineChartView.maxValue = max == 0 ? 100 : max;
-
-
-    NSString *firstDateText;
-    if (firstDate == nil) {
-        firstDateText = @"";
-    } else {
-        firstDateText = [NSString stringWithFormat:NSLocalizedString(@"from %@", nil), [self.dateFormatter stringFromDate:firstDate]];
-    }
+    self.lineChartView.maxValue = [data[@"max"] floatValue] == 0 ? 100 : [data[@"max"] floatValue];
     
     UILabel *firstDateLabel = [UILabel new];
-    firstDateLabel.text = firstDateText;
+    firstDateLabel.text = data[@"firstDateText"];
     firstDateLabel.frame = CGRectMake(20, self.lineChartView.frame.size.height - 44, self.lineChartView.frame.size.width, 44);
     firstDateLabel.font = [UIFont boldSystemFontOfSize:12];
     
-    NSString *lastDateText;
-    if (lastDate == nil) {
-        lastDateText = @"";
-    } else {
-        lastDateText = [NSString stringWithFormat:NSLocalizedString(@"to %@", nil), [self.dateFormatter stringFromDate:lastDate]];
-    }
-    
     UILabel *lastDateLabel = [UILabel new];
-    lastDateLabel.text = lastDateText;
+    lastDateLabel.text = data[@"lastDateText"];
     lastDateLabel.frame = CGRectMake(0, self.lineChartView.frame.size.height - 44, self.lineChartView.frame.size.width - 20, 44);
     lastDateLabel.font = [UIFont boldSystemFontOfSize:12];
     lastDateLabel.textAlignment = NSTextAlignmentRight;
@@ -178,39 +67,22 @@ NSArray *sectionTitles;
     [self.lineChartView addSubview:lastDateLabel];
     
     NSMutableArray *components = [NSMutableArray array];
-
+    
     PCLineChartViewComponent *component = [[PCLineChartViewComponent alloc] init];
     component.title = NSLocalizedString(@"kg", nil);
-    if ([weights count] == 1) {
-        [weights insertObject:[NSNumber numberWithFloat:0] atIndex:0];
-        [labels insertObject:@"" atIndex:0];
-    }
-    
-    [component setPoints:weights];
+    [component setPoints:data[@"weights"]];
     [components addObject:component];
     
     PCLineChartViewComponent *repetitionComponent = [[PCLineChartViewComponent alloc] init];
     repetitionComponent.title = NSLocalizedString(@"reps", nil);
     repetitionComponent.colour = PCColorOrange;
-    if ([reps count] == 1) {
-        [reps insertObject:[NSNumber numberWithInt:0] atIndex:0];
-    }
-    
-    [repetitionComponent setPoints:reps];
+    [repetitionComponent setPoints:data[@"reps"]];
     [components addObject:repetitionComponent];
     
     [self.lineChartView setComponents:components];
-    [self.lineChartView setXLabels:labels];
+    [self.lineChartView setXLabels:data[@"labels"]];
     
     self.tableView.tableHeaderView = self.lineChartView;
-}
-
-- (void)createDateFormatter {
-    
-    self.dateFormatter = [[NSDateFormatter alloc] init];
-    [self.dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-    
-    [self.dateFormatter setTimeStyle:NSDateFormatterNoStyle];
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
@@ -261,66 +133,58 @@ NSArray *sectionTitles;
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             cell.headlineLabel.text = NSLocalizedString(@"Total times of making this exercise", nil);
-            cell.valueLabel.text = [NSString stringWithFormat:@"%d", exerciseCount];
+            cell.valueLabel.text = self.data[@"exerciseCount"];
         }
     }
     
     if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             cell.headlineLabel.text = NSLocalizedString(@"Total amount of sets", nil);
-            cell.valueLabel.text = [NSString stringWithFormat:@"%d", statisticCountOfSets];
+            cell.valueLabel.text = self.data[@"statisticCountOfSets"];
         }
     }
 
     if (indexPath.section == 2) {
         if (indexPath.row == 0) {
             cell.headlineLabel.text = NSLocalizedString(@"Your minimum weight", nil);
-            cell.valueLabel.text = [NSString stringWithFormat:@"%.01f kg", statisticMinWeight];
+            cell.valueLabel.text = self.data[@"statisticMinWeight"];
         }
         
         if (indexPath.row == 1) {
             cell.headlineLabel.text = NSLocalizedString(@"Your maximum weight", nil);
-            cell.valueLabel.text = [NSString stringWithFormat:@"%.01f kg", statisticMaxWeight];
+            cell.valueLabel.text = self.data[@"statisticMaxWeight"];
         }
         
         if (indexPath.row == 2) {
             cell.headlineLabel.text = NSLocalizedString(@"Your Weight-Progress From First To Last Exercise", nil);
-            NSString *text;
-            
-            if (firstWeight == 0) {
-                text = @"0";
-            } else {
-                text = [NSString stringWithFormat:@"%.01f%%", ((lastWeight / firstWeight) * 100) - 100];
-            }
-            
-            cell.valueLabel.text = text;
+            cell.valueLabel.text = self.data[@"firstWeight"];
         }
         
         if (indexPath.row == 3) {
             cell.headlineLabel.text = NSLocalizedString(@"Your Averrage Weight-Progress From Set To Set", nil);
-            cell.valueLabel.text = [NSString stringWithFormat:@"%.01f%%", statisticProgress];
+            cell.valueLabel.text = self.data[@"statisticProgress"];
         }
     }
     
     if (indexPath.section == 3) {
         if (indexPath.row == 0) {
             cell.headlineLabel.text = NSLocalizedString(@"Min Repetitions", nil);
-            cell.valueLabel.text = [NSString stringWithFormat:@"%d", minRepetitions];
+            cell.valueLabel.text = self.data[@"minRepetitions"];
         }
         
         if (indexPath.row == 1) {
             cell.headlineLabel.text = NSLocalizedString(@"Max Repetitions", nil);
-            cell.valueLabel.text = [NSString stringWithFormat:@"%d", maxRepetitions];
+            cell.valueLabel.text = self.data[@"maxRepetitions"];
         }
 
         if (indexPath.row == 2) {
             cell.headlineLabel.text = NSLocalizedString(@"Average Repetitions", nil);
-            cell.valueLabel.text = [NSString stringWithFormat:@"%.01f", averageRepetitions];
+            cell.valueLabel.text = self.data[@"averageRepetitions"];
         }
         
         if (indexPath.row == 3) {
             cell.headlineLabel.text = NSLocalizedString(@"Total amount of repetitions", nil);
-            cell.valueLabel.text = [NSString stringWithFormat:@"%d", statisticRepetitions];
+            cell.valueLabel.text = self.data[@"statisticRepetitions"];
         }
     }
     

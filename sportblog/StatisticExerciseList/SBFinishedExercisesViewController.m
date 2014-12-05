@@ -1,17 +1,9 @@
-//
-//  SBFinishedExercisesViewController.m
-//  sportblog
-//
-//  Created by Marco Bullin on 17/09/14.
-//  Copyright (c) 2014 Bullin. All rights reserved.
-//
-
 #import "SBFinishedExercisesViewController.h"
-#import "SBExerciseSet.h"
 #import "SBStatisticViewController.h"
 #import "SBStandardCell.h"
 #import "SBDescriptionCell.h"
 #import "UIColor+SBColor.h"
+#import "SBStatisticExerciseInteractor.h"
 
 @interface SBFinishedExercisesViewController ()
 
@@ -113,6 +105,14 @@ static NSString * const DescriptionCellIdentifier = @"DescriptionCell";
     }
     
     SBStatisticViewController *stats = [[SBStatisticViewController alloc] initWithNibName:@"SBStatisticViewController" bundle:nil];
+    
+    SBStatisticExerciseInteractor *interactor = [SBStatisticExerciseInteractor new];
+    SBStatisticExercisePresenter *presenter = [SBStatisticExercisePresenter new];
+    
+    stats.presenter = presenter;
+    presenter.view = stats;
+    presenter.interactor = interactor;
+    interactor.output = presenter;
     
     int index = (int)indexPath.row - 1;
     

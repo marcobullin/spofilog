@@ -377,6 +377,10 @@
     return exercises;
 }
 
+- (RLMResults *)allExerciseSetsByName:(NSString *)name {
+    return [[SBExerciseSet objectsWhere:[NSString stringWithFormat:@"name = '%@'", name]] sortedResultsUsingProperty:@"date" ascending:YES];
+}
+
 - (void)createBulkOfExercises {
     SBExercise *exercise = [[SBExercise alloc] init];
     exercise.exerciseId = [NSString stringWithFormat:@"exercise_%f", [[NSDate date] timeIntervalSince1970] * 1000];

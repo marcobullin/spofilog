@@ -149,6 +149,8 @@
 		B3E427741A2E147A007E2675 /* SBIconListInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E427731A2E147A007E2675 /* SBIconListInteractor.m */; };
 		B3E427781A31C537007E2675 /* SBStatisticExerciseListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E427771A31C537007E2675 /* SBStatisticExerciseListPresenter.m */; };
 		B3E4277B1A31C551007E2675 /* SBStatisticExerciseListInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E4277A1A31C551007E2675 /* SBStatisticExerciseListInteractor.m */; };
+		B3E427801A31D4EE007E2675 /* SBStatisticExerciseInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E4277F1A31D4EE007E2675 /* SBStatisticExerciseInteractor.m */; };
+		B3E427841A31D51A007E2675 /* SBStatisticExercisePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E427831A31D51A007E2675 /* SBStatisticExercisePresenter.m */; };
 		BC4C89146E544EFE9221C7EE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3902127B8514FFFA9109974 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -372,6 +374,12 @@
 		B3E4277A1A31C551007E2675 /* SBStatisticExerciseListInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBStatisticExerciseListInteractor.m; sourceTree = "<group>"; };
 		B3E4277C1A31C563007E2675 /* SBStatisticExerciseListInteractorIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBStatisticExerciseListInteractorIO.h; sourceTree = "<group>"; };
 		B3E4277D1A31C57E007E2675 /* SBStatisticExerciseListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBStatisticExerciseListView.h; sourceTree = "<group>"; };
+		B3E4277E1A31D4EE007E2675 /* SBStatisticExerciseInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBStatisticExerciseInteractor.h; sourceTree = "<group>"; };
+		B3E4277F1A31D4EE007E2675 /* SBStatisticExerciseInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBStatisticExerciseInteractor.m; sourceTree = "<group>"; };
+		B3E427811A31D506007E2675 /* SBStatisticExerciseInteractorIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBStatisticExerciseInteractorIO.h; sourceTree = "<group>"; };
+		B3E427821A31D51A007E2675 /* SBStatisticExercisePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBStatisticExercisePresenter.h; sourceTree = "<group>"; };
+		B3E427831A31D51A007E2675 /* SBStatisticExercisePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBStatisticExercisePresenter.m; sourceTree = "<group>"; };
+		B3E427851A31D531007E2675 /* SBStatisticExerciseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBStatisticExerciseView.h; sourceTree = "<group>"; };
 		BB33F68BD5D666709DD74DC6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D3902127B8514FFFA9109974 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -759,6 +767,7 @@
 				B3E4269C1A2E008E007E2675 /* SBStatisticViewController.h */,
 				B3E4269D1A2E008E007E2675 /* SBStatisticViewController.m */,
 				B3E4269E1A2E008E007E2675 /* SBStatisticViewController.xib */,
+				B3E427851A31D531007E2675 /* SBStatisticExerciseView.h */,
 			);
 			path = StatisticExercise;
 			sourceTree = "<group>";
@@ -776,6 +785,9 @@
 		B3E4269A1A2E008E007E2675 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
+				B3E4277E1A31D4EE007E2675 /* SBStatisticExerciseInteractor.h */,
+				B3E4277F1A31D4EE007E2675 /* SBStatisticExerciseInteractor.m */,
+				B3E427811A31D506007E2675 /* SBStatisticExerciseInteractorIO.h */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -783,6 +795,8 @@
 		B3E4269B1A2E008E007E2675 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
+				B3E427821A31D51A007E2675 /* SBStatisticExercisePresenter.h */,
+				B3E427831A31D51A007E2675 /* SBStatisticExercisePresenter.m */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -1267,6 +1281,7 @@
 				B3E4277B1A31C551007E2675 /* SBStatisticExerciseListInteractor.m in Sources */,
 				B3E426E71A2E03A4007E2675 /* SBSmallTopBottomCell.m in Sources */,
 				B3E427781A31C537007E2675 /* SBStatisticExerciseListPresenter.m in Sources */,
+				B3E427841A31D51A007E2675 /* SBStatisticExercisePresenter.m in Sources */,
 				B3E4265C1A2DFE23007E2675 /* SBExercisesPresenter.m in Sources */,
 				B3E4262A1A2DFC77007E2675 /* SBWorkoutListInteractor.m in Sources */,
 				B3E4267D1A2DFF4A007E2675 /* SBSetViewController.m in Sources */,
@@ -1281,6 +1296,7 @@
 				B3E426F11A2E03A4007E2675 /* SBHelperView.m in Sources */,
 				B3E4269F1A2E008E007E2675 /* SBStatisticCell.m in Sources */,
 				B3E426F21A2E03A4007E2675 /* SBAddEntryViewModel.m in Sources */,
+				B3E427801A31D4EE007E2675 /* SBStatisticExerciseInteractor.m in Sources */,
 				B3E426411A2DFD41007E2675 /* SBBigTopBottomCell.m in Sources */,
 				B3E426931A2E002E007E2675 /* SBFinishedExercisesViewController.m in Sources */,
 				8086D43919BCBF16004ADBB6 /* SBAppDelegate.m in Sources */,
