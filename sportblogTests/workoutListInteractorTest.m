@@ -34,7 +34,7 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testCreateWorkout
 {
     NSDate *date = [NSDate date];
     SBWorkout *workout = [SBWorkout new];
