@@ -68,13 +68,12 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
 
 #pragma mark - actions
 
-- (void)displayWorkouts:(NSArray *)workouts {
-    self.workouts = [NSMutableArray arrayWithArray:workouts];
+- (void)displayWorkouts:(NSDictionary *)workouts {
+    self.workouts = [NSMutableDictionary dictionaryWithDictionary:workouts];
     [self.tableView reloadData];
 }
 
 - (void)displayCreatedWorkout:(NSDictionary *)workout {
-    [self.workouts addObject:workout];
     [self displayWorkoutDetails:workout];
 }
 
@@ -94,15 +93,21 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
     [self.navigationController pushViewController:workoutViewController animated:YES];
 }
 
-- (void)removeWorkoutAtIndex:(int)index {
-    [self.workouts removeObjectAtIndex:index];
+- (void)removeWorkoutAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *key = [[self.workouts allKeys] objectAtIndex:indexPath.section-1];
+    NSMutableArray *workouts = [self.workouts objectForKey:key];
     
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index+1 inSection:0];
+    [workouts removeObjectAtIndex:indexPath.row];
     
     [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
     
     if ([self.workouts count] == 0) {
         [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    }
+    
+    if ([workouts count] == 0) {
+        [self.workouts removeObjectForKey:key];
+        [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationLeft];
     }
 }
 
@@ -114,20 +119,22 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
+    if (indexPath.section == 0) {
         [self.workoutPresenter createWorkout];
         return;
     }
     
-    int index = (int)indexPath.row - 1;
-    [self displayWorkoutDetails:[self.workouts objectAtIndex:index]];
+    NSString *key = [[self.workouts allKeys] objectAtIndex:indexPath.section-1];
+    NSArray *workouts = [self.workouts objectForKey:key];
+    
+    [self displayWorkoutDetails:[workouts objectAtIndex:indexPath.row]];
 }
 
 
 #pragma mark UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
+    if (indexPath.section == 0) {
         SBAddEntryTableViewCell *addWorkoutCell = (SBAddEntryTableViewCell *)[tableView dequeueReusableCellWithIdentifier:AddWorkoutCEllIdentifier];
         
         if (addWorkoutCell == nil) {
@@ -142,8 +149,6 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
         return addWorkoutCell;
     }
     
-    int index = (int)indexPath.row - 1;
-    
     SBSmallTopBottomCell *cell = (SBSmallTopBottomCell *)[tableView dequeueReusableCellWithIdentifier:WorkoutCellIdentifier];
     
     if (cell == nil) {
@@ -151,18 +156,40 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
         cell = [nib objectAtIndex:0];
     }
     
-    SBWorkoutViewModel *vm = [[SBWorkoutViewModel alloc] initWithWorkout:[self.workouts objectAtIndex:index]];
+    NSString *key = [[self.workouts allKeys] objectAtIndex:indexPath.section-1];
+    NSArray *workouts = [self.workouts objectForKey:key];
+    SBWorkoutViewModel *vm = [[SBWorkoutViewModel alloc] initWithWorkout:[workouts objectAtIndex:indexPath.row]];
+    
     [cell render:vm];
     
     return cell;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return nil;
+    }
+    
+    return [[self.workouts allKeys] objectAtIndex:section-1];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.workouts count] + 1;
+    if (section == 0) {
+        return 1;
+    }
+    
+    NSString *key = [[self.workouts allKeys] objectAtIndex:section-1];
+    NSArray *workouts = [self.workouts objectForKey:key];
+    
+    return [workouts count];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return [[self.workouts allKeys] count] + 1;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
+    if (indexPath.section == 0) {
         return NO;
     }
     
@@ -171,8 +198,9 @@ static NSString * const AddWorkoutCEllIdentifier = @"AddWorkoutCell";
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        int index = (int)indexPath.row - 1;
-        [self.workoutPresenter deleteWorkout:[self.workouts objectAtIndex:index] atIndex:index];
+        NSString *key = [[self.workouts allKeys] objectAtIndex:indexPath.section-1];
+        NSArray *workouts = [self.workouts objectForKey:key];
+        [self.workoutPresenter deleteWorkout:[workouts objectAtIndex:indexPath.row] atIndexPath:indexPath];
     }
 }
 

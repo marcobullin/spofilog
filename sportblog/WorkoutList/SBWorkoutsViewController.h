@@ -6,6 +6,6 @@
 @interface SBWorkoutsViewController : SBAbstractViewController <UITableViewDataSource, UITableViewDelegate, SBWorkoutsView>
 
 @property (nonatomic, strong) SBWorkoutListPresenter *workoutPresenter;
-@property (nonatomic, strong) NSMutableArray *workouts;
+@property (nonatomic, strong) NSMutableDictionary *workouts;
 
 @end

@@ -12,7 +12,7 @@
 @interface SBAddEntryViewModel : NSObject
 
 - (instancetype)initWithExercises:(NSArray *)exercises;
-- (instancetype)initWithWorkouts:(NSArray *)workouts;
+- (instancetype)initWithWorkouts:(NSDictionary *)workouts;
 
 @property (nonatomic, readonly) NSString *text;
 @property (nonatomic, readonly) UIColor *backgroundColor;
