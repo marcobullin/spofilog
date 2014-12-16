@@ -24,6 +24,18 @@
 		8086D45519BCBF16004ADBB6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8086D45319BCBF16004ADBB6 /* InfoPlist.strings */; };
 		8086D45719BCBF16004ADBB6 /* WorkoutListInteractorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8086D45619BCBF16004ADBB6 /* WorkoutListInteractorTest.m */; };
 		B34831491A320D3D0029AD8D /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3E427861A31EAA4007E2675 /* libOCMock.a */; };
+		B36B32E11A3AEDC9004A8B5C /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B36B32E01A3AEDC9004A8B5C /* NotificationCenter.framework */; };
+		B36B32E71A3AEDC9004A8B5C /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B36B32E61A3AEDC9004A8B5C /* TodayViewController.m */; };
+		B36B32E91A3AEDC9004A8B5C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B36B32E81A3AEDC9004A8B5C /* MainInterface.storyboard */; };
+		B36B32EC1A3AEDC9004A8B5C /* Prollo Statistics.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B36B32DF1A3AEDC9004A8B5C /* Prollo Statistics.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B36B33101A3B16D0004A8B5C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B36B330F1A3B16D0004A8B5C /* libPods.a */; };
+		B36B33131A3B18AF004A8B5C /* SBWorkoutDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426C61A2E03A4007E2675 /* SBWorkoutDataSource.m */; };
+		B36B33141A3B18BD004A8B5C /* SBExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426C91A2E03A4007E2675 /* SBExercise.m */; };
+		B36B33151A3B18C2004A8B5C /* SBExerciseSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426CB1A2E03A4007E2675 /* SBExerciseSet.m */; };
+		B36B33161A3B18C5004A8B5C /* SBSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426CD1A2E03A4007E2675 /* SBSet.m */; };
+		B36B33171A3B18C8004A8B5C /* SBWorkout.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426CF1A2E03A4007E2675 /* SBWorkout.m */; };
+		B36B331D1A3B3575004A8B5C /* SBTodayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B36B331B1A3B3575004A8B5C /* SBTodayTableViewCell.m */; };
+		B36B331E1A3B3575004A8B5C /* SBTodayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B36B331C1A3B3575004A8B5C /* SBTodayTableViewCell.xib */; };
 		B3E4262A1A2DFC77007E2675 /* SBWorkoutListInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426211A2DFC77007E2675 /* SBWorkoutListInteractor.m */; };
 		B3E4262B1A2DFC77007E2675 /* SBWorkoutListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426251A2DFC77007E2675 /* SBWorkoutListPresenter.m */; };
 		B3E4262C1A2DFC77007E2675 /* SBWorkoutsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426281A2DFC77007E2675 /* SBWorkoutsViewController.m */; };
@@ -163,7 +175,28 @@
 			remoteGlobalIDString = 8086D42419BCBF16004ADBB6;
 			remoteInfo = sportblog;
 		};
+		B36B32EA1A3AEDC9004A8B5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8086D41D19BCBF16004ADBB6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B36B32DE1A3AEDC9004A8B5C;
+			remoteInfo = "Prollo Statistics";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B36B32F01A3AEDC9004A8B5C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B36B32EC1A3AEDC9004A8B5C /* Prollo Statistics.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		67FA2B5A03981E5FBD9D748B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -186,6 +219,20 @@
 		8086D45219BCBF16004ADBB6 /* sportblogTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sportblogTests-Info.plist"; sourceTree = "<group>"; };
 		8086D45419BCBF16004ADBB6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8086D45619BCBF16004ADBB6 /* WorkoutListInteractorTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkoutListInteractorTest.m; sourceTree = "<group>"; };
+		B36B32DF1A3AEDC9004A8B5C /* Prollo Statistics.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Prollo Statistics.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B36B32E01A3AEDC9004A8B5C /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		B36B32E41A3AEDC9004A8B5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B36B32E51A3AEDC9004A8B5C /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		B36B32E61A3AEDC9004A8B5C /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		B36B32E81A3AEDC9004A8B5C /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		B36B330B1A3B1519004A8B5C /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		B36B330E1A3B15F1004A8B5C /* today-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "today-Prefix.pch"; sourceTree = "<group>"; };
+		B36B330F1A3B16D0004A8B5C /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		B36B33181A3B32FC004A8B5C /* sportblog.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = sportblog.entitlements; sourceTree = "<group>"; };
+		B36B33191A3B334F004A8B5C /* Prollo Statistics.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Prollo Statistics.entitlements"; sourceTree = "<group>"; };
+		B36B331A1A3B3575004A8B5C /* SBTodayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTodayTableViewCell.h; sourceTree = "<group>"; };
+		B36B331B1A3B3575004A8B5C /* SBTodayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTodayTableViewCell.m; sourceTree = "<group>"; };
+		B36B331C1A3B3575004A8B5C /* SBTodayTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBTodayTableViewCell.xib; sourceTree = "<group>"; };
 		B3AC2EEE19CC46FE00FFD8FD /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B3AC2EEF19CC46FE00FFD8FD /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B3E426201A2DFC77007E2675 /* SBWorkoutListInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutListInteractor.h; sourceTree = "<group>"; };
@@ -420,6 +467,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B36B32DC1A3AEDC9004A8B5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B36B32E11A3AEDC9004A8B5C /* NotificationCenter.framework in Frameworks */,
+				B36B33101A3B16D0004A8B5C /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -430,6 +486,7 @@
 				803978AB19E4735D000DEED5 /* Settings.bundle */,
 				8086D42E19BCBF16004ADBB6 /* sportblog */,
 				8086D45019BCBF16004ADBB6 /* sportblogTests */,
+				B36B32E21A3AEDC9004A8B5C /* Prollo Statistics */,
 				8086D42719BCBF16004ADBB6 /* Frameworks */,
 				8086D42619BCBF16004ADBB6 /* Products */,
 				E8C9A8528F9B2A77735261C6 /* Pods */,
@@ -441,6 +498,7 @@
 			children = (
 				8086D42519BCBF16004ADBB6 /* sportblog.app */,
 				8086D44919BCBF16004ADBB6 /* sportblogTests.xctest */,
+				B36B32DF1A3AEDC9004A8B5C /* Prollo Statistics.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -448,6 +506,8 @@
 		8086D42719BCBF16004ADBB6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B36B330F1A3B16D0004A8B5C /* libPods.a */,
+				B36B330B1A3B1519004A8B5C /* libPods.a */,
 				B3E427861A31EAA4007E2675 /* libOCMock.a */,
 				8039789C19DFEF36000DEED5 /* libc++.dylib */,
 				8086D42819BCBF16004ADBB6 /* Foundation.framework */,
@@ -455,6 +515,7 @@
 				8086D42C19BCBF16004ADBB6 /* UIKit.framework */,
 				8086D44A19BCBF16004ADBB6 /* XCTest.framework */,
 				D3902127B8514FFFA9109974 /* libPods.a */,
+				B36B32E01A3AEDC9004A8B5C /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -462,6 +523,7 @@
 		8086D42E19BCBF16004ADBB6 /* sportblog */ = {
 			isa = PBXGroup;
 			children = (
+				B36B33181A3B32FC004A8B5C /* sportblog.entitlements */,
 				B3E426AD1A2E03A4007E2675 /* Common */,
 				B3E4261E1A2DFC77007E2675 /* WorkoutList */,
 				B3E4262E1A2DFD41007E2675 /* Workout */,
@@ -508,6 +570,30 @@
 			children = (
 				8086D45219BCBF16004ADBB6 /* sportblogTests-Info.plist */,
 				8086D45319BCBF16004ADBB6 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B36B32E21A3AEDC9004A8B5C /* Prollo Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				B36B33191A3B334F004A8B5C /* Prollo Statistics.entitlements */,
+				B36B32E51A3AEDC9004A8B5C /* TodayViewController.h */,
+				B36B32E61A3AEDC9004A8B5C /* TodayViewController.m */,
+				B36B32E81A3AEDC9004A8B5C /* MainInterface.storyboard */,
+				B36B32E31A3AEDC9004A8B5C /* Supporting Files */,
+				B36B330E1A3B15F1004A8B5C /* today-Prefix.pch */,
+				B36B331A1A3B3575004A8B5C /* SBTodayTableViewCell.h */,
+				B36B331B1A3B3575004A8B5C /* SBTodayTableViewCell.m */,
+				B36B331C1A3B3575004A8B5C /* SBTodayTableViewCell.xib */,
+			);
+			path = "Prollo Statistics";
+			sourceTree = "<group>";
+		};
+		B36B32E31A3AEDC9004A8B5C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B36B32E41A3AEDC9004A8B5C /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1042,10 +1128,12 @@
 				8086D42219BCBF16004ADBB6 /* Frameworks */,
 				8086D42319BCBF16004ADBB6 /* Resources */,
 				99648F18ECD6433AB70203D1 /* Copy Pods Resources */,
+				B36B32F01A3AEDC9004A8B5C /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B36B32EB1A3AEDC9004A8B5C /* PBXTargetDependency */,
 			);
 			name = sportblog;
 			productName = sportblog;
@@ -1072,6 +1160,24 @@
 			productReference = 8086D44919BCBF16004ADBB6 /* sportblogTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		B36B32DE1A3AEDC9004A8B5C /* Prollo Statistics */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B36B32EF1A3AEDC9004A8B5C /* Build configuration list for PBXNativeTarget "Prollo Statistics" */;
+			buildPhases = (
+				B36B32DB1A3AEDC9004A8B5C /* Sources */,
+				B36B32DC1A3AEDC9004A8B5C /* Frameworks */,
+				B36B32DD1A3AEDC9004A8B5C /* Resources */,
+				B36B33111A3B16E3004A8B5C /* Run Script */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Prollo Statistics";
+			productName = "Prollo Statistics";
+			productReference = B36B32DF1A3AEDC9004A8B5C /* Prollo Statistics.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1084,9 +1190,23 @@
 				TargetAttributes = {
 					8086D42419BCBF16004ADBB6 = {
 						DevelopmentTeam = 3KXCSFEMK3;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					8086D44819BCBF16004ADBB6 = {
 						TestTargetID = 8086D42419BCBF16004ADBB6;
+					};
+					B36B32DE1A3AEDC9004A8B5C = {
+						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 3KXCSFEMK3;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1106,6 +1226,7 @@
 			targets = (
 				8086D42419BCBF16004ADBB6 /* sportblog */,
 				8086D44819BCBF16004ADBB6 /* sportblogTests */,
+				B36B32DE1A3AEDC9004A8B5C /* Prollo Statistics */,
 			);
 		};
 /* End PBXProject section */
@@ -1209,6 +1330,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B36B32DD1A3AEDC9004A8B5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B36B331E1A3B3575004A8B5C /* SBTodayTableViewCell.xib in Resources */,
+				B36B32E91A3AEDC9004A8B5C /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -1270,6 +1400,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B36B33111A3B16E3004A8B5C /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1341,6 +1486,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B36B32DB1A3AEDC9004A8B5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B36B33141A3B18BD004A8B5C /* SBExercise.m in Sources */,
+				B36B32E71A3AEDC9004A8B5C /* TodayViewController.m in Sources */,
+				B36B33161A3B18C5004A8B5C /* SBSet.m in Sources */,
+				B36B33151A3B18C2004A8B5C /* SBExerciseSet.m in Sources */,
+				B36B33171A3B18C8004A8B5C /* SBWorkout.m in Sources */,
+				B36B33131A3B18AF004A8B5C /* SBWorkoutDataSource.m in Sources */,
+				B36B331D1A3B3575004A8B5C /* SBTodayTableViewCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1348,6 +1507,11 @@
 			isa = PBXTargetDependency;
 			target = 8086D42419BCBF16004ADBB6 /* sportblog */;
 			targetProxy = 8086D44E19BCBF16004ADBB6 /* PBXContainerItemProxy */;
+		};
+		B36B32EB1A3AEDC9004A8B5C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B36B32DE1A3AEDC9004A8B5C /* Prollo Statistics */;
+			targetProxy = B36B32EA1A3AEDC9004A8B5C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1454,6 +1618,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = sportblog/sportblog.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1499,6 +1664,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = sportblog/sportblog.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1625,6 +1791,58 @@
 			};
 			name = Release;
 		};
+		B36B32ED1A3AEDC9004A8B5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67FA2B5A03981E5FBD9D748B /* Pods.debug.xcconfig */;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = "Prollo Statistics/Prollo Statistics.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Prollo Statistics/today-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Prollo Statistics/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		B36B32EE1A3AEDC9004A8B5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB33F68BD5D666709DD74DC6 /* Pods.release.xcconfig */;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = "Prollo Statistics/Prollo Statistics.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Prollo Statistics/today-Prefix.pch";
+				INFOPLIST_FILE = "Prollo Statistics/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1654,6 +1872,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		B36B32EF1A3AEDC9004A8B5C /* Build configuration list for PBXNativeTarget "Prollo Statistics" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B36B32ED1A3AEDC9004A8B5C /* Debug */,
+				B36B32EE1A3AEDC9004A8B5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

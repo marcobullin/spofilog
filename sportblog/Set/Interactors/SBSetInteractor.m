@@ -46,6 +46,7 @@
                                                                @"weight",
                                                                @"repetitions"]];
     
+    [self updateStatisticsForWidget];
     [self.output updatedSet:dict];
 }
 
@@ -70,6 +71,62 @@
                                                                @"repetitions"]];
     
     [self.output updatedSet:dict];
+}
+
+- (void)updateStatisticsForWidget {
+    SBWorkoutDataSource *dataSource = [SBWorkoutDataSource new];
+    
+    RLMResults *exercises = [dataSource allExerciseSets];
+    
+    NSMutableArray *response = [NSMutableArray new];
+    
+    NSMutableArray *result = [NSMutableArray new];
+    for (SBExerciseSet *exercise in exercises) {
+        if (![result containsObject:exercise.name]) {
+            [result addObject:exercise.name];
+        }
+    }
+    
+    int count = 0;
+    float prevWeight = 0;
+    float statisticProgress = 0;
+    for (NSString *name in result) {
+        RLMResults *exerciseSets = [dataSource allExerciseSetsByName:name];
+        
+        count = 0;
+        prevWeight = 0;
+        statisticProgress = 0;
+        for (int i = 0; i < [exerciseSets count]; i++) {
+            SBExerciseSet *exercise = exerciseSets[i];
+            int countOfSets = [exercise.sets count];
+            
+            for (int j = 0; j < countOfSets; j++) {
+                SBSet *set = [exercise.sets objectAtIndex:j];
+                
+                if (prevWeight != 0) {
+                    statisticProgress += (((set.weight / prevWeight) * 100) - 100);
+                }
+                prevWeight = set.weight;
+                count++;
+            }
+        }
+        
+        if (count != 0) {
+            statisticProgress = statisticProgress / count;
+        }
+        
+        NSDictionary *dict = @{
+                               @"name" : name,
+                               @"value" : [NSString stringWithFormat:@"%f", statisticProgress]
+                               };
+        
+        [response addObject:dict];
+    }
+    
+    NSUserDefaults *ud = [[NSUserDefaults alloc] initWithSuiteName:@"group.widget.statistics"];
+    
+    [ud setObject:response forKey:@"statistics"];
+    [ud synchronize];
 }
 
 @end

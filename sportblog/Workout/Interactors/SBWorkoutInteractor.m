@@ -63,10 +63,8 @@
     [dict setObject:exerciseSet[@"frontImages"] forKey:@"frontImages"];
     [dict setObject:exerciseSet[@"backImages"] forKey:@"backImages"];
     [dict setObject:[NSMutableArray new] forKey:@"sets"];
-    
+
     [self.output addedExercise:dict];
 }
-
-
 
 @end
