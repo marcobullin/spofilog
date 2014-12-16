@@ -1,9 +1,11 @@
 PODS:
-  - GoogleAnalytics-iOS-SDK (3.0.9)
+  - GoogleAnalytics-iOS-SDK (3.10):
+    - GoogleAnalytics-iOS-SDK/Core
+  - GoogleAnalytics-iOS-SDK/Core (3.10)
   - iOSPlot (1.0.1)
-  - Realm (0.87.1):
+  - Realm (0.88.0):
     - Realm/Headers
-  - Realm/Headers (0.87.1)
+  - Realm/Headers (0.88.0)
   - UAAppReviewManager (0.2.6)
 
 DEPENDENCIES:
@@ -13,9 +15,9 @@ DEPENDENCIES:
   - UAAppReviewManager
 
 SPEC CHECKSUMS:
-  GoogleAnalytics-iOS-SDK: d9e198b1f955259a72886769be7377cdfcdb2250
+  GoogleAnalytics-iOS-SDK: f422062075d9ccb1ea8d783fc5ba3829461e9502
   iOSPlot: 93934987c4be73bfdd229d0068bb1302efa05109
-  Realm: d2a10a60bbbd66c64ae8d839a378b88c68cf79bb
+  Realm: 56fd06bf4e97da2829f864e2bca229a060825c61
   UAAppReviewManager: f23428de9c9cd242c2ffd899e218ba3620bd0683
 
 COCOAPODS: 0.34.2

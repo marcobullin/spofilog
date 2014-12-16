@@ -8,73 +8,61 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>Pods-Realm.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
 		<key>Pods-UAAppReviewManager.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
 		</dict>
 		<key>Pods-iOSPlot.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 		<key>UAAppReviewManager-iOS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>6</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0E63F40063180F030939AC53</key>
+		<key>1AE399D61CFA70B0E43A3592</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>14484A15684980924A7BF8AB</key>
+		<key>2D4E9D4A37D09872298E5616</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>35EC2F135E540BEC73BDAD0E</key>
+		<key>43293BB681F1CA69A5597259</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7F149B9152C04020EB9515A1</key>
+		<key>84709A3FB5EBDEB4A70CCDCB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BB0E1E219B66EC0537E5F60B</key>
+		<key>8B0D8169B89F20D5623CD3AA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CD197303FB8D1132C71006C3</key>
+		<key>B0441A506B47561F09DD93BD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

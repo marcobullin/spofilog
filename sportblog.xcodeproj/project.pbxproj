@@ -28,7 +28,6 @@
 		B36B32E71A3AEDC9004A8B5C /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B36B32E61A3AEDC9004A8B5C /* TodayViewController.m */; };
 		B36B32E91A3AEDC9004A8B5C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B36B32E81A3AEDC9004A8B5C /* MainInterface.storyboard */; };
 		B36B32EC1A3AEDC9004A8B5C /* Prollo Statistics.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B36B32DF1A3AEDC9004A8B5C /* Prollo Statistics.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		B36B33101A3B16D0004A8B5C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B36B330F1A3B16D0004A8B5C /* libPods.a */; };
 		B36B33131A3B18AF004A8B5C /* SBWorkoutDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426C61A2E03A4007E2675 /* SBWorkoutDataSource.m */; };
 		B36B33141A3B18BD004A8B5C /* SBExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426C91A2E03A4007E2675 /* SBExercise.m */; };
 		B36B33151A3B18C2004A8B5C /* SBExerciseSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426CB1A2E03A4007E2675 /* SBExerciseSet.m */; };
@@ -36,6 +35,7 @@
 		B36B33171A3B18C8004A8B5C /* SBWorkout.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426CF1A2E03A4007E2675 /* SBWorkout.m */; };
 		B36B331D1A3B3575004A8B5C /* SBTodayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B36B331B1A3B3575004A8B5C /* SBTodayTableViewCell.m */; };
 		B36B331E1A3B3575004A8B5C /* SBTodayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B36B331C1A3B3575004A8B5C /* SBTodayTableViewCell.xib */; };
+		B36B33471A407437004A8B5C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B36B33461A407437004A8B5C /* libPods.a */; };
 		B3E4262A1A2DFC77007E2675 /* SBWorkoutListInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426211A2DFC77007E2675 /* SBWorkoutListInteractor.m */; };
 		B3E4262B1A2DFC77007E2675 /* SBWorkoutListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426251A2DFC77007E2675 /* SBWorkoutListPresenter.m */; };
 		B3E4262C1A2DFC77007E2675 /* SBWorkoutsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E426281A2DFC77007E2675 /* SBWorkoutsViewController.m */; };
@@ -233,6 +233,9 @@
 		B36B331A1A3B3575004A8B5C /* SBTodayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTodayTableViewCell.h; sourceTree = "<group>"; };
 		B36B331B1A3B3575004A8B5C /* SBTodayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTodayTableViewCell.m; sourceTree = "<group>"; };
 		B36B331C1A3B3575004A8B5C /* SBTodayTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBTodayTableViewCell.xib; sourceTree = "<group>"; };
+		B36B33421A407240004A8B5C /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		B36B33441A407256004A8B5C /* libPods-Realm.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Realm.a"; path = "Pods/build/Debug-iphoneos/libPods-Realm.a"; sourceTree = "<group>"; };
+		B36B33461A407437004A8B5C /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		B3AC2EEE19CC46FE00FFD8FD /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B3AC2EEF19CC46FE00FFD8FD /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B3E426201A2DFC77007E2675 /* SBWorkoutListInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBWorkoutListInteractor.h; sourceTree = "<group>"; };
@@ -472,7 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B36B32E11A3AEDC9004A8B5C /* NotificationCenter.framework in Frameworks */,
-				B36B33101A3B16D0004A8B5C /* libPods.a in Frameworks */,
+				B36B33471A407437004A8B5C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +509,9 @@
 		8086D42719BCBF16004ADBB6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B36B33461A407437004A8B5C /* libPods.a */,
+				B36B33441A407256004A8B5C /* libPods-Realm.a */,
+				B36B33421A407240004A8B5C /* libPods.a */,
 				B36B330F1A3B16D0004A8B5C /* libPods.a */,
 				B36B330B1A3B1519004A8B5C /* libPods.a */,
 				B3E427861A31EAA4007E2675 /* libOCMock.a */,
@@ -1795,6 +1801,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 67FA2B5A03981E5FBD9D748B /* Pods.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = "Prollo Statistics/Prollo Statistics.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1805,6 +1812,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = "\"$(inherited)\"";
 				INFOPLIST_FILE = "Prollo Statistics/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -1823,12 +1831,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BB33F68BD5D666709DD74DC6 /* Pods.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = "Prollo Statistics/Prollo Statistics.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Prollo Statistics/today-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(inherited)\"";
 				INFOPLIST_FILE = "Prollo Statistics/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -1880,6 +1890,7 @@
 				B36B32EE1A3AEDC9004A8B5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

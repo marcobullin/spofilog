@@ -9,20 +9,26 @@
 // GoogleAnalytics-iOS-SDK
 #define COCOAPODS_POD_AVAILABLE_GoogleAnalytics_iOS_SDK
 #define COCOAPODS_VERSION_MAJOR_GoogleAnalytics_iOS_SDK 3
-#define COCOAPODS_VERSION_MINOR_GoogleAnalytics_iOS_SDK 0
-#define COCOAPODS_VERSION_PATCH_GoogleAnalytics_iOS_SDK 9
+#define COCOAPODS_VERSION_MINOR_GoogleAnalytics_iOS_SDK 10
+#define COCOAPODS_VERSION_PATCH_GoogleAnalytics_iOS_SDK 0
+
+// GoogleAnalytics-iOS-SDK/Core
+#define COCOAPODS_POD_AVAILABLE_GoogleAnalytics_iOS_SDK_Core
+#define COCOAPODS_VERSION_MAJOR_GoogleAnalytics_iOS_SDK_Core 3
+#define COCOAPODS_VERSION_MINOR_GoogleAnalytics_iOS_SDK_Core 10
+#define COCOAPODS_VERSION_PATCH_GoogleAnalytics_iOS_SDK_Core 0
 
 // Realm
 #define COCOAPODS_POD_AVAILABLE_Realm
 #define COCOAPODS_VERSION_MAJOR_Realm 0
-#define COCOAPODS_VERSION_MINOR_Realm 87
-#define COCOAPODS_VERSION_PATCH_Realm 1
+#define COCOAPODS_VERSION_MINOR_Realm 88
+#define COCOAPODS_VERSION_PATCH_Realm 0
 
 // Realm/Headers
 #define COCOAPODS_POD_AVAILABLE_Realm_Headers
 #define COCOAPODS_VERSION_MAJOR_Realm_Headers 0
-#define COCOAPODS_VERSION_MINOR_Realm_Headers 87
-#define COCOAPODS_VERSION_PATCH_Realm_Headers 1
+#define COCOAPODS_VERSION_MINOR_Realm_Headers 88
+#define COCOAPODS_VERSION_PATCH_Realm_Headers 0
 
 // UAAppReviewManager
 #define COCOAPODS_POD_AVAILABLE_UAAppReviewManager

@@ -8,16 +8,42 @@
 #import "SBWorkoutListInteractor.h"
 #import "SBStatisticExerciseListInteractor.h"
 
+#import "SBWorkout.h"
+
 @implementation SBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [RLMRealm setSchemaVersion:15 withMigrationBlock:^(RLMMigration *migration, NSUInteger oldSchemaVersion) {
+    [RLMRealm setSchemaVersion:16 withMigrationBlock:^(RLMMigration *migration, NSUInteger oldSchemaVersion) {
         // We haven’t migrated anything yet, so oldSchemaVersion == 0
-        if (oldSchemaVersion < 15) {
-            // Nothing to do!
-            // Realm will automatically detect new properties and removed properties
-            // And will update the schema on disk automatically
+        if (oldSchemaVersion < 17) {
+            [migration enumerateObjects:SBWorkout.className
+                                  block:^(RLMObject *oldObject, RLMObject *newObject) {
+                                      if (oldObject[@"workoutId"] == nil) {
+                                          newObject[@"workoutId"] = [NSString stringWithFormat:@"workoutId_%f", [[NSDate date] timeIntervalSince1970] * 1000];
+                                      }
+                                  }];
+            
+            [migration enumerateObjects:SBExercise.className
+                                  block:^(RLMObject *oldObject, RLMObject *newObject) {
+                                      if (oldObject[@"exerciseId"] == nil) {
+                                          newObject[@"exerciseId"] = [NSString stringWithFormat:@"exercise_%f", [[NSDate date] timeIntervalSince1970] * 1000];
+                                      }
+                                  }];
+            
+            [migration enumerateObjects:SBExerciseSet.className
+                                  block:^(RLMObject *oldObject, RLMObject *newObject) {
+                                      if (oldObject[@"exerciseId"] == nil) {
+                                          newObject[@"exerciseId"] = [NSString stringWithFormat:@"exerciseSet_%f", [[NSDate date] timeIntervalSince1970] * 1000];
+                                      }
+                                  }];
+            
+            [migration enumerateObjects:SBSet.className
+                                  block:^(RLMObject *oldObject, RLMObject *newObject) {
+                                      if (oldObject[@"setId"] == nil) {
+                                          newObject[@"setId"] = [NSString stringWithFormat:@"set_%f", [[NSDate date] timeIntervalSince1970] * 1000];
+                                      }
+                                  }];
         }
     }];
     
