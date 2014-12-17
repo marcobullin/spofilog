@@ -26,7 +26,7 @@
     return self;
 }
 
-- (instancetype)initWithWorkouts:(NSArray *)workouts {
+- (instancetype)initWithWorkouts:(NSDictionary *)workouts {
     self = [super init];
     
     if (self) {

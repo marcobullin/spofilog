@@ -9,6 +9,6 @@
 
 - (void)findWorkouts;
 - (void)createWorkout;
-- (void)deleteWorkout:(NSDictionary *)workout atIndex:(int)index;
+- (void)deleteWorkout:(NSDictionary *)workout atIndexPath:(NSIndexPath *)indexPath;
 
 @end

@@ -41,10 +41,10 @@
     [self.output workoutCreated:dict];
 }
 
-- (void)deleteWorkout:(NSDictionary *)workout atIndex:(int)index {
+- (void)deleteWorkout:(NSDictionary *)workout atIndexPath:(NSIndexPath *)indexPath {
     [self.datasource deleteWorkoutWithId:workout[@"workoutId"]];
     
-    [self.output workoutDeletedAtIndex:index];
+    [self.output workoutDeletedAtIndexPath:indexPath];
 }
 
 @end

@@ -3,12 +3,12 @@
 @protocol SBWorkoutListInteractorInput <NSObject>
 - (void)findAllWorkoutsOrderedByDate;
 - (void)createWorkout;
-- (void)deleteWorkout:(NSDictionary *)workout atIndex:(int)index;
+- (void)deleteWorkout:(NSDictionary *)workout atIndexPath:(NSIndexPath *)indexPath;
 @end
 
 
 @protocol SBWorkoutListInteractorOutput <NSObject>
 - (void)foundWorkouts:(NSArray *)workouts;
 - (void)workoutCreated:(NSDictionary *)workout;
-- (void)workoutDeletedAtIndex:(int)index;
+- (void)workoutDeletedAtIndexPath:(NSIndexPath *)indexPath;
 @end
