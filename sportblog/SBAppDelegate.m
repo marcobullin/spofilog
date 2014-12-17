@@ -19,29 +19,32 @@
         if (oldSchemaVersion < 17) {
             [migration enumerateObjects:SBWorkout.className
                                   block:^(RLMObject *oldObject, RLMObject *newObject) {
-                                      if (oldObject[@"workoutId"] == nil) {
+                                      if ([oldObject[@"workoutId"] isEqualToString:@""]) {
                                           newObject[@"workoutId"] = [NSString stringWithFormat:@"workoutId_%f", [[NSDate date] timeIntervalSince1970] * 1000];
                                       }
                                   }];
             
             [migration enumerateObjects:SBExercise.className
                                   block:^(RLMObject *oldObject, RLMObject *newObject) {
-                                      if (oldObject[@"exerciseId"] == nil) {
+                                      if ([oldObject[@"exerciseId"] isEqualToString:@""]) {
                                           newObject[@"exerciseId"] = [NSString stringWithFormat:@"exercise_%f", [[NSDate date] timeIntervalSince1970] * 1000];
+                                          
                                       }
                                   }];
             
             [migration enumerateObjects:SBExerciseSet.className
                                   block:^(RLMObject *oldObject, RLMObject *newObject) {
-                                      if (oldObject[@"exerciseId"] == nil) {
+                                      if ([oldObject[@"exerciseId"] isEqualToString:@""]) {
                                           newObject[@"exerciseId"] = [NSString stringWithFormat:@"exerciseSet_%f", [[NSDate date] timeIntervalSince1970] * 1000];
+                                          
                                       }
                                   }];
             
             [migration enumerateObjects:SBSet.className
                                   block:^(RLMObject *oldObject, RLMObject *newObject) {
-                                      if (oldObject[@"setId"] == nil) {
+                                      if ([oldObject[@"setId"] isEqualToString:@""]) {
                                           newObject[@"setId"] = [NSString stringWithFormat:@"set_%f", [[NSDate date] timeIntervalSince1970] * 1000];
+                                          
                                       }
                                   }];
         }
